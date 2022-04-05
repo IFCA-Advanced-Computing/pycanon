@@ -1,0 +1,105 @@
+import numpy as np
+import pandas as pd
+
+def itersec(tmp):
+    i, j = 0, 0
+    tmp_new = []
+    while i < len(tmp[0]):
+        tmp1 = tmp[0][i]
+        tmp2 = tmp[1][j]
+        tmp_new.append(tmp1.intersection(tmp2))
+        if j < len(tmp[1])-1:
+            j += 1
+        else:
+            j = 0
+            i +=1 
+    tmp[1] = tmp_new
+    tmp = tmp[1:]
+    return tmp
+
+def get_equiv_class(df, QI):
+    index = []
+    for qi in QI:
+        values = np.unique(df[qi].values)
+        tmp = []
+        for value in values:
+            tmp.append(set(df[df[qi] == value].index))
+        index.append(tmp)
+    
+    index = sorted(index, key = lambda x: len(x))
+    equiv_class = index.copy()
+    while len(equiv_class) > 1:
+        equiv_class = itersec(equiv_class)
+        equiv_class = sorted(equiv_class, key = lambda x: len(x))
+    equiv_class = equiv_class[0]
+    equiv_class = [x for x in equiv_class if len(x) > 0]
+    return equiv_class
+
+def calculate_k(df, QI):
+    equiv_class = get_equiv_class(df, QI)
+    k = min([len(x) for x in equiv_class])
+    return k
+
+def convert(set):
+    return [*set, ]
+
+def calculate_l(df, QI, SA):
+    equiv_class = get_equiv_class(df, QI)
+    l = []
+    for i in range(len(equiv_class)):
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        l_sa = []
+        for sa in SA: 
+            l_sa.append(len(np.unique(df_temp[sa].values)))
+        l.append(min(l_sa))
+    l = min(l) 
+    return l
+
+
+def l_diversity(df, QI, SA, l_new):
+    equiv_class = get_equiv_class(df, QI)
+    l = []
+    for i in range(len(equiv_class)):
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        l_sa = []
+        for sa in SA: 
+            l_sa.append(len(np.unique(df_temp[sa].values)))
+        l.append(min(l_sa))
+        
+    df_EC_l = pd.DataFrame({'equiv_class': equiv_class, 'l': l})
+    df_EC_l = df_EC_l[df_EC_l.l < l_new]
+    ec_elim = np.concatenate([convert(x) for x in df_EC_l.equiv_class.values])
+    df_new = df.drop(ec_elim).reset_index()
+    df_new.drop('index', inplace=True, axis=1)
+    return df_new
+
+def calculate_entropy_l(df, QI, SA):
+    equiv_class = get_equiv_class(df, QI)
+    entropy_EC = []
+    for i in range(len(equiv_class)):
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        entropy_sa = []
+        for sa in SA: 
+            entropy = 0
+            for s in np.unique(df_temp[sa].values):
+                p = len(df_temp[df_temp[sa] == s])/len(df_temp)
+                entropy += p*np.log(p)
+            entropy_sa.append(-entropy) 
+        entropy_EC.append(max(entropy_sa)) #Revisar
+    l = int(min(np.exp(1)**entropy_EC) - 1)
+    return l
+
+def get_alpha_k(df, QI, SA):
+    k = calculate_k(df, QI)
+    equiv_class = get_equiv_class(df, QI)
+    alpha_EC = []
+    for i in range(len(equiv_class)):
+        df_temp = df.iloc[convert(equiv_class[i])] 
+        alpha_sa = []
+        for sa in SA: 
+            alpha = []
+            for s in np.unique(df_temp[sa].values):
+                alpha.append(len(df_temp[df_temp[sa] == s])/len(df_temp))
+            alpha_sa.append(max(alpha))
+        alpha_EC.append(max(alpha_sa))
+    return max(alpha_EC), k
