@@ -11,8 +11,8 @@
 - [x] **l-diversity**
 - [x] **Entropy l-diversity**
 - [ ] **Recursive (c,l)-diversity**
-- [ ] **Basic β-likeness**
-- [ ] **Enhanced β-likeness**
+- [x] **Basic β-likeness**
+- [x] **Enhanced β-likeness**
 - [ ] **t-closness**
 - [ ] **m-invariance**
 - [ ] **δ-disclosure privacy**
