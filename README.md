@@ -13,7 +13,7 @@
 - [ ] **Recursive (c,l)-diversity**
 - [x] **Basic β-likeness**
 - [x] **Enhanced β-likeness**
-- [ ] **t-closness**
+- [ ] **t-closeness**
 - [ ] **m-invariance**
 - [ ] **δ-disclosure privacy**
 - [ ] **δ-presence**
