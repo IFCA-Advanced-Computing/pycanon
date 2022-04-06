@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE)
 
-**Author:** Judith Sáinz-Pardo (IFCA - CSIC).
+**Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
 **Description:** Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
 - [x] **k-anonymity**
