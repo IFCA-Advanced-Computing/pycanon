@@ -144,3 +144,34 @@ def calculate_enhanced_beta(df, QI, SA):
         beta_SA.append(max(min_beta_lnp))
     beta = max(beta_SA)
     return beta
+
+def aux_calculate_delta_disclosure(df, QI, SA_value):
+    equiv_class = get_equiv_class(df, QI)
+    values = np.unique(df[SA_value].values)
+    n = len(df)
+    p = []
+    for s in values:
+        p.append(len(df[df[SA_value] == s])/n)
+
+    q = []    
+    for i in range(len(equiv_class)):
+        qi = []
+        n_ec = len(equiv_class[i])
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        for s in values:
+            qi.append(len(df_temp[df_temp[SA_value] == s])/n_ec)
+        q.append(np.array(qi))
+
+    aux = []
+    for i in range(len(q)):
+        aux.append(max([np.abs(np.log(x)) for x in q[i]/p if x>0]))
+
+    return aux
+
+def calculate_delta_disclosure(df, QI, SA):
+    delta_SA = []
+    for SA_value in SA:
+        aux = aux_calculate_delta_disclosure(df, QI, SA_value) 
+        delta_SA.append(max(aux))
+    delta = max(delta_SA)
+    return delta
