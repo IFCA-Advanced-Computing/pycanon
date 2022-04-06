@@ -103,3 +103,44 @@ def get_alpha_k(df, QI, SA):
             alpha_sa.append(max(alpha))
         alpha_EC.append(max(alpha_sa))
     return max(alpha_EC), k
+
+def aux_calculate_beta(df, QI, SA_value):
+    equiv_class = get_equiv_class(df, QI)
+    values = np.unique(df[SA_value].values)
+    n = len(df)
+    p = []
+    for s in values:
+        p.append(len(df[df[SA_value] == s])/n)
+    
+    q = []    
+    for i in range(len(equiv_class)):
+        qi = []
+        n_ec = len(equiv_class[i])
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        for s in values:
+            qi.append(len(df_temp[df_temp[SA_value] == s])/n_ec)
+        q.append(np.array(qi))
+    
+    dist = []
+    for i in range(len(equiv_class)):
+        dist.append(max((q[i]-p)/p))
+    return p, dist
+
+def calculate_basic_beta(df, QI, SA):
+    beta_SA = []
+    for SA_value in SA:
+        _, dist = aux_calculate_beta(df, QI, SA_value) 
+        beta_SA.append(max(dist))
+    beta = max(beta_SA)
+    return beta
+
+def calculate_enhanced_beta(df, QI, SA):
+    beta_SA = []
+    for SA_value in SA:
+        p, dist = aux_calculate_beta(df, QI, SA_value) 
+        min_beta_lnp = []
+        for i in range(len(p)):
+            min_beta_lnp.append(min(dist[i], -np.log(p[i])))
+        beta_SA.append(max(min_beta_lnp))
+    beta = max(beta_SA)
+    return beta
