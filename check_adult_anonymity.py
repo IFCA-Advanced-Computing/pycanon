@@ -15,10 +15,13 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     l = test_anonymity.calculate_l(df, QI, SA)
     entropy_l = test_anonymity.calculate_entropy_l(df, QI, SA)
     alpha, k_alpha = test_anonymity.get_alpha_k(df, QI, SA)
+    basic_beta = test_anonymity.calculate_basic_beta(df, QI, SA)
+    enhanced_beta = test_anonymity.calculate_enhanced_beta(df, QI, SA)
 
     assert k == k_alpha, 'Error. Check get_alpha_k() and calculate_k()'
     print(f'File: {file}. The dataset verifies k-anonimity with k={k}, l-diversity with l={l}, ')
-    print(f'entropy l-diversity with l={entropy_l} and (alpha,k)-anonymity with alpha={alpha} and k={k}')
+    print(f'entropy l-diversity with l={entropy_l}, (alpha,k)-anonymity with alpha={alpha} and k={k}')
+    print(f'basic beta-likeness with beta={basic_beta} and enhanced beta-likeness with beta={enhanced_beta}')
 
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}' 
     df_new = test_anonymity.l_diversity(df, QI, SA, l_new)
