@@ -11,8 +11,8 @@
 - [x] **l-diversity**
 - [x] **Entropy l-diversity**
 - [ ] **Recursive (c,l)-diversity**
-- [ ] **Basic β-likeness**
-- [ ] **Enhanced β-likeness**
+- [x] **Basic β-likeness**
+- [x] **Enhanced β-likeness**
 - [ ] **t-closness**
 - [ ] **m-invariance**
 - [ ] **δ-disclosure privacy**
@@ -20,4 +20,5 @@
 
 
 ## Usage (examples)
-1. Example using th adult dataset. First, note that in de the folder _Data_ there are 3 files in which the dataset adult has been anonymized in different ways. Running _check_adult_anonymity.py_, we obtain the values of _k_, _alpha_, _l_, _entropy-l_, _beta_ (for basic beta) and _beta_ (for enhanced beta) associated to each of the 3 files, and a new file for each of them isa saved, verifying now l-diversity with l=2.
+1. Example using the adult dataset. First, note that in de the folder _Data_ there are 3 files in which the dataset adult has been anonymized in different ways. Running _check_adult_anonymity.py_, we obtain the values of _k_, _alpha_, _l_, _entropy-l_, _beta_ (for basic beta) and _beta_ (for enhanced beta) associated to each of the 3 files, and a new file for each of them is saved, verifying now l-diversity with l=2.
+2. Example using de "drug type" dataset, with the original data and with the data obtained after performing k-anonymization with k=5 with ARX. Running _check_drug_data_anonymity.py_, we obtain the values of _k_, _alpha_, _l_, _entropy-l_, _beta_ (for basic beta) and _beta_ (for enhanced beta) associated to each of the 2 datasets, and a new file for each of them is saved, verifying now l-diversity with l=2 (original data) and l=3 (anonymized data).
