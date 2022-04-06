@@ -1,0 +1,14 @@
+name,age,gender,city,religion,disease
+*,"[17, 30[",Female,Kerala,*,Viral infection
+*,"[17, 30[",Female,Kerala,*,Heart-related
+*,"[17, 30[",Female,Tamil Nadu,*,Cancer
+*,"[17, 30[",Female,Tamil Nadu,*,TB
+*,"[17, 30[",Male,Karnataka,*,No illness
+*,"[17, 30[",Male,Karnataka,*,TB
+*,"[17, 30[",Male,Karnataka,*,Heart-related
+*,"[17, 30[",Male,Kerala,*,Cancer
+*,"[17, 30[",Male,Kerala,*,Heart-related
+*,"[17, 30[",Male,Kerala,*,Viral infection
+*,"[17, 30[",Male,Tamil Nadu,*,Cancer
+*,"[17, 30[",Male,Tamil Nadu,*,Cancer
+*,"[17, 30[",Male,Tamil Nadu,*,Cancer
