@@ -31,18 +31,3 @@ Age,Sex,BP,Cholesterol,Na_to_K,Drug
 "[15, 55[",M,HIGH,NORMAL,"[87, 38.248[",drugA
 "[15, 55[",M,HIGH,NORMAL,"[87, 38.248[",drugA
 "[15, 55[",M,HIGH,NORMAL,"[87, 38.248[",DrugY
-*,*,*,*,*,drugB
-*,*,*,*,*,drugB
-*,*,*,*,*,drugB
-*,*,*,*,*,DrugY
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,DrugY
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,drugX
-*,*,*,*,*,DrugY
-*,*,*,*,*,DrugY
