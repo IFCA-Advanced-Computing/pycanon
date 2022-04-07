@@ -42,7 +42,7 @@ l_new = 2
 new_file_name = f'./Data/l_diversity/healthcare-dataset-stroke-data_l{l_new}.csv'
 check_anonymity(file, QI, SA, l_new, new_file_name)
 
-for i in [2, 5, 10, 20]:
+for i in [2, 5, 10, 15, 19, 20, 22, 25]:
     file = f'./Data/Processed/stroke_k{i}.csv'
     new_file_name = f'./Data/l_diversity/stroke_k{i}_anonymized_l{l_new}.csv'
     check_anonymity(file, QI, SA, l_new, new_file_name)
