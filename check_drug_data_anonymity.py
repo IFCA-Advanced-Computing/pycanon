@@ -20,7 +20,7 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     delta_disclosure = test_anonymity.calculate_delta_disclosure(df, QI, SA)
 
     assert k == k_alpha, 'Error. Check get_alpha_k() and calculate_k()'
-    print(f'File: {file}. The dataset verifies k-anonimity with k={k}, l-diversity with l={l}, ')
+    print(f'File: {file}. The dataset verifies k-anonymity with k={k}, l-diversity with l={l}, ')
     print(f'entropy l-diversity with l={entropy_l}, (alpha,k)-anonymity with alpha={alpha} and k={k}')
     print(f'basic beta-likeness with beta={basic_beta}, enhanced beta-likeness with beta={enhanced_beta}')
     print(f'and delta-disclosure privacy with delta = {delta_disclosure}') 
@@ -37,12 +37,12 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     
 QI = ['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']
 SA = ['Drug']
-file = './Data/drug_type.csv'
+file = './Data/Processed/drug_type.csv'
 l_new = 2
-new_file_name = './Data/drug_type_l' + str(l_new) + '.csv'
+new_file_name = './Data/l_diversity/drug_type_l' + str(l_new) + '.csv'
 check_anonymity(file, QI, SA, l_new, new_file_name)
 
 l_new = 3
-file = './Data/drugs_k5.csv'
-new_file_name = './Data/drugs_k5_anonymized_l' + str(l_new) + '.csv'
+file = './Data/Processed/drugs_k5.csv'
+new_file_name = './Data/l_diversity/drugs_k5_anonymized_l' + str(l_new) + '.csv'
 check_anonymity(file, QI, SA, l_new, new_file_name)
