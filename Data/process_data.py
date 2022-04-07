@@ -1,13 +1,13 @@
 # Delete the rows of the dataset in which all QIs are set to *.
 import pandas as pd
 
-def delete_rows(file, QI, new_file, delete_nan = True):
+def delete_rows(file, QI, new_file, fillna = True):
     df = pd.read_csv(file)
     df_QI = df[QI]
     n = len(df_QI[df_QI != ['*'] * len(QI)].dropna(how='all'))
     df = df[:n]
-    if delete_nan:
-        df.dropna(inplace = True)
+    if fillna:
+        df.fillna(0, inplace = True)
     df.to_csv(new_file, index = False)
     
 QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
@@ -40,7 +40,7 @@ file = './Raw/healthcare-dataset-stroke-data.csv'
 new_file = f'./Processed/healthcare-dataset-stroke-data.csv'
 delete_rows(file, QI, new_file)
 print(f'Saved file: {new_file}')
-for i in [2, 5, 10, 20]:
+for i in [2, 5, 10, 15, 19, 20, 22, 25]:
     file = f'./Raw/stroke_k{i}.csv'
     new_file = f'./Processed/stroke_k{i}.csv'
     delete_rows(file, QI, new_file)

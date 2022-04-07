@@ -532,6 +532,35 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 45824,Female,"[65, 83[",1,0,Yes,Self-employed,Urban,*,*,Unknown,0
 25883,Female,"[65, 83[",1,0,Yes,Self-employed,Urban,*,*,Unknown,0
 2291,Female,"[65, 83[",1,0,Yes,Self-employed,Urban,*,*,Unknown,0
+22706,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+61511,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+40639,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+41615,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+17733,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+66772,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+45357,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+38043,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+57485,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+29470,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+40951,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+53843,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+51106,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+24355,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+18205,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+46314,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+57219,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+17337,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+27300,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+38830,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+40255,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+1953,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+29764,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+15728,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+5927,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+25783,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+41214,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+67426,Female,0,0,0,No,children,Rural,*,*,Unknown,0
+56714,Female,0,0,0,No,children,Rural,*,*,Unknown,0
 46323,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 55522,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 48435,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
@@ -656,6 +685,33 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 3720,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 25860,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 14180,Female,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
+59904,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+53924,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+69768,Female,0,0,0,No,children,Urban,*,*,Unknown,1
+7559,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+45238,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+9906,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+53016,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+49529,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+68908,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+45554,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+47350,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+53126,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+44938,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+16061,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+35838,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+61836,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+35123,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+41042,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+31481,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+14249,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+68657,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+46729,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+69435,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+19849,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+31113,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+70396,Female,0,0,0,No,children,Urban,*,*,Unknown,0
+37622,Female,0,0,0,No,children,Urban,*,*,Unknown,0
 33187,Female,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0
 54985,Female,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0
 65643,Female,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0
@@ -1136,6 +1192,33 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 32602,Male,"[65, 83[",0,1,Yes,Self-employed,Urban,*,*,Unknown,0
 62414,Male,"[65, 83[",1,0,Yes,Self-employed,Urban,*,*,Unknown,0
 2296,Male,"[65, 83[",1,0,Yes,Self-employed,Urban,*,*,Unknown,0
+54747,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+42500,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+43282,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+53279,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+47848,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+20282,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+30084,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+6596,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+67099,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+34261,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+63511,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+49970,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+36547,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+14877,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+29955,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+49553,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+23360,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+11658,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+56712,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+29201,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+25900,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+41500,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+60774,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+24972,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+68157,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+32147,Male,0,0,0,No,children,Rural,*,*,Unknown,0
+68598,Male,0,0,0,No,children,Rural,*,*,Unknown,0
 54643,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 61641,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 48875,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
@@ -1263,6 +1346,38 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 65998,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 30658,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
 45160,Male,"[1, 33[",0,0,No,children,Rural,*,*,Unknown,0
+57679,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+57609,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+47383,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+60211,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+57854,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+59734,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+35737,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+1405,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+40544,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+27279,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+38920,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+63219,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+1275,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+44676,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+20257,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+48406,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+68382,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+760,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+42938,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+64974,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+13629,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+56410,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+11371,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+18837,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+22877,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+32514,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+13857,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+8247,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+69222,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+36633,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+29487,Male,0,0,0,No,children,Urban,*,*,Unknown,0
+42709,Male,0,0,0,No,children,Urban,*,*,Unknown,0
 42441,Male,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0
 56791,Male,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0
 67880,Male,"[1, 33[",0,0,No,children,Urban,*,*,Unknown,0

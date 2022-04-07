@@ -1,35 +1,4 @@
 id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,avg_glucose_level,bmi,smoking_status,stroke
-48144,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-42108,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-49815,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-50889,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-58350,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-60159,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-1192,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-1847,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-42996,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-12204,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-48989,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-43905,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-742,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-1329,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-50309,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-1116,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-56961,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-27626,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-50410,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-16481,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-43698,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-41730,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-15020,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-57347,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-58508,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-10055,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-29734,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-47972,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-24965,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-22151,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-44749,Female,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
 63453,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,1
 50826,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 8553,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
@@ -161,6 +130,25 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 20316,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 66767,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 57622,Female,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
+72081,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,1
+11730,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+61242,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+52242,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+23890,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+5714,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+60675,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+13155,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+42626,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+3777,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+27169,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,1
+25458,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+30328,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+60964,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+54177,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+16949,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+47886,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+30457,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
+32235,Female,"[1, 83[",1,0,Yes,Govt_job,Rural,*,*,*,0
 66882,Female,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
 34935,Female,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
 52790,Female,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
@@ -347,6 +335,23 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 50638,Female,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
 6472,Female,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
 71846,Female,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
+5111,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,1
+71182,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+17771,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+43510,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+47521,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+34721,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+68034,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+16617,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+22269,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+30790,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+31426,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+15313,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+68981,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+11111,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+65453,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+38724,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
+56575,Female,"[1, 83[",1,0,Yes,Govt_job,Urban,*,*,*,0
 59130,Female,"[1, 83[",0,0,No,Private,Rural,*,*,*,0
 39637,Female,"[1, 83[",0,0,No,Private,Rural,*,*,*,0
 65988,Female,"[1, 83[",0,0,No,Private,Rural,*,*,*,0
@@ -1976,6 +1981,25 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 6443,Female,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
 56594,Female,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
 21830,Female,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
+53144,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+31811,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+72715,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+5317,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,1
+28291,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,1
+9648,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+55466,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+67243,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+42599,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+7524,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+39186,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,1
+9879,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+3579,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+1191,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+14479,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+44781,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+32126,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+14832,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
+49976,Female,"[1, 83[",0,1,Yes,Private,Urban,*,*,*,0
 23176,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 35716,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 25595,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
@@ -2038,28 +2062,6 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 28150,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 59405,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 15166,Female,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
-69687,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-8544,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-54782,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-17441,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-70230,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-69064,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-21117,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-65673,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-69710,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-321,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-38523,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-3135,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-3640,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-12963,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-3442,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-61333,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-17835,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-47523,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-67941,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-2818,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-40144,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-8960,Female,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
 39286,Female,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
 52968,Female,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
 45538,Female,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
@@ -2504,35 +2506,6 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 23368,Female,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,1
 65116,Female,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,0
 70058,Female,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,0
-22706,Female,0,0,0,No,children,Rural,*,*,*,0
-61511,Female,0,0,0,No,children,Rural,*,*,*,0
-40639,Female,0,0,0,No,children,Rural,*,*,*,0
-41615,Female,0,0,0,No,children,Rural,*,*,*,0
-17733,Female,0,0,0,No,children,Rural,*,*,*,0
-66772,Female,0,0,0,No,children,Rural,*,*,*,0
-45357,Female,0,0,0,No,children,Rural,*,*,*,0
-38043,Female,0,0,0,No,children,Rural,*,*,*,0
-57485,Female,0,0,0,No,children,Rural,*,*,*,0
-29470,Female,0,0,0,No,children,Rural,*,*,*,0
-40951,Female,0,0,0,No,children,Rural,*,*,*,0
-53843,Female,0,0,0,No,children,Rural,*,*,*,0
-51106,Female,0,0,0,No,children,Rural,*,*,*,0
-24355,Female,0,0,0,No,children,Rural,*,*,*,0
-18205,Female,0,0,0,No,children,Rural,*,*,*,0
-46314,Female,0,0,0,No,children,Rural,*,*,*,0
-57219,Female,0,0,0,No,children,Rural,*,*,*,0
-17337,Female,0,0,0,No,children,Rural,*,*,*,0
-27300,Female,0,0,0,No,children,Rural,*,*,*,0
-38830,Female,0,0,0,No,children,Rural,*,*,*,0
-40255,Female,0,0,0,No,children,Rural,*,*,*,0
-1953,Female,0,0,0,No,children,Rural,*,*,*,0
-29764,Female,0,0,0,No,children,Rural,*,*,*,0
-15728,Female,0,0,0,No,children,Rural,*,*,*,0
-5927,Female,0,0,0,No,children,Rural,*,*,*,0
-25783,Female,0,0,0,No,children,Rural,*,*,*,0
-41214,Female,0,0,0,No,children,Rural,*,*,*,0
-67426,Female,0,0,0,No,children,Rural,*,*,*,0
-56714,Female,0,0,0,No,children,Rural,*,*,*,0
 46323,Female,"[1, 83[",0,0,No,children,Rural,*,*,*,0
 55522,Female,"[1, 83[",0,0,No,children,Rural,*,*,*,0
 48435,Female,"[1, 83[",0,0,No,children,Rural,*,*,*,0
@@ -2698,161 +2671,6 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 31113,Female,0,0,0,No,children,Urban,*,*,*,0
 70396,Female,0,0,0,No,children,Urban,*,*,*,0
 37622,Female,0,0,0,No,children,Urban,*,*,*,0
-33187,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-54985,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-65643,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-33759,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16371,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27029,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6107,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-56998,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-68241,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-20364,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-33723,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10324,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-45289,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-42482,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-45893,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-53538,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-59684,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16402,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-11973,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-59178,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-72779,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-69622,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-19996,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-26389,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-542,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-44192,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-21857,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-30677,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13504,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-3807,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-57953,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-1625,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17175,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43675,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-34001,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-44010,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-34621,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10390,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-69249,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17492,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16987,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-18927,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-8277,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9197,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27849,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-51275,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-3115,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-41244,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-29855,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-54012,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-30186,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-18996,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27693,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-3701,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-23659,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-28183,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17236,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-33726,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-62833,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-31932,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-72178,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-18180,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-61017,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-71414,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-37025,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32110,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-46854,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6289,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-55740,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-57968,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-61672,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-21025,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-52859,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-65894,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-64508,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-54111,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-48652,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-49095,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43492,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15663,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-44635,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-4959,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16329,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-70992,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-51740,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27675,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-67773,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-2109,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-67921,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16320,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-71900,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17098,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-50141,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-72940,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-31708,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17238,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-8623,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43487,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-34045,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10950,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-24736,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-42400,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10659,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-33087,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-66014,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-25942,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15593,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-22591,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-11145,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-31836,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-62425,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27446,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-49465,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-51514,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-48836,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-40237,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-22536,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-39011,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-49615,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-49627,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-14404,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-54072,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-53636,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13031,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32610,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-70823,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-20634,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13171,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-37698,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-62454,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-68420,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-40568,Female,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-7663,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-15422,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-49229,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-4699,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-2972,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-6044,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-8882,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-7476,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-61437,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-18891,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-2578,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-12686,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-50215,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-44647,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-71420,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-4211,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-25099,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-61903,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-17885,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-17466,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-61350,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-18943,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
-10166,Male,"[1, 83[",0,0,No,Govt_job,Rural,*,*,*,0
 66184,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 2573,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 21917,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
@@ -2936,6 +2754,22 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 2304,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 29078,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
 54858,Male,"[1, 83[",0,0,Yes,Govt_job,Rural,*,*,*,0
+26325,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+18108,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+34257,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+53632,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+67032,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+20310,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+61743,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+63144,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+11891,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+14248,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,1
+37545,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+6480,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+45112,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+30171,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+33185,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
+56189,Male,"[1, 83[",0,0,No,Govt_job,Urban,*,*,*,0
 42807,Male,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
 22470,Male,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
 47803,Male,"[1, 83[",0,0,Yes,Govt_job,Urban,*,*,*,0
@@ -3594,143 +3428,6 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 29816,Male,"[1, 83[",1,0,Yes,Private,Rural,*,*,*,0
 58267,Male,"[1, 83[",1,0,Yes,Private,Rural,*,*,*,1
 12414,Male,"[1, 83[",1,0,Yes,Private,Rural,*,*,*,0
-71539,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-36942,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-15095,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-28848,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-24108,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-54769,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-45669,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-52559,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-9511,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-72311,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-24721,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-70625,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-20070,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-46256,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-49084,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-32522,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-25642,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-45175,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-39322,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-60249,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-13817,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-3726,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-55885,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-45983,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-3094,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-35772,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-24421,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-28382,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-28611,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-41970,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-33051,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-61801,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63158,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63693,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-50775,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-29676,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-54776,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-69183,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-6805,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-26357,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-40704,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-27012,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-38255,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-35402,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-35893,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-18790,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-72340,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-7964,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63725,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-44992,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-30463,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-47802,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-5684,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-43088,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-4627,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-15533,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-49955,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-18696,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-57904,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-48721,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-9608,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-23221,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-7351,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-61300,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-50811,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-50053,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-61742,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-47924,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-4813,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-61769,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-4683,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-59147,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-16355,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-40571,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-14241,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-31835,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-65712,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-62607,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-72414,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-27017,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-59200,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-3793,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-49903,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-57308,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-53195,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-247,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63764,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-27916,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-31590,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-67635,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-52050,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-69647,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-43138,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-8022,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-34416,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-20237,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-25798,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-69723,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-20258,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-8175,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-65814,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-58439,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-38623,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-11882,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-19805,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-29863,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-72188,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-71417,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-11709,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-16114,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-28527,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-56179,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-1503,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-31279,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-60665,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-52428,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-6493,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-46483,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63303,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-52225,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-65473,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-68408,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-39834,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-18437,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-72041,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-51584,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-9926,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-64196,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-63312,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-46079,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-16024,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-8145,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-57212,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-4807,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-30620,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-52897,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
-25443,Male,"[1, 83[",0,0,No,Private,Urban,*,*,*,0
 23551,Male,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
 3753,Male,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
 2849,Male,"[1, 83[",0,0,Yes,Private,Urban,*,*,*,0
@@ -4155,29 +3852,6 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 15988,Male,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 56889,Male,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
 13439,Male,"[1, 83[",1,0,Yes,Private,Urban,*,*,*,0
-54975,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-27518,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-40041,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-44315,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-7384,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-46068,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-7586,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-53482,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-26305,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-4213,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-49753,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-72011,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-19778,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-67911,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-51579,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-18754,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-64393,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-64742,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-39796,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-62090,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-22853,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-17951,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
-22614,Male,"[1, 83[",0,0,No,Self-employed,Rural,*,*,*,0
 37213,Male,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
 64189,Male,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
 60399,Male,"[1, 83[",0,0,Yes,Self-employed,Rural,*,*,*,0
@@ -4287,6 +3961,23 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 29539,Male,"[1, 83[",1,0,Yes,Self-employed,Rural,*,*,*,0
 24299,Male,"[1, 83[",1,0,Yes,Self-employed,Rural,*,*,*,0
 6233,Male,"[1, 83[",1,0,Yes,Self-employed,Rural,*,*,*,0
+5046,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+59309,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+26250,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+27007,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+17623,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+14407,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+53694,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+38094,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+8770,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+35578,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,1
+53252,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+52173,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+9199,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+12298,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+41210,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+28247,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
+61881,Male,"[1, 83[",0,0,No,Self-employed,Urban,*,*,*,0
 67210,Male,"[1, 83[",0,0,Yes,Self-employed,Urban,*,*,*,0
 51112,Male,"[1, 83[",0,0,Yes,Self-employed,Urban,*,*,*,0
 45099,Male,"[1, 83[",0,0,Yes,Self-employed,Urban,*,*,*,0
@@ -4427,363 +4118,3 @@ id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,a
 40240,Male,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,0
 26603,Male,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,0
 5157,Male,"[1, 83[",1,0,Yes,Self-employed,Urban,*,*,*,0
-54747,Male,0,0,0,No,children,Rural,*,*,*,0
-42500,Male,0,0,0,No,children,Rural,*,*,*,0
-43282,Male,0,0,0,No,children,Rural,*,*,*,0
-53279,Male,0,0,0,No,children,Rural,*,*,*,0
-47848,Male,0,0,0,No,children,Rural,*,*,*,0
-20282,Male,0,0,0,No,children,Rural,*,*,*,0
-30084,Male,0,0,0,No,children,Rural,*,*,*,0
-6596,Male,0,0,0,No,children,Rural,*,*,*,0
-67099,Male,0,0,0,No,children,Rural,*,*,*,0
-34261,Male,0,0,0,No,children,Rural,*,*,*,0
-63511,Male,0,0,0,No,children,Rural,*,*,*,0
-49970,Male,0,0,0,No,children,Rural,*,*,*,0
-36547,Male,0,0,0,No,children,Rural,*,*,*,0
-14877,Male,0,0,0,No,children,Rural,*,*,*,0
-29955,Male,0,0,0,No,children,Rural,*,*,*,0
-49553,Male,0,0,0,No,children,Rural,*,*,*,0
-23360,Male,0,0,0,No,children,Rural,*,*,*,0
-11658,Male,0,0,0,No,children,Rural,*,*,*,0
-56712,Male,0,0,0,No,children,Rural,*,*,*,0
-29201,Male,0,0,0,No,children,Rural,*,*,*,0
-25900,Male,0,0,0,No,children,Rural,*,*,*,0
-41500,Male,0,0,0,No,children,Rural,*,*,*,0
-60774,Male,0,0,0,No,children,Rural,*,*,*,0
-24972,Male,0,0,0,No,children,Rural,*,*,*,0
-68157,Male,0,0,0,No,children,Rural,*,*,*,0
-32147,Male,0,0,0,No,children,Rural,*,*,*,0
-68598,Male,0,0,0,No,children,Rural,*,*,*,0
-54643,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-61641,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-48875,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-23339,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-30669,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-11014,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-39038,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65535,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-28799,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-31741,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-22537,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-50611,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-61465,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-41523,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-54375,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-22622,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-60902,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-29010,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47732,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-27794,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-62999,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-52454,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-11176,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-8320,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-25514,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65218,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47876,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-71929,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57372,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-13622,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-2454,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-10367,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-46072,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-59275,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-9225,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-18192,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-14049,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-69355,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-23604,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-46576,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-28952,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-51916,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-55976,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-51959,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-51339,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47330,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-29233,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-7297,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57798,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-61924,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-6128,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-4789,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-897,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-42082,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-38858,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-66065,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-72108,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-13755,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-16600,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-60266,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-24428,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57236,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-22689,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-51343,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47607,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-20565,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-72701,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-19419,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-6968,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65321,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-22259,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-61418,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-13728,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-11904,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-45469,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-41284,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-31473,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-70537,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-30824,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-2707,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47810,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57183,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-575,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-355,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-71192,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-50428,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-49459,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-32717,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-6973,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-21653,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-21762,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-63423,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-63562,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57602,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-6639,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-31608,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-47949,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65969,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-38284,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65888,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-24257,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-18134,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-29453,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-43024,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-40242,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-12990,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-7233,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-14993,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-63026,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-13286,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-17174,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-16446,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-18578,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-7054,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-54117,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-41654,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-30734,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-9394,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-50804,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-21852,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-53095,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-31227,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57979,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-37029,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65998,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-30658,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-45160,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-31090,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-23650,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-37660,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-7868,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-8341,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-12228,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-42393,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-53489,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-10981,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-48064,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-36204,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-67499,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-12900,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-49179,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-65469,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-71917,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-68235,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-25305,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-33102,Male,"[1, 83[",0,0,No,children,Rural,*,*,*,0
-57679,Male,0,0,0,No,children,Urban,*,*,*,0
-57609,Male,0,0,0,No,children,Urban,*,*,*,0
-47383,Male,0,0,0,No,children,Urban,*,*,*,0
-60211,Male,0,0,0,No,children,Urban,*,*,*,0
-57854,Male,0,0,0,No,children,Urban,*,*,*,0
-59734,Male,0,0,0,No,children,Urban,*,*,*,0
-35737,Male,0,0,0,No,children,Urban,*,*,*,0
-1405,Male,0,0,0,No,children,Urban,*,*,*,0
-40544,Male,0,0,0,No,children,Urban,*,*,*,0
-27279,Male,0,0,0,No,children,Urban,*,*,*,0
-38920,Male,0,0,0,No,children,Urban,*,*,*,0
-63219,Male,0,0,0,No,children,Urban,*,*,*,0
-1275,Male,0,0,0,No,children,Urban,*,*,*,0
-44676,Male,0,0,0,No,children,Urban,*,*,*,0
-20257,Male,0,0,0,No,children,Urban,*,*,*,0
-48406,Male,0,0,0,No,children,Urban,*,*,*,0
-68382,Male,0,0,0,No,children,Urban,*,*,*,0
-760,Male,0,0,0,No,children,Urban,*,*,*,0
-42938,Male,0,0,0,No,children,Urban,*,*,*,0
-64974,Male,0,0,0,No,children,Urban,*,*,*,0
-13629,Male,0,0,0,No,children,Urban,*,*,*,0
-56410,Male,0,0,0,No,children,Urban,*,*,*,0
-11371,Male,0,0,0,No,children,Urban,*,*,*,0
-18837,Male,0,0,0,No,children,Urban,*,*,*,0
-22877,Male,0,0,0,No,children,Urban,*,*,*,0
-32514,Male,0,0,0,No,children,Urban,*,*,*,0
-13857,Male,0,0,0,No,children,Urban,*,*,*,0
-8247,Male,0,0,0,No,children,Urban,*,*,*,0
-69222,Male,0,0,0,No,children,Urban,*,*,*,0
-36633,Male,0,0,0,No,children,Urban,*,*,*,0
-29487,Male,0,0,0,No,children,Urban,*,*,*,0
-42709,Male,0,0,0,No,children,Urban,*,*,*,0
-42441,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-56791,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-67880,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-55680,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-11974,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-42359,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-44912,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-31364,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9612,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-14387,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-3606,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-62187,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-58203,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43146,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-809,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13323,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-59940,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-55744,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-31293,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-728,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-26242,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-36226,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-50453,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-3956,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32826,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-14563,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-47770,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-12687,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-72132,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-47627,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-937,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27013,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-59339,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-39714,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-28559,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-12436,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-36666,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-26893,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9034,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-28500,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-17277,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-46035,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-737,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-70965,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-35651,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-69339,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-47701,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-24404,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-50238,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-36486,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-47582,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-21969,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13380,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10584,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-58253,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-35178,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-67758,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-19088,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-58257,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-61559,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-35152,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-71304,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-39042,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-45931,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-35106,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13440,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-55462,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-65644,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-33876,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6132,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-27436,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-71419,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-7577,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43016,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-29017,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6011,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-30870,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10511,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9948,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-5655,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-45787,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-13219,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-37634,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-52472,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-40546,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-47309,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-12117,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-37038,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-8050,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-49900,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-25495,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6171,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-71396,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6948,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6613,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-67665,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-172,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-60926,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-7057,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-65379,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-60732,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-7129,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32023,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-57322,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-242,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-56139,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-56567,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-11872,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-14553,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32669,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15978,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-24246,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-29276,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-4929,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6202,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-65351,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-16566,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-68060,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6850,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9995,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-43773,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-22590,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-63467,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-21980,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-41395,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-7581,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-12015,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-59911,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-32617,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-34084,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-63575,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-9731,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-24009,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-21743,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-6278,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-5288,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15581,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-28048,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-579,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-10913,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-46436,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-22870,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15987,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-15251,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-57134,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-36488,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-52838,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-12345,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-40887,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-46691,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-34958,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-54253,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-8719,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-57667,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
-64128,Male,"[1, 83[",0,0,No,children,Urban,*,*,*,0
