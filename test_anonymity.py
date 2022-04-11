@@ -85,8 +85,8 @@ def calculate_entropy_l(df, QI, SA):
                 p = len(df_temp[df_temp[sa] == s])/len(df_temp)
                 entropy += p*np.log(p)
             entropy_sa.append(-entropy) 
-        entropy_EC.append(max(entropy_sa)) #Revisar
-    l = int(min(np.exp(1)**entropy_EC) - 1)
+        entropy_EC.append(max(entropy_sa)) 
+    l = min(np.exp(1)**entropy_EC)
     return l
 
 def get_alpha_k(df, QI, SA):
