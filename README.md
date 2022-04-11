@@ -13,7 +13,9 @@
 - [ ] **Recursive (c,l)-diversity**
 - [x] **Basic β-likeness**
 - [x] **Enhanced β-likeness**
-- [ ] **t-closness**
+- [ ] **t-closness**:
+    - For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.
+    - For categorical attributes, the metric "Equal Distance" is used.
 - [ ] **m-invariance**
 - [x] **δ-disclosure privacy**
 - [ ] **δ-presence**
