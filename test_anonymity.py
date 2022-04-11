@@ -85,9 +85,35 @@ def calculate_entropy_l(df, QI, SA):
                 p = len(df_temp[df_temp[sa] == s])/len(df_temp)
                 entropy += p*np.log(p)
             entropy_sa.append(-entropy) 
-        entropy_EC.append(max(entropy_sa)) #Revisar
-    l = int(min(np.exp(1)**entropy_EC) - 1)
+        entropy_EC.append(max(entropy_sa)) 
+    l = min(np.exp(1)**entropy_EC)
     return l
+
+def calculate_c_l_diversity(df, QI, SA, imp = 0):
+    l = calculate_l(df, QI, SA)
+    equiv_class = get_equiv_class(df, QI)
+    if l > 1:
+        c = []
+        for SA_value in SA:
+            c_sa = []
+            for i in range(len(equiv_class)):
+                df_temp = df.iloc[convert(equiv_class[i])]  
+                r_ec = []
+                for s in np.unique(df_temp[SA_value].values):
+                    r_ec.append(len(df_temp[df_temp[SA_value] == s]))
+
+                r0 = r_ec[0]
+                r_lm = sum(r_ec[1:])
+                c_sa.append(np.floor(r0/r_lm + 1))
+            c.append(min(c_sa))
+        c = min(c)
+        return c, l
+    else:
+        if imp == 1:
+            print(f'c for (c,l)-diversity cannot be calculated as l={l}')
+        c = np.nan
+        return c, l
+
 
 def get_alpha_k(df, QI, SA):
     k = calculate_k(df, QI)
