@@ -175,3 +175,75 @@ def calculate_delta_disclosure(df, QI, SA):
         delta_SA.append(max(aux))
     delta = max(delta_SA)
     return delta
+
+def aux_t_closeness_num(df, QI, SA_value):
+    equiv_class = get_equiv_class(df, QI)
+    values = np.unique(df[SA_value].values)
+    m = len(values)
+    n = len(df)
+    p = []
+    for s in values:
+        p.append(len(df[df[SA_value] == s])/n)
+    
+    emd = []
+    for i in range(len(equiv_class)):
+        qi = []
+        n_ec = len(equiv_class[i])
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        for s in values:
+            qi.append(len(df_temp[df_temp[SA_value] == s])/n_ec)
+            
+        emd_ec = 0
+        r =  np.array(p) - np.array(qi)
+        abs_r = 0
+        for i in range(m):
+            abs_r += r[i]
+            emd_ec += np.abs(abs_r)
+        emd_ec = 1/(m-1) * emd_ec
+        emd.append(emd_ec)
+    
+    t = max(emd)
+    return t
+            
+def aux_t_closeness_str(df, QI, SA_value):
+    equiv_class = get_equiv_class(df, QI)
+    values = np.unique(df[SA_value].values)
+    m = len(values)
+    n = len(df)
+    p = []
+    for s in values:
+        p.append(len(df[df[SA_value] == s])/n)
+        
+    emd = []
+    for i in range(len(equiv_class)):
+        qi = []
+        n_ec = len(equiv_class[i])
+        df_temp = df.iloc[convert(equiv_class[i])]  
+        for s in values:
+            qi.append(len(df_temp[df_temp[SA_value] == s])/n_ec)
+            
+        r =  np.array(p) - np.array(qi)
+        emd_ec = 0
+        for i in range(m):
+            emd_ec += np.abs(r[i])
+        emd_ec = 0.5 * emd_ec
+        emd.append(emd_ec)
+        
+    t = max(emd)
+    return t
+        
+        
+def calculate_t_closeness(df, QI, SA):
+    t_SA = []
+    for SA_value in SA:
+        if pd.api.types.is_numeric_dtype(df[SA[0]]):
+            t = aux_t_closeness_num(df, QI, SA_value)
+        elif pd.api.types.is_string_dtype(df[SA[0]]):
+            t = aux_t_closeness_str(df, QI, SA_value)
+        else:
+            raise ValueError('Error, invalid SA value type')
+        t_SA.append(t)
+        
+    t = max(t_SA)
+    return t
+            
