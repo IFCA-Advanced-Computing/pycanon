@@ -18,12 +18,13 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     basic_beta = test_anonymity.calculate_basic_beta(df, QI, SA)
     enhanced_beta = test_anonymity.calculate_enhanced_beta(df, QI, SA)
     delta_disclosure = test_anonymity.calculate_delta_disclosure(df, QI, SA)
+    t = test_anonymity.calculate_t_closeness(df, QI, SA)
 
     assert k == k_alpha, 'Error. Check get_alpha_k() and calculate_k()'
     print(f'File: {file}. The dataset verifies k-anonymity with k={k}, l-diversity with l={l}, ')
     print(f'entropy l-diversity with l={entropy_l}, (alpha,k)-anonymity with alpha={alpha} and k={k}')
-    print(f'basic beta-likeness with beta={basic_beta}, enhanced beta-likeness with beta={enhanced_beta}')
-    print(f'and delta-disclosure privacy with delta = {delta_disclosure}') 
+    print(f'basic beta-likeness with beta={basic_beta}, enhanced beta-likeness with beta={enhanced_beta},')
+    print(f'delta-disclosure privacy with delta = {delta_disclosure} and t-closeness with t={t}') 
     
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}' 
     df_new = test_anonymity.l_diversity(df, QI, SA, l_new)
