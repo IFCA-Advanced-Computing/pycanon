@@ -166,7 +166,7 @@ def calculate_enhanced_beta(df, QI, SA):
         p, dist = aux_calculate_beta(df, QI, SA_value) 
         min_beta_lnp = []
         for i in range(len(p)):
-            min_beta_lnp.append(min(dist[i], -np.log(p[i])))
+            min_beta_lnp.append(min(max(dist), -np.log(p[i])))
         beta_SA.append(max(min_beta_lnp))
     beta = max(beta_SA)
     return beta
