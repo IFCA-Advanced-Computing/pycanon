@@ -46,10 +46,10 @@ QI = ['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']
 SA = ['Drug']
 file = './Data/Processed/drug_type.csv'
 l_new = 2
-new_file_name = './Data/l_diversity/drug_type_l' + str(l_new) + '.csv'
+new_file_name = f'./Data/l_diversity/drug_type_l{l_new}.csv'
 check_anonymity(file, QI, SA, l_new, new_file_name)
 
 l_new = 3
 file = './Data/Processed/drugs_k5.csv'
-new_file_name = './Data/l_diversity/drugs_k5_anonymized_l' + str(l_new) + '.csv'
+new_file_name = f'./Data/l_diversity/drugs_k5_anonymized_l{l_new}.csv'
 check_anonymity(file, QI, SA, l_new, new_file_name)

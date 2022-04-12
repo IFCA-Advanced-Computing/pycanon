@@ -44,15 +44,9 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     
 QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
 SA = ['salary-class']
-file = './Data/Processed/adult_anonymized_3.csv'
 l_new = 2
-new_file_name = './Data/l_diversity/adult_anonymized_3_l' + str(l_new) + '.csv'
-check_anonymity(file, QI, SA, l_new, new_file_name)
 
-file = './Data/Processed/adult_anonymized_10.csv'
-new_file_name = './Data/l_diversity/adult_anonymized_10_l' + str(l_new) + '.csv'
-check_anonymity(file, QI, SA, l_new, new_file_name)
-
-file = './Data/Processed/adult_anonymized_20.csv'
-new_file_name = './Data/l_diversity/adult_anonymized_20_l' + str(l_new) + '.csv'
-check_anonymity(file, QI, SA, l_new, new_file_name)
+for i in [3, 10, 20]:
+    file = f'./Data/Processed/adult_anonymized_{i}.csv'
+    new_file_name = f'./Data/l_diversity/adult_k{i}_anonymized_l{l_new}.csv'
+    check_anonymity(file, QI, SA, l_new, new_file_name)
