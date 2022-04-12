@@ -86,7 +86,7 @@ def calculate_entropy_l(df, QI, SA):
                 entropy += p*np.log(p)
             entropy_sa.append(-entropy) 
         entropy_EC.append(max(entropy_sa)) 
-    l = min(np.exp(1)**entropy_EC)
+    l = int(min(np.exp(1)**entropy_EC))
     return l
 
 def calculate_c_l_diversity(df, QI, SA, imp = 0):
