@@ -101,12 +101,12 @@ def calculate_c_l_diversity(df, QI, SA, imp = 0):
                 r_ec = []
                 for s in np.unique(df_temp[SA_value].values):
                     r_ec.append(len(df_temp[df_temp[SA_value] == s]))
-
+                r_ec = np.sort(r_ec)
                 r0 = r_ec[0]
-                r_lm = sum(r_ec[1:])
+                r_lm = sum(r_ec[l - 1:])
                 c_sa.append(np.floor(r0/r_lm + 1))
-            c.append(min(c_sa))
-        c = min(c)
+            c.append(int(max(c_sa)))
+        c = max(c)
         return c, l
     else:
         if imp == 1:
