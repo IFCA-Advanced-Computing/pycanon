@@ -50,6 +50,8 @@ QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
 file = './Raw/StudentsMath_Score.csv'
 new_file = f'./Processed/StudentsMath_Score.csv'
 delete_rows(file, QI, new_file)
+df = pd.read_csv(new_file)
+df[:-1].to_csv(new_file, index = False) # Se quita la última fila que tiene todos los valores como 0
 print(f'Saved file: {new_file}')
 for i in [2, 5, 7]:
     file = f'./Raw/StudentsMath_Score_k{i}.csv'
