@@ -42,11 +42,15 @@ def check_anonymity(file, QI, SA, l_new, new_file_name):
     else: 
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression. \n')
     
-QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
-SA = ['salary-class']
-l_new = 2
+QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
+file = './Data/Processed/StudentsMath_Score.csv'
+SA = ['Score']
+l_new = 3
+new_file_name = f'./Data/l_diversity/StudentsMath_Score_l{l_new}.csv'
+check_anonymity(file, QI, SA, l_new, new_file_name)
 
-for i in [3, 10, 20]:
-    file = f'./Data/Processed/adult_anonymized_{i}.csv'
-    new_file_name = f'./Data/l_diversity/adult_k{i}_anonymized_l{l_new}.csv'
+for i in [2, 5, 7]:
+    file = f'./Data/Processed/StudentsMath_Score_k{i}.csv'
+    new_file_name = f'./Data/l_diversity/StudentsMath_Score_k{i}_anonymized_l{l_new}.csv'
     check_anonymity(file, QI, SA, l_new, new_file_name)
+    l_new += 2
