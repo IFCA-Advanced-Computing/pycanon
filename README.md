@@ -21,9 +21,9 @@
     - _l_: int
 - [x] _**Basic β-likeness**_
     - _β_: float
-- [x] **Enhanced β-likeness**
+- [x] _**Enhanced β-likeness**_
     - _β_: float
-- [x] **t-closeness**:
+- [x] _**t-closeness**_:
     - For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.
     - For categorical attributes, the metric "Equal Distance" is used.
     - _t_: float
