@@ -29,8 +29,9 @@
     - _t_: float
 - [x] _**δ-disclosure privacy**_
     - _δ_: float
-- [ ] _**δ-presence**_
 - [ ] _**m-invariance**_
+
+**Note:** in this first version _k-map_ and _δ-presence_ are not studied because a population table in needed. 
 
 
 ## Usage (examples)
