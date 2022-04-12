@@ -14,7 +14,7 @@
 - [x] _**l-diversity**_
     - _l_: int
 - [x] _**Entropy l-diversity**_
-    - _l_: float
+    - _l_: int
 - [x] _**Recursive (c,l)-diversity**_
     - Not calculated if l=1. Note that, by definition: $` r_{1} < c(r_{l}+r_{l+1}+...+r_{m}) `$
     - _c_: int
