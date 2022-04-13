@@ -30,7 +30,7 @@ def get_equiv_class(data, quasi_ident):
     """"Find the equivalence classes present in the dataset.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -55,7 +55,7 @@ def calculate_k(data, quasi_ident):
     """Calculate k for k-anonymity.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -77,7 +77,7 @@ def calculate_l(data, quasi_ident, sens_att):
     """Calculate l for l-diversity.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -102,7 +102,7 @@ def l_diversity(data, quasi_ident, sens_att, l_new):
     using suppression.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -135,7 +135,7 @@ def calculate_entropy_l(data, quasi_ident, sens_att):
     """Calculate l for entropy l-diversity.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -164,7 +164,7 @@ def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
     """Calculate c and l for recursive (c,l)-diversity.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -203,7 +203,7 @@ def get_alpha_k(data, quasi_ident, sens_att):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -231,7 +231,7 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     """Auxiliary function for beta calculation for basic and enhanced beta-likeness.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -264,7 +264,7 @@ def calculate_basic_beta(data, quasi_ident, sens_att):
     """Calculate beta for basic beta-likeness.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -285,7 +285,7 @@ def calculate_enhanced_beta(data, quasi_ident, sens_att):
     """Calculate beta for enhanced beta-likeness.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -309,7 +309,7 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     """Auxiliary function for delta calculation for delta-disclousure privacy.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -342,7 +342,7 @@ def calculate_delta_disclosure(data, quasi_ident, sens_att):
     """Calculate delta for delta-disclousure privacy.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -364,7 +364,7 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     attributes: the definition of the EMD is used.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -403,7 +403,7 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     attributes: the metric "Equal Distance" is used.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
@@ -439,7 +439,7 @@ def calculate_t_closeness(data, quasi_ident, sens_att):
     """Calculate t for t-closeness.
 
     Parameter data: dataframe with the data under study.
-    Predondition: data is a pandas dataframe.
+    Precondition: data is a pandas dataframe.
 
     Parameter quisi_ident: list with the name of the columns of the dataframe
     that are quiasi-identifiers.
