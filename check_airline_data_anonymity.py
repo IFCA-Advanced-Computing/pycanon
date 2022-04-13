@@ -44,13 +44,13 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
         print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')
     else:
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
-QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance', 'Departure Delay in Minutes',
-    'Arrival Delay in Minutes']
-SA = ['Departure/Arrival time convenient', 'Online boarding', 'On-board service', 'Inflight service', 'Cleanliness',
-    'satisfaction']
+QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance',
+    'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+SA = ['Departure/Arrival time convenient', 'Online boarding', 'On-board service',
+    'Inflight service', 'Cleanliness', 'satisfaction']
 L_NEW = 2
-# FILE_NAME = './Data/Processed/airline_passenger_sat.csv' is not checked because of the large number 
-# of different values in Arrival Delay in Minutes and Departure Delay in Minutes
+# FILE_NAME = './Data/Processed/airline_passenger_sat.csv' is not checked because of the
+# large number of different values in Arrival Delay in Minutes and Departure Delay in Minutes
 # NEW_FILE_NAME = f'./Data/l_diversity/airline_passenger_sat_l{L_NEW}.csv'
 # check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
 
