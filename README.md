@@ -6,28 +6,28 @@
 **Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
 **Description:** Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
-- [x] _**k-anonymity**_
+- [x] _**k-anonymity**_:
     - _k_: int
-- [x] _**(α, k)-anonymity**_
+- [x] _**(α, k)-anonymity**_:
     - _α_: float
     - _k_: int
-- [x] _**l-diversity**_
+- [x] _**l-diversity**_:
     - _l_: int
-- [x] _**Entropy l-diversity**_
+- [x] _**Entropy l-diversity**_:
     - _l_: int
-- [x] _**Recursive (c,l)-diversity**_
+- [x] _**Recursive (c,l)-diversity**_:
     - Not calculated if l=1. Note that, by definition: $` r_{1} < c(r_{l}+r_{l+1}+...+r_{m}) `$
     - _c_: int
     - _l_: int
-- [x] _**Basic β-likeness**_
+- [x] _**Basic β-likeness**_:
     - _β_: float
-- [x] **Enhanced β-likeness**
+- [x] _**Enhanced β-likeness**_:
     - _β_: float
-- [x] **t-closeness**:
+- [x] _**t-closeness**_:
     - For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.
     - For categorical attributes, the metric "Equal Distance" is used.
     - _t_: float
-- [x] _**δ-disclosure privacy**_
+- [x] _**δ-disclosure privacy**_:
     - _δ_: float
 - [ ] _**m-invariance**_
 
