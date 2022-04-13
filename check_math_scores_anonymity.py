@@ -24,20 +24,24 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     t_clos = test_anonymity.calculate_t_closeness(data, quasi_ident, sens_att)
     c_div, _ = test_anonymity.calculate_c_l_diversity(data, quasi_ident, sens_att)
 
-    print(f'''File: {file_name}. The dataset verifies k-anonymity with k={k_anon}, l-diversity
-    with l={l_div}, entropy l-diversity with l={entropy_l}, (alpha,k)-anonymity with alpha={alpha}
-    and k = {k_anon}, basic beta-likeness with beta = {basic_beta}, enhanced beta-likeness with
-    beta = {enhanced_beta}, delta-disclosure privacy with delta = {delta_disclosure}, t-closeness
-    with t={t_clos}.''')
+    print(f'''File: {file_name}. The dataset verifies:
+    \t - k-anonymity with k = {k_anon}
+    \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
+    \t - l-diversity with l={l_div}
+    \t - entropy l-diversity with l={entropy_l}
+    \t - basic beta-likeness with beta = {basic_beta}
+    \t - enhanced beta-likeness with beta = {enhanced_beta}
+    \t - delta-disclosure privacy with delta = {delta_disclosure}
+    \t - t-closeness with t = {t_clos}''')
     if np.isnan(c_div) is False:
-        print(f'and (c,l)-diversity with c={c_div} and l={l_div}.')
+        print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
     else:
-        print(f'as l={l_div} c cannot be calculated for (c,l)-diversity.')
+        print(f'\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n')
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
     df_new = test_anonymity.l_diversity(data, quasi_ident, sens_att, l_new)
     if len(df_new) > l_new:
         df_new.to_csv(new_file_name, index = False)
-        print(f'Dataset veryfying l-diversity with l={l_new} saved in: {new_file_name}.\n')
+        print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')
     else:
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
 QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
