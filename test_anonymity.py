@@ -156,7 +156,7 @@ def calculate_entropy_l(data, quasi_ident, sens_att):
                 p = len(data_temp[data_temp[sa] == s])/len(data_temp)
                 entropy += p*np.log(p)
             entropy_sa.append(-entropy)
-        entropy_ec.append(max(entropy_sa))
+        entropy_ec.append(min(entropy_sa))
     ent_l = int(min(np.exp(1)**entropy_ec))
     return ent_l
 
@@ -451,9 +451,9 @@ def calculate_t_closeness(data, quasi_ident, sens_att):
     """
     t_sens_att = []
     for sens_att_value in sens_att:
-        if pd.api.types.is_numeric_dtype(data[sens_att[0]]):
+        if pd.api.types.is_numeric_dtype(data[sens_att_value]):
             t_sens_att.append(aux_t_closeness_num(data, quasi_ident, sens_att_value))
-        elif pd.api.types.is_string_dtype(data[sens_att[0]]):
+        elif pd.api.types.is_string_dtype(data[sens_att_value]):
             t_sens_att.append(aux_t_closeness_str(data, quasi_ident, sens_att_value))
         else:
             raise ValueError('Error, invalid sens_att value type')
