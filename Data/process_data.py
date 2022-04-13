@@ -58,3 +58,15 @@ for i in [2, 5, 7]:
     new_file = f'./Processed/StudentsMath_Score_k{i}.csv'
     delete_rows(file, QI, new_file)
     print(f'Saved file: {new_file}')
+    
+    
+QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance', 'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+file = './Raw/airline_passenger_sat.csv'
+new_file = f'./Processed/airline_passenger_sat.csv'
+delete_rows(file, QI, new_file)
+print(f'Saved file: {new_file}')
+for i in [2, 5, 10, 20]:
+    file = f'./Raw/airline_passenger_sat_k{i}.csv'
+    new_file = f'./Processed/airline_passenger_sat_k{i}.csv'
+    delete_rows(file, QI, new_file)
+    print(f'Saved file: {new_file}')
