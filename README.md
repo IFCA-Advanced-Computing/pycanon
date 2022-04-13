@@ -31,7 +31,7 @@
     - _δ_: float
 - [ ] _**m-invariance**_
 
-**Note:** in this first version _k-map_ and _δ-presence_ are not studied because a population table in needed. 
+**Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed. 
 
 
 ## Usage (examples)
