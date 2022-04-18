@@ -32,9 +32,9 @@ def get_equiv_class(data, quasi_ident):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
     """
     index = []
     for qi in quasi_ident:
@@ -57,9 +57,9 @@ def calculate_k(data, quasi_ident):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     k_anon = min([len(x) for x in equiv_class])
@@ -79,9 +79,9 @@ def calculate_l(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -104,9 +104,9 @@ def l_diversity(data, quasi_ident, sens_att, l_new):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -137,9 +137,9 @@ def calculate_entropy_l(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -166,9 +166,9 @@ def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -205,9 +205,9 @@ def get_alpha_k(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -233,9 +233,9 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -266,9 +266,9 @@ def calculate_basic_beta(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -287,9 +287,9 @@ def calculate_enhanced_beta(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -311,9 +311,9 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -344,9 +344,9 @@ def calculate_delta_disclosure(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -366,9 +366,9 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -405,9 +405,9 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
@@ -441,9 +441,9 @@ def calculate_t_closeness(data, quasi_ident, sens_att):
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
 
-    Parameter quisi_ident: list with the name of the columns of the dataframe
-    that are quiasi-identifiers.
-    Precondition: quisi_ident is a list of strings.
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
 
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.

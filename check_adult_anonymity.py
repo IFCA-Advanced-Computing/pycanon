@@ -27,16 +27,16 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
     \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
-    \t - l-diversity with l={l_div}
-    \t - entropy l-diversity with l={entropy_l}
+    \t - l-diversity with l = {l_div}
+    \t - entropy l-diversity with l = {entropy_l}
     \t - basic beta-likeness with beta = {basic_beta}
     \t - enhanced beta-likeness with beta = {enhanced_beta}
     \t - delta-disclosure privacy with delta = {delta_disclosure}
     \t - t-closeness with t = {t_clos}''')
-    if np.isnan(c_div) is False:
-        print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
+    if np.isnan(c_div):
+    	print(f'\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n')
     else:
-        print(f'\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n')
+        print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
     df_new = test_anonymity.l_diversity(data, quasi_ident, sens_att, l_new)
     if len(df_new) > l_new:
