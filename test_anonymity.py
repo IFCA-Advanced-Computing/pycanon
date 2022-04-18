@@ -39,9 +39,7 @@ def get_equiv_class(data, quasi_ident):
     index = []
     for qi in quasi_ident:
         values = np.unique(data[qi].values)
-        tmp = []
-        for value in values:
-            tmp.append(set(data[data[qi] == value].index))
+        tmp = [set(data[data[qi] == value].index) value in values]
         index.append(tmp)
     index = sorted(index, key = lambda x: len(x))
     equiv_class = index.copy()
@@ -91,9 +89,7 @@ def calculate_l(data, quasi_ident, sens_att):
     l_div = []
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
-        l_sa = []
-        for sa in sens_att:
-            l_sa.append(len(np.unique(data_temp[sa].values)))
+        l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
         l_div.append(min(l_sa))
     return min(l_div)
 
@@ -120,9 +116,7 @@ def l_diversity(data, quasi_ident, sens_att, l_new):
     l_ec = []
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
-        l_sa = []
-        for sa in sens_att:
-            l_sa.append(len(np.unique(data_temp[sa].values)))
+        l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
         l_ec.append(min(l_sa))
     data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
     data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
@@ -185,10 +179,8 @@ def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
             c_sa = []
             for ec in equiv_class:
                 data_temp = data.iloc[convert(ec)]
-                r_ec = []
-                for s in np.unique(data_temp[sens_att_value].values):
-                    r_ec.append(len(data_temp[data_temp[sens_att_value] == s]))
-                r_ec = np.sort(r_ec)
+                values = np.unique(data_temp[sens_att_value].values)
+                r_ec = np.sort([len(data_temp[data_temp[sens_att_value] == s]) for s in values])
                 c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
             c_div.append(int(max(c_sa)))
         c_div = max(c_div)
@@ -220,9 +212,8 @@ def get_alpha_k(data, quasi_ident, sens_att):
         data_temp = data.iloc[convert(ec)]
         alpha_sa = []
         for sa in sens_att:
-            alpha = []
-            for s in np.unique(data_temp[sa].values):
-                alpha.append(len(data_temp[data_temp[sa] == s])/len(data_temp))
+            values = np.unique(data_temp[sa].values)
+            alpha = [len(data_temp[data_temp[sa] == s])/len(data_temp) for s in values]
             alpha_sa.append(max(alpha))
         alpha_ec.append(max(alpha_sa))
     return max(alpha_ec), k_anon
@@ -243,21 +234,13 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
-    n = len(data)
-    p = []
-    for s in values:
-        p.append(len(data[data[sens_att_value] == s])/n)
+    p = np.array([len(data[data[sens_att_value] == s])/len(data) for s in values])
     q = []
-    for i in range(len(equiv_class)):
-        qi = []
-        n_ec = len(equiv_class[i])
-        data_temp = data.iloc[convert(equiv_class[i])]
-        for s in values:
-            qi.append(len(data_temp[data_temp[sens_att_value] == s])/n_ec)
-        q.append(np.array(qi))
-    dist = []
-    for i in range(len(equiv_class)):
-        dist.append(max((q[i]-p)/p))
+    for ec in equiv_class:
+        data_temp = data.iloc[convert(ec)]
+        qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+        q.append(qi)
+    dist = [max((q[i]-p)/p) for i in range(len(equiv_class))]
     return p, dist
 
 def calculate_basic_beta(data, quasi_ident, sens_att):
@@ -298,9 +281,7 @@ def calculate_enhanced_beta(data, quasi_ident, sens_att):
     beta_sens_att = []
     for sens_att_value in sens_att:
         p, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
-        min_beta_lnp = []
-        for p_i in p:
-            min_beta_lnp.append(min(max(dist), -np.log(p_i)))
+        min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
         beta_sens_att.append(max(min_beta_lnp))
     beta = max(beta_sens_att)
     return beta
@@ -321,21 +302,13 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
-    n = len(data)
-    p = []
-    for s in values:
-        p.append(len(data[data[sens_att_value] == s])/n)
+    p = np.array([len(data[data[sens_att_value] == s])/len(data) for s in values])
     q = []
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
-        qi = []
-        n_ec = len(ec)
-        for s in values:
-            qi.append(len(data_temp[data_temp[sens_att_value] == s])/n_ec)
-        q.append(np.array(qi))
-    aux = []
-    for i in range(len(q)):
-        aux.append(max([np.abs(np.log(x)) for x in q[i]/p if x>0]))
+        qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+        q.append(qi)
+    aux = [max([np.abs(np.log(x)) for x in qi/p if x > 0]) for qi in q]
     return aux
 
 def calculate_delta_disclosure(data, quasi_ident, sens_att):
@@ -377,20 +350,13 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
     m = len(values)
-    n = len(data)
-    p = []
-    for s in values:
-        p.append(len(data[data[sens_att_value] == s])/n)
+    p = np.array([len(data[data[sens_att_value] == s])/len(data) for s in values])
     emd = []
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
-        qi = []
-        n_ec = len(ec)
-        for s in values:
-            qi.append(len(data_temp[data_temp[sens_att_value] == s])/n_ec)
-        emd_ec = 0
-        r =  np.array(p) - np.array(qi)
-        abs_r = 0
+        qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+        r =  p - qi
+        abs_r, emd_ec = 0, 0
         for i in range(m):
             abs_r += r[i]
             emd_ec += np.abs(abs_r)
@@ -416,18 +382,12 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
     m = len(values)
-    n = len(data)
-    p = []
-    for s in values:
-        p.append(len(data[data[sens_att_value] == s])/n)
+    p = np.array([len(data[data[sens_att_value] == s])/len(data) for s in values])
     emd = []
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
-        qi = []
-        n_ec = len(ec)
-        for s in values:
-            qi.append(len(data_temp[data_temp[sens_att_value] == s])/n_ec)
-        r =  np.array(p) - np.array(qi)
+        qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+        r =  p - qi
         emd_ec = 0
         for i in range(m):
             emd_ec += np.abs(r[i])
