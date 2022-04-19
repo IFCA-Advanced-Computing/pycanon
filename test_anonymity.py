@@ -2,8 +2,59 @@
 k.anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
 basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
 
+import os
 import numpy as np
 import pandas as pd
+
+def read_file(file_name):
+    """Read the given file.
+
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
+    """
+    _, file_extension = os.path.splitext(file_name)
+    if file_extension in ['.csv', '.xlsx', '.sav', '.txt']:
+        if file_extension in ['.csv', '.txt']:
+            data = pd.read_csv(file_name)
+        elif file_extension == '.xlsx':
+            data = pd.read_excel(file_name)
+        else:
+            data = pd.read_spss(file_name)
+    else:
+        raise ValueError('Invalid file extension.')
+    return data
+
+def check_qi(data, quasi_ident):
+    """"Checks if the entered quasi-identifiers are valid.
+
+    Parameter data: dataframe with the data under study.
+    Precondition: data is a pandas dataframe.
+
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
+    """
+    cols = data.columns
+    err_val = [i for i, v in enumerate([qi in cols for qi in quasi_ident]) if v is False]
+    if len(err_val) > 0:
+        raise ValueError(f'''Values not defined: {[quasi_ident[i] for i in err_val]}.
+                          Cannot be quasi-identifiers''')
+
+def check_sa(data, sens_att):
+    """"Checks if the entered sensitive attributes are valid.
+
+    Parameter data: dataframe with the data under study.
+    Precondition: data is a pandas dataframe.
+
+    Parameter sens_att: list with the name of the columns of the dataframe
+    that are the sensitive attributes.
+    Precondition: sens_att is a list of strings.
+    """
+    cols = data.columns
+    err_val = [i for i, v in enumerate([sa in cols for sa in sens_att]) if v is False]
+    if len(err_val) > 0:
+        raise ValueError(f'''Values not defined: {[sens_att[i] for i in err_val]}.
+                          Cannot be sensitive attributes''')
 
 def intersect(tmp):
     """Intersect two sets: the first and the second of the given list.
@@ -39,7 +90,7 @@ def get_equiv_class(data, quasi_ident):
     index = []
     for qi in quasi_ident:
         values = np.unique(data[qi].values)
-        tmp = [set(data[data[qi] == value].index) value in values]
+        tmp = [set(data[data[qi] == value].index) for value in values]
         index.append(tmp)
     index = sorted(index, key = lambda x: len(x))
     equiv_class = index.copy()
@@ -49,16 +100,18 @@ def get_equiv_class(data, quasi_ident):
     equiv_class = [x for x in equiv_class[0] if len(x) > 0]
     return equiv_class
 
-def calculate_k(data, quasi_ident):
+def calculate_k(file_name, quasi_ident):
     """Calculate k for k-anonymity.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
     Precondition: quasi_ident is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
     equiv_class = get_equiv_class(data, quasi_ident)
     k_anon = min([len(x) for x in equiv_class])
     return k_anon
@@ -71,11 +124,11 @@ def convert(set_):
     """
     return [*set_, ]
 
-def calculate_l(data, quasi_ident, sens_att):
+def calculate_l(file_name, quasi_ident, sens_att):
     """Calculate l for l-diversity.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -85,6 +138,9 @@ def calculate_l(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
     l_div = []
     for ec in equiv_class:
@@ -93,12 +149,12 @@ def calculate_l(data, quasi_ident, sens_att):
         l_div.append(min(l_sa))
     return min(l_div)
 
-def l_diversity(data, quasi_ident, sens_att, l_new):
+def l_diversity(file_name, quasi_ident, sens_att, l_new):
     """Given l, transform the dataset into a new one checking l-diversity for the new l, only
     using suppression.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -111,7 +167,9 @@ def l_diversity(data, quasi_ident, sens_att, l_new):
     Parameter l_new: l value for l-diversity.
     Precondition: l_new is an int.
     """
-
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
     l_ec = []
     for ec in equiv_class:
@@ -125,11 +183,11 @@ def l_diversity(data, quasi_ident, sens_att, l_new):
     data_new.drop('index', inplace=True, axis=1)
     return data_new
 
-def calculate_entropy_l(data, quasi_ident, sens_att):
+def calculate_entropy_l(file_name, quasi_ident, sens_att):
     """Calculate l for entropy l-diversity.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -139,6 +197,9 @@ def calculate_entropy_l(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
     entropy_ec = []
     for ec in equiv_class:
@@ -154,11 +215,11 @@ def calculate_entropy_l(data, quasi_ident, sens_att):
     ent_l = int(min(np.exp(1)**entropy_ec))
     return ent_l
 
-def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
+def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0):
     """Calculate c and l for recursive (c,l)-diversity.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -171,7 +232,10 @@ def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
     Parameter imp: impression level.
     Precondition: imp is an int, imp = 1 if comments need to be displayed.
     """
-    l_div = calculate_l(data, quasi_ident, sens_att)
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
+    l_div = calculate_l(file_name, quasi_ident, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
     if l_div > 1:
         c_div = []
@@ -191,11 +255,11 @@ def calculate_c_l_diversity(data, quasi_ident, sens_att, imp = 0):
     return c_div, l_div
 
 
-def get_alpha_k(data, quasi_ident, sens_att):
+def get_alpha_k(file_name, quasi_ident, sens_att):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -205,7 +269,8 @@ def get_alpha_k(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    k_anon = calculate_k(data, quasi_ident)
+    data = read_file(file_name)
+    k_anon = calculate_k(file_name, quasi_ident)
     equiv_class = get_equiv_class(data, quasi_ident)
     alpha_ec = []
     for ec in equiv_class:
@@ -243,11 +308,11 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     dist = [max((q[i]-p)/p) for i in range(len(equiv_class))]
     return p, dist
 
-def calculate_basic_beta(data, quasi_ident, sens_att):
+def calculate_basic_beta(file_name, quasi_ident, sens_att):
     """Calculate beta for basic beta-likeness.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -257,6 +322,9 @@ def calculate_basic_beta(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     beta_sens_att = []
     for sens_att_value in sens_att:
         _, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
@@ -264,11 +332,11 @@ def calculate_basic_beta(data, quasi_ident, sens_att):
     beta = max(beta_sens_att)
     return beta
 
-def calculate_enhanced_beta(data, quasi_ident, sens_att):
+def calculate_enhanced_beta(file_name, quasi_ident, sens_att):
     """Calculate beta for enhanced beta-likeness.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -278,6 +346,9 @@ def calculate_enhanced_beta(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     beta_sens_att = []
     for sens_att_value in sens_att:
         p, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
@@ -311,11 +382,11 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     aux = [max([np.abs(np.log(x)) for x in qi/p if x > 0]) for qi in q]
     return aux
 
-def calculate_delta_disclosure(data, quasi_ident, sens_att):
+def calculate_delta_disclosure(file_name, quasi_ident, sens_att):
     """Calculate delta for delta-disclousure privacy.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -325,6 +396,9 @@ def calculate_delta_disclosure(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     delta_sens_att = []
     for sens_att_value in sens_att:
         aux = aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value)
@@ -395,11 +469,11 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
         emd.append(emd_ec)
     return max(emd)
 
-def calculate_t_closeness(data, quasi_ident, sens_att):
+def calculate_t_closeness(file_name, quasi_ident, sens_att):
     """Calculate t for t-closeness.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -409,6 +483,9 @@ def calculate_t_closeness(data, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
     t_sens_att = []
     for sens_att_value in sens_att:
         if pd.api.types.is_numeric_dtype(data[sens_att_value]):
