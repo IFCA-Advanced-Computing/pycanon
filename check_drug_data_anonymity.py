@@ -1,19 +1,19 @@
 """Example using the drug type prediction dataset."""
 
 import numpy as np
-import test_anonymity
+import test_anonymity_gen
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
-    k_anon = test_anonymity.calculate_k(file_name, quasi_ident)
-    l_div = test_anonymity.calculate_l(file_name, quasi_ident, sens_att)
-    entropy_l = test_anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att)
-    alpha, _ = test_anonymity.get_alpha_k(file_name, quasi_ident, sens_att)
-    basic_beta = test_anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att)
-    enhanced_beta = test_anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att)
-    delta_disclosure = test_anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att)
-    t_clos = test_anonymity.calculate_t_closeness(file_name, quasi_ident, sens_att)
-    c_div, _ = test_anonymity.calculate_c_l_diversity(file_name, quasi_ident, sens_att)
+    k_anon = test_anonymity_gen.calculate_k(file_name, quasi_ident)
+    l_div = test_anonymity_gen.calculate_l(file_name, quasi_ident, sens_att)
+    entropy_l = test_anonymity_gen.calculate_entropy_l(file_name, quasi_ident, sens_att)
+    alpha, _ = test_anonymity_gen.get_alpha_k(file_name, quasi_ident, sens_att)
+    basic_beta = test_anonymity_gen.calculate_basic_beta(file_name, quasi_ident, sens_att)
+    enhanced_beta = test_anonymity_gen.calculate_enhanced_beta(file_name, quasi_ident, sens_att)
+    delta_disclosure = test_anonymity_gen.calculate_delta_disclosure(file_name, quasi_ident, sens_att)
+    t_clos = test_anonymity_gen.calculate_t_closeness(file_name, quasi_ident, sens_att)
+    c_div, _ = test_anonymity_gen.calculate_c_l_diversity(file_name, quasi_ident, sens_att)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
@@ -29,14 +29,14 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
-    data = test_anonymity.read_file(file_name)
+    data = test_anonymity_gen.read_file(file_name)
     max_l = []
     for sa_value in sens_att:
         max_l.append(len(np.unique(data[sa_value].values)))
     max_l = min(max_l)
 
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
-    df_new = test_anonymity.l_diversity(file_name, quasi_ident, sens_att, l_new)
+    df_new = test_anonymity_gen.l_diversity(file_name, quasi_ident, sens_att, l_new)
     if len(df_new) > l_new:
         df_new.to_csv(new_file_name, index = False)
         print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')
