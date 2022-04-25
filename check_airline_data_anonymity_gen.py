@@ -1,4 +1,4 @@
-"""Example using the student's math score dataset."""
+"""Example using the airline passenger satisfaction dataset."""
 
 import numpy as np
 import test_anonymity_gen
@@ -43,15 +43,17 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
 
-QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-FILE_NAME = './Data/Processed/StudentsMath_Score.csv'
-SA = ['Score']
-L_NEW = 3
-NEW_FILE_NAME = f'./Data/l_diversity/StudentsMath_Score_l{L_NEW}.csv'
-check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
+QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance',
+    'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+SA = ['Departure/Arrival time convenient', 'Online boarding', 'On-board service',
+    'Inflight service', 'Cleanliness', 'satisfaction']
+L_NEW = 2
+# FILE_NAME = './Data/Processed/airline_passenger_sat.csv' is not checked because of the
+# large number of different values in Arrival Delay in Minutes and Departure Delay in Minutes
+# NEW_FILE_NAME = f'./Data/l_diversity/airline_passenger_sat_l{L_NEW}.csv'
+# check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
 
-for i in [2, 5, 7]:
-    FILE_NAME = f'./Data/Processed/StudentsMath_Score_k{i}.csv'
-    NEW_FILE_NAME = f'./Data/l_diversity/StudentsMath_Score_k{i}_anonymized_l{L_NEW}.csv'
+for i in [2, 5, 10, 20]:
+    FILE_NAME = f'./Data/Processed/airline_passenger_sat_k{i}.csv'
+    NEW_FILE_NAME = f'./Data/l_diversity/airline_passenger_sat_k{i}_anonymized_l{L_NEW}.csv'
     check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
-    L_NEW += 2

@@ -1,6 +1,7 @@
 """Module with different functions which calculate properties about anonymity:
 k.anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
-basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
+basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy.
+NOTE: generalization is applied when there ir more than one sensitive attribute."""
 
 import os
 import numpy as np
@@ -116,21 +117,6 @@ def calculate_k(file_name, quasi_ident):
     k_anon = min([len(x) for x in equiv_class])
     return k_anon
 
-def aux_calculate_k(data, quasi_ident):
-    """Calculate k for k-anonymity.
-
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
-
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
-    """
-    check_qi(data, quasi_ident)
-    equiv_class = get_equiv_class(data, quasi_ident)
-    k_anon = min([len(x) for x in equiv_class])
-    return k_anon
-
 def convert(set_):
     """Converts a set to a list.
 
@@ -153,23 +139,50 @@ def calculate_l(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
-    sens_att = np.array(sens_att)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
     l_div = []
-    for i, sa in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        equiv_class = get_equiv_class(data, tmp_qi)
-        l_ec = []
-        for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
-            l_ec.append(len(np.unique(data_temp[sa].values)))
-        l_div.append(min(l_ec))
+    for ec in equiv_class:
+        data_temp = data.iloc[convert(ec)]
+        l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
+        l_div.append(min(l_sa))
     return min(l_div)
 
+def l_diversity(file_name, quasi_ident, sens_att, l_new):
+    """Given l, transform the dataset into a new one checking l-diversity for the new l, only
+    using suppression.
+
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
+
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
+
+    Parameter sens_att: list with the name of the columns of the dataframe
+    that are the sensitive attributes.
+    Precondition: sens_att is a list of strings.
+
+    Parameter l_new: l value for l-diversity.
+    Precondition: l_new is an int.
+    """
+    data = read_file(file_name)
+    check_qi(data, quasi_ident)
+    check_sa(data, sens_att)
+    equiv_class = get_equiv_class(data, quasi_ident)
+    l_ec = []
+    for ec in equiv_class:
+        data_temp = data.iloc[convert(ec)]
+        l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
+        l_ec.append(min(l_sa))
+    data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
+    data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
+    ec_elim = np.concatenate([convert(x) for x in data_ec_l.equiv_class.values])
+    data_new = data.drop(ec_elim).reset_index()
+    data_new.drop('index', inplace=True, axis=1)
+    return data_new
 
 def calculate_entropy_l(file_name, quasi_ident, sens_att):
     """Calculate l for entropy l-diversity.
@@ -185,24 +198,22 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
-    entropy_sa = []
-    for i, sa in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        equiv_class = get_equiv_class(data, tmp_qi)
-        entropy_ec = []
-        for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
+    equiv_class = get_equiv_class(data, quasi_ident)
+    entropy_ec = []
+    for ec in equiv_class:
+        data_temp = data.iloc[convert(ec)]
+        entropy_sa = []
+        for sa in sens_att:
             entropy = 0
             for s in np.unique(data_temp[sa].values):
                 p = len(data_temp[data_temp[sa] == s])/len(data_temp)
                 entropy += p*np.log(p)
-            entropy_ec.append(-entropy)
-        entropy_sa.append(min(entropy_ec))
-    ent_l = int(min(np.exp(1)**entropy_sa))
+            entropy_sa.append(-entropy)
+        entropy_ec.append(min(entropy_sa))
+    ent_l = int(min(np.exp(1)**entropy_ec))
     return ent_l
 
 def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0):
@@ -222,21 +233,19 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0):
     Parameter imp: impression level.
     Precondition: imp is an int, imp = 1 if comments need to be displayed.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     l_div = calculate_l(file_name, quasi_ident, sens_att)
+    equiv_class = get_equiv_class(data, quasi_ident)
     if l_div > 1:
         c_div = []
-        for i, sa in enumerate(sens_att):
-            tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            equiv_class = get_equiv_class(data, tmp_qi)
+        for sens_att_value in sens_att:
             c_sa = []
             for ec in equiv_class:
                 data_temp = data.iloc[convert(ec)]
-                values = np.unique(data_temp[sa].values)
-                r_ec = np.sort([len(data_temp[data_temp[sa] == s]) for s in values])
+                values = np.unique(data_temp[sens_att_value].values)
+                r_ec = np.sort([len(data_temp[data_temp[sens_att_value] == s]) for s in values])
                 c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
             c_div.append(int(max(c_sa)))
         c_div = max(c_div)
@@ -261,23 +270,19 @@ def get_alpha_k(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     k_anon = calculate_k(file_name, quasi_ident)
     equiv_class = get_equiv_class(data, quasi_ident)
-    alpha_sa = []
-    for i, sa in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        equiv_class = get_equiv_class(data, tmp_qi)
-        alpha_ec = []
-        for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
+    alpha_ec = []
+    for ec in equiv_class:
+        data_temp = data.iloc[convert(ec)]
+        alpha_sa = []
+        for sa in sens_att:
             values = np.unique(data_temp[sa].values)
             alpha = [len(data_temp[data_temp[sa] == s])/len(data_temp) for s in values]
-            alpha_ec.append(max(alpha))
-        alpha_sa.append(max(alpha_ec))
-    return max(alpha_sa), k_anon
-
+            alpha_sa.append(max(alpha))
+        alpha_ec.append(max(alpha_sa))
+    return max(alpha_ec), k_anon
 
 def aux_calculate_beta(data, quasi_ident, sens_att_value):
     """Auxiliary function for beta calculation for basic and enhanced beta-likeness.
@@ -318,14 +323,12 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     beta_sens_att = []
-    for i, sens_att_value in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        _, dist = aux_calculate_beta(data, tmp_qi, sens_att_value)
+    for sens_att_value in sens_att:
+        _, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
         beta_sens_att.append(max(dist))
     beta = max(beta_sens_att)
     return beta
@@ -344,14 +347,12 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     beta_sens_att = []
-    for i, sens_att_value in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        p, dist = aux_calculate_beta(data, tmp_qi, sens_att_value)
+    for sens_att_value in sens_att:
+        p, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
         min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
         beta_sens_att.append(max(min_beta_lnp))
     beta = max(beta_sens_att)
@@ -396,14 +397,12 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     delta_sens_att = []
-    for i, sens_att_value in enumerate(sens_att):
-        tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-        aux = aux_calculate_delta_disclosure(data, tmp_qi, sens_att_value)
+    for sens_att_value in sens_att:
+        aux = aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value)
         delta_sens_att.append(max(aux))
     delta = max(delta_sens_att)
     return delta
@@ -485,18 +484,15 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att):
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
     """
-    quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     t_sens_att = []
-    for i, sens_att_value in enumerate(sens_att):
+    for sens_att_value in sens_att:
         if pd.api.types.is_numeric_dtype(data[sens_att_value]):
-            tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            t_sens_att.append(aux_t_closeness_num(data, tmp_qi, sens_att_value))
+            t_sens_att.append(aux_t_closeness_num(data, quasi_ident, sens_att_value))
         elif pd.api.types.is_string_dtype(data[sens_att_value]):
-            tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            t_sens_att.append(aux_t_closeness_str(data, tmp_qi, sens_att_value))
+            t_sens_att.append(aux_t_closeness_str(data, quasi_ident, sens_att_value))
         else:
             raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
