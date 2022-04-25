@@ -1,6 +1,7 @@
 """Module with different functions which calculate properties about anonymity:
 k.anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
-basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
+basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy.
+NOTE: generalization is applied when there ir more than one sensitive attribute."""
 
 import os
 import numpy as np
@@ -59,7 +60,7 @@ def check_sa(data, sens_att):
 def intersect(tmp):
     """Intersect two sets: the first and the second of the given list.
 
-    Parameter tmp: list of sets.
+    Parameter tmp: list of numpy arrays.
     Precondition: tmp is a list of sets sorted in decreasing order of cardinality.
     """
     i, j = 0, 0
@@ -67,7 +68,7 @@ def intersect(tmp):
     while i < len(tmp[0]):
         tmp1 = tmp[0][i]
         tmp2 = tmp[1][j]
-        tmp_new.append(tmp1.intersection(tmp2))
+        tmp_new.append(np.intersect1d(tmp1, tmp2))
         if j < len(tmp[1])-1:
             j += 1
         else:
@@ -90,7 +91,7 @@ def get_equiv_class(data, quasi_ident):
     index = []
     for qi in quasi_ident:
         values = np.unique(data[qi].values)
-        tmp = [set(data[data[qi] == value].index) for value in values]
+        tmp = [np.unique(data[data[qi] == value].index) for value in values]
         index.append(tmp)
     index = sorted(index, key = lambda x: len(x))
     equiv_class = index.copy()
