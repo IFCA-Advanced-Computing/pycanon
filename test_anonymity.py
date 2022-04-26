@@ -431,7 +431,7 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
-        r =  p - qi
+        r =  qi - p
         abs_r, emd_ec = 0, 0
         for i in range(m):
             abs_r += r[i]
@@ -463,7 +463,7 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array([len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
-        r =  p - qi
+        r =  qi - p
         emd_ec = 0
         for i in range(m):
             emd_ec += np.abs(r[i])
