@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name = 'check-anonimity',
+    name = 'check-anonymity',
     version = '0.0.1',
     author = 'Judith sáinz-Pardo Díaz',
     author_email = 'sainzpardo@ifca.unican.es',
