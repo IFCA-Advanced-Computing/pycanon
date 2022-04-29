@@ -1,11 +1,15 @@
-# check-anonymity
+# **check-anonymity**
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE)
 
 **Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
-**Description:** Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
+[[_TOC_]]
+
+## Description 
+
+Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
 - [x] _**k-anonymity:**_
     - _k_: int
 - [x] _**(α, k)-anonymity:**_
@@ -29,9 +33,16 @@
     - _t_: float
 - [x] _**δ-disclosure privacy:**_
     - _δ_: float
-- [ ] _**m-invariance**_
 
 **Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed. 
+
+## Multiple sensitive attributes
+
+In the case of multiple sensitve attributes, two approaches can be considered:
+1. Calculate the different properties for each sensitive attribute individually, and take the maximum or minimum as appropriate (for example, the minumum value of _l_ for _l-diversity_ and the maximum value for _α_ in the case of _(α,k)-anonymity_).
+2. Calculate the different properties for each sensitive attribute individually but modifying the set of quasi-identifiers by adding to this set, in addition to the initial quasi-identifiers, all the sensitive attributes except the one under analysis. Then, as in the previous approach, the minimum or maximum of each parameter as appropriate is taken. It is important to note that since the set of quasi-identifiers is updated each time the calculations are made for each SA, the computational cost is much higher in this case.
+
+Specifically, in order to address this challenge, a parameter _gen_ is introduced in all functions except _k-anonymity_ (not applicable). If _gen=True_ (default value), the process of the first approach is followed: generalizing. Otherwise, the second approach is followed, updating the quasi-identifiers.
 
 
 ## Usage (examples)
