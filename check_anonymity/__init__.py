@@ -1,1 +1,1 @@
-import test_anonymity
+from test_anonymity import *
