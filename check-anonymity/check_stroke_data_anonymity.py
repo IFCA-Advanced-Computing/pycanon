@@ -1,4 +1,4 @@
-"""Example using the adult dataset."""
+"""Example using the stroke prediction dataset."""
 
 import numpy as np
 import test_anonymity
@@ -43,10 +43,15 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
 
-QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
-SA = ['salary-class']
+QI = ['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type',
+    'Residence_type', 'smoking_status']
+SA = ['stroke']
+FILE_NAME = '../Data/Processed/healthcare-dataset-stroke-data.csv'
 L_NEW = 2
-for i in [3, 10, 20]:
-    FILE_NAME = f'./Data/Processed/adult_anonymized_{i}.csv'
-    NEW_FILE_NAME = f'./Data/l_diversity/adult_k{i}_anonymized_l{L_NEW}.csv'
+NEW_FILE_NAME = f'../Data/l_diversity/healthcare-dataset-stroke-data_l{L_NEW}.csv'
+check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
+
+for i in [2, 5, 10, 15, 19, 20, 22, 25]:
+    FILE_NAME = f'../Data/Processed/stroke_k{i}.csv'
+    NEW_FILE_NAME = f'../Data/l_diversity/stroke_k{i}_anonymized_l{L_NEW}.csv'
     check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
