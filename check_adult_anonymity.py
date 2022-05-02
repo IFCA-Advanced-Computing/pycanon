@@ -1,7 +1,7 @@
-"""Example using the student's math score dataset."""
+"""Example using the adult dataset."""
 
 import numpy as np
-import test_anonymity
+from check_anonymity import test_anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
@@ -43,15 +43,10 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
 
-QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-FILE_NAME = '../Data/Processed/StudentsMath_Score.csv'
-SA = ['Score']
-L_NEW = 3
-NEW_FILE_NAME = f'../Data/l_diversity/StudentsMath_Score_l{L_NEW}.csv'
-check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
-
-for i in [2, 5, 7]:
-    FILE_NAME = f'../Data/Processed/StudentsMath_Score_k{i}.csv'
-    NEW_FILE_NAME = f'../Data/l_diversity/StudentsMath_Score_k{i}_anonymized_l{L_NEW}.csv'
+QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
+SA = ['salary-class']
+L_NEW = 2
+for i in [3, 10, 20]:
+    FILE_NAME = f'./Data/Processed/adult_anonymized_{i}.csv'
+    NEW_FILE_NAME = f'./Data/l_diversity/adult_k{i}_anonymized_l{L_NEW}.csv'
     check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
-    L_NEW += 2

@@ -1,9 +1,9 @@
-"""Example using the airline passenger satisfaction dataset."""
+"""Example using the drug type prediction dataset."""
 
 import numpy as np
-import test_anonymity
+from check_anonymity import test_anonymity
 
-def check_anonymity(file_name, quasi_ident, sens_att):
+def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
     k_anon = test_anonymity.calculate_k(file_name, quasi_ident)
     l_div = test_anonymity.calculate_l(file_name, quasi_ident, sens_att)
@@ -29,12 +29,28 @@ def check_anonymity(file_name, quasi_ident, sens_att):
     else:
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
-QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance',
-    'Departure Delay in Minutes', 'Arrival Delay in Minutes']
-SA = ['Departure/Arrival time convenient', 'Online boarding', 'On-board service',
-    'Inflight service', 'Cleanliness', 'satisfaction']
-# FILE_NAME = './Data/Processed/airline_passenger_sat.csv' is not checked because of the
-# large number of different values in Arrival Delay in Minutes and Departure Delay in Minutes
-for i in [2, 5, 10, 20]:
-    FILE_NAME = f'../Data/Processed/airline_passenger_sat_k{i}.csv'
-    check_anonymity(FILE_NAME, QI, SA)
+    data = test_anonymity.read_file(file_name)
+    max_l = []
+    for sa_value in sens_att:
+        max_l.append(len(np.unique(data[sa_value].values)))
+    max_l = min(max_l)
+
+    assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
+    df_new = test_anonymity.l_diversity(file_name, quasi_ident, sens_att, l_new)
+    if len(df_new) > l_new:
+        df_new.to_csv(new_file_name, index = False)
+        print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')
+    else:
+        print(f'The dataset cannot verify l-diversity with l = {l_new} only by suppression.\n')
+
+QI = ['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']
+SA = ['Drug']
+FILE_NAME = './Data/Processed/drug_type.csv'
+L_NEW = 2
+NEW_FILE_NAME = f'./Data/l_diversity/drug_type_l{L_NEW}.csv'
+check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
+
+L_NEW = 3
+FILE_NAME = './Data/Processed/drugs_k5.csv'
+NEW_FILE_NAME = f'./Data/l_diversity/drugs_k5_anonymized_l{L_NEW}.csv'
+check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)

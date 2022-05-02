@@ -1,7 +1,7 @@
 """Example using the stroke prediction dataset."""
 
 import numpy as np
-import test_anonymity
+from check_anonymity import test_anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
@@ -46,12 +46,12 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
 QI = ['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type',
     'Residence_type', 'smoking_status']
 SA = ['stroke']
-FILE_NAME = '../Data/Processed/healthcare-dataset-stroke-data.csv'
+FILE_NAME = './Data/Processed/healthcare-dataset-stroke-data.csv'
 L_NEW = 2
-NEW_FILE_NAME = f'../Data/l_diversity/healthcare-dataset-stroke-data_l{L_NEW}.csv'
+NEW_FILE_NAME = f'./Data/l_diversity/healthcare-dataset-stroke-data_l{L_NEW}.csv'
 check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
 
 for i in [2, 5, 10, 15, 19, 20, 22, 25]:
-    FILE_NAME = f'../Data/Processed/stroke_k{i}.csv'
-    NEW_FILE_NAME = f'../Data/l_diversity/stroke_k{i}_anonymized_l{L_NEW}.csv'
+    FILE_NAME = f'./Data/Processed/stroke_k{i}.csv'
+    NEW_FILE_NAME = f'./Data/l_diversity/stroke_k{i}_anonymized_l{L_NEW}.csv'
     check_anonymity(FILE_NAME, QI, SA, L_NEW, NEW_FILE_NAME)
