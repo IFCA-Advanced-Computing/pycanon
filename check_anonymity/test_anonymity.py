@@ -1,5 +1,5 @@
 """Module with different functions which calculate properties about anonymity:
-k.anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
+k-anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
 basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
 
 import os
@@ -109,6 +109,10 @@ def calculate_k(file_name, quasi_ident):
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
     Precondition: quasi_ident is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     data = read_file(file_name)
     check_qi(data, quasi_ident)
@@ -152,6 +156,10 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -176,7 +184,7 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
             l_div.append(min(l_ec))
     return min(l_div)
 
-def l_diversity(file_name, quasi_ident, sens_att, l_new):
+def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     """Given l, transform the dataset into a new one checking l-diversity for the new l, only
     using suppression.
 
@@ -224,6 +232,10 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -275,6 +287,10 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
 
     Parameter imp: impression level.
     Precondition: imp is an int, imp = 1 if comments need to be displayed.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -313,7 +329,7 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
     return c_div, l_div
 
 
-def get_alpha_k(file_name, quasi_ident, sens_att, gen = True):
+def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     Parameter file_name: name of the file with the data under study.
@@ -326,6 +342,10 @@ def get_alpha_k(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -396,6 +416,10 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -427,6 +451,10 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -460,6 +488,10 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -485,6 +517,10 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -579,6 +615,10 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
     """
     quasi_ident = np.array(quasi_ident)
     data = read_file(file_name)
@@ -604,3 +644,5 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
             else:
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
+    
+
