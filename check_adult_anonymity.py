@@ -8,7 +8,7 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     k_anon = test_anonymity.calculate_k(file_name, quasi_ident)
     l_div = test_anonymity.calculate_l(file_name, quasi_ident, sens_att)
     entropy_l = test_anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att)
-    alpha, _ = test_anonymity.get_alpha_k(file_name, quasi_ident, sens_att)
+    alpha, _ = test_anonymity.calculate_alpha_k(file_name, quasi_ident, sens_att)
     basic_beta = test_anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att)
     enhanced_beta = test_anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att)
     delta_disclosure = test_anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att)
@@ -36,7 +36,7 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     max_l = min(max_l)
 
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
-    df_new = test_anonymity.l_diversity(file_name, quasi_ident, sens_att, l_new)
+    df_new = test_anonymity.achieve_l_diversity(file_name, quasi_ident, sens_att, l_new)
     if len(df_new) > l_new:
         df_new.to_csv(new_file_name, index = False)
         print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')
