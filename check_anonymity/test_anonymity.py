@@ -1,5 +1,5 @@
 """Module with different functions which calculate properties about anonymity:
-k-anonimity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
+k-anonymity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-diversity,
 basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
 
 import os
@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 def read_file(file_name):
-    """Read the given file.
+    """Read the given file. Returns a pandas dataframe.
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
@@ -56,7 +56,7 @@ def check_sa(data, sens_att):
         raise ValueError(f'''Values not defined: {[sens_att[i] for i in err_val]}.
                           Cannot be sensitive attributes''')
 
-def intersect(tmp):
+def __intersect(tmp):
     """Intersect two sets: the first and the second of the given list.
 
     Parameter tmp: list of numpy arrays.
@@ -95,7 +95,7 @@ def get_equiv_class(data, quasi_ident):
     index = sorted(index, key = lambda x: len(x))
     equiv_class = index.copy()
     while len(equiv_class) > 1:
-        equiv_class = intersect(equiv_class)
+        equiv_class = __intersect(equiv_class)
         equiv_class = sorted(equiv_class, key = lambda x: len(x))
     equiv_class = [x for x in equiv_class[0] if len(x) > 0]
     return equiv_class
