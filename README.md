@@ -23,7 +23,7 @@ pip install git+https://gitlab.ifca.es/sainzj/check-anonymity
 #### Use example:
 Once the library is installed just import it as follows:
 ```python
-from check_anonymity import test_anonymity
+from pycanon import test_anonymity
 ```
 _Example:_ To find the value of _k_ for the k-anonymity condition of a file _data.csv_ with quisi-identifiers _QI_, execute:
 ```python
