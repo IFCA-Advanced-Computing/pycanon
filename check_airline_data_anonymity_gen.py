@@ -1,7 +1,7 @@
 """Example using the airline passenger satisfaction dataset."""
 
 import numpy as np
-from src import test_anonymity
+from pycanon import test_anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att):
     """Function for check all the anonymity techniques under study."""

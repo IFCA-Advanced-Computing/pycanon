@@ -1,7 +1,7 @@
 """Example using the student's math score dataset."""
 
 import numpy as np
-from src import test_anonymity
+from pycanon import test_anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
