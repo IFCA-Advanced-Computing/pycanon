@@ -1,2 +1,2 @@
-from check_anonymity import test_anonymity
+from src import test_anonymity
 
