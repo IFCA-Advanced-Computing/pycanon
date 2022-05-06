@@ -5,7 +5,7 @@ basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure pr
 import os
 import numpy as np
 import pandas as pd
-from src.aux_functions import *
+from pycanon.aux_functions import *
 
 def calculate_k(file_name, quasi_ident):
     """Calculate k for k-anonymity.

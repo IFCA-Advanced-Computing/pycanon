@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name = 'check_anonymity',
+    name = 'pycanon',
     version = '0.0.1',
     author = 'Judith sáinz-Pardo Díaz',
     author_email = 'sainzpardo@ifca.unican.es',
@@ -16,6 +16,6 @@ setuptools.setup(
     long_description_content_type = "text/markdown",
     url = 'https://gitlab.ifca.es/sainzj/check-anonymity',
     license = 'Apache License 2.0',
-    packages = ['src'],
+    packages = ['pycanon'],
     install_requires = requirements
 )
