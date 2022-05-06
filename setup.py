@@ -16,6 +16,6 @@ setuptools.setup(
     long_description_content_type = "text/markdown",
     url = 'https://gitlab.ifca.es/sainzj/check-anonymity',
     license = 'Apache License 2.0',
-    packages = ['check_anonymity'],
+    packages = ['src'],
     install_requires = requirements
 )
