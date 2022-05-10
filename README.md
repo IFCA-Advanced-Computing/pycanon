@@ -20,7 +20,7 @@ Then run the following command to install the library and all its requirements:
 pip install git+https://gitlab.ifca.es/sainzj/check-anonymity
 ```
 
-#### Use example:
+#### Use example
 Once the library is installed just import it as follows:
 ```python
 from pycanon import test_anonymity
@@ -35,27 +35,39 @@ k = test_anonymity.calculate_k('data.csv', QI)
 Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
 - [x] _**k-anonymity:**_
     - _k_: int
+    - **Function: calculate_k**
 - [x] _**(α, k)-anonymity:**_
     - _α_: float
     - _k_: int
+    - **Function: calculate_alpha_k**
 - [x] _**l-diversity:**_
     - _l_: int
+    - **Function: calculate_l**
+    - The function _achive_l_diversity_ can be used in order to obtain a new pandas dataframe where the records needed in order to get _l-diversity_ for a given value of _l_ have been removed.
 - [x] _**Entropy l-diversity:**_
     - _l_: int
+    - **Function: calculate_entropy_l**
 - [x] _**Recursive (c,l)-diversity:**_
     - Not calculated if l=1. Note that, by definition: $` r_{1} < c(r_{l}+r_{l+1}+...+r_{m}) `$
     - _c_: int
     - _l_: int
+    - **Function: calculate_c_l_diversity**
 - [x] _**Basic β-likeness:**_
     - _β_: float
+    - **Function: calculate_basic_beta**
 - [x] _**Enhanced β-likeness:**_
     - _β_: float
+    - **Function: calculate_enhanced_beta**
 - [x] _**t-closeness:**_:
     - For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.
     - For categorical attributes, the metric "Equal Distance" is used.
     - _t_: float
+    - **Function: calculate_t_closeness**
 - [x] _**δ-disclosure privacy:**_
     - _δ_: float
+    - **Function: calculate_delta_disclosure**
+
+The function _get_anon_report_ can be used to obtain a report (either by saving it to pdf, displaying it on screen, or both) with the parameters for which each of the above techniques is checked.
 
 **Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed. 
 
