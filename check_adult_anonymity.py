@@ -1,19 +1,21 @@
 """Example using the adult dataset."""
 
 import numpy as np
+import pandas as pd
 from pycanon import test_anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
-    k_anon = test_anonymity.calculate_k(file_name, quasi_ident)
-    l_div = test_anonymity.calculate_l(file_name, quasi_ident, sens_att)
-    entropy_l = test_anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att)
-    alpha, _ = test_anonymity.calculate_alpha_k(file_name, quasi_ident, sens_att)
-    basic_beta = test_anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att)
-    enhanced_beta = test_anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att)
-    delta_disclosure = test_anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att)
-    t_clos = test_anonymity.calculate_t_closeness(file_name, quasi_ident, sens_att)
-    c_div, _ = test_anonymity.calculate_c_l_diversity(file_name, quasi_ident, sens_att)
+    df = pd.read_csv(file_name)
+    k_anon = test_anonymity.calculate_k(df, quasi_ident)
+    l_div = test_anonymity.calculate_l(df, quasi_ident, sens_att)
+    entropy_l = test_anonymity.calculate_entropy_l(df, quasi_ident, sens_att)
+    alpha, _ = test_anonymity.calculate_alpha_k(df, quasi_ident, sens_att)
+    basic_beta = test_anonymity.calculate_basic_beta(df, quasi_ident, sens_att)
+    enhanced_beta = test_anonymity.calculate_enhanced_beta(df, quasi_ident, sens_att)
+    delta_disclosure = test_anonymity.calculate_delta_disclosure(df, quasi_ident, sens_att)
+    t_clos = test_anonymity.calculate_t_closeness(df, quasi_ident, sens_att)
+    c_div, _ = test_anonymity.calculate_c_l_diversity(df, quasi_ident, sens_att)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}

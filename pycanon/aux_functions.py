@@ -55,7 +55,7 @@ def check_sa(data, sens_att):
     if len(err_val) > 0:
         raise ValueError(f'''Values not defined: {[sens_att[i] for i in err_val]}.
                           Cannot be sensitive attributes''')
-                          
+                     
 def get_equiv_class(data, quasi_ident):
     """"Find the equivalence classes present in the dataset.
 
