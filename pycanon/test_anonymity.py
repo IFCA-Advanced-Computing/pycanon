@@ -18,6 +18,7 @@ def calculate_k(file_name, quasi_ident):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -43,6 +44,7 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -89,6 +91,7 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -127,6 +130,7 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -184,6 +188,7 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -246,6 +251,7 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -300,6 +306,7 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -339,6 +346,7 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -380,6 +388,7 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -419,6 +428,7 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
+    In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
@@ -462,6 +472,32 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
     return max(t_sens_att)
     
 def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, file_pdf = False):
+    """Report with the parameters obtained for each anonymity prperty under study.
+
+    Parameter file_name: name of the file with the data under study.
+    Precondition: file_name must have csv, xlsx, sav or txt extension. 
+    In can also be a pandas dataframe.
+
+    Parameter quasi_ident: list with the name of the columns of the dataframe
+    that are quasi-identifiers.
+    Precondition: quasi_ident is a list of strings.
+
+    Parameter sens_att: list with the name of the columns of the dataframe
+    that are the sensitive attributes.
+    Precondition: sens_att is a list of strings.
+    
+    Parameter gen: boolean, if true, it is generalized for the case of multiple
+    SA, if False, the set of QI is updated for each SA.
+    Precondition: gen = True (default) or gen = False.
+
+    Parameter imp: boolean, level of impresion. If imp = True the report is displayed 
+    on the command line.
+    Precondition: imp = True (default) or imp = False.
+
+    Parameter file_pdf: string with name of the pdf file with the report. False if just want
+    to view the report by command line, without saving to a pdf. 
+    Precondition: file_pdf is a string (with extension .pdf) of is False (boolean).
+    """
     data = read_file(file_name)
     
     k_anon = calculate_k(data, quasi_ident)
@@ -487,6 +523,9 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
         \t - delta-disclosure privacy with delta = {delta_disc}''')
 
     if file_pdf != False: 
+        _, file_extension = os.path.splitext(file_pdf)
+        if file_extension != '.pdf':
+            raise ValueError('Invalid file extension. Expected .pdf extension for file_pdf')
         doc = SimpleDocTemplate(file_pdf, pagesize = A4,
                         rightMargin = 50, leftMargin = 50,
                         topMargin = 50, bottomMargin = 50)
@@ -518,7 +557,7 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
                                    spaceAfter = 20))
     
         story.append(Paragraph('PyCANON: Check ANONymity properties', styles["main_title"]))
-        story.append(Paragraph('eport', styles["main_title"]))
+        story.append(Paragraph('Report', styles["main_title"]))
         story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
         story.append(Paragraph(f'File (or pandas dataframe) name: {str(file_name)}', styles["JustifyRight11"]))
