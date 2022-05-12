@@ -55,7 +55,7 @@ def check_sa(data, sens_att):
     if len(err_val) > 0:
         raise ValueError(f'''Values not defined: {[sens_att[i] for i in err_val]}.
                           Cannot be sensitive attributes''')
-                     
+
 def get_equiv_class(data, quasi_ident):
     """"Find the equivalence classes present in the dataset.
 
@@ -146,7 +146,7 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -161,7 +161,6 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
         q.append(qi)
     aux = [max([np.abs(np.log(x)) for x in qi/p if x > 0]) for qi in q]
     return aux
-
 
 def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     """Auxiliary function for t calculation for t-closeness. Function used for numerical
@@ -225,4 +224,3 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
         emd_ec = 0.5 * emd_ec
         emd.append(emd_ec)
     return max(emd)
-
