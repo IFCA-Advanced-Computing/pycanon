@@ -13,6 +13,7 @@ from reportlab.platypus.tables import Table
 from reportlab.lib import colors
 from pycanon.aux_functions import *
 
+
 def calculate_k(file_name, quasi_ident):
     """Calculate k for k-anonymity.
 
@@ -39,7 +40,7 @@ def calculate_k(file_name, quasi_ident):
     return k_anon
 
 
-def calculate_l(file_name, quasi_ident, sens_att, gen = True):
+def calculate_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for l-diversity.
 
     Parameter file_name: name of the file with the data under study.
@@ -85,6 +86,7 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
             l_div.append(min(l_ec))
     return min(l_div)
 
+
 def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     """Given l, transform the dataset into a new one checking l-diversity for the new l, only
     using suppression.
@@ -120,12 +122,14 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
         l_ec.append(min(l_sa))
     data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
     data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
-    ec_elim = np.concatenate([convert(x) for x in data_ec_l.equiv_class.values])
+    ec_elim = np.concatenate([convert(x)
+                             for x in data_ec_l.equiv_class.values])
     data_new = data.drop(ec_elim).reset_index()
-    data_new.drop('index', inplace = True, axis = 1)
+    data_new.drop('index', inplace=True, axis=1)
     return data_new
 
-def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
+
+def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for entropy l-diversity.
 
     Parameter file_name: name of the file with the data under study.
@@ -161,7 +165,8 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
             entropy_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
-                p = [len(data_temp[data_temp[sa] == s])/len(data_temp) for s in values]
+                p = [len(data_temp[data_temp[sa] == s])/len(data_temp)
+                     for s in values]
                 entropy = np.sum(p*np.log(p))
                 entropy_sa.append(-entropy)
             entropy_ec.append(min(entropy_sa))
@@ -183,7 +188,8 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
         ent_l = int(min(np.exp(1)**entropy_sa))
     return ent_l
 
-def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = True):
+
+def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp=0, gen=True):
     """Calculate c and l for recursive (c,l)-diversity.
 
     Parameter file_name: name of the file with the data under study.
@@ -223,7 +229,8 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
                 for ec in equiv_class:
                     data_temp = data.iloc[convert(ec)]
                     values = np.unique(data_temp[sens_att_value].values)
-                    r_ec = np.sort([len(data_temp[data_temp[sens_att_value] == s]) for s in values])
+                    r_ec = np.sort(
+                        [len(data_temp[data_temp[sens_att_value] == s]) for s in values])
                     c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
                 c_div.append(int(max(c_sa)))
             c_div = max(c_div)
@@ -235,7 +242,8 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
                 for ec in equiv_class:
                     data_temp = data.iloc[convert(ec)]
                     values = np.unique(data_temp[sa].values)
-                    r_ec = np.sort([len(data_temp[data_temp[sa] == s]) for s in values])
+                    r_ec = np.sort([len(data_temp[data_temp[sa] == s])
+                                   for s in values])
                     c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
                 c_div.append(int(max(c_sa)))
             c_div = max(c_div)
@@ -246,7 +254,7 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
     return c_div, l_div
 
 
-def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
+def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     Parameter file_name: name of the file with the data under study.
@@ -282,7 +290,8 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
             alpha_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
-                _alpha = [len(data_temp[data_temp[sa] == s])/len(data_temp) for s in values]
+                _alpha = [len(data_temp[data_temp[sa] == s]) /
+                          len(data_temp) for s in values]
                 alpha_sa.append(max(_alpha))
             alpha_ec.append(max(alpha_sa))
         alpha = max(alpha_ec)
@@ -295,13 +304,15 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
             for ec in equiv_class:
                 data_temp = data.iloc[convert(ec)]
                 values = np.unique(data_temp[sa].values)
-                _alpha = [len(data_temp[data_temp[sa] == s])/len(data_temp) for s in values]
+                _alpha = [len(data_temp[data_temp[sa] == s]) /
+                          len(data_temp) for s in values]
                 alpha_ec.append(max(_alpha))
             alpha_sa.append(max(alpha_ec))
         alpha = max(alpha_sa)
     return alpha, k_anon
 
-def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
+
+def calculate_basic_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for basic beta-likeness.
 
     Parameter file_name: name of the file with the data under study.
@@ -341,7 +352,8 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
     beta = max(beta_sens_att)
     return beta
 
-def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
+
+def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for enhanced beta-likeness.
 
     Parameter file_name: name of the file with the data under study.
@@ -383,7 +395,8 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
     beta = max(beta_sens_att)
     return beta
 
-def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
+
+def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen=True):
     """Calculate delta for delta-disclousure privacy.
 
     Parameter file_name: name of the file with the data under study.
@@ -413,7 +426,8 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
     delta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            aux = aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value)
+            aux = aux_calculate_delta_disclosure(
+                data, quasi_ident, sens_att_value)
             delta_sens_att.append(max(aux))
     else:
         for i, sens_att_value in enumerate(sens_att):
@@ -423,7 +437,8 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
     delta = max(delta_sens_att)
     return delta
 
-def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
+
+def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
     """Calculate t for t-closeness.
 
     Parameter file_name: name of the file with the data under study.
@@ -454,24 +469,29 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
     if gen:
         for sens_att_value in sens_att:
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_t_closeness_num(data, quasi_ident, sens_att_value))
+                t_sens_att.append(aux_t_closeness_num(
+                    data, quasi_ident, sens_att_value))
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_t_closeness_str(data, quasi_ident, sens_att_value))
+                t_sens_att.append(aux_t_closeness_str(
+                    data, quasi_ident, sens_att_value))
             else:
                 raise ValueError('Error, invalid sens_att value type')
     else:
         for i, sens_att_value in enumerate(sens_att):
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_t_closeness_num(data, tmp_qi, sens_att_value))
+                t_sens_att.append(aux_t_closeness_num(
+                    data, tmp_qi, sens_att_value))
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_t_closeness_str(data, tmp_qi, sens_att_value))
+                t_sens_att.append(aux_t_closeness_str(
+                    data, tmp_qi, sens_att_value))
             else:
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
 
-def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, file_pdf = False):
+
+def get_anon_report(file_name, quasi_ident, sens_att, gen=True, imp=True, file_pdf=False):
     """Report with the parameters obtained for each anonymity prperty under study.
 
     Parameter file_name: name of the file with the data under study.
@@ -525,65 +545,67 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
     if file_pdf is not False:
         _, file_extension = os.path.splitext(file_pdf)
         if file_extension != '.pdf':
-            raise ValueError('Invalid file extension. Expected .pdf extension for file_pdf')
-        doc = SimpleDocTemplate(file_pdf, pagesize = A4,
-                        rightMargin = 50, leftMargin = 50,
-                        topMargin = 50, bottomMargin = 50)
+            raise ValueError(
+                'Invalid file extension. Expected .pdf extension for file_pdf')
+        doc = SimpleDocTemplate(file_pdf, pagesize=A4,
+                                rightMargin=50, leftMargin=50,
+                                topMargin=50, bottomMargin=50)
         story = []
         today = datetime.now()
         date = today.strftime("%b %d %Y %H:%M:%S")
 
         styles = getSampleStyleSheet()
         styles.add(ParagraphStyle('JustifyRight11',
-                                    fontName = "Helvetica",
-                                    fontSize = 11,
-                                    alignment=0,
-                                    spaceAfter = 5))
+                                  fontName="Helvetica",
+                                  fontSize=11,
+                                  alignment=0,
+                                  spaceAfter=5))
         styles.add(ParagraphStyle('JustifyRight11Bold',
-                                    fontName = "Helvetica-Bold",
-                                    fontSize = 11,
-                                    alignment=0,
-                                    spaceAfter = 10))
+                                  fontName="Helvetica-Bold",
+                                  fontSize=11,
+                                  alignment=0,
+                                  spaceAfter=10))
         styles.add(ParagraphStyle('JustifyRight12BoldSpace',
-                                    fontName="Helvetica-Bold",
-                                    fontSize=12,
-                                    alignment=0,
-                                    spaceAfter=10))
+                                  fontName="Helvetica-Bold",
+                                  fontSize=12,
+                                  alignment=0,
+                                  spaceAfter=10))
         styles.add(ParagraphStyle('main_title',
-                                   fontName = "Helvetica-Bold",
-                                   fontSize = 18,
-                                   parent = styles['Heading2'],
-                                   alignment = 1,
-                                   spaceAfter = 20))
+                                  fontName="Helvetica-Bold",
+                                  fontSize=18,
+                                  parent=styles['Heading2'],
+                                  alignment=1,
+                                  spaceAfter=20))
 
-        story.append(Paragraph('PyCANON: Check ANONymity properties', styles["main_title"]))
+        story.append(
+            Paragraph('PyCANON: Check ANONymity properties', styles["main_title"]))
         story.append(Paragraph('Report', styles["main_title"]))
         story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
         story.append(Paragraph(f'File (or pandas dataframe) name: {str(file_name)}',
-            styles["JustifyRight11"]))
+                               styles["JustifyRight11"]))
         story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}',
-            styles["JustifyRight11"]))
+                               styles["JustifyRight11"]))
         story.append(Paragraph(f'Sensitive attribute(s): {sens_att}',
-            styles["JustifyRight11"]))
+                               styles["JustifyRight11"]))
         if len(sens_att) > 1:
             story.append(Paragraph(f'Approach for more than one SA: {gen}',
-                styles["JustifyRight11"]))
+                                   styles["JustifyRight11"]))
         story.append(Spacer(1, 20))
         prop = [(Paragraph('Anonymity property', styles["JustifyRight11Bold"]),
-        Paragraph('Value(s)', styles["JustifyRight11Bold"])),
-        ('k-anonymity', f'k = {k_anon}'),
-        ('(α,k)-anonymity', f'α = {alpha} and k = {k_anon}'),
-        ('l-diversity', f'l = {l_div}'),
-        ('Entropy l-diversity', f'l = {entropy_l}'),
-        ('(c,l)-diversity', f'c = {c_div} and l = {l_div}'),
-        ('Basic β-likeness', f'β = {basic_beta}'),
-        ('Enhanced β-likeness', f'β = {enhanced_beta}'),
-        ('t-closeness', f't = {t_clos}'),
-        ('δ-disclosure privacy', f'δ = {delta_disc}')]
+                 Paragraph('Value(s)', styles["JustifyRight11Bold"])),
+                ('k-anonymity', f'k = {k_anon}'),
+                ('(α,k)-anonymity', f'α = {alpha} and k = {k_anon}'),
+                ('l-diversity', f'l = {l_div}'),
+                ('Entropy l-diversity', f'l = {entropy_l}'),
+                ('(c,l)-diversity', f'c = {c_div} and l = {l_div}'),
+                ('Basic β-likeness', f'β = {basic_beta}'),
+                ('Enhanced β-likeness', f'β = {enhanced_beta}'),
+                ('t-closeness', f't = {t_clos}'),
+                ('δ-disclosure privacy', f'δ = {delta_disc}')]
 
-        story.append(Table(prop, style=[('GRID', (0,0), (-1,-1), 1, colors.grey),
-                                        ('BACKGROUND',(0,0), (1, 0), colors.aliceblue)]))
+        story.append(Table(prop, style=[('GRID', (0, 0), (-1, -1), 1, colors.grey),
+                                        ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)]))
         doc.build(story)
 
     return k_anon, alpha, l_div, entropy_l, c_div, basic_beta, enhanced_beta, delta_disc, t_clos
