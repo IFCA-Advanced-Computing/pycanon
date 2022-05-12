@@ -3,14 +3,14 @@ k-anonymity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-divers
 basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
 
 import os
+from datetime import datetime
 import numpy as np
 import pandas as pd
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus.tables import Table
 from reportlab.lib import colors
-from datetime import datetime
 from pycanon.aux_functions import *
 
 def calculate_k(file_name, quasi_ident):
@@ -23,17 +23,17 @@ def calculate_k(file_name, quasi_ident):
     Parameter quasi_ident: list with the name of the columns of the dataframe
     that are quasi-identifiers.
     Precondition: quasi_ident is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
     """
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
-    	
+
     equiv_class = get_equiv_class(data, quasi_ident)
     k_anon = min([len(x) for x in equiv_class])
     return k_anon
@@ -53,7 +53,7 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -61,12 +61,12 @@ def calculate_l(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
-    	
+
     equiv_class = get_equiv_class(data, quasi_ident)
     l_div = []
     if gen:
@@ -107,9 +107,9 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     equiv_class = get_equiv_class(data, quasi_ident)
@@ -122,7 +122,7 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
     ec_elim = np.concatenate([convert(x) for x in data_ec_l.equiv_class.values])
     data_new = data.drop(ec_elim).reset_index()
-    data_new.drop('index', inplace=True, axis=1)
+    data_new.drop('index', inplace = True, axis = 1)
     return data_new
 
 def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
@@ -139,7 +139,7 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -147,12 +147,12 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
-    	
+
     if gen:
         equiv_class = get_equiv_class(data, quasi_ident)
         entropy_ec = []
@@ -200,7 +200,7 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
 
     Parameter imp: impression level.
     Precondition: imp is an int, imp = 1 if comments need to be displayed.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -208,9 +208,9 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp = 0, gen = Tru
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     l_div = calculate_l(file_name, quasi_ident, sens_att)
@@ -260,7 +260,7 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -268,9 +268,9 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     k_anon = calculate_k(data, quasi_ident)
@@ -315,7 +315,7 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -323,9 +323,9 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     beta_sens_att = []
@@ -355,7 +355,7 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -363,9 +363,9 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     beta_sens_att = []
@@ -397,7 +397,7 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -405,9 +405,9 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     delta_sens_att = []
@@ -437,7 +437,7 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
@@ -445,9 +445,9 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
     if isinstance(file_name, pd.DataFrame):
-    	data = file_name
+        data = file_name
     else:
-    	data = read_file(file_name)
+        data = read_file(file_name)
     check_qi(data, quasi_ident)
     check_sa(data, sens_att)
     t_sens_att = []
@@ -470,12 +470,12 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
             else:
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
-    
+
 def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, file_pdf = False):
     """Report with the parameters obtained for each anonymity prperty under study.
 
     Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension. 
+    Precondition: file_name must have csv, xlsx, sav or txt extension.
     In can also be a pandas dataframe.
 
     Parameter quasi_ident: list with the name of the columns of the dataframe
@@ -485,21 +485,21 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
     Parameter sens_att: list with the name of the columns of the dataframe
     that are the sensitive attributes.
     Precondition: sens_att is a list of strings.
-    
+
     Parameter gen: boolean, if true, it is generalized for the case of multiple
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
 
-    Parameter imp: boolean, level of impresion. If imp = True the report is displayed 
+    Parameter imp: boolean, level of impresion. If imp = True the report is displayed
     on the command line.
     Precondition: imp = True (default) or imp = False.
 
     Parameter file_pdf: string with name of the pdf file with the report. False if just want
-    to view the report by command line, without saving to a pdf. 
+    to view the report by command line, without saving to a pdf.
     Precondition: file_pdf is a string (with extension .pdf) of is False (boolean).
     """
     data = read_file(file_name)
-    
+
     k_anon = calculate_k(data, quasi_ident)
     alpha, _ = calculate_alpha_k(data, quasi_ident, sens_att, gen)
     l_div = calculate_l(data, quasi_ident, sens_att, gen)
@@ -509,7 +509,7 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
     enhanced_beta = calculate_enhanced_beta(data, quasi_ident, sens_att, gen)
     delta_disc = calculate_delta_disclosure(data, quasi_ident, sens_att, gen)
     t_clos = calculate_t_closeness(data, quasi_ident, sens_att, gen)
-	
+
     if imp:
         print(f'''File: {file_name}. The dataset verifies:
     	\t - k-anonymity with k = {k_anon}
@@ -522,7 +522,7 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
         \t - t-closeness with t = {t_clos}
         \t - delta-disclosure privacy with delta = {delta_disc}''')
 
-    if file_pdf != False: 
+    if file_pdf is not False:
         _, file_extension = os.path.splitext(file_pdf)
         if file_extension != '.pdf':
             raise ValueError('Invalid file extension. Expected .pdf extension for file_pdf')
@@ -532,7 +532,7 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
         story = []
         today = datetime.now()
         date = today.strftime("%b %d %Y %H:%M:%S")
-        
+
         styles = getSampleStyleSheet()
         styles.add(ParagraphStyle('JustifyRight11',
                                     fontName = "Helvetica",
@@ -544,9 +544,9 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
                                     fontSize = 11,
                                     alignment=0,
                                     spaceAfter = 10))
-        styles.add(ParagraphStyle('JustifyRight12BoldSpace', 
-                                    fontName="Helvetica-Bold", 
-                                    fontSize=12, 
+        styles.add(ParagraphStyle('JustifyRight12BoldSpace',
+                                    fontName="Helvetica-Bold",
+                                    fontSize=12,
                                     alignment=0,
                                     spaceAfter=10))
         styles.add(ParagraphStyle('main_title',
@@ -555,19 +555,22 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
                                    parent = styles['Heading2'],
                                    alignment = 1,
                                    spaceAfter = 20))
-    
+
         story.append(Paragraph('PyCANON: Check ANONymity properties', styles["main_title"]))
         story.append(Paragraph('Report', styles["main_title"]))
         story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
-        story.append(Paragraph(f'File (or pandas dataframe) name: {str(file_name)}', styles["JustifyRight11"]))
-        story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}', styles["JustifyRight11"]))
-        story.append(Paragraph(f'Sensitive attribute(s): {sens_att}', styles["JustifyRight11"]))
+        story.append(Paragraph(f'File (or pandas dataframe) name: {str(file_name)}',
+            styles["JustifyRight11"]))
+        story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}',
+            styles["JustifyRight11"]))
+        story.append(Paragraph(f'Sensitive attribute(s): {sens_att}',
+            styles["JustifyRight11"]))
         if len(sens_att) > 1:
-            story.append(Paragraph(f'Approach for more than one SA: {gen}', styles["JustifyRight11"]))
+            story.append(Paragraph(f'Approach for more than one SA: {gen}',
+                styles["JustifyRight11"]))
         story.append(Spacer(1, 20))
-
-        prop = [(Paragraph('Anonymity property', styles["JustifyRight11Bold"]), 
+        prop = [(Paragraph('Anonymity property', styles["JustifyRight11Bold"]),
         Paragraph('Value(s)', styles["JustifyRight11Bold"])),
         ('k-anonymity', f'k = {k_anon}'),
         ('(α,k)-anonymity', f'α = {alpha} and k = {k_anon}'),
@@ -579,10 +582,8 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
         ('t-closeness', f't = {t_clos}'),
         ('δ-disclosure privacy', f'δ = {delta_disc}')]
 
-        story.append(Table(prop, style=[('GRID', (0,0), (-1,-1), 1, colors.grey), 
+        story.append(Table(prop, style=[('GRID', (0,0), (-1,-1), 1, colors.grey),
                                         ('BACKGROUND',(0,0), (1, 0), colors.aliceblue)]))
         doc.build(story)
 
     return k_anon, alpha, l_div, entropy_l, c_div, basic_beta, enhanced_beta, delta_disc, t_clos
-
-        
