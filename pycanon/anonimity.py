@@ -25,7 +25,7 @@ delta-disclosure privacy.
 import numpy as np
 import pandas as pd
 
-from pycanon.aux_functions import *
+from pycanon import aux_functions as utils
 
 
 def calculate_k(file_name, quasi_ident):
@@ -46,10 +46,10 @@ def calculate_k(file_name, quasi_ident):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
 
-    equiv_class = get_equiv_class(data, quasi_ident)
+    equiv_class = utils.get_equiv_class(data, quasi_ident)
     k_anon = min([len(x) for x in equiv_class])
     return k_anon
 
@@ -78,32 +78,32 @@ def calculate_l(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
 
-    equiv_class = get_equiv_class(data, quasi_ident)
+    equiv_class = utils.get_equiv_class(data, quasi_ident)
     l_div = []
     if gen:
         for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
+            data_temp = data.iloc[utils.convert(ec)]
             l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
             l_div.append(min(l_sa))
     else:
         for i, sa in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            equiv_class = get_equiv_class(data, tmp_qi)
+            equiv_class = utils.get_equiv_class(data, tmp_qi)
             l_ec = []
             for ec in equiv_class:
-                data_temp = data.iloc[convert(ec)]
+                data_temp = data.iloc[utils.convert(ec)]
                 l_ec.append(len(np.unique(data_temp[sa].values)))
             l_div.append(min(l_ec))
     return min(l_div)
 
 
 def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
-    """Given l, transform the dataset into a new one checking l-diversity for the new l, only
-    using suppression.
+    """Given l, transform the dataset into a new one checking l-diversity for
+    the new l, only using suppression.
 
     Parameter file_name: name of the file with the data under study.
     Precondition: file_name must have csv, xlsx, sav or txt extension.
@@ -125,18 +125,18 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
-    equiv_class = get_equiv_class(data, quasi_ident)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
+    equiv_class = utils.get_equiv_class(data, quasi_ident)
     l_ec = []
     for ec in equiv_class:
-        data_temp = data.iloc[convert(ec)]
+        data_temp = data.iloc[utils.convert(ec)]
         l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
         l_ec.append(min(l_sa))
     data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
     data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
-    ec_elim = np.concatenate([convert(x)
+    ec_elim = np.concatenate([utils.convert(x)
                              for x in data_ec_l.equiv_class.values])
     data_new = data.drop(ec_elim).reset_index()
     data_new.drop('index', inplace=True, axis=1)
@@ -167,15 +167,15 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
 
     if gen:
-        equiv_class = get_equiv_class(data, quasi_ident)
+        equiv_class = utils.get_equiv_class(data, quasi_ident)
         entropy_ec = []
         for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
+            data_temp = data.iloc[utils.convert(ec)]
             entropy_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
@@ -189,10 +189,10 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
         entropy_sa = []
         for i, sa in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            equiv_class = get_equiv_class(data, tmp_qi)
+            equiv_class = utils.get_equiv_class(data, tmp_qi)
             entropy_ec = []
             for ec in equiv_class:
-                data_temp = data.iloc[convert(ec)]
+                data_temp = data.iloc[utils.convert(ec)]
                 entropy = 0
                 for s in np.unique(data_temp[sa].values):
                     p = len(data_temp[data_temp[sa] == s])/len(data_temp)
@@ -230,31 +230,35 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp=0, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     l_div = calculate_l(file_name, quasi_ident, sens_att)
     if l_div > 1:
         c_div = []
         if gen:
-            equiv_class = get_equiv_class(data, quasi_ident)
+            equiv_class = utils.get_equiv_class(data, quasi_ident)
             for sens_att_value in sens_att:
                 c_sa = []
                 for ec in equiv_class:
-                    data_temp = data.iloc[convert(ec)]
+                    data_temp = data.iloc[utils.convert(ec)]
                     values = np.unique(data_temp[sens_att_value].values)
                     r_ec = np.sort(
-                        [len(data_temp[data_temp[sens_att_value] == s]) for s in values])
+                        [
+                            len(data_temp[data_temp[sens_att_value] == s])
+                            for s in values
+                        ]
+                    )
                     c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
                 c_div.append(int(max(c_sa)))
             c_div = max(c_div)
         else:
             for i, sa in enumerate(sens_att):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                equiv_class = get_equiv_class(data, tmp_qi)
+                equiv_class = utils.get_equiv_class(data, tmp_qi)
                 c_sa = []
                 for ec in equiv_class:
-                    data_temp = data.iloc[convert(ec)]
+                    data_temp = data.iloc[utils.convert(ec)]
                     values = np.unique(data_temp[sa].values)
                     r_ec = np.sort([len(data_temp[data_temp[sa] == s])
                                    for s in values])
@@ -292,15 +296,15 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     k_anon = calculate_k(data, quasi_ident)
-    equiv_class = get_equiv_class(data, quasi_ident)
+    equiv_class = utils.get_equiv_class(data, quasi_ident)
     if gen:
         alpha_ec = []
         for ec in equiv_class:
-            data_temp = data.iloc[convert(ec)]
+            data_temp = data.iloc[utils.convert(ec)]
             alpha_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
@@ -313,10 +317,10 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
         alpha_sa = []
         for i, sa in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            equiv_class = get_equiv_class(data, tmp_qi)
+            equiv_class = utils.get_equiv_class(data, tmp_qi)
             alpha_ec = []
             for ec in equiv_class:
-                data_temp = data.iloc[convert(ec)]
+                data_temp = data.iloc[utils.convert(ec)]
                 values = np.unique(data_temp[sa].values)
                 _alpha = [len(data_temp[data_temp[sa] == s]) /
                           len(data_temp) for s in values]
@@ -350,18 +354,20 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     beta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            _, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
+            _, dist = utils.aux_calculate_beta(data,
+                                               quasi_ident,
+                                               sens_att_value)
             beta_sens_att.append(max(dist))
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            _, dist = aux_calculate_beta(data, tmp_qi, sens_att_value)
+            _, dist = utils.aux_calculate_beta(data, tmp_qi, sens_att_value)
             beta_sens_att.append(max(dist))
     beta = max(beta_sens_att)
     return beta
@@ -391,19 +397,21 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     beta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            p, dist = aux_calculate_beta(data, quasi_ident, sens_att_value)
+            p, dist = utils.aux_calculate_beta(data,
+                                               quasi_ident,
+                                               sens_att_value)
             min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
             beta_sens_att.append(max(min_beta_lnp))
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            p, dist = aux_calculate_beta(data, tmp_qi, sens_att_value)
+            p, dist = utils.aux_calculate_beta(data, tmp_qi, sens_att_value)
             min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
             beta_sens_att.append(max(min_beta_lnp))
     beta = max(beta_sens_att)
@@ -434,19 +442,21 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     delta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            aux = aux_calculate_delta_disclosure(
+            aux = utils.aux_calculate_delta_disclosure(
                 data, quasi_ident, sens_att_value)
             delta_sens_att.append(max(aux))
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            aux = aux_calculate_delta_disclosure(data, tmp_qi, sens_att_value)
+            aux = utils.aux_calculate_delta_disclosure(data,
+                                                       tmp_qi,
+                                                       sens_att_value)
             delta_sens_att.append(max(aux))
     delta = max(delta_sens_att)
     return delta
@@ -476,17 +486,17 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
     if isinstance(file_name, pd.DataFrame):
         data = file_name
     else:
-        data = read_file(file_name)
-    check_qi(data, quasi_ident)
-    check_sa(data, sens_att)
+        data = utils.read_file(file_name)
+    utils.check_qi(data, quasi_ident)
+    utils.check_sa(data, sens_att)
     t_sens_att = []
     if gen:
         for sens_att_value in sens_att:
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_t_closeness_num(
+                t_sens_att.append(utils.aux_t_closeness_num(
                     data, quasi_ident, sens_att_value))
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_t_closeness_str(
+                t_sens_att.append(utils.aux_t_closeness_str(
                     data, quasi_ident, sens_att_value))
             else:
                 raise ValueError('Error, invalid sens_att value type')
@@ -494,11 +504,11 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
         for i, sens_att_value in enumerate(sens_att):
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_t_closeness_num(
+                t_sens_att.append(utils.aux_t_closeness_num(
                     data, tmp_qi, sens_att_value))
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_t_closeness_str(
+                t_sens_att.append(utils.aux_t_closeness_str(
                     data, tmp_qi, sens_att_value))
             else:
                 raise ValueError('Error, invalid sens_att value type')

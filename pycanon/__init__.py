@@ -14,6 +14,4 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from pycanon import test_anonymity
-
 __version__ = '0.0.1'

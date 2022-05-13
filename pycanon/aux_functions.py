@@ -23,6 +23,7 @@ delta-disclosure privacy.
 """
 
 import os
+
 import numpy as np
 import pandas as pd
 
@@ -60,8 +61,10 @@ def check_qi(data, quasi_ident):
     err_val = [i for i, v in enumerate(
         [qi in cols for qi in quasi_ident]) if v is False]
     if len(err_val) > 0:
-        raise ValueError(f'''Values not defined: {[quasi_ident[i] for i in err_val]}.
-                          Cannot be quasi-identifiers''')
+        raise ValueError(
+            f'Values not defined: {[quasi_ident[i] for i in err_val]}. '
+            'Cannot be quasi-identifiers'
+        )
 
 
 def check_sa(data, sens_att):
@@ -78,8 +81,9 @@ def check_sa(data, sens_att):
     err_val = [i for i, v in enumerate(
         [sa in cols for sa in sens_att]) if v is False]
     if len(err_val) > 0:
-        raise ValueError(f'''Values not defined: {[sens_att[i] for i in err_val]}.
-                          Cannot be sensitive attributes''')
+        raise ValueError(
+            f'Values not defined: {[sens_att[i] for i in err_val]}. '
+            'Cannot be sensitive attributes')
 
 
 def get_equiv_class(data, quasi_ident):
@@ -110,7 +114,8 @@ def intersect(tmp):
     """Intersect two sets: the first and the second of the given list.
 
     Parameter tmp: list of numpy arrays.
-    Precondition: tmp is a list of sets sorted in decreasing order of cardinality.
+    Precondition: tmp is a list of sets sorted in decreasing order of
+    cardinality.
     """
     i, j = 0, 0
     tmp_new = []
@@ -138,7 +143,7 @@ def convert(set_):
 
 
 def aux_calculate_beta(data, quasi_ident, sens_att_value):
-    """Auxiliary function for beta calculation for basic and enhanced beta-likeness.
+    """Beta calculation for basic and enhanced beta-likeness.
 
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
@@ -159,14 +164,18 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array(
-            [len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+            [
+                len(data_temp[data_temp[sens_att_value] == s]) / len(ec)
+                for s in values
+            ]
+        )
         q.append(qi)
     dist = [max((q[i]-p)/p) for i in range(len(equiv_class))]
     return p, dist
 
 
 def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
-    """Auxiliary function for delta calculation for delta-disclousure privacy.
+    """Delta calculation for delta-disclousure privacy.
 
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
@@ -191,15 +200,20 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array(
-            [len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+            [
+                len(data_temp[data_temp[sens_att_value] == s]) / len(ec)
+                for s in values
+            ]
+        )
         q.append(qi)
     aux = [max([np.abs(np.log(x)) for x in qi/p if x > 0]) for qi in q]
     return aux
 
 
 def aux_t_closeness_num(data, quasi_ident, sens_att_value):
-    """Auxiliary function for t calculation for t-closeness. Function used for numerical
-    attributes: the definition of the EMD is used.
+    """t calculation for t-closeness.
+
+    Function used for numerical attributes: the definition of the EMD is used.
 
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
@@ -221,7 +235,11 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array(
-            [len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+            [
+                len(data_temp[data_temp[sens_att_value] == s]) / len(ec)
+                for s in values
+            ]
+        )
         r = qi - p
         abs_r, emd_ec = 0, 0
         for i in range(m):
@@ -233,8 +251,10 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
 
 
 def aux_t_closeness_str(data, quasi_ident, sens_att_value):
-    """Auxiliary function for t calculation for t-closeness. Function used for categorical
-    attributes: the metric "Equal Distance" is used.
+    """t calculation for t-closeness.
+
+    Function used for categorical attributes: the metric "Equal Distance" is
+    used.
 
     Parameter data: dataframe with the data under study.
     Precondition: data is a pandas dataframe.
@@ -256,7 +276,11 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     for ec in equiv_class:
         data_temp = data.iloc[convert(ec)]
         qi = np.array(
-            [len(data_temp[data_temp[sens_att_value] == s])/len(ec) for s in values])
+            [
+                len(data_temp[data_temp[sens_att_value] == s]) / len(ec)
+                for s in values
+            ]
+        )
         r = qi - p
         emd_ec = 0
         for i in range(m):

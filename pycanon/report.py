@@ -51,25 +51,44 @@ def get_anon_report(file_name,
     SA, if False, the set of QI is updated for each SA.
     Precondition: gen = True (default) or gen = False.
 
-    Parameter imp: boolean, level of impresion. If imp = True the report is displayed
-    on the command line.
+    Parameter imp: boolean, level of impresion. If imp = True the report is
+    displayed on the command line.
     Precondition: imp = True (default) or imp = False.
 
-    Parameter file_pdf: string with name of the pdf file with the report. False if just want
-    to view the report by command line, without saving to a pdf.
-    Precondition: file_pdf is a string (with extension .pdf) of is False (boolean).
+    Parameter file_pdf: string with name of the pdf file with the report. False
+    if just want to view the report by command line, without saving to a pdf.
+    Precondition: file_pdf is a string (with extension .pdf) of is False
+    (boolean).
     """
     data = utils.read_file(file_name)
 
-    k_anon = anonimity.calculate_k(data, quasi_ident)
-    alpha, _ = anonimity.calculate_alpha_k(data, quasi_ident, sens_att, gen)
-    l_div = anonimity.calculate_l(data, quasi_ident, sens_att, gen)
-    entropy_l = anonimity.calculate_entropy_l(data, quasi_ident, sens_att, gen)
-    c_div, _ = anonimity.calculate_c_l_diversity(data, quasi_ident, sens_att, gen)
-    basic_beta = anonimity.calculate_basic_beta(data, quasi_ident, sens_att, gen)
-    enhanced_beta = anonimity.calculate_enhanced_beta(data, quasi_ident, sens_att, gen)
-    delta_disc = anonimity.calculate_delta_disclosure(data, quasi_ident, sens_att, gen)
-    t_clos = anonimity.calculate_t_closeness(data, quasi_ident, sens_att, gen)
+    k_anon = anonimity.calculate_k(
+        data, quasi_ident
+    )
+    alpha, _ = anonimity.calculate_alpha_k(
+        data, quasi_ident, sens_att, gen
+    )
+    l_div = anonimity.calculate_l(
+        data, quasi_ident, sens_att, gen
+    )
+    entropy_l = anonimity.calculate_entropy_l(
+        data, quasi_ident, sens_att, gen
+    )
+    c_div, _ = anonimity.calculate_c_l_diversity(
+        data, quasi_ident, sens_att, gen
+    )
+    basic_beta = anonimity.calculate_basic_beta(
+        data, quasi_ident, sens_att, gen
+    )
+    enhanced_beta = anonimity.calculate_enhanced_beta(
+        data, quasi_ident, sens_att, gen
+    )
+    delta_disc = anonimity.calculate_delta_disclosure(
+        data, quasi_ident, sens_att, gen
+    )
+    t_clos = anonimity.calculate_t_closeness(
+        data, quasi_ident, sens_att, gen
+    )
 
     if imp:
         print(f'''File: {file_name}. The dataset verifies:
@@ -119,12 +138,16 @@ def get_anon_report(file_name,
                                   spaceAfter=20))
 
         story.append(
-            Paragraph('PyCANON: Check ANONymity properties', styles["main_title"]))
+            Paragraph('PyCANON: Check ANONymity properties',
+                      styles["main_title"])
+        )
         story.append(Paragraph('Report', styles["main_title"]))
         story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
-        story.append(Paragraph(f'File (or pandas dataframe) name: {str(file_name)}',
-                               styles["JustifyRight11"]))
+        story.append(Paragraph(
+            f'File (or pandas dataframe) name: {str(file_name)}',
+            styles["JustifyRight11"])
+        )
         story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}',
                                styles["JustifyRight11"]))
         story.append(Paragraph(f'Sensitive attribute(s): {sens_att}',
@@ -145,8 +168,12 @@ def get_anon_report(file_name,
                 ('t-closeness', f't = {t_clos}'),
                 ('δ-disclosure privacy', f'δ = {delta_disc}')]
 
-        story.append(Table(prop, style=[('GRID', (0, 0), (-1, -1), 1, colors.grey),
-                                        ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)]))
+        story.append(
+            Table(prop,
+                  style=[('GRID', (0, 0), (-1, -1), 1, colors.grey),
+                         ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)])
+        )
         doc.build(story)
 
-    return k_anon, alpha, l_div, entropy_l, c_div, basic_beta, enhanced_beta, delta_disc, t_clos
+    return (k_anon, alpha, l_div, entropy_l, c_div, basic_beta,
+            enhanced_beta, delta_disc, t_clos)
