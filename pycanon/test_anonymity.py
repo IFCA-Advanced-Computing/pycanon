@@ -3,6 +3,7 @@ k-anonymity, (alpha,k)-anonymity, l-diversity, entropy l-diversity, (c,l)-divers
 basic beta-likeness, enhanced beta-likeness, t-closeness and delta-disclosure privacy."""
 
 import os
+import json
 from datetime import datetime
 import numpy as np
 import pandas as pd
@@ -471,7 +472,7 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen = True):
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
 
-def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, file_pdf = False):
+def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, file_pdf = False, file_json = False):
     """Report with the parameters obtained for each anonymity prperty under study.
 
     Parameter file_name: name of the file with the data under study.
@@ -585,5 +586,23 @@ def get_anon_report(file_name, quasi_ident, sens_att, gen = True, imp = True, fi
         story.append(Table(prop, style=[('GRID', (0,0), (-1,-1), 1, colors.grey),
                                         ('BACKGROUND',(0,0), (1, 0), colors.aliceblue)]))
         doc.build(story)
+
+    if file_json is not False:
+        json_data = {}
+        json_data['data'] = {'file': file_name, 
+                        'quasi-identifiers': quasi_ident,
+                        'sensitive attributes': sens_att}
+        json_data['k_anonymity'] = {'k': k_anon}
+        json_data['alpha_k_anonymity'] = {'alpha': alpha, 'k': k_anon}
+        json_data['l_diversity'] = {'l': l_div}
+        json_data['entropy_l_diversity'] = {'l': entropy_l}
+        json_data['recursive_c_l_diversity'] = {'c': c_div, 'l': l_div}
+        json_data['basic_beta_likeness'] = {'beta': basic_beta}
+        json_data['enhanced_beta_likeness'] = {'beta': enhanced_beta}
+        json_data['t_closeness'] = {'t': t_clos}
+        json_data['delta_disclosure'] = {'delta': delta_disc}
+
+        with open(file_json, 'w') as f:
+            json.dump(json_data, f, indent = 4)
 
     return k_anon, alpha, l_div, entropy_l, c_div, basic_beta, enhanced_beta, delta_disc, t_clos
