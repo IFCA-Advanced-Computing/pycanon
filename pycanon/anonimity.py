@@ -513,3 +513,4 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
             else:
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
+
