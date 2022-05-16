@@ -23,7 +23,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus.tables import Table
 from reportlab.lib import colors
 
-from pycanon import anonimity
+from pycanon import anonymity
 from pycanon import aux_functions as utils
 
 
@@ -32,7 +32,8 @@ def get_anon_report(file_name,
                     sens_att,
                     gen=True,
                     imp=True,
-                    file_pdf=False):
+                    file_pdf=False,
+                    file_json = False):
     """Generate a report with the parameters obtained for each anonymity check.
 
     Parameter file_name: name of the file with the data under study.
@@ -59,34 +60,38 @@ def get_anon_report(file_name,
     if just want to view the report by command line, without saving to a pdf.
     Precondition: file_pdf is a string (with extension .pdf) of is False
     (boolean).
+    
+    Parameter file_pdf: string with name of the pdf file with the report. False if just want
+    to view the report by command line, without saving to a pdf.
+    Precondition: file_pdf is a string (with extension .pdf) of is False (boolean).
     """
     data = utils.read_file(file_name)
 
-    k_anon = anonimity.calculate_k(
+    k_anon = anonymity.calculate_k(
         data, quasi_ident
     )
-    alpha, _ = anonimity.calculate_alpha_k(
+    alpha, _ = anonymity.calculate_alpha_k(
         data, quasi_ident, sens_att, gen
     )
-    l_div = anonimity.calculate_l(
+    l_div = anonymity.calculate_l(
         data, quasi_ident, sens_att, gen
     )
-    entropy_l = anonimity.calculate_entropy_l(
+    entropy_l = anonymity.calculate_entropy_l(
         data, quasi_ident, sens_att, gen
     )
-    c_div, _ = anonimity.calculate_c_l_diversity(
+    c_div, _ = anonymity.calculate_c_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    basic_beta = anonimity.calculate_basic_beta(
+    basic_beta = anonymity.calculate_basic_beta(
         data, quasi_ident, sens_att, gen
     )
-    enhanced_beta = anonimity.calculate_enhanced_beta(
+    enhanced_beta = anonymity.calculate_enhanced_beta(
         data, quasi_ident, sens_att, gen
     )
-    delta_disc = anonimity.calculate_delta_disclosure(
+    delta_disc = anonymity.calculate_delta_disclosure(
         data, quasi_ident, sens_att, gen
     )
-    t_clos = anonimity.calculate_t_closeness(
+    t_clos = anonymity.calculate_t_closeness(
         data, quasi_ident, sens_att, gen
     )
 
@@ -174,6 +179,24 @@ def get_anon_report(file_name,
                          ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)])
         )
         doc.build(story)
+        
+    if file_json is not False:
+        json_data = {}
+        json_data['data'] = {'file': file_name, 
+                        'quasi-identifiers': quasi_ident,
+                        'sensitive attributes': sens_att}
+        json_data['k_anonymity'] = {'k': k_anon}
+        json_data['alpha_k_anonymity'] = {'alpha': alpha, 'k': k_anon}
+        json_data['l_diversity'] = {'l': l_div}
+        json_data['entropy_l_diversity'] = {'l': entropy_l}
+        json_data['recursive_c_l_diversity'] = {'c': c_div, 'l': l_div}
+        json_data['basic_beta_likeness'] = {'beta': basic_beta}
+        json_data['enhanced_beta_likeness'] = {'beta': enhanced_beta}
+        json_data['t_closeness'] = {'t': t_clos}
+        json_data['delta_disclosure'] = {'delta': delta_disc}
+
+        with open(file_json, 'w') as f:
+            json.dump(json_data, f, indent = 4)
 
     return (k_anon, alpha, l_div, entropy_l, c_div, basic_beta,
             enhanced_beta, delta_disc, t_clos)
