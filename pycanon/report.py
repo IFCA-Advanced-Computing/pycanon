@@ -15,6 +15,7 @@
 # under the License.
 
 from datetime import datetime
+import json
 import os
 
 from reportlab.lib.pagesizes import A4
@@ -33,7 +34,7 @@ def get_anon_report(file_name,
                     gen=True,
                     imp=True,
                     file_pdf=False,
-                    file_json = False):
+                    file_json=False):
     """Generate a report with the parameters obtained for each anonymity check.
 
     Parameter file_name: name of the file with the data under study.
@@ -60,10 +61,11 @@ def get_anon_report(file_name,
     if just want to view the report by command line, without saving to a pdf.
     Precondition: file_pdf is a string (with extension .pdf) of is False
     (boolean).
-    
-    Parameter file_pdf: string with name of the pdf file with the report. False if just want
-    to view the report by command line, without saving to a pdf.
-    Precondition: file_pdf is a string (with extension .pdf) of is False (boolean).
+
+    Parameter file_pdf: string with name of the pdf file with the report. False
+    if just want to view the report by command line, without saving to a pdf.
+    Precondition: file_pdf is a string (with extension .pdf) of is False
+    (boolean).
     """
     data = utils.read_file(file_name)
 
@@ -179,12 +181,14 @@ def get_anon_report(file_name,
                          ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)])
         )
         doc.build(story)
-        
+
     if file_json is not False:
         json_data = {}
-        json_data['data'] = {'file': file_name, 
-                        'quasi-identifiers': quasi_ident,
-                        'sensitive attributes': sens_att}
+        json_data['data'] = {
+            'file': file_name,
+            'quasi-identifiers': quasi_ident,
+            'sensitive attributes': sens_att
+        }
         json_data['k_anonymity'] = {'k': k_anon}
         json_data['alpha_k_anonymity'] = {'alpha': alpha, 'k': k_anon}
         json_data['l_diversity'] = {'l': l_div}
@@ -196,7 +200,7 @@ def get_anon_report(file_name,
         json_data['delta_disclosure'] = {'delta': delta_disc}
 
         with open(file_json, 'w') as f:
-            json.dump(json_data, f, indent = 4)
+            json.dump(json_data, f, indent=4)
 
     return (k_anon, alpha, l_div, entropy_l, c_div, basic_beta,
             enhanced_beta, delta_disc, t_clos)
