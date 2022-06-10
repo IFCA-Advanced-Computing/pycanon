@@ -133,11 +133,11 @@ def intersect(tmp):
     return tmp
 
 
-def convert(set_):
-    """Converts a set to a list.
+def convert(ec_set):
+    """Converts a set with an equivalence class to a list.
 
-    Parameter set_: set which will be aconvert into a list.
-    Precondition: set_ is a set.
+    Parameter ec_set: set which will be convert into a list.
+    Precondition: ec_set is a set.
     """
     return [*set_, ]
 
