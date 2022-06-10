@@ -2,20 +2,20 @@
 
 import numpy as np
 import pandas as pd
-from pycanon import test_anonymity
+from pycanon import anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
     df = pd.read_csv(file_name)
-    k_anon = test_anonymity.calculate_k(df, quasi_ident)
-    l_div = test_anonymity.calculate_l(df, quasi_ident, sens_att)
-    entropy_l = test_anonymity.calculate_entropy_l(df, quasi_ident, sens_att)
-    alpha, _ = test_anonymity.calculate_alpha_k(df, quasi_ident, sens_att)
-    basic_beta = test_anonymity.calculate_basic_beta(df, quasi_ident, sens_att)
-    enhanced_beta = test_anonymity.calculate_enhanced_beta(df, quasi_ident, sens_att)
-    delta_disclosure = test_anonymity.calculate_delta_disclosure(df, quasi_ident, sens_att)
-    t_clos = test_anonymity.calculate_t_closeness(df, quasi_ident, sens_att)
-    c_div, _ = test_anonymity.calculate_c_l_diversity(df, quasi_ident, sens_att)
+    k_anon = anonymity.calculate_k(df, quasi_ident)
+    l_div = anonymity.calculate_l(df, quasi_ident, sens_att)
+    entropy_l = anonymity.calculate_entropy_l(df, quasi_ident, sens_att)
+    alpha, _ = anonymity.calculate_alpha_k(df, quasi_ident, sens_att)
+    basic_beta = anonymity.calculate_basic_beta(df, quasi_ident, sens_att)
+    enhanced_beta = anonymity.calculate_enhanced_beta(df, quasi_ident, sens_att)
+    delta_disclosure = anonymity.calculate_delta_disclosure(df, quasi_ident, sens_att)
+    t_clos = anonymity.calculate_t_closeness(df, quasi_ident, sens_att)
+    c_div, _ = anonymity.calculate_c_l_diversity(df, quasi_ident, sens_att)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
@@ -31,14 +31,14 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
-    data = test_anonymity.read_file(file_name)
+    data = anonymity.read_file(file_name)
     max_l = []
     for sa_value in sens_att:
         max_l.append(len(np.unique(data[sa_value].values)))
     max_l = min(max_l)
 
     assert l_new <= max_l, f'Error, the maximum value for l is {max_l}'
-    df_new = test_anonymity.achieve_l_diversity(file_name, quasi_ident, sens_att, l_new)
+    df_new = anonymity.achieve_l_diversity(file_name, quasi_ident, sens_att, l_new)
     if len(df_new) > l_new:
         df_new.to_csv(new_file_name, index = False)
         print(f'Dataset veryfying l-diversity with l = {l_new} saved in: {new_file_name}.\n')

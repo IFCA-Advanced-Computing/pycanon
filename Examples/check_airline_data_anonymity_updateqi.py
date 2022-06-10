@@ -1,19 +1,19 @@
 """Example using the airline passenger satisfaction dataset."""
 
 import numpy as np
-from pycanon import test_anonymity
+from pycanon import anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att):
     """Function for check all the anonymity techniques under study."""
-    k_anon = test_anonymity.calculate_k(file_name, quasi_ident)
-    l_div = test_anonymity.calculate_l(file_name, quasi_ident, sens_att, gen = False)
-    entropy_l = test_anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att, gen = False)
-    alpha, _ = test_anonymity.calculate_alpha_k(file_name, quasi_ident, sens_att, gen = False)
-    basic_beta = test_anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att, gen = False)
-    enhanced_beta = test_anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = False)
-    delta_disclosure = test_anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = False)
-    t_clos = test_anonymity.calculate_t_closeness(file_name, quasi_ident, sens_att, gen = False)
-    c_div, _ = test_anonymity.calculate_c_l_diversity(file_name, quasi_ident, sens_att, gen = False)
+    k_anon = anonymity.calculate_k(file_name, quasi_ident)
+    l_div = anonymity.calculate_l(file_name, quasi_ident, sens_att, gen = False)
+    entropy_l = anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att, gen = False)
+    alpha, _ = anonymity.calculate_alpha_k(file_name, quasi_ident, sens_att, gen = False)
+    basic_beta = anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att, gen = False)
+    enhanced_beta = anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen = False)
+    delta_disclosure = anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen = False)
+    t_clos = anonymity.calculate_t_closeness(file_name, quasi_ident, sens_att, gen = False)
+    c_div, _ = anonymity.calculate_c_l_diversity(file_name, quasi_ident, sens_att, gen = False)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}

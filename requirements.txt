@@ -3,7 +3,6 @@ dill==0.3.4
 isort==5.10.1
 lazy-object-proxy==1.7.1
 llvmlite==0.38.0
-mccabe==0.7.0
 numpy==1.21.6
 pandas==1.4.2
 Pillow==9.1.0

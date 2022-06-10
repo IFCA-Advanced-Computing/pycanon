@@ -30,7 +30,7 @@ _Example:_ To find the value of _k_ for the k-anonymity condition of a file _dat
 k = test_anonymity.calculate_k('data.csv', QI)
 ```
 
-## Description 
+## Description
 
 Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
 - [x] _**k-anonymity:**_
@@ -69,7 +69,7 @@ Check if the following privacy-preserving techniques are verified and the value 
 
 The function _get_anon_report_ can be used to obtain a report (either by saving it to pdf, displaying it on screen, or both) with the parameters for which each of the above techniques is checked.
 
-**Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed. 
+**Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed.
 
 ## Multiple sensitive attributes
 
