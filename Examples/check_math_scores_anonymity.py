@@ -2,6 +2,7 @@
 
 import numpy as np
 from pycanon import anonymity
+from pycanon import aux_functions
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
@@ -29,7 +30,7 @@ def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     else:
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
-    data = anonymity.read_file(file_name)
+    data = aux_functions.read_file(file_name)
     max_l = []
     for sa_value in sens_att:
         max_l.append(len(np.unique(data[sa_value].values)))

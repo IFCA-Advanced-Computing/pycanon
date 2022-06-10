@@ -181,7 +181,7 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
                 values = np.unique(data_temp[sa].values)
                 p = [len(data_temp[data_temp[sa] == s])/len(data_temp)
                      for s in values]
-                entropy = np.sum(p*np.log(p))
+                entropy = np.sum(p * np.log(p))
                 entropy_sa.append(-entropy)
             entropy_ec.append(min(entropy_sa))
         ent_l = int(min(np.exp(1)**entropy_ec))
@@ -513,4 +513,3 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
             else:
                 raise ValueError('Error, invalid sens_att value type')
     return max(t_sens_att)
-
