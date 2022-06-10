@@ -9,7 +9,8 @@ Welcome to pycanon's documentation!
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
-
+   
+   intro
    modules
 
 
