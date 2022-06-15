@@ -31,8 +31,11 @@ import pandas as pd
 def read_file(file_name):
     """Read the given file. Returns a pandas dataframe.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension.
+    
+    :return: dataframe with the data.
+    :rtype: pandas dataframe.
     """
     _, file_extension = os.path.splitext(file_name)
     if file_extension in ['.csv', '.xlsx', '.sav', '.txt']:
@@ -48,14 +51,14 @@ def read_file(file_name):
 
 
 def check_qi(data, quasi_ident):
-    """"Checks if the entered quasi-identifiers are valid.
+    """Checks if the entered quasi-identifiers are valid.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
     """
     cols = data.columns
     err_val = [i for i, v in enumerate(
@@ -68,14 +71,14 @@ def check_qi(data, quasi_ident):
 
 
 def check_sa(data, sens_att):
-    """"Checks if the entered sensitive attributes are valid.
+    """Checks if the entered sensitive attributes are valid.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: is a list of strings.
     """
     cols = data.columns
     err_val = [i for i, v in enumerate(
@@ -87,14 +90,14 @@ def check_sa(data, sens_att):
 
 
 def get_equiv_class(data, quasi_ident):
-    """"Find the equivalence classes present in the dataset.
+    """Find the equivalence classes present in the dataset.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: is a list of strings
     """
     index = []
     for qi in quasi_ident:
@@ -113,9 +116,9 @@ def get_equiv_class(data, quasi_ident):
 def intersect(tmp):
     """Intersect two sets: the first and the second of the given list.
 
-    Parameter tmp: list of numpy arrays.
-    Precondition: tmp is a list of sets sorted in decreasing order of
-    cardinality.
+    :param tmp: list of sets sorted in decreasing order of
+        cardinality
+    :type tmp: list of numpy arrays.
     """
     i, j = 0, 0
     tmp_new = []
@@ -136,8 +139,8 @@ def intersect(tmp):
 def convert(ec_set):
     """Converts a set with an equivalence class to a list.
 
-    Parameter ec_set: set which will be convert into a list.
-    Precondition: ec_set is a set.
+    :param ec_set: set which will be convert into a list.
+    :type ec_set: set.
     """
     return [*set_, ]
 
@@ -145,16 +148,16 @@ def convert(ec_set):
 def aux_calculate_beta(data, quasi_ident, sens_att_value):
     """Beta calculation for basic and enhanced beta-likeness.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -177,20 +180,16 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
 def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     """Delta calculation for delta-disclousure privacy.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
-
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -215,16 +214,16 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
 
     Function used for numerical attributes: the definition of the EMD is used.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -256,16 +255,16 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     Function used for categorical attributes: the metric "Equal Distance" is
     used.
 
-    Parameter data: dataframe with the data under study.
-    Precondition: data is a pandas dataframe.
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)

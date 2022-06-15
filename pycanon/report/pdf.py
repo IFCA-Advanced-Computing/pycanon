@@ -26,30 +26,29 @@ from reportlab.lib import colors
 from pycanon.report import base
 
 
-def get_pdf_report(file_name, quasi_ident, sens_att, gen=True,
-                   file_pdf=False):
+def get_pdf_report(file_name, quasi_ident, sens_att, gen=True, 
+    file_pdf='report.pdf'):
     """Generate a report with the parameters obtained for each anonymity check.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study or pandas
+        dataframe.
+    :type file_name: string with csv, xlsx, sav or txt extension or
+        pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: is a list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: default to true. If true it is generalized for the case of 
+        multiple SA, if False, the set of QI is updated for each SA.
+    :type gen: boolean
 
-    Parameter file_pdf: string with name of the pdf file with the report. False
-    if just want to view the report by command line, without saving to a pdf.
-    Precondition: file_pdf is a string (with extension .pdf) of is False
-    (boolean).
+    :param file_pdf: name of the pdf file with the report. Default to 'report.pdf'
+    :type file_pdf: string with extension .pdf
     """
     (
         k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
