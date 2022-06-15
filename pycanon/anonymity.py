@@ -31,17 +31,16 @@ from pycanon import aux_functions as utils
 def calculate_k(file_name, quasi_ident):
     """Calculate k for k-anonymity.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :return: k value for k-anonymity.
+    :rtype: int.
     """
     if isinstance(file_name, pd.DataFrame):
         data = file_name
@@ -57,21 +56,24 @@ def calculate_k(file_name, quasi_ident):
 def calculate_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for l-diversity.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: l value for l-diversity.
+    :rtype: int.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -105,20 +107,23 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     """Given l, transform the dataset into a new one checking l-diversity for
     the new l, only using suppression.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter l_new: l value for l-diversity.
-    Precondition: l_new is an int.
+    :param l_new: l value for l-diversity.
+    :type l_new: int
+
+    :return: dataframe verifying l-diversity for l_new.
+    :rtype: pandas dataframe.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -146,21 +151,24 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
 def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for entropy l-diversity.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: l value for entropy l-diversity.
+    :rtype: float.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -206,24 +214,24 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
 def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp=0, gen=True):
     """Calculate c and l for recursive (c,l)-diversity.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter imp: impression level.
-    Precondition: imp is an int, imp = 1 if comments need to be displayed.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :return: c and l values for recursive (c,l)-diversity.
+    :rtype: c is a float, l is an int.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -275,21 +283,24 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp=0, gen=True):
 def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: alpha and k values for (alpha,k)-anonymity.
+    :rtype: alpha is a float, k is an int.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -333,21 +344,24 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
 def calculate_basic_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for basic beta-likeness.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: beta value for basic beta-likeness.
+    :rtype: float.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -376,21 +390,24 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen=True):
 def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for enhanced beta-likeness.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: beta value for enhanced beta-likeness.
+    :rtype: float.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -421,21 +438,24 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen=True):
 def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen=True):
     """Calculate delta for delta-disclousure privacy.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: delta value for delta-discloure privacy.
+    :rtype: float.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
@@ -465,21 +485,24 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen=True):
 def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
     """Calculate t for t-closeness.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study.
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+        dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: boolean, default to True. If true, it is generalized for the
+        case of multiple SA, if False, the set of QI is updated for each SA
+    :type  gen: boolean
+
+    :return: t value for basic t-closeness.
+    :rtype: float.
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)

@@ -21,21 +21,22 @@ from pycanon import aux_functions as utils
 def get_report_values(file_name, quasi_ident, sens_att, gen=True):
     """Generate a report with the parameters obtained for each anonymity check.
 
-    Parameter file_name: name of the file with the data under study.
-    Precondition: file_name must have csv, xlsx, sav or txt extension.
-    In can also be a pandas dataframe.
+    :param file_name: name of the file with the data under study or pandas
+        dataframe.
+    :type file_name: string with csv, xlsx, sav or txt extension or
+        pandas dataframe
 
-    Parameter quasi_ident: list with the name of the columns of the dataframe
-    that are quasi-identifiers.
-    Precondition: quasi_ident is a list of strings.
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
 
-    Parameter sens_att: list with the name of the columns of the dataframe
-    that are the sensitive attributes.
-    Precondition: sens_att is a list of strings.
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: is a list of strings
 
-    Parameter gen: boolean, if true, it is generalized for the case of multiple
-    SA, if False, the set of QI is updated for each SA.
-    Precondition: gen = True (default) or gen = False.
+    :param gen: default to true. If true it is generalized for the case of 
+        multiple SA, if False, the set of QI is updated for each SA.
+    :type gen: boolean
     """
     data = utils.read_file(file_name)
 
