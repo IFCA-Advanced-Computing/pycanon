@@ -32,7 +32,7 @@ def read_file(file_name):
     """Read the given file. Returns a pandas dataframe.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension.
+    :type file_name: string with csv, xlsx, sav or txt extension
     
     :return: dataframe with the data.
     :rtype: pandas dataframe.
@@ -78,7 +78,7 @@ def check_sa(data, sens_att):
 
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
-    :type sens_att: is a list of strings.
+    :type sens_att: is a list of strings
     """
     cols = data.columns
     err_val = [i for i, v in enumerate(
@@ -98,6 +98,9 @@ def get_equiv_class(data, quasi_ident):
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: is a list of strings
+
+    :return: equivalence classes. 
+    :rtype: list.
     """
     index = []
     for qi in quasi_ident:
@@ -118,7 +121,7 @@ def intersect(tmp):
 
     :param tmp: list of sets sorted in decreasing order of
         cardinality
-    :type tmp: list of numpy arrays.
+    :type tmp: list of numpy arrays
     """
     i, j = 0, 0
     tmp_new = []
@@ -140,7 +143,10 @@ def convert(ec_set):
     """Converts a set with an equivalence class to a list.
 
     :param ec_set: set which will be convert into a list.
-    :type ec_set: set.
+    :type ec_set: set
+
+    :return: equivalence class into a list. 
+    :rtype: list.
     """
     return [*set_, ]
 
@@ -158,6 +164,9 @@ def aux_calculate_beta(data, quasi_ident, sens_att_value):
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: list of strings
+
+    :return: beta for the introduced SA.
+    :rtype: float.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -190,6 +199,9 @@ def aux_calculate_delta_disclosure(data, quasi_ident, sens_att_value):
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: list of strings
+
+    :return: delta for the introduced SA.
+    :rtype: float.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -224,6 +236,9 @@ def aux_t_closeness_num(data, quasi_ident, sens_att_value):
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: list of strings
+
+    :return: t for the introduced SA (numerical).
+    :rtype: float.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
@@ -265,6 +280,9 @@ def aux_t_closeness_str(data, quasi_ident, sens_att_value):
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: list of strings
+
+    :return: t for the introduced SA (categorical).
+    :rtype: float.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
