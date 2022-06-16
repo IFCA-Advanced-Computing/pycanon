@@ -19,6 +19,7 @@ pycanon.anonymity module
    :members:
    :undoc-members:
    :show-inheritance:
+   :inherited-members:
 
 pycanon.aux\_functions module
 -----------------------------
@@ -27,11 +28,5 @@ pycanon.aux\_functions module
    :members:
    :undoc-members:
    :show-inheritance:
+   :inherited-members:
 
-Module contents
----------------
-
-.. automodule:: pycanon
-   :members:
-   :undoc-members:
-   :show-inheritance:
