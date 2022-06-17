@@ -32,7 +32,7 @@ def calculate_k(file_name, quasi_ident):
     """Calculate k for k-anonymity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -57,7 +57,7 @@ def calculate_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for l-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -108,7 +108,7 @@ def achieve_l_diversity(file_name, quasi_ident, sens_att, l_new):
     the new l, only using suppression.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -152,7 +152,7 @@ def calculate_entropy_l(file_name, quasi_ident, sens_att, gen=True):
     """Calculate l for entropy l-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -215,7 +215,7 @@ def calculate_c_l_diversity(file_name, quasi_ident, sens_att, imp=0, gen=True):
     """Calculate c and l for recursive (c,l)-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -284,7 +284,7 @@ def calculate_alpha_k(file_name, quasi_ident, sens_att, gen=True):
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -345,7 +345,7 @@ def calculate_basic_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for basic beta-likeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -391,7 +391,7 @@ def calculate_enhanced_beta(file_name, quasi_ident, sens_att, gen=True):
     """Calculate beta for enhanced beta-likeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -439,7 +439,7 @@ def calculate_delta_disclosure(file_name, quasi_ident, sens_att, gen=True):
     """Calculate delta for delta-disclousure privacy.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -486,7 +486,7 @@ def calculate_t_closeness(file_name, quasi_ident, sens_att, gen=True):
     """Calculate t for t-closeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe

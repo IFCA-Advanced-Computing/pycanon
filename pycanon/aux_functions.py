@@ -33,7 +33,7 @@ def read_file(file_name):
 
     :param file_name: name of the file with the data under study.
     :type file_name: string with csv, xlsx, sav or txt extension.
-    
+
     :return: dataframe with the data.
     :rtype: pandas dataframe.
     """
@@ -142,7 +142,7 @@ def convert(ec_set):
     :param ec_set: set which will be convert into a list.
     :type ec_set: set.
     """
-    return [*set_, ]
+    return [*ec_set, ]
 
 
 def aux_calculate_beta(data, quasi_ident, sens_att_value):

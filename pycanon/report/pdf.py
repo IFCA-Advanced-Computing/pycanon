@@ -26,8 +26,8 @@ from reportlab.lib import colors
 from pycanon.report import base
 
 
-def get_pdf_report(file_name, quasi_ident, sens_att, gen=True, 
-    file_pdf='report.pdf'):
+def get_pdf_report(file_name, quasi_ident, sens_att, gen=True,
+                   file_pdf='report.pdf'):
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas
@@ -43,11 +43,12 @@ def get_pdf_report(file_name, quasi_ident, sens_att, gen=True,
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
 
-    :param file_pdf: name of the pdf file with the report. Default to 'report.pdf'
+    :param file_pdf: name of the pdf file with the report. Default to
+        'report.pdf'
     :type file_pdf: string with extension .pdf
     """
     (
