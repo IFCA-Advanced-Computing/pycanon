@@ -1,73 +1,47 @@
-# **check-anonymity**
+# pyCANON
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE)
+
+pyCANON is a library and CLI to assess the values of the paramenters associated
+with the most common privacy-preserving techniques.
 
 **Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
 [[_TOC_]]
 
 ## Installation
-We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/latest/):
-```
-virtualenv venv -p python3
-```
-```
-source venv/bin/activate
-```
-Then run the following command to install the library and all its requirements:
-```
-pip install git+https://gitlab.ifca.es/sainzj/check-anonymity
-```
 
-#### Use example
-Once the library is installed just import it as follows:
-```python
-from pycanon import test_anonymity
-```
-_Example:_ To find the value of _k_ for the k-anonymity condition of a file _data.csv_ with quisi-identifiers _QI_, execute:
-```python
-k = test_anonymity.calculate_k('data.csv', QI)
-```
+We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/latest/):
+
+    virtualenv venv -p python3
+    source venv/bin/activate
+
+Then run the following command to install the library and all its requirements:
+
+    pip install pycanon
+
+## Usage
+
+TBD
 
 ## Description
 
-Check if the following privacy-preserving techniques are verified and the value of the parameters associated with each of them:
-- [x] _**k-anonymity:**_
-    - _k_: int
-    - **Function: calculate_k**
-- [x] _**(α, k)-anonymity:**_
-    - _α_: float
-    - _k_: int
-    - **Function: calculate_alpha_k**
-- [x] _**ℓ-diversity:**_
-    - _ℓ_: int
-    - **Function: calculate_l**
-    - The function _achive_l_diversity_ can be used in order to obtain a new pandas dataframe where the records needed in order to get _ℓ-diversity_ for a given value of _ℓ_ have been removed.
-- [x] _**Entropy ℓ-diversity:**_
-    - _ℓ_: int
-    - **Function: calculate_entropy_l**
-- [x] _**Recursive (c,ℓ)-diversity:**_
-    - Not calculated if ℓ=1. Note that, by definition: $` r_{1} < c(r_{l}+r_{l+1}+...+r_{m}) `$
-    - _c_: int
-    - _ℓ_: int
-    - **Function: calculate_c_l_diversity**
-- [x] _**Basic β-likeness:**_
-    - _β_: float
-    - **Function: calculate_basic_beta**
-- [x] _**Enhanced β-likeness:**_
-    - _β_: float
-    - **Function: calculate_enhanced_beta**
-- [x] _**t-closeness:**_
-    - For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.
-    - For categorical attributes, the metric "Equal Distance" is used.
-    - _t_: float
-    - **Function: calculate_t_closeness**
-- [x] _**δ-disclosure privacy:**_
-    - _δ_: float
-    - **Function: calculate_delta_disclosure**
+pyCANON allows to check if the following privacy-preserving techniques are
+verified and the value of the parameters associated with each of them:
 
-The function _get_anon_report_ can be used to obtain a report (either by saving it to pdf, displaying it on screen, or both) with the parameters for which each of the above techniques is checked.
+| Technique                   | pyCANON function           | Parameters          | Notes                                                                                                                                                                                      |
+|-----------------------------|----------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| k-anonymity                 | calculate_k                | _k_: int            |                                                                                                                                                                                            |
+| (α, k)-anonymity            | calculate_alpha_k          | _α_: float _k_: int |                                                                                                                                                                                            |
+| ℓ-diversity                 | calculate_l                | _ℓ_: int            | The function _achive_l_diversity_ can be used in order to obtain a new pandas dataframe where the records needed in order to get _ℓ-diversity_ for a given value of _ℓ_ have been removed. |
+| Entropy ℓ-diversity         | calculate_entropy_l        | _ℓ_: int            |                                                                                                                                                                                            |
+| Recursive (c,ℓ)-diversity   | calculate_c_l_diversity    | _c_: int _ℓ_: int   | Not calculated if ℓ=1. Note that, by definition: $` r_{1} < c(r_{l}+r_{l+1}+...+r_{m}) `$                                                                                                  |
+| Basic β-likeness            | calculate_basic_beta       | _β_: float          |                                                                                                                                                                                            |
+| Enhanced β-likeness         | calculate_enhanced_beta    | _β_: float          |                                                                                                                                                                                            |
+| t-closeness                 | calculate_t_closeness      | _t_: float          | For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.  For categorical attributes, the metric "Equal Distance" is used.                     |
+| _**δ-disclosure privacy:**_ | calculate_delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
+|-----------------------------|----------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 **Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed.
 
