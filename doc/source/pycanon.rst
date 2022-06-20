@@ -7,26 +7,13 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   pycanon.anonymity
    pycanon.report
 
-Submodules
-----------
+Module contents
+---------------
 
-pycanon.anonymity module
-------------------------
-
-.. automodule:: pycanon.anonymity
+.. automodule:: pycanon
    :members:
    :undoc-members:
    :show-inheritance:
-   :inherited-members:
-
-pycanon.aux\_functions module
------------------------------
-
-.. automodule:: pycanon.aux_functions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-

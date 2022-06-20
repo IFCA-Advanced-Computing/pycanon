@@ -12,6 +12,7 @@ Welcome to pycanon's documentation!
    
    intro
    modules
+   notes_warnings
 
 
 Indices and tables

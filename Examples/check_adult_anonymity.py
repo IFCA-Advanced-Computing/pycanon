@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-from pycanon import anonymity
+from pycanon.anonymity import anonymity
 
 def check_anonymity(file_name, quasi_ident, sens_att, l_new, new_file_name):
     """Function for check all the anonymity techniques under study."""
