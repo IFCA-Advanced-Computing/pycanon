@@ -14,8 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from pycanon import anonymity
-from pycanon import aux_functions as utils
+from pycanon.anonymity import check_anonymity
+from pycanon.anonymity.utils import aux_functions
 
 
 def get_report_values(file_name, quasi_ident, sens_att, gen=True):
@@ -38,33 +38,33 @@ def get_report_values(file_name, quasi_ident, sens_att, gen=True):
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
-    data = utils.read_file(file_name)
+    data = aux_functions.read_file(file_name)
 
-    k_anon = anonymity.calculate_k(
+    k_anon = check_anonymity.calculate_k(
         data, quasi_ident
     )
-    alpha, alpha_k = anonymity.calculate_alpha_k(
+    alpha, alpha_k = check_anonymity.calculate_alpha_k(
         data, quasi_ident, sens_att, gen
     )
-    l_div = anonymity.calculate_l(
+    l_div = check_anonymity.calculate_l(
         data, quasi_ident, sens_att, gen
     )
-    entropy_l = anonymity.calculate_entropy_l(
+    entropy_l = check_anonymity.calculate_entropy_l(
         data, quasi_ident, sens_att, gen
     )
-    c_div, l_c_div = anonymity.calculate_c_l_diversity(
+    c_div, l_c_div = check_anonymity.calculate_c_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    basic_beta = anonymity.calculate_basic_beta(
+    basic_beta = check_anonymity.calculate_basic_beta(
         data, quasi_ident, sens_att, gen
     )
-    enhanced_beta = anonymity.calculate_enhanced_beta(
+    enhanced_beta = check_anonymity.calculate_enhanced_beta(
         data, quasi_ident, sens_att, gen
     )
-    delta_disc = anonymity.calculate_delta_disclosure(
+    delta_disc = check_anonymity.calculate_delta_disclosure(
         data, quasi_ident, sens_att, gen
     )
-    t_clos = anonymity.calculate_t_closeness(
+    t_clos = check_anonymity.calculate_t_closeness(
         data, quasi_ident, sens_att, gen
     )
 

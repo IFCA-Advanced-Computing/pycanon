@@ -26,7 +26,7 @@ import os
 
 import numpy as np
 import pandas as pd
-import aux_functions
+from pycanon.anonymity.utils import aux_functions
 
 from typing import Tuple
 

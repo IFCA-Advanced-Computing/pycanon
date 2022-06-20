@@ -26,8 +26,8 @@ from reportlab.lib import colors
 from pycanon.report import base
 
 
-def get_pdf_report(file_name, quasi_ident, sens_att, gen=True, 
-    file_pdf='report.pdf'):
+def get_pdf_report(file_name: str, quasi_ident: list, sens_att: list, gen=True, 
+    file_pdf='report.pdf') -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas
