@@ -1,5 +1,6 @@
 
 import numpy as np
+import pytest
 
 from pycanon import anonymity
 
@@ -26,23 +27,31 @@ class TestMathScores:
         )
 
     def test_basic_beta(self):
-        assert 71.0 == anonymity.calculate_basic_beta(
-            self.file_name, self.qi, self.sa
+        assert 71.0 == pytest.approx(
+            anonymity.calculate_basic_beta(
+                self.file_name, self.qi, self.sa
+            )
         )
 
     def test_enhanced_beta(self):
-        assert 5.375278407684164 == anonymity.calculate_enhanced_beta(
-            self.file_name, self.qi, self.sa
+        assert 5.375278407684164 == pytest.approx(
+            anonymity.calculate_enhanced_beta(
+                self.file_name, self.qi, self.sa
+            )
         )
 
     def test_delta_disclosure(self):
-        assert 4.276666119016055 == anonymity.calculate_delta_disclosure(
-            self.file_name, self.qi, self.sa
+        assert 4.276666119016055 == pytest.approx(
+            anonymity.calculate_delta_disclosure(
+                self.file_name, self.qi, self.sa
+            )
         )
 
     def test_t_clos(self):
-        assert 0.4165919952210274 == anonymity.calculate_t_closeness(
-            self.file_name, self.qi, self.sa
+        assert 0.4165919952210274 == pytest.approx(
+            anonymity.calculate_t_closeness(
+                self.file_name, self.qi, self.sa
+            )
         )
 
     def test_c_div(self):

@@ -69,7 +69,9 @@ class TestMath(TestReport):
     sa = ['Score']
 
     def test_report_math(self, dataset, expected):
-        assert expected == base.get_report_values(dataset, self.qi, self.sa)
+        obtained = base.get_report_values(dataset, self.qi, self.sa)
+        for e, o in zip(expected, obtained):
+            assert e == pytest.approx(o,  nan_ok=True)
 
     @pytest.mark.skip(
         reason="Fails for recursive_c_l_diversity as np.nan != np.nan"
