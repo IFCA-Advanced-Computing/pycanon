@@ -16,6 +16,7 @@
 
 from datetime import datetime
 import os
+import pandas as pd
 
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -23,11 +24,12 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus.tables import Table
 from reportlab.lib import colors
 
+from typing import Union
 from pycanon.report import base
 
 
-def get_pdf_report(file_name: str, quasi_ident: list, sens_att: list, gen=True, 
-    file_pdf='report.pdf') -> None:
+def get_pdf_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True,
+                   file_pdf='report.pdf') -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas

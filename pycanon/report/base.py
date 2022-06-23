@@ -13,12 +13,17 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+import pandas as pd
 
 from pycanon.anonymity import check_anonymity
 from pycanon.anonymity.utils import aux_functions
 
+from typing import Tuple, Union, Any
 
-def get_report_values(file_name, quasi_ident, sens_att, gen=True):
+
+def get_report_values(
+        file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True
+) -> Tuple[int, Tuple[float, int], int, int, Tuple[Any, int], float, float, float, float]:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas

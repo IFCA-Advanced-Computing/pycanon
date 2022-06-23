@@ -22,24 +22,22 @@ k-anonymity, (alpha,k)-anonymity, l-diversity, entropy l-diversity,
 delta-disclosure privacy.
 """
 
-import os
-
 import numpy as np
 import pandas as pd
 from pycanon.anonymity.utils import aux_functions
 
-from typing import Tuple
+from typing import Tuple, Union
 
 
-def get_equiv_class(data: pd.DataFrame, quasi_ident: list) -> list:
+def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
     """Find the equivalence classes present in the dataset.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
 
-    :param sens_att: list with the name of the columns of the dataframe
-        that are the sensitive attributes.
-    :type sens_att: is a list of strings
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are the quasi-identifiers.
+    :type quasi_ident: is a list of strings
 
     :return: equivalence classes. 
     :rtype: list.
@@ -59,7 +57,7 @@ def get_equiv_class(data: pd.DataFrame, quasi_ident: list) -> list:
 
 
 def aux_calculate_beta(
-    data: pd.DataFrame, quasi_ident: list, sens_att_value: str) -> Tuple[np.ndarray, list]:
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> Tuple[np.ndarray, list]:
     """Beta calculation for basic and enhanced beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -78,8 +76,8 @@ def aux_calculate_beta(
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
-    p = np.array([len(data[data[sens_att_value] == s])/len(data)
-                 for s in values])
+    p = np.array([len(data[data[sens_att_value] == s]) / len(data)
+                  for s in values])
     q = []
     for ec in equiv_class:
         data_temp = data.iloc[aux_functions.convert(ec)]
@@ -90,13 +88,13 @@ def aux_calculate_beta(
             ]
         )
         q.append(qi)
-    dist = [max((q[i]-p)/p) for i in range(len(equiv_class))]
+    dist = [max((q[i] - p) / p) for i in range(len(equiv_class))]
     return p, dist
 
 
 def aux_calculate_delta_disclosure(
-    data: pd.DataFrame, quasi_ident: list, sens_att_value: str) -> list:
-    """Delta calculation for delta-disclousure privacy.
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> list:
+    """Delta calculation for delta-disclosure privacy.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
@@ -113,8 +111,8 @@ def aux_calculate_delta_disclosure(
     """
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
-    p = np.array([len(data[data[sens_att_value] == s])/len(data)
-                 for s in values])
+    p = np.array([len(data[data[sens_att_value] == s]) / len(data)
+                  for s in values])
     q = []
     for ec in equiv_class:
         data_temp = data.iloc[aux_functions.convert(ec)]
@@ -125,12 +123,12 @@ def aux_calculate_delta_disclosure(
             ]
         )
         q.append(qi)
-    aux = [max([np.abs(np.log(x)) for x in qi/p if x > 0]) for qi in q]
+    aux = [max([np.abs(np.log(x)) for x in qi / p if x > 0]) for qi in q]
     return max(aux)
 
 
 def aux_t_closeness_num(
-    data: pd.DataFrame, quasi_ident: list, sens_att_value: str) -> float:
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> float:
     """t calculation for t-closeness.
 
     Function used for numerical attributes: the definition of the EMD is used.
@@ -151,8 +149,8 @@ def aux_t_closeness_num(
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
     m = len(values)
-    p = np.array([len(data[data[sens_att_value] == s])/len(data)
-                 for s in values])
+    p = np.array([len(data[data[sens_att_value] == s]) / len(data)
+                  for s in values])
     emd = []
     for ec in equiv_class:
         data_temp = data.iloc[aux_functions.convert(ec)]
@@ -167,13 +165,13 @@ def aux_t_closeness_num(
         for i in range(m):
             abs_r += r[i]
             emd_ec += np.abs(abs_r)
-        emd_ec = 1/(m-1) * emd_ec
+        emd_ec = 1 / (m - 1) * emd_ec
         emd.append(emd_ec)
     return max(emd)
 
 
 def aux_t_closeness_str(
-    data: pd.DataFrame, quasi_ident: list, sens_att_value: list) -> float:
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list) -> float:
     """t calculation for t-closeness.
 
     Function used for categorical attributes: the metric "Equal Distance" is
@@ -195,8 +193,8 @@ def aux_t_closeness_str(
     equiv_class = get_equiv_class(data, quasi_ident)
     values = np.unique(data[sens_att_value].values)
     m = len(values)
-    p = np.array([len(data[data[sens_att_value] == s])/len(data)
-                 for s in values])
+    p = np.array([len(data[data[sens_att_value] == s]) / len(data)
+                  for s in values])
     emd = []
     for ec in equiv_class:
         data_temp = data.iloc[aux_functions.convert(ec)]
