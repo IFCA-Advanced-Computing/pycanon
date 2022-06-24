@@ -30,12 +30,11 @@ import pandas as pd
 from pycanon import aux_functions as utils
 
 
-def calculate_k(file_name: str, quasi_ident: typing.List) -> int:
+def calculate_k(data: pd.DataFrame, quasi_ident: typing.List) -> int:
     """Calculate k for k-anonymity.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -44,10 +43,7 @@ def calculate_k(file_name: str, quasi_ident: typing.List) -> int:
     :return: k value for k-anonymity.
     :rtype: int.
     """
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
+
     utils.check_qi(data, quasi_ident)
 
     equiv_class = utils.get_equiv_class(data, quasi_ident)
@@ -55,12 +51,11 @@ def calculate_k(file_name: str, quasi_ident: typing.List) -> int:
     return k_anon
 
 
-def calculate_l(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> int:
+def calculate_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> int:
     """Calculate l for l-diversity.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -79,10 +74,6 @@ def calculate_l(file_name: str, quasi_ident: typing.List, sens_att: typing.List,
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
 
@@ -105,13 +96,12 @@ def calculate_l(file_name: str, quasi_ident: typing.List, sens_att: typing.List,
     return min(l_div)
 
 
-def achieve_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: typing.List, l_new: int) -> pd.DataFrame:
+def achieve_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, l_new: int) -> pd.DataFrame:
     """Given l, transform the dataset into a new one checking l-diversity for
     the new l, only using suppression.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -129,10 +119,6 @@ def achieve_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: typi
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     equiv_class = utils.get_equiv_class(data, quasi_ident)
@@ -150,12 +136,11 @@ def achieve_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: typi
     return data_new
 
 
-def calculate_entropy_l(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_entropy_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
     """Calculate l for entropy l-diversity.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -174,10 +159,6 @@ def calculate_entropy_l(file_name: str, quasi_ident: typing.List, sens_att: typi
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
 
@@ -213,12 +194,11 @@ def calculate_entropy_l(file_name: str, quasi_ident: typing.List, sens_att: typi
     return ent_l
 
 
-def calculate_c_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: typing.List, imp=0, gen=True) -> typing.Tuple[float, int]:
+def calculate_c_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, imp=0, gen=True) -> typing.Tuple[float, int]:
     """Calculate c and l for recursive (c,l)-diversity.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -237,13 +217,9 @@ def calculate_c_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: 
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
-    l_div = calculate_l(file_name, quasi_ident, sens_att)
+    l_div = calculate_l(data, quasi_ident, sens_att)
     if l_div > 1:
         c_div = []
         if gen:
@@ -282,12 +258,11 @@ def calculate_c_l_diversity(file_name: str, quasi_ident: typing.List, sens_att: 
     return c_div, l_div
 
 
-def calculate_alpha_k(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> typing.Tuple[float, int]:
+def calculate_alpha_k(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> typing.Tuple[float, int]:
     """Calculate alpha and k for (alpha,k)-anonymity.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -306,10 +281,6 @@ def calculate_alpha_k(file_name: str, quasi_ident: typing.List, sens_att: typing
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     k_anon = calculate_k(data, quasi_ident)
@@ -343,12 +314,11 @@ def calculate_alpha_k(file_name: str, quasi_ident: typing.List, sens_att: typing
     return alpha, k_anon
 
 
-def calculate_basic_beta(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_basic_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
     """Calculate beta for basic beta-likeness.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -367,10 +337,6 @@ def calculate_basic_beta(file_name: str, quasi_ident: typing.List, sens_att: typ
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     beta_sens_att = []
@@ -389,12 +355,11 @@ def calculate_basic_beta(file_name: str, quasi_ident: typing.List, sens_att: typ
     return beta
 
 
-def calculate_enhanced_beta(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_enhanced_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
     """Calculate beta for enhanced beta-likeness.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -413,10 +378,6 @@ def calculate_enhanced_beta(file_name: str, quasi_ident: typing.List, sens_att: 
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     beta_sens_att = []
@@ -437,12 +398,11 @@ def calculate_enhanced_beta(file_name: str, quasi_ident: typing.List, sens_att: 
     return beta
 
 
-def calculate_delta_disclosure(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_delta_disclosure(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
     """Calculate delta for delta-disclousure privacy.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -461,10 +421,6 @@ def calculate_delta_disclosure(file_name: str, quasi_ident: typing.List, sens_at
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     delta_sens_att = []
@@ -484,12 +440,11 @@ def calculate_delta_disclosure(file_name: str, quasi_ident: typing.List, sens_at
     return delta
 
 
-def calculate_t_closeness(file_name: str, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_t_closeness(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
     """Calculate t for t-closeness.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
-        dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -508,10 +463,6 @@ def calculate_t_closeness(file_name: str, quasi_ident: typing.List, sens_att: ty
     """
     quasi_ident = np.array(quasi_ident)
     sens_att = np.array(sens_att)
-    if isinstance(file_name, pd.DataFrame):
-        data = file_name
-    else:
-        data = utils.read_file(file_name)
     utils.check_qi(data, quasi_ident)
     utils.check_sa(data, sens_att)
     t_sens_att = []
