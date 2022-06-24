@@ -15,6 +15,7 @@
 # under the License.
 
 import pycanon.anonymity.utils
+
 __all__ = [
     "check_anonymity"
 ]

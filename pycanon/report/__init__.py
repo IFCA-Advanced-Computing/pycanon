@@ -14,12 +14,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import pandas as pd
 from pycanon.report import base
 from pycanon.report.json import get_json_report
 from pycanon.report.pdf import get_pdf_report
+from typing import Union
 
 
-def print_report(file_name, quasi_ident, sens_att, gen=True):
+def print_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True) -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas
@@ -35,7 +37,7 @@ def print_report(file_name, quasi_ident, sens_att, gen=True):
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
@@ -43,7 +45,7 @@ def print_report(file_name, quasi_ident, sens_att, gen=True):
     (
         k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
         basic_beta, enhanced_beta, delta_disc, t_clos
-    ) = base.get_report_values(file_name, quasi_ident, sens_att, gen=True)
+    ) = base.get_report_values(file_name, quasi_ident, sens_att, gen=gen)
 
     print(f'''File: {file_name}. The dataset verifies:
           \t - k-anonymity with k = {k_anon}
