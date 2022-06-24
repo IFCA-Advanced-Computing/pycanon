@@ -93,7 +93,7 @@ def aux_calculate_beta(
 
 
 def aux_calculate_delta_disclosure(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> list:
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> float:
     """Delta calculation for delta-disclosure privacy.
 
     :param data: dataframe with the data under study.
