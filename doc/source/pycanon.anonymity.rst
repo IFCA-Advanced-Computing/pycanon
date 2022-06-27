@@ -9,17 +9,6 @@ Subpackages
 
    pycanon.anonymity.utils
 
-Submodules
-----------
-
-pycanon.anonymity.check\_anonymity module
------------------------------------------
-
-.. automodule:: pycanon.anonymity.check_anonymity
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
