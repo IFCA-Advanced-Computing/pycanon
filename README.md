@@ -2,6 +2,7 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/pycanon/badge/?version=latest)](https://pycanon.readthedocs.io/en/latest/?badge=latest)
 
 pyCANON is a library and CLI to assess the values of the paramenters associated
 with the most common privacy-preserving techniques.
