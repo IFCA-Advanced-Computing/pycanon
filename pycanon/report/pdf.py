@@ -28,7 +28,10 @@ from typing import Union
 from pycanon.report import base
 
 
-def get_pdf_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True,
+def get_pdf_report(file_name: Union[str, pd.DataFrame],
+                   quasi_ident: list,
+                   sens_att: list,
+                   gen=True,
                    file_pdf='report.pdf') -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
@@ -45,11 +48,12 @@ def get_pdf_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
 
-    :param file_pdf: name of the pdf file with the report. Default to 'report.pdf'
+    :param file_pdf: name of the pdf file with the report. Default to
+        'report.pdf'
     :type file_pdf: string with extension .pdf
     """
     (
