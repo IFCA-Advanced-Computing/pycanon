@@ -123,9 +123,10 @@ def entropy_l_diversity(data: pd.DataFrame,
             for ec in equiv_class:
                 data_temp = data.iloc[aux_functions.convert(ec)]
                 entropy = 0
-                for s in np.unique(data_temp[sa].values):
-                    p = len(data_temp[data_temp[sa] == s])/len(data_temp)
-                    entropy += p*np.log(p)
+                values = np.unique(data_temp[sa].values)
+                p = [len(data_temp[data_temp[sa] == s])/len(data_temp)
+                     for s in values]
+                entropy = np.sum(p*np.log(p))
                 entropy_ec.append(-entropy)
             entropy_sa.append(min(entropy_ec))
         ent_l = int(min(np.exp(1)**entropy_sa))
