@@ -17,5 +17,12 @@ setuptools.setup(
     url='https://gitlab.ifca.es/sainzj/check-anonymity',
     license='Apache License 2.0',
     packages=['pycanon'],
-    install_requires=requirements
+    install_requires=requirements,
+    command_options={
+        'build_sphinx': {
+            'source_dir': ('setup.py', 'doc/source'),
+            'build_dir': ('setup.py', 'doc/build'),
+            'all_files': ('setyp.py', 1),
+        },
+    },
 )
