@@ -14,12 +14,15 @@
 # under the License.
 
 from ._k_anonymity import k_anonymity
+from ._k_anonymity import alpha_k_anonymity
 from ._l_diversity import l_diversity
 from ._l_diversity import entropy_l_diversity
 from ._l_diversity import recursive_c_l_diversity
 
 __all__ = [
     "k_anonymity",
+    "alpha_k_anonymity",
+
     "l_diversity",
     "entropy_l_diversity",
     "recursive_c_l_diversity",
