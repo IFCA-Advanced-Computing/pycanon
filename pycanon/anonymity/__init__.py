@@ -21,6 +21,7 @@ from ._k_anonymity import alpha_k_anonymity
 from ._l_diversity import l_diversity
 from ._l_diversity import entropy_l_diversity
 from ._l_diversity import recursive_c_l_diversity
+from ._t_closeness import t_closeness
 
 __all__ = [
     "basic_beta_likeness",
@@ -34,4 +35,6 @@ __all__ = [
     "l_diversity",
     "entropy_l_diversity",
     "recursive_c_l_diversity",
+
+    "t_closeness",
 ]
