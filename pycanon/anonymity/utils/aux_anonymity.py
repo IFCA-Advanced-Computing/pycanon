@@ -29,7 +29,8 @@ from pycanon.anonymity.utils import aux_functions
 from typing import Tuple, Union
 
 
-def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
+def get_equiv_class(data: pd.DataFrame,
+                    quasi_ident: Union[list, np.ndarray]) -> list:
     """Find the equivalence classes present in the dataset.
 
     :param data: dataframe with the data under study.
@@ -39,7 +40,7 @@ def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) ->
         that are the quasi-identifiers.
     :type quasi_ident: is a list of strings
 
-    :return: equivalence classes. 
+    :return: equivalence classes.
     :rtype: list.
     """
     index = []
@@ -56,8 +57,9 @@ def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) ->
     return equiv_class
 
 
-def aux_calculate_beta(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> Tuple[np.ndarray, list]:
+def aux_calculate_beta(data: pd.DataFrame,
+                       quasi_ident: Union[list, np.ndarray],
+                       sens_att_value: str) -> Tuple[np.ndarray, list]:
     """Beta calculation for basic and enhanced beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -70,8 +72,8 @@ def aux_calculate_beta(
     :param sens_att_value: sensitive attribute under study.
     :type sens_att_value: string
 
-    :return: proportion of each value of the sensitive attribute in the entire database and 
-        distance from the proportion in each equivalence class.
+    :return: proportion of each value of the sensitive attribute in the entire
+        database and distance from the proportion in each equivalence class.
     :rtype: np.array and list.
     """
     equiv_class = get_equiv_class(data, quasi_ident)
@@ -92,8 +94,9 @@ def aux_calculate_beta(
     return p, dist
 
 
-def aux_calculate_delta_disclosure(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> float:
+def aux_calculate_delta_disclosure(data: pd.DataFrame,
+                                   quasi_ident: Union[list, np.ndarray],
+                                   sens_att_value: str) -> float:
     """Delta calculation for delta-disclosure privacy.
 
     :param data: dataframe with the data under study.
@@ -127,8 +130,9 @@ def aux_calculate_delta_disclosure(
     return max(aux)
 
 
-def aux_t_closeness_num(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str) -> float:
+def aux_t_closeness_num(data: pd.DataFrame,
+                        quasi_ident: Union[list, np.ndarray],
+                        sens_att_value: str) -> float:
     """t calculation for t-closeness.
 
     Function used for numerical attributes: the definition of the EMD is used.
@@ -170,8 +174,9 @@ def aux_t_closeness_num(
     return max(emd)
 
 
-def aux_t_closeness_str(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list) -> float:
+def aux_t_closeness_str(data: pd.DataFrame,
+                        quasi_ident: Union[list, np.ndarray],
+                        sens_att_value: list) -> float:
     """t calculation for t-closeness.
 
     Function used for categorical attributes: the metric "Equal Distance" is

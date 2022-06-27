@@ -21,9 +21,18 @@ from pycanon.anonymity.utils import aux_functions
 from typing import Tuple, Union, Any
 
 
-def get_report_values(
-        file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True
-) -> Tuple[int, Tuple[float, int], int, int, Tuple[Any, int], float, float, float, float]:
+def get_report_values(file_name: Union[str, pd.DataFrame],
+                      quasi_ident: list,
+                      sens_att: list,
+                      gen=True) -> Tuple[int,
+                                         Tuple[float, int],
+                                         int,
+                                         int,
+                                         Tuple[Any, int],
+                                         float,
+                                         float,
+                                         float,
+                                         float]:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas

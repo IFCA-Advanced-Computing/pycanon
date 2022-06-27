@@ -21,7 +21,10 @@ from pycanon.report.pdf import get_pdf_report
 from typing import Union
 
 
-def print_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True) -> None:
+def print_report(file_name: Union[str, pd.DataFrame],
+                 quasi_ident: list,
+                 sens_att: list,
+                 gen=True) -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas

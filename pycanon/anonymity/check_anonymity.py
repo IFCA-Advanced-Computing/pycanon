@@ -51,7 +51,10 @@ def calculate_k(data: pd.DataFrame, quasi_ident: typing.List) -> int:
     return k_anon
 
 
-def calculate_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> int:
+def calculate_l(data: pd.DataFrame,
+                quasi_ident: typing.List,
+                sens_att: typing.List,
+                gen=True) -> int:
     """Calculate l for l-diversity.
 
     :param data: dataframe with the data under study.
@@ -96,7 +99,10 @@ def calculate_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.L
     return min(l_div)
 
 
-def achieve_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, l_new: int) -> pd.DataFrame:
+def achieve_l_diversity(data: pd.DataFrame,
+                        quasi_ident: typing.List,
+                        sens_att: typing.List,
+                        l_new: int) -> pd.DataFrame:
     """Given l, transform the dataset into a new one checking l-diversity for
     the new l, only using suppression.
 
@@ -136,7 +142,10 @@ def achieve_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_att: 
     return data_new
 
 
-def calculate_entropy_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_entropy_l(data: pd.DataFrame,
+                        quasi_ident: typing.List,
+                        sens_att: typing.List,
+                        gen=True) -> float:
     """Calculate l for entropy l-diversity.
 
     :param data: dataframe with the data under study.
@@ -194,7 +203,11 @@ def calculate_entropy_l(data: pd.DataFrame, quasi_ident: typing.List, sens_att: 
     return ent_l
 
 
-def calculate_c_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, imp=0, gen=True) -> typing.Tuple[float, int]:
+def calculate_c_l_diversity(data: pd.DataFrame,
+                            quasi_ident: typing.List,
+                            sens_att: typing.List,
+                            imp=0,
+                            gen=True) -> typing.Tuple[float, int]:
     """Calculate c and l for recursive (c,l)-diversity.
 
     :param data: dataframe with the data under study.
@@ -258,7 +271,10 @@ def calculate_c_l_diversity(data: pd.DataFrame, quasi_ident: typing.List, sens_a
     return c_div, l_div
 
 
-def calculate_alpha_k(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> typing.Tuple[float, int]:
+def calculate_alpha_k(data: pd.DataFrame,
+                      quasi_ident: typing.List,
+                      sens_att: typing.List,
+                      gen=True) -> typing.Tuple[float, int]:
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     :param data: dataframe with the data under study.
@@ -314,7 +330,10 @@ def calculate_alpha_k(data: pd.DataFrame, quasi_ident: typing.List, sens_att: ty
     return alpha, k_anon
 
 
-def calculate_basic_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_basic_beta(data: pd.DataFrame,
+                         quasi_ident: typing.List,
+                         sens_att: typing.List,
+                         gen=True) -> float:
     """Calculate beta for basic beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -355,7 +374,10 @@ def calculate_basic_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_att:
     return beta
 
 
-def calculate_enhanced_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_enhanced_beta(data: pd.DataFrame,
+                            quasi_ident: typing.List,
+                            sens_att: typing.List,
+                            gen=True) -> float:
     """Calculate beta for enhanced beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -398,7 +420,10 @@ def calculate_enhanced_beta(data: pd.DataFrame, quasi_ident: typing.List, sens_a
     return beta
 
 
-def calculate_delta_disclosure(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_delta_disclosure(data: pd.DataFrame,
+                               quasi_ident: typing.List,
+                               sens_att: typing.List,
+                               gen=True) -> float:
     """Calculate delta for delta-disclousure privacy.
 
     :param data: dataframe with the data under study.
@@ -440,7 +465,10 @@ def calculate_delta_disclosure(data: pd.DataFrame, quasi_ident: typing.List, sen
     return delta
 
 
-def calculate_t_closeness(data: pd.DataFrame, quasi_ident: typing.List, sens_att: typing.List, gen=True) -> float:
+def calculate_t_closeness(data: pd.DataFrame,
+                          quasi_ident: typing.List,
+                          sens_att: typing.List,
+                          gen=True) -> float:
     """Calculate t for t-closeness.
 
     :param data: dataframe with the data under study.

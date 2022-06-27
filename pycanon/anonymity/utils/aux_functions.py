@@ -23,12 +23,13 @@ import os
 import numpy as np
 import pandas as pd
 
+
 def read_file(file_name: str) -> pd.DataFrame:
     """Read the given file. Returns a pandas dataframe.
 
     :param file_name: name of the file with the data under study.
     :type file_name: string with csv, xlsx, sav or txt extension
-    
+
     :return: dataframe with the data.
     :rtype: pandas dataframe.
     """
@@ -113,8 +114,7 @@ def convert(ec_set: set) -> list:
     :param ec_set: set which will be convert into a list.
     :type ec_set: set
 
-    :return: equivalence class into a list. 
+    :return: equivalence class into a list.
     :rtype: list.
     """
     return [*ec_set, ]
-
