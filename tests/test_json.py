@@ -51,7 +51,6 @@ class TestReport:
         }
 
 
-@pytest.mark.skip(reason="Refactoring code")
 @pytest.mark.parametrize("dataset,expected", [
     (
         './Data/Processed/StudentsMath_Score.csv',

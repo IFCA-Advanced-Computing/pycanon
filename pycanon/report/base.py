@@ -15,7 +15,7 @@
 # under the License.
 import pandas as pd
 
-from pycanon.anonymity import check_anonymity
+from pycanon import anonymity
 from pycanon.anonymity.utils import aux_functions
 
 from typing import Tuple, Union, Any
@@ -54,31 +54,31 @@ def get_report_values(file_name: Union[str, pd.DataFrame],
     """
     data = aux_functions.read_file(file_name)
 
-    k_anon = check_anonymity.calculate_k(
+    k_anon = anonymity.k_anonymity(
         data, quasi_ident
     )
-    alpha, alpha_k = check_anonymity.calculate_alpha_k(
+    alpha, alpha_k = anonymity.alpha_k_anonymity(
         data, quasi_ident, sens_att, gen
     )
-    l_div = check_anonymity.calculate_l(
+    l_div = anonymity.l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    entropy_l = check_anonymity.calculate_entropy_l(
+    entropy_l = anonymity.entropy_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    c_div, l_c_div = check_anonymity.calculate_c_l_diversity(
+    c_div, l_c_div = anonymity.recursive_c_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    basic_beta = check_anonymity.calculate_basic_beta(
+    basic_beta = anonymity.basic_beta_likeness(
         data, quasi_ident, sens_att, gen
     )
-    enhanced_beta = check_anonymity.calculate_enhanced_beta(
+    enhanced_beta = anonymity.enhanced_beta_likeness(
         data, quasi_ident, sens_att, gen
     )
-    delta_disc = check_anonymity.calculate_delta_disclosure(
+    delta_disc = anonymity.delta_disclosure(
         data, quasi_ident, sens_att, gen
     )
-    t_clos = check_anonymity.calculate_t_closeness(
+    t_clos = anonymity.t_closeness(
         data, quasi_ident, sens_att, gen
     )
 
