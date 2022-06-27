@@ -15,8 +15,10 @@
 
 from ._k_anonymity import k_anonymity
 from ._l_diversity import l_diversity
+from ._l_diversity import entropy_l_diversity
 
 __all__ = [
     "k_anonymity",
     "l_diversity",
+    "entropy_l_diversity",
 ]
