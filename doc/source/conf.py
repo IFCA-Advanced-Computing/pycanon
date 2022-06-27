@@ -12,7 +12,9 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('./'))
 
 
 # -- Project information -----------------------------------------------------
@@ -40,6 +42,11 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+source_parsers = {
+   '.md': 'recommonmark.parser.CommonMarkParser',
+}
+# The suffix of source filenames.
+source_suffix = ['.rst', '.md']
 
 # -- Options for HTML output -------------------------------------------------
 
