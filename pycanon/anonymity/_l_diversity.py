@@ -164,7 +164,7 @@ def recursive_c_l_diversity(data: pd.DataFrame,
     aux_functions.check_sa(data, sens_att)
     l_div = l_diversity(data, quasi_ident, sens_att)
     if l_div > 1:
-        c_div = []
+        c_div_aux = []
         if gen:
             equiv_class = aux_anonymity.get_equiv_class(data, quasi_ident)
             for sens_att_value in sens_att:
@@ -179,8 +179,7 @@ def recursive_c_l_diversity(data: pd.DataFrame,
                         ]
                     )
                     c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
-                c_div.append(int(max(c_sa)))
-            c_div = max(c_div)
+                c_div_aux.append(int(max(c_sa)))
         else:
             for i, sa in enumerate(sens_att):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
@@ -192,8 +191,8 @@ def recursive_c_l_diversity(data: pd.DataFrame,
                     r_ec = np.sort([len(data_temp[data_temp[sa] == s])
                                    for s in values])
                     c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
-                c_div.append(int(max(c_sa)))
-            c_div = max(c_div)
+                c_div_aux.append(int(max(c_sa)))
+        c_div = np.max(c_div_aux)
     else:
         if imp == 1:
             print(f'c for (c,l)-diversity cannot be calculated as l={l_div}')
