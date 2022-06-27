@@ -21,7 +21,10 @@ from pycanon.report import base
 from typing import Union
 
 
-def get_json_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens_att: list, gen=True) -> json:
+def get_json_report(file_name: Union[str, pd.DataFrame],
+                    quasi_ident: list,
+                    sens_att: list,
+                    gen=True) -> json:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param file_name: name of the file with the data under study or pandas
