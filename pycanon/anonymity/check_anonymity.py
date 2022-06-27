@@ -35,7 +35,7 @@ def calculate_k(file_name: Union[str, pd.DataFrame], quasi_ident: list) -> int:
     """Calculate k for k-anonymity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -60,7 +60,7 @@ def calculate_l(
     """Calculate l for l-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -110,7 +110,7 @@ def achieve_l_diversity(
     the new l, only using suppression.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -153,7 +153,7 @@ def calculate_entropy_l(
     """Calculate l for entropy l-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -215,7 +215,7 @@ def calculate_c_l_diversity(
     """Calculate c and l for recursive (c,l)-diversity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -288,7 +288,7 @@ def calculate_alpha_k(
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -349,7 +349,7 @@ def calculate_basic_beta(
     """Calculate beta for basic beta-likeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -396,7 +396,7 @@ def calculate_enhanced_beta(
     """Calculate beta for enhanced beta-likeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -445,7 +445,7 @@ def calculate_delta_disclosure(
     """Calculate delta for delta-disclousure privacy.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
@@ -493,7 +493,7 @@ def calculate_t_closeness(
     """Calculate t for t-closeness.
 
     :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension, or pandas 
+    :type file_name: string with csv, xlsx, sav or txt extension, or pandas
         dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe

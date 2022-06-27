@@ -37,7 +37,7 @@ def get_json_report(file_name: Union[str, pd.DataFrame], quasi_ident: list, sens
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
