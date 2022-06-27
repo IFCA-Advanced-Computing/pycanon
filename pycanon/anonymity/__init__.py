@@ -14,6 +14,7 @@
 # under the License.
 
 from ._beta_likeness import basic_beta_likeness
+from ._beta_likeness import enhanced_beta_likeness
 from ._k_anonymity import k_anonymity
 from ._k_anonymity import alpha_k_anonymity
 from ._l_diversity import l_diversity
@@ -22,6 +23,7 @@ from ._l_diversity import recursive_c_l_diversity
 
 __all__ = [
     "basic_beta_likeness",
+    "enhanced_beta_likeness",
 
     "k_anonymity",
     "alpha_k_anonymity",
