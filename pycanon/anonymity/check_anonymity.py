@@ -73,50 +73,6 @@ def achieve_l_diversity(data: pd.DataFrame,
     return data_new
 
 
-def calculate_basic_beta(data: pd.DataFrame,
-                         quasi_ident: typing.List,
-                         sens_att: typing.List,
-                         gen=True) -> float:
-    """Calculate beta for basic beta-likeness.
-
-    :param data: dataframe with the data under study.
-    :type data: pandas dataframe
-
-    :param quasi_ident: list with the name of the columns of the dataframe
-        that are quasi-identifiers.
-    :type quasi_ident: list of strings
-
-    :param sens_att: list with the name of the columns of the dataframe
-        that are the sensitive attributes.
-    :type sens_att: list of strings
-
-    :param gen: boolean, default to True. If true, it is generalized for the
-        case of multiple SA, if False, the set of QI is updated for each SA
-    :type  gen: boolean
-
-    :return: beta value for basic beta-likeness.
-    :rtype: float.
-    """
-    quasi_ident = np.array(quasi_ident)
-    sens_att = np.array(sens_att)
-    utils.check_qi(data, quasi_ident)
-    utils.check_sa(data, sens_att)
-    beta_sens_att = []
-    if gen:
-        for sens_att_value in sens_att:
-            _, dist = utils.aux_calculate_beta(data,
-                                               quasi_ident,
-                                               sens_att_value)
-            beta_sens_att.append(max(dist))
-    else:
-        for i, sens_att_value in enumerate(sens_att):
-            tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            _, dist = utils.aux_calculate_beta(data, tmp_qi, sens_att_value)
-            beta_sens_att.append(max(dist))
-    beta = max(beta_sens_att)
-    return beta
-
-
 def calculate_enhanced_beta(data: pd.DataFrame,
                             quasi_ident: typing.List,
                             sens_att: typing.List,
