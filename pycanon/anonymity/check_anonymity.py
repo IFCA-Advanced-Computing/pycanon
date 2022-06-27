@@ -30,56 +30,6 @@ import pandas as pd
 from pycanon import aux_functions as utils
 
 
-
-
-def calculate_l(data: pd.DataFrame,
-                quasi_ident: typing.List,
-                sens_att: typing.List,
-                gen=True) -> int:
-    """Calculate l for l-diversity.
-
-    :param data: dataframe with the data under study.
-    :type data: pandas dataframe
-
-    :param quasi_ident: list with the name of the columns of the dataframe
-        that are quasi-identifiers.
-    :type quasi_ident: list of strings
-
-    :param sens_att: list with the name of the columns of the dataframe
-        that are the sensitive attributes.
-    :type sens_att: list of strings
-
-    :param gen: boolean, default to True. If true, it is generalized for the
-        case of multiple SA, if False, the set of QI is updated for each SA
-    :type  gen: boolean
-
-    :return: l value for l-diversity.
-    :rtype: int.
-    """
-    quasi_ident = np.array(quasi_ident)
-    sens_att = np.array(sens_att)
-    utils.check_qi(data, quasi_ident)
-    utils.check_sa(data, sens_att)
-
-    equiv_class = utils.get_equiv_class(data, quasi_ident)
-    l_div = []
-    if gen:
-        for ec in equiv_class:
-            data_temp = data.iloc[utils.convert(ec)]
-            l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
-            l_div.append(min(l_sa))
-    else:
-        for i, sa in enumerate(sens_att):
-            tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            equiv_class = utils.get_equiv_class(data, tmp_qi)
-            l_ec = []
-            for ec in equiv_class:
-                data_temp = data.iloc[utils.convert(ec)]
-                l_ec.append(len(np.unique(data_temp[sa].values)))
-            l_div.append(min(l_ec))
-    return min(l_div)
-
-
 def achieve_l_diversity(data: pd.DataFrame,
                         quasi_ident: typing.List,
                         sens_att: typing.List,
