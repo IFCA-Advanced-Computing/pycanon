@@ -198,3 +198,46 @@ def recursive_c_l_diversity(data: pd.DataFrame,
             print(f'c for (c,l)-diversity cannot be calculated as l={l_div}')
         c_div = np.nan
     return c_div, l_div
+
+
+def _achieve_l_diversity(data: pd.DataFrame,
+                         quasi_ident: typing.List,
+                         sens_att: typing.List,
+                         l_new: int) -> pd.DataFrame:
+    """Given l, transform the dataset into a new one checking l-diversity for
+    the new l, only using suppression.
+
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
+
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
+
+    :param sens_att: list with the name of the columns of the dataframe
+        that are the sensitive attributes.
+    :type sens_att: list of strings
+
+    :param l_new: l value for l-diversity.
+    :type l_new: int
+
+    :return: dataframe verifying l-diversity for l_new.
+    :rtype: pandas dataframe.
+    """
+    quasi_ident = np.array(quasi_ident)
+    sens_att = np.array(sens_att)
+    aux_functions.check_qi(data, quasi_ident)
+    aux_functions.check_sa(data, sens_att)
+    equiv_class = aux_anonymity.get_equiv_class(data, quasi_ident)
+    l_ec = []
+    for ec in equiv_class:
+        data_temp = data.iloc[aux_functions.convert(ec)]
+        l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
+        l_ec.append(min(l_sa))
+    data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
+    data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
+    ec_elim = np.concatenate([aux_functions.convert(x)
+                             for x in data_ec_l.equiv_class.values])
+    data_new = data.drop(ec_elim).reset_index()
+    data_new.drop('index', inplace=True, axis=1)
+    return data_new
