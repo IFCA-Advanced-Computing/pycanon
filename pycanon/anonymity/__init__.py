@@ -13,6 +13,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""
+Module with different functions which calculate properties about anonymity.
+
+k-anonymity, (alpha,k)-anonymity, l-diversity, entropy l-diversity,
+(c,l)-diversity, basic beta-likeness, enhanced beta-likeness, t-closeness and
+delta-disclosure privacy.
+"""
+
 from ._beta_likeness import basic_beta_likeness
 from ._beta_likeness import enhanced_beta_likeness
 from ._delta_disclosure import delta_disclosure
