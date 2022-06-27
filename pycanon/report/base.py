@@ -13,21 +13,20 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+from typing import Tuple, Any
+
 import pandas as pd
 
 from pycanon import anonymity
-from pycanon.anonymity.utils import aux_functions
-
-from typing import Tuple, Union, Any
 
 
-def get_report_values(file_name: Union[str, pd.DataFrame],
+def get_report_values(data: pd.DataFrame,
                       quasi_ident: list,
                       sens_att: list,
                       gen=True) -> Tuple[int,
                                          Tuple[float, int],
                                          int,
-                                         int,
+                                         float,
                                          Tuple[Any, int],
                                          float,
                                          float,
@@ -35,10 +34,8 @@ def get_report_values(file_name: Union[str, pd.DataFrame],
                                          float]:
     """Generate a report with the parameters obtained for each anonymity check.
 
-    :param file_name: name of the file with the data under study or pandas
-        dataframe.
-    :type file_name: string with csv, xlsx, sav or txt extension or
-        pandas dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -52,7 +49,6 @@ def get_report_values(file_name: Union[str, pd.DataFrame],
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
-    data = aux_functions.read_file(file_name)
 
     k_anon = anonymity.k_anonymity(
         data, quasi_ident
