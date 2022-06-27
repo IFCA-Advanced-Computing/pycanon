@@ -13,6 +13,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from ._k_anonymity import k_anonymity
+
 __all__ = [
-    "check_anonymity"
+    "k_anonymity"
 ]

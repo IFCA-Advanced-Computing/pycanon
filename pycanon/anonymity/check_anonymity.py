@@ -30,25 +30,6 @@ import pandas as pd
 from pycanon import aux_functions as utils
 
 
-def calculate_k(data: pd.DataFrame, quasi_ident: typing.List) -> int:
-    """Calculate k for k-anonymity.
-
-    :param data: dataframe with the data under study.
-    :type data: pandas dataframe
-
-    :param quasi_ident: list with the name of the columns of the dataframe
-        that are quasi-identifiers.
-    :type quasi_ident: list of strings
-
-    :return: k value for k-anonymity.
-    :rtype: int.
-    """
-
-    utils.check_qi(data, quasi_ident)
-
-    equiv_class = utils.get_equiv_class(data, quasi_ident)
-    k_anon = min([len(x) for x in equiv_class])
-    return k_anon
 
 
 def calculate_l(data: pd.DataFrame,
