@@ -24,8 +24,8 @@ from pycanon.anonymity.utils import aux_functions
 
 
 def delta_disclosure(data: pd.DataFrame,
-                     quasi_ident: typing.List,
-                     sens_att: typing.List,
+                     quasi_ident: typing.Union[typing.List, np.ndarray],
+                     sens_att: typing.Union[typing.List, np.ndarray],
                      gen=True) -> float:
     """Calculate delta for delta-disclousure privacy.
 

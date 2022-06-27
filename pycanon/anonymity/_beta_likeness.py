@@ -24,8 +24,8 @@ from pycanon.anonymity.utils import aux_functions
 
 
 def basic_beta_likeness(data: pd.DataFrame,
-                        quasi_ident: typing.List,
-                        sens_att: typing.List,
+                        quasi_ident: typing.Union[typing.List, np.ndarray],
+                        sens_att: typing.Union[typing.List, np.ndarray],
                         gen=True) -> float:
     """Calculate beta for basic beta-likeness.
 
@@ -70,8 +70,8 @@ def basic_beta_likeness(data: pd.DataFrame,
 
 
 def enhanced_beta_likeness(data: pd.DataFrame,
-                           quasi_ident: typing.List,
-                           sens_att: typing.List,
+                           quasi_ident: typing.Union[typing.List, np.ndarray],
+                           sens_att: typing.Union[typing.List, np.ndarray],
                            gen=True) -> float:
     """Calculate beta for enhanced beta-likeness.
 

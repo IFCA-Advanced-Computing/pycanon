@@ -19,6 +19,7 @@ Module with different auxiliary functions.
 """
 
 import os
+import typing
 
 import numpy as np
 import pandas as pd
@@ -46,7 +47,8 @@ def read_file(file_name: str) -> pd.DataFrame:
     return data
 
 
-def check_qi(data: pd.DataFrame, quasi_ident: list) -> None:
+def check_qi(data: pd.DataFrame,
+             quasi_ident: typing.Union[typing.List, np.ndarray]) -> None:
     """Checks if the entered quasi-identifiers are valid.
 
     :param data: dataframe with the data under study.
@@ -66,7 +68,8 @@ def check_qi(data: pd.DataFrame, quasi_ident: list) -> None:
         )
 
 
-def check_sa(data: pd.DataFrame, sens_att: list) -> None:
+def check_sa(data: pd.DataFrame,
+             sens_att: typing.Union[typing.List, np.ndarray]) -> None:
     """Checks if the entered sensitive attributes are valid.
 
     :param data: dataframe with the data under study.
