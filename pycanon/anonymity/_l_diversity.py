@@ -24,8 +24,8 @@ from pycanon.anonymity.utils import aux_functions
 
 
 def l_diversity(data: pd.DataFrame,
-                quasi_ident: typing.List,
-                sens_att: typing.List,
+                quasi_ident: typing.Union[typing.List, np.ndarray],
+                sens_att: typing.Union[typing.List, np.ndarray],
                 gen=True) -> int:
     """Calculate l for l-diversity.
 
@@ -72,8 +72,8 @@ def l_diversity(data: pd.DataFrame,
 
 
 def entropy_l_diversity(data: pd.DataFrame,
-                        quasi_ident: typing.List,
-                        sens_att: typing.List,
+                        quasi_ident: typing.Union[typing.List, np.ndarray],
+                        sens_att: typing.Union[typing.List, np.ndarray],
                         gen=True) -> float:
     """Calculate l for entropy l-diversity.
 
@@ -133,8 +133,8 @@ def entropy_l_diversity(data: pd.DataFrame,
 
 
 def recursive_c_l_diversity(data: pd.DataFrame,
-                            quasi_ident: typing.List,
-                            sens_att: typing.List,
+                            quasi_ident: typing.Union[typing.List, np.ndarray],
+                            sens_att: typing.Union[typing.List, np.ndarray],
                             imp=0,
                             gen=True) -> typing.Tuple[float, int]:
     """Calculate c and l for recursive (c,l)-diversity.
@@ -201,8 +201,8 @@ def recursive_c_l_diversity(data: pd.DataFrame,
 
 
 def _achieve_l_diversity(data: pd.DataFrame,
-                         quasi_ident: typing.List,
-                         sens_att: typing.List,
+                         quasi_ident: typing.Union[typing.List, np.ndarray],
+                         sens_att: typing.Union[typing.List, np.ndarray],
                          l_new: int) -> pd.DataFrame:
     """Given l, transform the dataset into a new one checking l-diversity for
     the new l, only using suppression.
