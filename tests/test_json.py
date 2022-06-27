@@ -3,6 +3,7 @@ import json
 import numpy as np
 import pytest
 
+from pycanon.anonymity.utils import aux_functions
 from pycanon.report import base
 from pycanon.report import json as json_rep
 
@@ -15,7 +16,6 @@ class TestReport:
         ) = values
         return {
             "data": {
-                "file": dataset,
                 "quasi-identifiers": qi,
                 "sensitive attributes": sa
             },
@@ -51,7 +51,7 @@ class TestReport:
         }
 
 
-@pytest.mark.parametrize("dataset,expected", [
+@pytest.mark.parametrize("file_name,expected", [
     (
         './Data/Processed/StudentsMath_Score.csv',
         (1, (1, 1), 1, 1, (np.nan, 1), 71, 5.375278407684164,
@@ -68,17 +68,21 @@ class TestMath(TestReport):
     qi = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
     sa = ['Score']
 
-    def test_report_math(self, dataset, expected):
+    def test_report_math(self, file_name, expected):
+        dataset = aux_functions.read_file(file_name)
         obtained = base.get_report_values(dataset, self.qi, self.sa)
         for e, o in zip(expected, obtained):
             assert e == pytest.approx(o,  nan_ok=True)
 
-    @pytest.mark.skip(
-        reason="Fails for recursive_c_l_diversity as np.nan != np.nan"
-    )
-    def test_report_json(self, dataset, expected):
+#    @pytest.mark.skip(
+#        reason="Fails for recursive_c_l_diversity as np.nan != np.nan"
+#    )
+    def test_report_json(self, file_name, expected):
+        dataset = aux_functions.read_file(file_name)
         expected_json = self.generate_json_dict(
             dataset, self.qi, self.sa, expected
         )
-        obtained_json = json_rep.get_report(dataset, self.qi, self.sa)
-        assert expected_json == json.loads(obtained_json)
+        obtained_json = json_rep.get_json_report(dataset, self.qi, self.sa)
+        obtained = json.loads(obtained_json)
+        for k, v in expected_json.items():
+            assert v == pytest.approx(obtained[k], nan_ok=True)

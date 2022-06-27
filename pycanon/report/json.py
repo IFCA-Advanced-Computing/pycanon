@@ -14,23 +14,34 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import pandas as pd
 import json
+import typing
+
+import numpy as np
+import pandas as pd
 
 from pycanon.report import base
-from typing import Union
 
 
-def get_json_report(file_name: Union[str, pd.DataFrame],
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
+
+
+def get_json_report(data: pd.DataFrame,
                     quasi_ident: list,
                     sens_att: list,
-                    gen=True) -> json:
+                    gen=True) -> str:
     """Generate a report with the parameters obtained for each anonymity check.
 
-    :param file_name: name of the file with the data under study or pandas
-        dataframe.
-    :type file_name: string with csv, xlsx, sav or txt extension or
-        pandas dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -47,11 +58,10 @@ def get_json_report(file_name: Union[str, pd.DataFrame],
     (
         k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
         basic_beta, enhanced_beta, delta_disc, t_clos
-    ) = base.get_report_values(file_name, quasi_ident, sens_att, gen=gen)
+    ) = base.get_report_values(data, quasi_ident, sens_att, gen=gen)
 
-    json_data = {}
+    json_data: dict[str, typing.Any] = {}
     json_data['data'] = {
-        'file': file_name,
         'quasi-identifiers': quasi_ident,
         'sensitive attributes': sens_att
     }
@@ -65,4 +75,4 @@ def get_json_report(file_name: Union[str, pd.DataFrame],
     json_data['t_closeness'] = {'t': t_clos}
     json_data['delta_disclosure'] = {'delta': delta_disc}
 
-    return json.dumps(json_data)
+    return json.dumps(json_data, cls=NpEncoder)
