@@ -9,8 +9,6 @@ with the most common privacy-preserving techniques.
 
 **Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
-[[_TOC_]]
-
 ## Installation
 
 We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/latest/):

@@ -14,7 +14,7 @@ setuptools.setup(
     description='Check anonymization techniques.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://gitlab.ifca.es/sainzj/check-anonymity',
+    url='https://gitlab.ifca.es/privacy-security/pycanon',
     license='Apache License 2.0',
     packages=['pycanon'],
     install_requires=requirements,
