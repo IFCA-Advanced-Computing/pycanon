@@ -66,13 +66,13 @@ def l_diversity(
         ),
         sa: typing.List[str] = typer.Option(
             ...,
-            help="Sensitive attribute, pass it multiple times to define multiple "
-                 "sensitive-attributes (SA)."
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
         ),
         gen: bool = typer.Option(
             ...,
-            help="Approach followed in the case of more than one sensitive attribute."
-                 "If true, generalization approach is applied."
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
         )
 ):
     """Calculate l-diversity."""
@@ -98,13 +98,13 @@ def entropy_l_diversity(
         ),
         sa: typing.List[str] = typer.Option(
             ...,
-            help="Sensitive attribute, pass it multiple times to define multiple "
-                 "sensitive-attributes (SA)."
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
         ),
         gen: bool = typer.Option(
             ...,
-            help="Approach followed in the case of more than one sensitive attribute."
-                 "If true, generalization approach is applied."
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
         )
 ):
     """Calculate entropy l-diversity."""
