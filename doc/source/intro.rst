@@ -26,3 +26,23 @@ License
 ***********************
 Pycanon is licensed under Apache License Version 2.0 (http://www.apache.org/licenses/)
 
+Getting Started
+***********************
+Example with the `adult dataset`_:
+
+.. code-block:: python
+
+   from pycanon import anonymity, report
+   
+   FILE_NAME = "adult.csv"
+   QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
+   SA = ["salary-class"]
+   
+   # Calculate k for k-anonymity:
+   k = anonymity.k_anonymity(FILE_NAME, QI)
+   
+   # Print the anonymity report:
+   report.print_report(FILE_NAME, QI, SA)
+
+
+.. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
