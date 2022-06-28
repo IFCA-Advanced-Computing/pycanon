@@ -28,20 +28,20 @@ app = typer.Typer()
 
 @app.command()
 def k_anonymity(
-    filename: pathlib.Path = typer.Argument(
-        ...,
-        exists=True,
-        file_okay=True,
-        dir_okay=False,
-        writable=False,
-        readable=True,
-        resolve_path=True,
-    ),
-    qi: typing.List[str] = typer.Option(
-        ...,
-        help="Quasi-identifier, pass it multiple times to define multiple "
-             "quasi-identifiers (QI)."
-    )
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        )
 ):
     """Calculate k-anonymity."""
     dataset = aux_functions.read_file(filename)
@@ -50,30 +50,30 @@ def k_anonymity(
 
 @app.command()
 def l_diversity(
-    filename: pathlib.Path = typer.Argument(
-        ...,
-        exists=True,
-        file_okay=True,
-        dir_okay=False,
-        writable=False,
-        readable=True,
-        resolve_path=True,
-    ),
-    qi: typing.List[str] = typer.Option(
-        ...,
-        help="Quasi-identifier, pass it multiple times to define multiple "
-             "quasi-identifiers (QI)."
-    ),
-    sa: typing.List[str] = typer.Option(
-        ...,
-        help="Sensitive attribute, pass it multiple times to define multiple "
-             "sensitive-attributes (SA)."
-    ),
-    gen: bool = typer.Option(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define multiple "
+                 "sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
             ...,
             help="Approach followed in the case of more than one sensitive attribute."
                  "If true, generalization approach is applied."
-    )
+        )
 ):
     """Calculate l-diversity."""
     dataset = aux_functions.read_file(filename)
@@ -81,32 +81,64 @@ def l_diversity(
 
 
 @app.command()
+def entropy_l_diversity(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define multiple "
+                 "sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive attribute."
+                 "If true, generalization approach is applied."
+        )
+):
+    """Calculate entropy l-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.entropy_l_diversity(dataset, qi, sa, gen))
+
+
+@app.command()
 def report(
-    filename: pathlib.Path = typer.Argument(
-        ...,
-        exists=True,
-        file_okay=True,
-        dir_okay=False,
-        writable=False,
-        readable=True,
-        resolve_path=True,
-    ),
-    qi: typing.List[str] = typer.Option(
-        ...,
-        help="Quasi-identifier, pass it multiple times to define multiple "
-             "quasi-identifiers (QI)."
-    ),
-    sa: typing.List[str] = typer.Option(
-        ...,
-        help="Sensible attribute, pass it multiple times to define "
-             "multiple sensible attributes (SA)."
-    ),
-    gen: bool = typer.Option(
-        True,
-        help="Whether to generalize for the case of "
-             "multiple SA, if False, the set of QI "
-             "is updated for each SA."
-    )
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensible attribute, pass it multiple times to define "
+                 "multiple sensible attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA, if False, the set of QI "
+                 "is updated for each SA."
+        )
 ):
     """Generate a complete privacy report."""
     dataset = aux_functions.read_file(filename)
@@ -125,7 +157,7 @@ def report(
     t_clos = anonymity.t_closeness(dataset, qi, sa, gen=gen)
 
     vals = [
-        ["k-anonimity", f"k = {k_anon}"],
+        ["k-anonymity", f"k = {k_anon}"],
         ["(alpha, k)-anonymity", f"alpha {alpha}; k = {alpha_k}"],
         ["l-diversity", f"l = {l_div}"],
         ["Entropy l-diversity", f"l = {entropy_l}"],
