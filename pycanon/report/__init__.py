@@ -16,7 +16,7 @@
 
 import pandas as pd
 
-from pycanon.report import base
+from pycanon.report.base import get_report_values
 from pycanon.report.json import get_json_report
 from pycanon.report.pdf import get_pdf_report
 
@@ -46,7 +46,7 @@ def print_report(data: pd.DataFrame,
     (
         k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
         basic_beta, enhanced_beta, delta_disc, t_clos
-    ) = base.get_report_values(data, quasi_ident, sens_att, gen=gen)
+    ) = get_report_values(data, quasi_ident, sens_att, gen=gen)
 
     print(f'''The dataset verifies:
           \t - k-anonymity with k = {k_anon}
@@ -64,4 +64,5 @@ __all__ = [
     "print_report",
     "get_json_report",
     "get_pdf_report",
+    "get_report_values",
 ]

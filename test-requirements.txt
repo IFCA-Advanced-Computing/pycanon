@@ -10,6 +10,7 @@ mypy>=0.761 # MIT
 docutils>=0.18.1
 
 # Types
+types-tabulate
 pandas-stubs
 
 # docs

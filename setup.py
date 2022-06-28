@@ -18,6 +18,11 @@ setuptools.setup(
     license='Apache License 2.0',
     packages=['pycanon'],
     install_requires=requirements,
+    entry_points={
+        'console_scripts': [
+            'pycanon = pycanon.cli:app',
+        ],
+    },
     command_options={
         'build_sphinx': {
             'source_dir': ('setup.py', 'doc/source'),
