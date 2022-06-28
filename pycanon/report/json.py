@@ -60,7 +60,7 @@ def get_json_report(data: pd.DataFrame,
         basic_beta, enhanced_beta, delta_disc, t_clos
     ) = base.get_report_values(data, quasi_ident, sens_att, gen=gen)
 
-    json_data: dict[str, typing.Any] = {}
+    json_data: typing.Dict[str, typing.Any] = {}
     json_data['data'] = {
         'quasi-identifiers': quasi_ident,
         'sensitive attributes': sens_att
