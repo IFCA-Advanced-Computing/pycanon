@@ -7,6 +7,8 @@
 pyCANON is a library and CLI to assess the values of the paramenters associated
 with the most common privacy-preserving techniques.
 
+**Author:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
+
 **Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
 ## Installation
@@ -40,8 +42,6 @@ verified and the value of the parameters associated with each of them:
 | Enhanced β-likeness         | calculate_enhanced_beta    | _β_: float          |                                                                                                                                                                                            |
 | t-closeness                 | calculate_t_closeness      | _t_: float          | For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.  For categorical attributes, the metric "Equal Distance" is used.                     |
 | _**δ-disclosure privacy:**_ | calculate_delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
-
-**Note:** in this first version _k-map_ and _δ-presence_ are not studied because an auxiliar population table is needed.
 
 ## Multiple sensitive attributes
 
