@@ -9,8 +9,6 @@ with the most common privacy-preserving techniques.
 
 **Author:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
 
-**Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
-
 ## Installation
 
 We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/latest/):
@@ -22,9 +20,22 @@ Then run the following command to install the library and all its requirements:
 
     pip install pycanon
 
-## Usage
+## Getting started
 
-TBD
+Example using the [_adult dataset_](https://archive.ics.uci.edu/ml/datasets/adult):
+```python
+from pycanon import anonymity, report
+   
+FILE_NAME = "adult.csv"
+QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
+SA = ["salary-class"]
+   
+# Calculate k for k-anonymity:
+k = anonymity.calculate_k(FILE_NAME, QI)
+   
+# Print the anonymity report:
+report.print_report(FILE_NAME, QI, SA)
+```
 
 ## Description
 
