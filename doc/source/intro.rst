@@ -39,7 +39,7 @@ Example with the `adult dataset`_:
    SA = ["salary-class"]
    
    # Calculate k for k-anonymity:
-   k = anonymity.calculate_k(FILE_NAME, QI)
+   k = anonymity.k_anonymity(FILE_NAME, QI)
    
    # Print the anonymity report:
    report.print_report(FILE_NAME, QI, SA)
