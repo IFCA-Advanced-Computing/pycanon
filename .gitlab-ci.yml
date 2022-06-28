@@ -21,6 +21,7 @@ cache:
   paths:
     - .cache/pip
     - .tox/
+    - venv/
 
 before_script:
   - python --version  # For debugging
