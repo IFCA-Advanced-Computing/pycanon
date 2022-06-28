@@ -49,6 +49,38 @@ def k_anonymity(
 
 
 @app.command()
+def alpha_k_anonymity(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.alpha_k_anonymity(dataset, qi, sa, gen))
+
+
+@app.command()
 def l_diversity(
         filename: pathlib.Path = typer.Argument(
             ...,
@@ -110,6 +142,166 @@ def entropy_l_diversity(
     """Calculate entropy l-diversity."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.entropy_l_diversity(dataset, qi, sa, gen))
+
+
+@app.command()
+def recursive_c_l_diversity(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.recursive_c_l_diversity(dataset, qi, sa, gen))
+
+
+@app.command()
+def basic_beta_likeness(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.basic_beta_likeness(dataset, qi, sa, gen))
+
+
+@app.command()
+def enhanced_beta_likeness(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.enhanced_beta_likeness(dataset, qi, sa, gen))
+
+
+@app.command()
+def t_closeness(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.t_closeness(dataset, qi, sa, gen))
+
+
+@app.command()
+def delta_disclosure(
+        filename: pathlib.Path = typer.Argument(
+            ...,
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+        qi: typing.List[str] = typer.Option(
+            ...,
+            help="Quasi-identifier, pass it multiple times to define multiple "
+                 "quasi-identifiers (QI)."
+        ),
+        sa: typing.List[str] = typer.Option(
+            ...,
+            help="Sensitive attribute, pass it multiple times to define "
+                 "multiple sensitive-attributes (SA)."
+        ),
+        gen: bool = typer.Option(
+            ...,
+            help="Approach followed in the case of more than one sensitive "
+                 "attribute. If true, generalization approach is applied."
+        )
+):
+    """Calculate recursive (c,l)-diversity."""
+    dataset = aux_functions.read_file(filename)
+    typer.echo(anonymity.delta_disclosure(dataset, qi, sa, gen))
 
 
 @app.command()
