@@ -9,7 +9,7 @@ with the most common privacy-preserving techniques.
 
 **Author:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
 
-[[_TOC_]]
+**Author:** Judith Sáinz-Pardo Díaz (IFCA - CSIC).
 
 ## Installation
 

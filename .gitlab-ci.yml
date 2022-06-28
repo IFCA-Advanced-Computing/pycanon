@@ -21,17 +21,22 @@ cache:
   paths:
     - .cache/pip
     - .tox/
+    - venv/
 
 before_script:
   - python --version  # For debugging
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
+  - pip install tox
+
 
 test:
   script:
-    - pip install tox flake8  # you can also use tox
-    - tox
+    - tox -e ${TOXENV}
+  parallel:
+    matrix: 
+      - TOXENV: [py39, py310, pep8, pip-missing-reqs, pypi]
 
 run:
   script:
