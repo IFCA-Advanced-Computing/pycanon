@@ -13,18 +13,29 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+from typing import Tuple, Any
+
+import pandas as pd
 
 from pycanon import anonymity
-from pycanon import aux_functions as utils
 
 
-def get_report_values(file_name, quasi_ident, sens_att, gen=True):
+def get_report_values(data: pd.DataFrame,
+                      quasi_ident: list,
+                      sens_att: list,
+                      gen=True) -> Tuple[int,
+                                         Tuple[float, int],
+                                         int,
+                                         float,
+                                         Tuple[Any, int],
+                                         float,
+                                         float,
+                                         float,
+                                         float]:
     """Generate a report with the parameters obtained for each anonymity check.
 
-    :param file_name: name of the file with the data under study or pandas
-        dataframe.
-    :type file_name: string with csv, xlsx, sav or txt extension or
-        pandas dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -34,37 +45,36 @@ def get_report_values(file_name, quasi_ident, sens_att, gen=True):
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
-    data = utils.read_file(file_name)
 
-    k_anon = anonymity.calculate_k(
+    k_anon = anonymity.k_anonymity(
         data, quasi_ident
     )
-    alpha, alpha_k = anonymity.calculate_alpha_k(
+    alpha, alpha_k = anonymity.alpha_k_anonymity(
         data, quasi_ident, sens_att, gen
     )
-    l_div = anonymity.calculate_l(
+    l_div = anonymity.l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    entropy_l = anonymity.calculate_entropy_l(
+    entropy_l = anonymity.entropy_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    c_div, l_c_div = anonymity.calculate_c_l_diversity(
+    c_div, l_c_div = anonymity.recursive_c_l_diversity(
         data, quasi_ident, sens_att, gen
     )
-    basic_beta = anonymity.calculate_basic_beta(
+    basic_beta = anonymity.basic_beta_likeness(
         data, quasi_ident, sens_att, gen
     )
-    enhanced_beta = anonymity.calculate_enhanced_beta(
+    enhanced_beta = anonymity.enhanced_beta_likeness(
         data, quasi_ident, sens_att, gen
     )
-    delta_disc = anonymity.calculate_delta_disclosure(
+    delta_disc = anonymity.delta_disclosure(
         data, quasi_ident, sens_att, gen
     )
-    t_clos = anonymity.calculate_t_closeness(
+    t_clos = anonymity.t_closeness(
         data, quasi_ident, sens_att, gen
     )
 

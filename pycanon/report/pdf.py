@@ -17,6 +17,7 @@
 from datetime import datetime
 import os
 
+import pandas as pd
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -26,14 +27,15 @@ from reportlab.lib import colors
 from pycanon.report import base
 
 
-def get_pdf_report(file_name, quasi_ident, sens_att, gen=True, 
-    file_pdf='report.pdf'):
+def get_pdf_report(data: pd.DataFrame,
+                   quasi_ident: list,
+                   sens_att: list,
+                   gen=True,
+                   file_pdf='report.pdf') -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
-    :param file_name: name of the file with the data under study or pandas
-        dataframe.
-    :type file_name: string with csv, xlsx, sav or txt extension or
-        pandas dataframe
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -43,17 +45,18 @@ def get_pdf_report(file_name, quasi_ident, sens_att, gen=True,
         that are the sensitive attributes.
     :type sens_att: is a list of strings
 
-    :param gen: default to true. If true it is generalized for the case of 
+    :param gen: default to true. If true it is generalized for the case of
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
 
-    :param file_pdf: name of the pdf file with the report. Default to 'report.pdf'
+    :param file_pdf: name of the pdf file with the report. Default to
+        'report.pdf'
     :type file_pdf: string with extension .pdf
     """
     (
         k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
         basic_beta, enhanced_beta, delta_disc, t_clos
-    ) = base.get_report_values(file_name, quasi_ident, sens_att, gen=True)
+    ) = base.get_report_values(data, quasi_ident, sens_att, gen=True)
 
     _, file_extension = os.path.splitext(file_pdf)
     if file_extension != '.pdf':
@@ -95,10 +98,10 @@ def get_pdf_report(file_name, quasi_ident, sens_att, gen=True,
     story.append(Paragraph('Report', styles["main_title"]))
     story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
-    story.append(Paragraph(
-        f'File (or pandas dataframe) name: {str(file_name)}',
-        styles["JustifyRight11"])
-    )
+#    story.append(Paragraph(
+#        f'File (or pandas dataframe) name: {str(file_name)}',
+#        styles["JustifyRight11"])
+#    )
     story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}',
                            styles["JustifyRight11"]))
     story.append(Paragraph(f'Sensitive attribute(s): {sens_att}',

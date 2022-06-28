@@ -5,10 +5,15 @@ pytest>=7.1.2
 
 flake8>=3.7.9                                                                   
 pyflakes>=2.1.1   
-autopep8>=1.6.0
 mypy>=0.761 # MIT
 
 docutils>=0.18.1
 
 # Types
-data-science-types
+pandas-stubs
+
+# docs
+sphinx>=4.0.2
+sphinx_rtd_theme
+recommonmark
+furo

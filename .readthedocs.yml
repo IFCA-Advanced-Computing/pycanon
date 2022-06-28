@@ -1,0 +1,4 @@
+requirements_file: test-requirements.txt
+
+python:
+   pip_install: true

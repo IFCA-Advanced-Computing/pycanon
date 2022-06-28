@@ -1,5 +1,5 @@
-pycanon package
-===============
+pycanon.anonymity package
+=========================
 
 Subpackages
 -----------
@@ -7,13 +7,12 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   pycanon.anonymity
-   pycanon.report
+   pycanon.anonymity.utils
 
 Module contents
 ---------------
 
-.. automodule:: pycanon
+.. automodule:: pycanon.anonymity
    :members:
    :undoc-members:
    :show-inheritance:
