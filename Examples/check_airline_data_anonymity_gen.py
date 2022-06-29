@@ -1,20 +1,20 @@
 """Example using the airline passenger satisfaction dataset."""
 
 import numpy as np
-from pycanon.anonymity import check_anonymity
+from pycanon import anonymity
 
 
 def anonymity_level(file_name, quasi_ident, sens_att):
     """Function for check all the anonymity techniques under study."""
-    k_anon = check_anonymity.calculate_k(file_name, quasi_ident)
-    l_div = check_anonymity.calculate_l(file_name, quasi_ident, sens_att)
-    entropy_l = check_anonymity.calculate_entropy_l(file_name, quasi_ident, sens_att)
-    alpha, _ = check_anonymity.calculate_alpha_k(file_name, quasi_ident, sens_att)
-    basic_beta = check_anonymity.calculate_basic_beta(file_name, quasi_ident, sens_att)
-    enhanced_beta = check_anonymity.calculate_enhanced_beta(file_name, quasi_ident, sens_att)
-    delta_disclosure = check_anonymity.calculate_delta_disclosure(file_name, quasi_ident, sens_att)
-    t_clos = check_anonymity.calculate_t_closeness(file_name, quasi_ident, sens_att)
-    c_div, _ = check_anonymity.calculate_c_l_diversity(file_name, quasi_ident, sens_att)
+    k_anon = anonymity.k_anonymity(file_name, quasi_ident)
+    l_div = anonymity.l_diversity(file_name, quasi_ident, sens_att)
+    entropy_l = anonymity.entropy_l_diversity(file_name, quasi_ident, sens_att)
+    alpha, _ = anonymity.alpha_k_anonymity(file_name, quasi_ident, sens_att)
+    basic_beta = anonymity.basic_beta_likeness(file_name, quasi_ident, sens_att)
+    enhanced_beta = anonymity.enhanced_beta_likeness(file_name, quasi_ident, sens_att)
+    delta_disclosure = anonymity.delta_disclosure(file_name, quasi_ident, sens_att)
+    t_clos = anonymity.t_closeness(file_name, quasi_ident, sens_att)
+    c_div, _ = anonymity.recursive_c_l_diversity(file_name, quasi_ident, sens_att)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
