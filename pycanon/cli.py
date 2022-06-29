@@ -67,15 +67,16 @@ def alpha_k_anonymity(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
-    """Calculate recursive (c,l)-diversity."""
+    """Calculate (alpha,k)-anonymity."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.alpha_k_anonymity(dataset, qi, sa, gen))
 
@@ -99,12 +100,13 @@ def l_diversity(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
     """Calculate l-diversity."""
@@ -131,12 +133,13 @@ def entropy_l_diversity(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
     """Calculate entropy l-diversity."""
@@ -163,12 +166,13 @@ def recursive_c_l_diversity(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
     """Calculate recursive (c,l)-diversity."""
@@ -195,15 +199,16 @@ def basic_beta_likeness(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
-    """Calculate recursive (c,l)-diversity."""
+    """Calculate basic beta-likeness."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.basic_beta_likeness(dataset, qi, sa, gen))
 
@@ -227,15 +232,16 @@ def enhanced_beta_likeness(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
-    """Calculate recursive (c,l)-diversity."""
+    """Calculate enhanced beta-likeness."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.enhanced_beta_likeness(dataset, qi, sa, gen))
 
@@ -259,15 +265,16 @@ def t_closeness(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
-    """Calculate recursive (c,l)-diversity."""
+    """Calculate t-closeness."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.t_closeness(dataset, qi, sa, gen))
 
@@ -291,15 +298,16 @@ def delta_disclosure(
         sa: typing.List[str] = typer.Option(
             ...,
             help="Sensitive attribute, pass it multiple times to define "
-                 "multiple sensitive-attributes (SA)."
+                 "multiple sensitive attributes (SA)."
         ),
         gen: bool = typer.Option(
-            ...,
-            help="Approach followed in the case of more than one sensitive "
-                 "attribute. If true, generalization approach is applied."
+            True,
+            help="Whether to generalize for the case of "
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
-    """Calculate recursive (c,l)-diversity."""
+    """Calculate delta-disclosure."""
     dataset = aux_functions.read_file(filename)
     typer.echo(anonymity.delta_disclosure(dataset, qi, sa, gen))
 
@@ -328,8 +336,8 @@ def report(
         gen: bool = typer.Option(
             True,
             help="Whether to generalize for the case of "
-                 "multiple SA, if False, the set of QI "
-                 "is updated for each SA."
+                 "multiple SA: If true, generalization approach is applied, "
+                 "if False, the set of QI is updated for each SA."
         )
 ):
     """Generate a complete privacy report."""
