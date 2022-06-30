@@ -136,7 +136,7 @@ def entropy_l_diversity(data: pd.DataFrame,
 def recursive_c_l_diversity(data: pd.DataFrame,
                             quasi_ident: typing.Union[typing.List, np.ndarray],
                             sens_att: typing.Union[typing.List, np.ndarray],
-                            imp=0,
+                            imp=False,
                             gen=True) -> typing.Tuple[float, int]:
     """Calculate c and l for recursive (c,l)-diversity.
 
@@ -194,7 +194,7 @@ def recursive_c_l_diversity(data: pd.DataFrame,
                 c_div_aux.append(int(max(c_sa)))
         c_div = np.max(c_div_aux)
     else:
-        if imp == 1:
+        if imp:
             print(f'c for (c,l)-diversity cannot be calculated as l={l_div}')
         c_div = np.nan
     return c_div, l_div
