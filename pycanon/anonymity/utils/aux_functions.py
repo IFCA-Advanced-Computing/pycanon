@@ -19,21 +19,25 @@ Module with different auxiliary functions.
 """
 
 import os
+import pathlib
 import typing
 
 import numpy as np
 import pandas as pd
 
 
-def read_file(file_name: str) -> pd.DataFrame:
+def read_file(file_name: typing.Union[str, pathlib.Path]) -> pd.DataFrame:
     """Read the given file. Returns a pandas dataframe.
 
-    :param file_name: name of the file with the data under study.
-    :type file_name: string with csv, xlsx, sav or txt extension
+    :param file_name: file with the data under study.
+    :type file_name: string or pathlib.Path
 
     :return: dataframe with the data.
     :rtype: pandas dataframe.
     """
+    if isinstance(file_name, str):
+        file_name = pathlib.Path(file_name)
+
     _, file_extension = os.path.splitext(file_name)
     if file_extension in ['.csv', '.xlsx', '.sav', '.txt']:
         if file_extension in ['.csv', '.txt']:
