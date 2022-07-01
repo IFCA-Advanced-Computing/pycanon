@@ -42,8 +42,8 @@ report.print_report(FILE_NAME, QI, SA)
 pyCANON allows to check if the following privacy-preserving techniques are
 verified and the value of the parameters associated with each of them:
 
-| Technique                   | pyCANON function           | Parameters          | Notes                                                                                                                                                                                      |
-|-----------------------------|----------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Technique                     | pyCANON function           | Parameters          | Notes                                                                                                                                                                                        |
+|-------------------------------|----------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | _k-anonymity_                 | k_anonymity                | _k_: int            |                                                                                                                                                                                            |
 | _(α, k)-anonymity_            | alpha_k_anonymity          | _α_: float _k_: int |                                                                                                                                                                                            |
 | _ℓ-diversity_                 | l_diversity                | _ℓ_: int            | The function _achive_l_diversity_ can be used in order to obtain a new pandas dataframe where the records needed in order to get _ℓ-diversity_ for a given value of _ℓ_ have been removed. |
@@ -52,7 +52,7 @@ verified and the value of the parameters associated with each of them:
 | _Basic β-likeness_            | basic_beta_likeness       | _β_: float          |                                                                                                                                                                                            |
 | _Enhanced β-likeness_         | enhanced_beta_likeness    | _β_: float          |                                                                                                                                                                                            |
 | _t-closeness_                 | t_closeness      | _t_: float          | For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.  For categorical attributes, the metric "Equal Distance" is used.                     |
-| _δ-disclosure privacy_ | delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
+| _δ-disclosure privacy_        | delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
 
 ## Multiple sensitive attributes
 
