@@ -52,7 +52,7 @@ verified and the value of the parameters associated with each of them:
 | _Basic β-likeness_            | basic_beta_likeness       | _β_: float          |                                                                                                                                                                                            |
 | _Enhanced β-likeness_         | enhanced_beta_likeness    | _β_: float          |                                                                                                                                                                                            |
 | _t-closeness_                 | t_closeness      | _t_: float          | For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.  For categorical attributes, the metric "Equal Distance" is used.                     |
-| _δ-disclosure privacy:_ | delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
+| _δ-disclosure privacy_ | delta_disclosure | _δ_: float          |                                                                                                                                                                                            |
 
 ## Multiple sensitive attributes
 
