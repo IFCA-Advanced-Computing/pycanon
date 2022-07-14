@@ -20,6 +20,7 @@ import typing
 import tabulate
 import typer
 
+import pycanon
 from pycanon import anonymity
 from pycanon.anonymity.utils import aux_functions
 
@@ -369,6 +370,27 @@ def report(
     ]
 
     typer.echo(tabulate.tabulate(vals, headers=headers))
+
+
+def version_callback(version: bool):
+    if version:
+        typer.echo(pycanon.__version__)
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    version: typing.Optional[bool] = typer.Option(
+        False,
+        "--version",
+        help="Print version and exit",
+        callback=version_callback,
+        is_eager=True
+    )
+):
+    """Check the level of anonymity of a dataset."""
+
+    pass
 
 
 if __name__ == "__main__":
