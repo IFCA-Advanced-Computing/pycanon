@@ -25,14 +25,14 @@ Then run the following command to install the library and all its requirements:
 Example using the [_adult dataset_](https://archive.ics.uci.edu/ml/datasets/adult):
 ```python
 from pycanon import anonymity, report
-   
+
 FILE_NAME = "adult.csv"
 QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
 SA = ["salary-class"]
-   
+
 # Calculate k for k-anonymity:
 k = anonymity.k_anonymity(FILE_NAME, QI)
-   
+
 # Print the anonymity report:
 report.print_report(FILE_NAME, QI, SA)
 ```
@@ -64,7 +64,7 @@ Specifically, in order to address this challenge, a parameter _gen_ is introduce
 
 
 ## Examples
-1. Example using the [_adult dataset_](https://archive.ics.uci.edu/ml/datasets/adult). First, note that in de the folder _Data_ there are 3 files in which the dataset adult has been anonymized in different ways. Running _check_adult_anonymity.py_, we obtain the values of _k_ (for _k-anonymity_), _α_ (for _(α,k)-anonymity_), _ℓ_ (for _ℓ-diversity_), _ℓ_ (for _entropy ℓ-diversity_), _c_ (for _(c,ℓ)-diversity_), _β_ (for _basic β-likeness_), _β_ (for _enhanced β-likeness_), _δ_ (for _δ-disclosure privacy_) and _t_ (for _t-closeness_) and associated to each of the 3 files, and a new file for each of them is saved, verifying now ℓ-diversity with ℓ=2.
+1. Example using the [_adult dataset_](https://archive.ics.uci.edu/ml/datasets/adult). First, note that in de the folder _data_ there are 3 files in which the dataset adult has been anonymized in different ways. Running _check_adult_anonymity.py_, we obtain the values of _k_ (for _k-anonymity_), _α_ (for _(α,k)-anonymity_), _ℓ_ (for _ℓ-diversity_), _ℓ_ (for _entropy ℓ-diversity_), _c_ (for _(c,ℓ)-diversity_), _β_ (for _basic β-likeness_), _β_ (for _enhanced β-likeness_), _δ_ (for _δ-disclosure privacy_) and _t_ (for _t-closeness_) and associated to each of the 3 files, and a new file for each of them is saved, verifying now ℓ-diversity with ℓ=2.
 2. Example using the [_drug type dataset_](https://www.kaggle.com/datasets/prathamtripathi/drug-classification), with the original data and with the data obtained after performing k-anonymization with k=5 with [ARX](https://arx.deidentifier.org/). Running _check_drug_data_anonymity.py_, we obtain the values of _k_ (for _k-anonymity_), _α_ (for _(α,k)-anonymity_), _ℓ_ (for _ℓ-diversity_), _ℓ_ (for _entropy ℓ-diversity_), _c_ (for _(c,ℓ)-diversity_), _β_ (for _basic β-likeness_), _β_ (for _enhanced β-likeness_), _δ_ (for _δ-disclosure privacy_) and _t_ (for _t-closeness_) associated to each of the 2 datasets, and a new file for each of them is saved, verifying now ℓ-diversity with ℓ=2 (original data) and ℓ=3 (anonymized data).
 3. Example using the [_stroke prediction dataset_](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset) with the original data and with the data obtained after performing k-anonymization with k=2, 4, 10, 15, 19, 20, 22 and 25 with [ARX](https://arx.deidentifier.org/). Running _check_drug_data_anonymity.py_, we obtain the values of _k_ (for _k-anonymity_), _α_ (for _(α,k)-anonymity_), _ℓ_ (for _ℓ-diversity_), _ℓ_ (for _entropy ℓ-diversity_), _c_ (for _(c,ℓ)-diversity_), _β_ (for _basic β-likeness_), _β_ (for _enhanced β-likeness_), _δ_ (for _δ-disclosure privacy_) and _t_ (for _t-closeness_) associated to each dataset, and a new file for each of them is saved, verifying now ℓ-diversity with ℓ=2.
 4. Example using the [_student's math score dataset_](https://www.kaggle.com/datasets/soumyadiptadas/students-math-score-for-different-teaching-style), with the original data (after converting it from _.sav_ to _.csv_) and with the data obtained after performing k-anonymization with k=2, 5 and 7 with [ARX](https://arx.deidentifier.org/). Running _check_math_scores_data_anonymity.py_, we obtain the values of _k_ (for _k-anonymity_), _α_ (for _(α,k)-anonymity_), _l_ (for _l-diversity_), _l_ (for _entropy l-diversity_), _c_ (for _(c,l)-diversity_), _β_ (for _basic β-likeness_), _β_ (for _enhanced β-likeness_), _δ_ (for _δ-disclosure privacy_) and _t_ (for _t-closeness_) associated to each dataset, and a new file for each of them is saved, verifying now ℓ-diversity for different _ℓ_ values in each case.

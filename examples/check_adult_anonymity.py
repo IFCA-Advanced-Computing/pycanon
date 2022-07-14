@@ -1,4 +1,4 @@
-"""Example using the student's math score dataset."""
+"""Example using the adult dataset."""
 
 import numpy as np
 from pycanon import anonymity
@@ -31,11 +31,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
 
-QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-FILE_NAME = './Data/Processed/StudentsMath_Score.csv'
-SA = ['Score']
-anonymity_level(FILE_NAME, QI, SA)
-
-for i in [2, 5, 7]:
-    FILE_NAME = f'./Data/Processed/StudentsMath_Score_k{i}.csv'
+QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
+SA = ['salary-class']
+for i in [3, 10, 20]:
+    FILE_NAME = f'./data/processed/adult_anonymized_{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)

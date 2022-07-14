@@ -1,4 +1,4 @@
-"""Example using the airline passenger satisfaction dataset."""
+"""Example using the student's math score dataset."""
 
 import numpy as np
 from pycanon import anonymity
@@ -31,11 +31,11 @@ def anonymity_level(file_name, quasi_ident, sens_att):
         print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
 
 
-QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance',
-      'Departure Delay in Minutes', 'Arrival Delay in Minutes']
-SA = ['Departure/Arrival time convenient', 'On-board service', 'satisfaction']
-# FILE_NAME = './Data/Processed/airline_passenger_sat.csv' is not checked because of the
-# large number of different values in Arrival Delay in Minutes and Departure Delay in Minutes
-for i in [2, 5, 10, 20]:
-    FILE_NAME = f'./Data/Processed/airline_passenger_sat_k{i}.csv'
+QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
+FILE_NAME = './data/processed/StudentsMath_Score.csv'
+SA = ['Score']
+anonymity_level(FILE_NAME, QI, SA)
+
+for i in [2, 5, 7]:
+    FILE_NAME = f'./data/processed/StudentsMath_Score_k{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)
