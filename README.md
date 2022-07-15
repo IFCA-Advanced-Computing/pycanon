@@ -27,19 +27,27 @@ The pyCANON documentation is hosted on [Read the Docs](https://pycanon.readthedo
 ## Getting started
 
 Example using the [_adult dataset_](https://archive.ics.uci.edu/ml/datasets/adult):
-```python
-from pycanon import anonymity, report
 
-FILE_NAME = "adult.csv"
-QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
-SA = ["salary-class"]
+- **Command line:**
+    ```
+    $ pycanon k-anonymity --qi age --qi education --qi occupation --qi relationship --qi sex --qi native-country adult.csv
+    $ pycanon report --sa salary-class --qi age --qi education --qi occupation --qi relationship --qi sex --qi native-country adult.csv
+    ```
 
-# Calculate k for k-anonymity:
-k = anonymity.k_anonymity(FILE_NAME, QI)
+- **Python API:**
+    ```python
+    from pycanon import anonymity, report
 
-# Print the anonymity report:
-report.print_report(FILE_NAME, QI, SA)
-```
+    FILE_NAME = "adult.csv"
+    QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
+    SA = ["salary-class"]
+
+    # Calculate k for k-anonymity:
+    k = anonymity.k_anonymity(FILE_NAME, QI)
+
+    # Print the anonymity report:
+    report.print_report(FILE_NAME, QI, SA)
+    ```
 
 ## Description
 
