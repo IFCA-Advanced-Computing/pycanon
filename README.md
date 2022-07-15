@@ -18,7 +18,7 @@ We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/late
 
 Then run the following command to install the library and all its requirements:
 
-    pip install pycanon
+    pip install py.canon
 
 ## Documentation
 
