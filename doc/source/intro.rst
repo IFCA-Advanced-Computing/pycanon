@@ -13,7 +13,7 @@ We recommend using ``pip`` for installing *pycanon* inside a ``virtualenv``:
    virtualenv .venv
    source .venv/bin/activate
    git clone https://gitlab.ifca.es/privacy-security/pycanon/
-   pip install pycanon
+   pip install py.canon
 
 
 Example usage
