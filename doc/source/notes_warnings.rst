@@ -27,8 +27,8 @@ Notes and Warnings
 
 
 .. warning::
-    It's important to take into account that the values of *t* and
-   :math:`\delta` for t-closeness and :math:`\delta`-disclosure privacy
-   respectively must be strictly greater than the ones obtained using *pyCANON*
-   (see the definition of that techniques).
+  It's important to take into account that the values of *t* and 
+  :math:`\delta` for t-closeness and :math:`\delta`-disclosure privacy
+  respectively must be strictly greater than the ones obtained using *pyCANON*
+  (see the definition of that techniques).
 
