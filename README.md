@@ -13,12 +13,12 @@ with the most common privacy-preserving techniques.
 
 We recommend to use Python3 with [virtualenv](https://virtualenv.pypa.io/en/latest/):
 
-    virtualenv venv -p python3
-    source venv/bin/activate
+    virtualenv .venv -p python3
+    source .venv/bin/activate
 
 Then run the following command to install the library and all its requirements:
 
-    pip install pycanon
+    pip install py.canon
 
 ## Documentation
 
