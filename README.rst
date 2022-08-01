@@ -24,7 +24,7 @@ requirements:
 
 ::
 
-   pip install py.canon
+   pip install pycanon
 
 Documentation
 -------------

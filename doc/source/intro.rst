@@ -6,14 +6,22 @@ Using pyCANON is quite straighforward.
 Install
 ***********************
 
-We recommend using ``pip`` for installing *pycanon* inside a ``virtualenv``:
+We recommend using ``pip`` for installing pyCANON inside a ``virtualenv``:
+
+.. code-block:: console
+
+    virtualenv .venv
+    source .venv/bin/activate
+    pip install pycanon
+
+If you want to use the latest development version, you can use:
 
 .. code-block:: console
 
    virtualenv .venv
    source .venv/bin/activate
    git clone https://gitlab.ifca.es/privacy-security/pycanon/
-   pip install py.canon
+   pip install pycanon
 
 
 Example usage
