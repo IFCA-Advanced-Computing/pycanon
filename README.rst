@@ -59,19 +59,32 @@ pyCANON allows to check if the following privacy-preserving techniques
 are verified and the value of the parameters associated with each of
 them:
 
-+----------------------------+--------------------------+----------------------+------------------------------++
-| Technique                  | pyCANON function         | Parameters           | Notes                         |
-+============================+==========================+======================+===============================+
-| k-anonymity                | k_anonymity              | _k_: int             |                               |
-| (α, k)-anonymity           | alpha_k_anonymity        | _α_: float _k_: int  |                               |
-| ℓ-diversity                | l_diversity              | _ℓ_: int             |                               |
-| Entropy ℓ-diversity        | entropy_l_diversity      | _ℓ_: int             |                               |
-| Recursive (c,ℓ)-diversity  | recursive_c_l_diversity  | _c_: int _ℓ_: int    | Not calculated if ℓ=1         |
-| Basic β-likeness           | basic_beta_likeness      | _β_: float           |                               |
-| Enhanced β-likeness        | enhanced_beta_likeness   | _β_: float           |                               |
-| t-closeness                | t_closeness              | _t_: float           | For numerical attributes the definition of the EMD (one-dimensional Earth Mover’s Distance) is used.  For categorical attributes, the metric "Equal Distance" is used. |
-| δ-disclosure privacy       | delta_disclosure         | _δ_: float           |                               |
-+----------------------------+--------------------------+----------------------+-------------------------------+
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| Technique                 | pyCANON function            | Parameters | Notes                                               |
++===========================+=============================+============+=====================================================+
+| k-anonymity               | ``k_anonymity``             | *k*: int   |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| (α, k)-anonymity          | ``alpha_k_anonymity``       | *α*: float |                                                     |
+|                           |                             | *k*:int    |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| ℓ-diversity               | ``l_diversity``             | *ℓ*: int   |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| Entropy ℓ-diversity       | ``entropy_l_diversity``     | *ℓ*: int   |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| Recursive (c,ℓ)-diversity | ``recursive_c_l_diversity`` | *c*: int   | Not calculated if ℓ=1                               |
+|                           |                             | *ℓ*: int   |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| Basic β-likeness          | ``basic_beta_likeness``     | *β*: float |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| Enhanced β-likeness       | ``enhanced_beta_likeness``  | *β*: float |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| t-closeness               | ``t_closeness``             | *t*: float | For numerical attributes the definition of the EMD  |
+|                           |                             |            | (one-dimensional Earth Mover’s Distance) is used.   |
+|                           |                             |            | For categorical attributes, the metric "Equal       |
+|                           |                             |            | Distance" is used.                                  |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
+| δ-disclosure privacy      | ``delta_disclosure``        | *δ*: float |                                                     |
++---------------------------+-----------------------------+------------+-----------------------------------------------------+
 
 
 .. |made-with-python| image:: https://img.shields.io/badge/Made%20with-Python-1f425f.svg
