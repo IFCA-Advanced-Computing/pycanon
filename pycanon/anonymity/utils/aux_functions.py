@@ -26,7 +26,8 @@ import numpy as np
 import pandas as pd
 
 
-def read_file(file_name: typing.Union[str, pathlib.Path], sep: str = ',') -> pd.DataFrame:
+def read_file(file_name: typing.Union[str, pathlib.Path],
+              sep: str = ',') -> pd.DataFrame:
     """Read the given file. Returns a pandas dataframe.
 
     :param file_name: file with the data under study.
