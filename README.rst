@@ -3,7 +3,7 @@ pyCANON
 
 |made-with-python| |License| |Documentation Status|
 
-pyCANON is a library and CLI to assess the values of the paramenters
+pyCANON is a library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques.
 
 **Authors:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
