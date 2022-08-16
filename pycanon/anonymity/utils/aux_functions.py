@@ -26,11 +26,14 @@ import numpy as np
 import pandas as pd
 
 
-def read_file(file_name: typing.Union[str, pathlib.Path]) -> pd.DataFrame:
+def read_file(file_name: typing.Union[str, pathlib.Path], sep: str = ',') -> pd.DataFrame:
     """Read the given file. Returns a pandas dataframe.
 
     :param file_name: file with the data under study.
     :type file_name: string or pathlib.Path
+
+    :param sep: delimiter to use for a csv file.
+    :type sep: string
 
     :return: dataframe with the data.
     :rtype: pandas dataframe.
@@ -41,7 +44,7 @@ def read_file(file_name: typing.Union[str, pathlib.Path]) -> pd.DataFrame:
     _, file_extension = os.path.splitext(file_name)
     if file_extension in ['.csv', '.xlsx', '.sav', '.txt']:
         if file_extension in ['.csv', '.txt']:
-            data = pd.read_csv(file_name)
+            data = pd.read_csv(file_name, sep)
         elif file_extension == '.xlsx':
             data = pd.read_excel(file_name)
         else:
@@ -98,6 +101,10 @@ def intersect(tmp: list) -> list:
     :param tmp: list of sets sorted in decreasing order of
         cardinality
     :type tmp: list of numpy arrays
+
+    :return: list obtained when intersecting the first and the second sets
+        of the given list.
+    :rtype: list.
     """
     i, j = 0, 0
     tmp_new = []
@@ -105,7 +112,7 @@ def intersect(tmp: list) -> list:
         tmp1 = tmp[0][i]
         tmp2 = tmp[1][j]
         tmp_new.append(np.intersect1d(tmp1, tmp2))
-        if j < len(tmp[1])-1:
+        if j < len(tmp[1]) - 1:
             j += 1
         else:
             j = 0
