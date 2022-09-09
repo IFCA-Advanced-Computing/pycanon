@@ -40,17 +40,19 @@ dataset <https://archive.ics.uci.edu/ml/datasets/adult>`__:
 
 .. code:: python
 
+   import pandas as pd
    from pycanon import anonymity, report
 
    FILE_NAME = "adult.csv"
    QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
    SA = ["salary-class"]
+   DATA = pd.read_csv(FILE_NAME)
 
    # Calculate k for k-anonymity:
-   k = anonymity.k_anonymity(FILE_NAME, QI)
+   k = anonymity.k_anonymity(DATA, QI)
 
    # Print the anonymity report:
-   report.print_report(FILE_NAME, QI, SA)
+   report.print_report(DATA, QI, SA)
 
 Description
 -----------
