@@ -1,20 +1,22 @@
 """Example using the student's math score dataset."""
 
 import numpy as np
+import pandas as pd
 from pycanon import anonymity
 
 
 def anonymity_level(file_name, quasi_ident, sens_att):
     """Function for check all the anonymity techniques under study."""
-    k_anon = anonymity.k_anonymity(file_name, quasi_ident)
-    l_div = anonymity.l_diversity(file_name, quasi_ident, sens_att)
-    entropy_l = anonymity.entropy_l_diversity(file_name, quasi_ident, sens_att)
-    alpha, _ = anonymity.alpha_k_anonymity(file_name, quasi_ident, sens_att)
-    basic_beta = anonymity.basic_beta_likeness(file_name, quasi_ident, sens_att)
-    enhanced_beta = anonymity.enhanced_beta_likeness(file_name, quasi_ident, sens_att)
-    delta_disclosure = anonymity.delta_disclosure(file_name, quasi_ident, sens_att)
-    t_clos = anonymity.t_closeness(file_name, quasi_ident, sens_att)
-    c_div, _ = anonymity.recursive_c_l_diversity(file_name, quasi_ident, sens_att)
+    data = pd.read_csv(file_name)
+    k_anon = anonymity.k_anonymity(data, quasi_ident)
+    l_div = anonymity.l_diversity(data, quasi_ident, sens_att)
+    entropy_l = anonymity.entropy_l_diversity(data, quasi_ident, sens_att)
+    alpha, _ = anonymity.alpha_k_anonymity(data, quasi_ident, sens_att)
+    basic_beta = anonymity.basic_beta_likeness(data, quasi_ident, sens_att)
+    enhanced_beta = anonymity.enhanced_beta_likeness(data, quasi_ident, sens_att)
+    delta_disclosure = anonymity.delta_disclosure(data, quasi_ident, sens_att)
+    t_clos = anonymity.t_closeness(data, quasi_ident, sens_att)
+    c_div, _ = anonymity.recursive_c_l_diversity(data, quasi_ident, sens_att)
 
     print(f'''File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
@@ -32,10 +34,10 @@ def anonymity_level(file_name, quasi_ident, sens_att):
 
 
 QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-FILE_NAME = './Data/Processed/StudentsMath_Score.csv'
+FILE_NAME = './data/processed/StudentsMath_Score.csv'
 SA = ['Score']
 anonymity_level(FILE_NAME, QI, SA)
 
 for i in [2, 5, 7]:
-    FILE_NAME = f'./Data/Processed/StudentsMath_Score_k{i}.csv'
+    FILE_NAME = f'./data/processed/StudentsMath_Score_k{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)
