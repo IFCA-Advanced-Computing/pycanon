@@ -21,13 +21,13 @@ cache:
   paths:
     - .cache/pip
     - .tox/
-    - .venv/
+    - venv/
 
 before_script:
   - python --version  # For debugging
   - pip install virtualenv
-  - virtualenv .venv
-  - source .venv/bin/activate
+  - virtualenv venv
+  - source venv/bin/activate
   - pip install tox
 
 
@@ -36,7 +36,7 @@ test:
     - tox -e ${TOXENV}
   parallel:
     matrix: 
-      - TOXENV: [py38, py39, py310, py311, pep8, pip-missing-reqs, pypi]
+      - TOXENV: [py39, py310, py311, pep8, pip-missing-reqs, pypi]
 
 run:
   script:
