@@ -25,7 +25,8 @@ cache:
 
 before_script:
   - python --version  # For debugging
-  - virtualenv venv -p python310
+  - pip install virtualenv
+  - virtualenv venv -p python3.10
   - source venv/bin/activate
   - pip install tox
 
