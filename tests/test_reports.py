@@ -53,12 +53,12 @@ class TestReport:
 
 @pytest.mark.parametrize("file_name,expected", [
     (
-        './data/processed/StudentsMath_Score.csv',
+        '../data/processed/StudentsMath_Score.csv',
         (1, (1, 1), 1, 1, (np.nan, 1), 71, 5.375278407684164,
          4.276666119016055, 0.4165919952210274)
     ),
     (
-        './data/processed/StudentsMath_Score_k5.csv',
+        '../data/processed/StudentsMath_Score_k5.csv',
         (5, (0.5, 5), 4, 3, (1, 4), 29.8, 5.036952602413629,
          3.4275146899795286, 0.31023287057769827)
     )
