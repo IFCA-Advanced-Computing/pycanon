@@ -3,8 +3,8 @@ pyCANON
 
 |made-with-python| |License| |Documentation Status|
 
-pyCANON is a library and CLI to assess the values of the parameters
-associated with the most common privacy-preserving techniques.
+pyCANON is a Python library and CLI to assess the values of the parameters
+associated with the most common privacy-preserving techniques via anonymization.
 
 **Authors:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
 
@@ -59,7 +59,7 @@ Description
 
 pyCANON allows to check if the following privacy-preserving techniques
 are verified and the value of the parameters associated with each of
-them:
+them.
 
 +---------------------------+-----------------------------+------------+-----------------------------------------------------+
 | Technique                 | pyCANON function            | Parameters | Notes                                               |
@@ -87,6 +87,25 @@ them:
 +---------------------------+-----------------------------+------------+-----------------------------------------------------+
 | δ-disclosure privacy      | ``delta_disclosure``        | *δ*: float |                                                     |
 +---------------------------+-----------------------------+------------+-----------------------------------------------------+
+
+More information can be found in this `paper <https://www.nature.com/articles/s41597-022-01894-2>`__.
+
+
+Citation
+-----------
+If you are using pyCANON you can cite it as follows:
+
+.. role:: cite
+
+@article{sainzpardo2022pycanon,
+  title={A Python library to check the level of anonymity of a dataset},
+  author={S{\'a}inz-Pardo D{\'\i}az, Judith and L{\'o}pez Garc{\'\i}a, {\'A}lvaro},
+  journal={Scientific Data},
+  volume={9},
+  number={1},
+  pages={785},
+  year={2022},
+  publisher={Nature Publishing Group UK London}}
 
 
 .. |made-with-python| image:: https://img.shields.io/badge/Made%20with-Python-1f425f.svg
