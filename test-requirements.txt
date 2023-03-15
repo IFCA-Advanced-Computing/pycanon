@@ -2,19 +2,8 @@
 # of appearance. Changing the order has an impact on the overall integration    
 # process, which may cause wedges in the gate later.                            
 pytest>=7.1.2
-
 flake8>=3.7.9                                                                   
-pyflakes>=2.1.1   
 mypy>=0.761 # MIT
-
 docutils>=0.18.1
-
-# Types
 types-tabulate
 pandas-stubs
-
-# docs
-sphinx>=4.0.2
-sphinx_rtd_theme
-recommonmark
-furo
