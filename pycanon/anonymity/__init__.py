@@ -1,4 +1,3 @@
-
 # Copyright 2022 Spanish National Research Council (CSIC)
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -34,15 +33,11 @@ from ._t_closeness import t_closeness
 __all__ = [
     "basic_beta_likeness",
     "enhanced_beta_likeness",
-
     "delta_disclosure",
-
     "k_anonymity",
     "alpha_k_anonymity",
-
     "l_diversity",
     "entropy_l_diversity",
     "recursive_c_l_diversity",
-
     "t_closeness",
 ]

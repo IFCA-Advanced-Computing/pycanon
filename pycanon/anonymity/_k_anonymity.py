@@ -23,8 +23,9 @@ from pycanon.anonymity.utils import aux_anonymity
 from pycanon.anonymity.utils import aux_functions
 
 
-def k_anonymity(data: pd.DataFrame,
-                quasi_ident: typing.Union[typing.List, np.ndarray]) -> int:
+def k_anonymity(
+    data: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
+) -> int:
     """Calculate k for k-anonymity.
 
     :param data: dataframe with the data under study.
@@ -45,10 +46,12 @@ def k_anonymity(data: pd.DataFrame,
     return k_anon
 
 
-def alpha_k_anonymity(data: pd.DataFrame,
-                      quasi_ident: typing.Union[typing.List, np.ndarray],
-                      sens_att: typing.Union[typing.List, np.ndarray],
-                      gen=True) -> typing.Tuple[float, int]:
+def alpha_k_anonymity(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> typing.Tuple[float, int]:
     """Calculate alpha and k for (alpha,k)-anonymity.
 
     :param data: dataframe with the data under study.
@@ -82,8 +85,9 @@ def alpha_k_anonymity(data: pd.DataFrame,
             alpha_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
-                _alpha = [len(data_temp[data_temp[sa] == s]) /
-                          len(data_temp) for s in values]
+                _alpha = [
+                    len(data_temp[data_temp[sa] == s]) / len(data_temp) for s in values
+                ]
                 alpha_sa.append(max(_alpha))
             alpha_ec.append(max(alpha_sa))
         alpha = max(alpha_ec)
@@ -96,8 +100,9 @@ def alpha_k_anonymity(data: pd.DataFrame,
             for ec in equiv_class:
                 data_temp = data.iloc[aux_functions.convert(ec)]
                 values = np.unique(data_temp[sa].values)
-                _alpha = [len(data_temp[data_temp[sa] == s]) /
-                          len(data_temp) for s in values]
+                _alpha = [
+                    len(data_temp[data_temp[sa] == s]) / len(data_temp) for s in values
+                ]
                 alpha_ec.append(max(_alpha))
             alpha_sa.append(max(alpha_ec))
         alpha = max(alpha_sa)

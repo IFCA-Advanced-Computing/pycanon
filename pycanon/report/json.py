@@ -34,10 +34,9 @@ class NpEncoder(json.JSONEncoder):
         return super(NpEncoder, self).default(obj)
 
 
-def get_json_report(data: pd.DataFrame,
-                    quasi_ident: list,
-                    sens_att: list,
-                    gen=True) -> str:
+def get_json_report(
+    data: pd.DataFrame, quasi_ident: list, sens_att: list, gen=True
+) -> str:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param data: dataframe with the data under study.
@@ -56,23 +55,30 @@ def get_json_report(data: pd.DataFrame,
     :type gen: boolean
     """
     (
-        k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
-        basic_beta, enhanced_beta, delta_disc, t_clos
+        k_anon,
+        (alpha, alpha_k),
+        l_div,
+        entropy_l,
+        (c_div, l_c_div),
+        basic_beta,
+        enhanced_beta,
+        delta_disc,
+        t_clos,
     ) = base.get_report_values(data, quasi_ident, sens_att, gen=gen)
 
     json_data: typing.Dict[str, typing.Any] = {}
-    json_data['data'] = {
-        'quasi-identifiers': quasi_ident,
-        'sensitive attributes': sens_att
+    json_data["data"] = {
+        "quasi-identifiers": quasi_ident,
+        "sensitive attributes": sens_att,
     }
-    json_data['k_anonymity'] = {'k': k_anon}
-    json_data['alpha_k_anonymity'] = {'alpha': alpha, 'k': alpha_k}
-    json_data['l_diversity'] = {'l': l_div}
-    json_data['entropy_l_diversity'] = {'l': entropy_l}
-    json_data['recursive_c_l_diversity'] = {'c': c_div, 'l': l_c_div}
-    json_data['basic_beta_likeness'] = {'beta': basic_beta}
-    json_data['enhanced_beta_likeness'] = {'beta': enhanced_beta}
-    json_data['t_closeness'] = {'t': t_clos}
-    json_data['delta_disclosure'] = {'delta': delta_disc}
+    json_data["k_anonymity"] = {"k": k_anon}
+    json_data["alpha_k_anonymity"] = {"alpha": alpha, "k": alpha_k}
+    json_data["l_diversity"] = {"l": l_div}
+    json_data["entropy_l_diversity"] = {"l": entropy_l}
+    json_data["recursive_c_l_diversity"] = {"c": c_div, "l": l_c_div}
+    json_data["basic_beta_likeness"] = {"beta": basic_beta}
+    json_data["enhanced_beta_likeness"] = {"beta": enhanced_beta}
+    json_data["t_closeness"] = {"t": t_clos}
+    json_data["delta_disclosure"] = {"delta": delta_disc}
 
     return json.dumps(json_data, cls=NpEncoder)

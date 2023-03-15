@@ -23,10 +23,12 @@ from pycanon.anonymity.utils import aux_anonymity
 from pycanon.anonymity.utils import aux_functions
 
 
-def basic_beta_likeness(data: pd.DataFrame,
-                        quasi_ident: typing.Union[typing.List, np.ndarray],
-                        sens_att: typing.Union[typing.List, np.ndarray],
-                        gen=True) -> float:
+def basic_beta_likeness(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> float:
     """Calculate beta for basic beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -54,25 +56,25 @@ def basic_beta_likeness(data: pd.DataFrame,
     beta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            _, dist = aux_anonymity.aux_calculate_beta(data,
-                                                       quasi_ident,
-                                                       sens_att_value)
+            _, dist = aux_anonymity.aux_calculate_beta(
+                data, quasi_ident, sens_att_value
+            )
             beta_sens_att.append(max(dist))
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            _, dist = aux_anonymity.aux_calculate_beta(data,
-                                                       tmp_qi,
-                                                       sens_att_value)
+            _, dist = aux_anonymity.aux_calculate_beta(data, tmp_qi, sens_att_value)
             beta_sens_att.append(max(dist))
     beta = max(beta_sens_att)
     return beta
 
 
-def enhanced_beta_likeness(data: pd.DataFrame,
-                           quasi_ident: typing.Union[typing.List, np.ndarray],
-                           sens_att: typing.Union[typing.List, np.ndarray],
-                           gen=True) -> float:
+def enhanced_beta_likeness(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> float:
     """Calculate beta for enhanced beta-likeness.
 
     :param data: dataframe with the data under study.
@@ -100,17 +102,15 @@ def enhanced_beta_likeness(data: pd.DataFrame,
     beta_sens_att = []
     if gen:
         for sens_att_value in sens_att:
-            p, dist = aux_anonymity.aux_calculate_beta(data,
-                                                       quasi_ident,
-                                                       sens_att_value)
+            p, dist = aux_anonymity.aux_calculate_beta(
+                data, quasi_ident, sens_att_value
+            )
             min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
             beta_sens_att.append(max(min_beta_lnp))
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            p, dist = aux_anonymity.aux_calculate_beta(data,
-                                                       tmp_qi,
-                                                       sens_att_value)
+            p, dist = aux_anonymity.aux_calculate_beta(data, tmp_qi, sens_att_value)
             min_beta_lnp = [min(max(dist), -np.log(p_i)) for p_i in p]
             beta_sens_att.append(max(min_beta_lnp))
     beta = max(beta_sens_att)

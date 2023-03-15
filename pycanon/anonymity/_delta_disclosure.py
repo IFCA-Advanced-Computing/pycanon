@@ -23,10 +23,12 @@ from pycanon.anonymity.utils import aux_anonymity
 from pycanon.anonymity.utils import aux_functions
 
 
-def delta_disclosure(data: pd.DataFrame,
-                     quasi_ident: typing.Union[typing.List, np.ndarray],
-                     sens_att: typing.Union[typing.List, np.ndarray],
-                     gen=True) -> float:
+def delta_disclosure(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> float:
     """Calculate delta for delta-disclousure privacy.
 
     :param data: dataframe with the data under study.
@@ -55,14 +57,15 @@ def delta_disclosure(data: pd.DataFrame,
     if gen:
         for sens_att_value in sens_att:
             aux = aux_anonymity.aux_calculate_delta_disclosure(
-                data, quasi_ident, sens_att_value)
+                data, quasi_ident, sens_att_value
+            )
             delta_sens_att.append(aux)
     else:
         for i, sens_att_value in enumerate(sens_att):
             tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-            aux = aux_anonymity.aux_calculate_delta_disclosure(data,
-                                                               tmp_qi,
-                                                               sens_att_value)
+            aux = aux_anonymity.aux_calculate_delta_disclosure(
+                data, tmp_qi, sens_att_value
+            )
             delta_sens_att.append(aux)
     delta = max(delta_sens_att)
     return delta

@@ -26,8 +26,9 @@ import numpy as np
 import pandas as pd
 
 
-def read_file(file_name: typing.Union[str, pathlib.Path],
-              sep: str = ',') -> pd.DataFrame:
+def read_file(
+    file_name: typing.Union[str, pathlib.Path], sep: str = ","
+) -> pd.DataFrame:
     """Read the given file. Returns a pandas dataframe.
 
     :param file_name: file with the data under study.
@@ -43,20 +44,21 @@ def read_file(file_name: typing.Union[str, pathlib.Path],
         file_name = pathlib.Path(file_name)
 
     _, file_extension = os.path.splitext(file_name)
-    if file_extension in ['.csv', '.xlsx', '.sav', '.txt']:
-        if file_extension in ['.csv', '.txt']:
-            data = pd.read_csv(file_name, sep)
-        elif file_extension == '.xlsx':
+    if file_extension in [".csv", ".xlsx", ".sav", ".txt"]:
+        if file_extension in [".csv", ".txt"]:
+            data = pd.read_csv(file_name)
+        elif file_extension == ".xlsx":
             data = pd.read_excel(file_name)
         else:
             data = pd.read_spss(file_name)
     else:
-        raise ValueError('Invalid file extension.')
+        raise ValueError("Invalid file extension.")
     return data
 
 
-def check_qi(data: pd.DataFrame,
-             quasi_ident: typing.Union[typing.List, np.ndarray]) -> None:
+def check_qi(
+    data: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
+) -> None:
     """Checks if the entered quasi-identifiers are valid.
 
     :param data: dataframe with the data under study.
@@ -67,17 +69,19 @@ def check_qi(data: pd.DataFrame,
     :type quasi_ident: list of strings
     """
     cols = data.columns
-    err_val = [i for i, v in enumerate(
-        [qi in cols for qi in quasi_ident]) if v is False]
+    err_val = [
+        i for i, v in enumerate([qi in cols for qi in quasi_ident]) if v is False
+    ]
     if len(err_val) > 0:
         raise ValueError(
-            f'Values not defined: {[quasi_ident[i] for i in err_val]}. '
-            'Cannot be quasi-identifiers'
+            f"Values not defined: {[quasi_ident[i] for i in err_val]}. "
+            "Cannot be quasi-identifiers"
         )
 
 
-def check_sa(data: pd.DataFrame,
-             sens_att: typing.Union[typing.List, np.ndarray]) -> None:
+def check_sa(
+    data: pd.DataFrame, sens_att: typing.Union[typing.List, np.ndarray]
+) -> None:
     """Checks if the entered sensitive attributes are valid.
 
     :param data: dataframe with the data under study.
@@ -88,12 +92,12 @@ def check_sa(data: pd.DataFrame,
     :type sens_att: is a list of strings
     """
     cols = data.columns
-    err_val = [i for i, v in enumerate(
-        [sa in cols for sa in sens_att]) if v is False]
+    err_val = [i for i, v in enumerate([sa in cols for sa in sens_att]) if v is False]
     if len(err_val) > 0:
         raise ValueError(
-            f'Values not defined: {[sens_att[i] for i in err_val]}. '
-            'Cannot be sensitive attributes')
+            f"Values not defined: {[sens_att[i] for i in err_val]}. "
+            "Cannot be sensitive attributes"
+        )
 
 
 def intersect(tmp: list) -> list:
@@ -132,4 +136,6 @@ def convert(ec_set: set) -> list:
     :return: equivalence class into a list.
     :rtype: list.
     """
-    return [*ec_set, ]
+    return [
+        *ec_set,
+    ]

@@ -27,11 +27,13 @@ from reportlab.lib import colors
 from pycanon.report import base
 
 
-def get_pdf_report(data: pd.DataFrame,
-                   quasi_ident: list,
-                   sens_att: list,
-                   gen=True,
-                   file_pdf='report.pdf') -> None:
+def get_pdf_report(
+    data: pd.DataFrame,
+    quasi_ident: list,
+    sens_att: list,
+    gen=True,
+    file_pdf="report.pdf",
+) -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param data: dataframe with the data under study.
@@ -54,77 +56,113 @@ def get_pdf_report(data: pd.DataFrame,
     :type file_pdf: string with extension .pdf
     """
     (
-        k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
-        basic_beta, enhanced_beta, delta_disc, t_clos
+        k_anon,
+        (alpha, alpha_k),
+        l_div,
+        entropy_l,
+        (c_div, l_c_div),
+        basic_beta,
+        enhanced_beta,
+        delta_disc,
+        t_clos,
     ) = base.get_report_values(data, quasi_ident, sens_att, gen=True)
 
     _, file_extension = os.path.splitext(file_pdf)
-    if file_extension != '.pdf':
-        raise ValueError(
-            'Invalid file extension. Expected .pdf extension for file_pdf')
-    doc = SimpleDocTemplate(file_pdf, pagesize=A4,
-                            rightMargin=50, leftMargin=50,
-                            topMargin=50, bottomMargin=50)
+    if file_extension != ".pdf":
+        raise ValueError("Invalid file extension. Expected .pdf extension for file_pdf")
+    doc = SimpleDocTemplate(
+        file_pdf,
+        pagesize=A4,
+        rightMargin=50,
+        leftMargin=50,
+        topMargin=50,
+        bottomMargin=50,
+    )
     story = []
     today = datetime.now()
     date = today.strftime("%b %d %Y %H:%M:%S")
 
     styles = getSampleStyleSheet()
-    styles.add(ParagraphStyle('JustifyRight11',
-                              fontName="Helvetica",
-                              fontSize=11,
-                              alignment=0,
-                              spaceAfter=5))
-    styles.add(ParagraphStyle('JustifyRight11Bold',
-                              fontName="Helvetica-Bold",
-                              fontSize=11,
-                              alignment=0,
-                              spaceAfter=10))
-    styles.add(ParagraphStyle('JustifyRight12BoldSpace',
-                              fontName="Helvetica-Bold",
-                              fontSize=12,
-                              alignment=0,
-                              spaceAfter=10))
-    styles.add(ParagraphStyle('main_title',
-                              fontName="Helvetica-Bold",
-                              fontSize=18,
-                              parent=styles['Heading2'],
-                              alignment=1,
-                              spaceAfter=20))
-
-    story.append(
-        Paragraph('PyCANON: Check ANONymity properties', styles["main_title"])
+    styles.add(
+        ParagraphStyle(
+            "JustifyRight11",
+            fontName="Helvetica",
+            fontSize=11,
+            alignment=0,
+            spaceAfter=5,
+        )
     )
-    story.append(Paragraph('Report', styles["main_title"]))
+    styles.add(
+        ParagraphStyle(
+            "JustifyRight11Bold",
+            fontName="Helvetica-Bold",
+            fontSize=11,
+            alignment=0,
+            spaceAfter=10,
+        )
+    )
+    styles.add(
+        ParagraphStyle(
+            "JustifyRight12BoldSpace",
+            fontName="Helvetica-Bold",
+            fontSize=12,
+            alignment=0,
+            spaceAfter=10,
+        )
+    )
+    styles.add(
+        ParagraphStyle(
+            "main_title",
+            fontName="Helvetica-Bold",
+            fontSize=18,
+            parent=styles["Heading2"],
+            alignment=1,
+            spaceAfter=20,
+        )
+    )
+
+    story.append(Paragraph("PyCANON: Check ANONymity properties", styles["main_title"]))
+    story.append(Paragraph("Report", styles["main_title"]))
     story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
-#    story.append(Paragraph(
-#        f'File (or pandas dataframe) name: {str(file_name)}',
-#        styles["JustifyRight11"])
-#    )
-    story.append(Paragraph(f'Quasi-identifiers: {quasi_ident}',
-                           styles["JustifyRight11"]))
-    story.append(Paragraph(f'Sensitive attribute(s): {sens_att}',
-                           styles["JustifyRight11"]))
+    #    story.append(Paragraph(
+    #        f'File (or pandas dataframe) name: {str(file_name)}',
+    #        styles["JustifyRight11"])
+    #    )
+    story.append(
+        Paragraph(f"Quasi-identifiers: {quasi_ident}", styles["JustifyRight11"])
+    )
+    story.append(
+        Paragraph(f"Sensitive attribute(s): {sens_att}", styles["JustifyRight11"])
+    )
     if len(sens_att) > 1:
-        story.append(Paragraph(f'Approach for more than one SA: {gen}',
-                               styles["JustifyRight11"]))
+        story.append(
+            Paragraph(f"Approach for more than one SA: {gen}", styles["JustifyRight11"])
+        )
     story.append(Spacer(1, 20))
-    prop = [(Paragraph('Anonymity property', styles["JustifyRight11Bold"]),
-             Paragraph('Value(s)', styles["JustifyRight11Bold"])),
-            ('k-anonymity', f'k = {k_anon}'),
-            ('(α,k)-anonymity', f'α = {alpha} and k = {k_anon}'),
-            ('l-diversity', f'l = {l_div}'),
-            ('Entropy l-diversity', f'l = {entropy_l}'),
-            ('(c,l)-diversity', f'c = {c_div} and l = {l_div}'),
-            ('Basic β-likeness', f'β = {basic_beta}'),
-            ('Enhanced β-likeness', f'β = {enhanced_beta}'),
-            ('t-closeness', f't = {t_clos}'),
-            ('δ-disclosure privacy', f'δ = {delta_disc}')]
+    prop = [
+        (
+            Paragraph("Anonymity property", styles["JustifyRight11Bold"]),
+            Paragraph("Value(s)", styles["JustifyRight11Bold"]),
+        ),
+        ("k-anonymity", f"k = {k_anon}"),
+        ("(α,k)-anonymity", f"α = {alpha} and k = {k_anon}"),
+        ("l-diversity", f"l = {l_div}"),
+        ("Entropy l-diversity", f"l = {entropy_l}"),
+        ("(c,l)-diversity", f"c = {c_div} and l = {l_div}"),
+        ("Basic β-likeness", f"β = {basic_beta}"),
+        ("Enhanced β-likeness", f"β = {enhanced_beta}"),
+        ("t-closeness", f"t = {t_clos}"),
+        ("δ-disclosure privacy", f"δ = {delta_disc}"),
+    ]
 
     story.append(
-        Table(prop,
-              style=[('GRID', (0, 0), (-1, -1), 1, colors.grey),
-                     ('BACKGROUND', (0, 0), (1, 0), colors.aliceblue)])
+        Table(
+            prop,
+            style=[
+                ("GRID", (0, 0), (-1, -1), 1, colors.grey),
+                ("BACKGROUND", (0, 0), (1, 0), colors.aliceblue),
+            ],
+        )
     )
     doc.build(story)

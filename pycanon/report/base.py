@@ -20,18 +20,11 @@ import pandas as pd
 from pycanon import anonymity
 
 
-def get_report_values(data: pd.DataFrame,
-                      quasi_ident: list,
-                      sens_att: list,
-                      gen=True) -> Tuple[int,
-                                         Tuple[float, int],
-                                         int,
-                                         float,
-                                         Tuple[Any, int],
-                                         float,
-                                         float,
-                                         float,
-                                         float]:
+def get_report_values(
+    data: pd.DataFrame, quasi_ident: list, sens_att: list, gen=True
+) -> Tuple[
+    int, Tuple[float, int], int, float, Tuple[Any, int], float, float, float, float
+]:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param data: dataframe with the data under study.
@@ -50,34 +43,25 @@ def get_report_values(data: pd.DataFrame,
     :type gen: boolean
     """
 
-    k_anon = anonymity.k_anonymity(
-        data, quasi_ident
-    )
-    alpha, alpha_k = anonymity.alpha_k_anonymity(
-        data, quasi_ident, sens_att, gen
-    )
-    l_div = anonymity.l_diversity(
-        data, quasi_ident, sens_att, gen
-    )
-    entropy_l = anonymity.entropy_l_diversity(
-        data, quasi_ident, sens_att, gen
-    )
-    c_div, l_c_div = anonymity.recursive_c_l_diversity(
-        data, quasi_ident, sens_att, gen
-    )
-    basic_beta = anonymity.basic_beta_likeness(
-        data, quasi_ident, sens_att, gen
-    )
-    enhanced_beta = anonymity.enhanced_beta_likeness(
-        data, quasi_ident, sens_att, gen
-    )
-    delta_disc = anonymity.delta_disclosure(
-        data, quasi_ident, sens_att, gen
-    )
-    t_clos = anonymity.t_closeness(
-        data, quasi_ident, sens_att, gen
-    )
+    k_anon = anonymity.k_anonymity(data, quasi_ident)
+    alpha, alpha_k = anonymity.alpha_k_anonymity(data, quasi_ident, sens_att, gen)
+    l_div = anonymity.l_diversity(data, quasi_ident, sens_att, gen)
+    entropy_l = anonymity.entropy_l_diversity(data, quasi_ident, sens_att, gen)
+    c_div, l_c_div = anonymity.recursive_c_l_diversity(data, quasi_ident, sens_att, gen)
+    basic_beta = anonymity.basic_beta_likeness(data, quasi_ident, sens_att, gen)
+    enhanced_beta = anonymity.enhanced_beta_likeness(data, quasi_ident, sens_att, gen)
+    delta_disc = anonymity.delta_disclosure(data, quasi_ident, sens_att, gen)
+    t_clos = anonymity.t_closeness(data, quasi_ident, sens_att, gen)
 
     # TODO(aloga): Move to a better data type here
-    return (k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
-            basic_beta, enhanced_beta, delta_disc, t_clos)
+    return (
+        k_anon,
+        (alpha, alpha_k),
+        l_div,
+        entropy_l,
+        (c_div, l_c_div),
+        basic_beta,
+        enhanced_beta,
+        delta_disc,
+        t_clos,
+    )

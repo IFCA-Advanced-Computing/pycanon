@@ -23,10 +23,12 @@ from pycanon.anonymity.utils import aux_anonymity
 from pycanon.anonymity.utils import aux_functions
 
 
-def l_diversity(data: pd.DataFrame,
-                quasi_ident: typing.Union[typing.List, np.ndarray],
-                sens_att: typing.Union[typing.List, np.ndarray],
-                gen=True) -> int:
+def l_diversity(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> int:
     """Calculate l for l-diversity.
 
     :param data: dataframe with the data under study.
@@ -71,10 +73,12 @@ def l_diversity(data: pd.DataFrame,
     return min(l_div)
 
 
-def entropy_l_diversity(data: pd.DataFrame,
-                        quasi_ident: typing.Union[typing.List, np.ndarray],
-                        sens_att: typing.Union[typing.List, np.ndarray],
-                        gen=True) -> float:
+def entropy_l_diversity(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> float:
     """Calculate l for entropy l-diversity.
 
     :param data: dataframe with the data under study.
@@ -108,12 +112,13 @@ def entropy_l_diversity(data: pd.DataFrame,
             entropy_sa = []
             for sa in sens_att:
                 values = np.unique(data_temp[sa].values)
-                p = [len(data_temp[data_temp[sa] == s])/len(data_temp)
-                     for s in values]
+                p = [
+                    len(data_temp[data_temp[sa] == s]) / len(data_temp) for s in values
+                ]
                 entropy = np.sum(p * np.log(p))
                 entropy_sa.append(-entropy)
             entropy_ec.append(min(entropy_sa))
-        ent_l = int(min(np.exp(1)**entropy_ec))
+        ent_l = int(min(np.exp(1) ** entropy_ec))
     else:
         entropy_sa = []
         for i, sa in enumerate(sens_att):
@@ -124,20 +129,23 @@ def entropy_l_diversity(data: pd.DataFrame,
                 data_temp = data.iloc[aux_functions.convert(ec)]
                 entropy = 0
                 values = np.unique(data_temp[sa].values)
-                p = [len(data_temp[data_temp[sa] == s])/len(data_temp)
-                     for s in values]
-                entropy = np.sum(p*np.log(p))
+                p = [
+                    len(data_temp[data_temp[sa] == s]) / len(data_temp) for s in values
+                ]
+                entropy = np.sum(p * np.log(p))
                 entropy_ec.append(-entropy)
             entropy_sa.append(min(entropy_ec))
-        ent_l = int(min(np.exp(1)**entropy_sa))
+        ent_l = int(min(np.exp(1) ** entropy_sa))
     return ent_l
 
 
-def recursive_c_l_diversity(data: pd.DataFrame,
-                            quasi_ident: typing.Union[typing.List, np.ndarray],
-                            sens_att: typing.Union[typing.List, np.ndarray],
-                            imp=False,
-                            gen=True) -> typing.Tuple[float, int]:
+def recursive_c_l_diversity(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    imp=False,
+    gen=True,
+) -> typing.Tuple[float, int]:
     """Calculate c and l for recursive (c,l)-diversity.
 
     :param data: dataframe with the data under study.
@@ -173,12 +181,11 @@ def recursive_c_l_diversity(data: pd.DataFrame,
                     data_temp = data.iloc[aux_functions.convert(ec)]
                     values = np.unique(data_temp[sens_att_value].values)
                     r_ec = np.sort(
-                        [
-                            len(data_temp[data_temp[sens_att_value] == s])
-                            for s in values
-                        ]
+                        [len(data_temp[data_temp[sens_att_value] == s]) for s in values]
                     )
-                    c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
+                    c_sa.append(
+                        np.floor(r_ec[0] / sum(r_ec[l_div - 1 :]) + 1)  # noqa: E203
+                    )
                 c_div_aux.append(int(max(c_sa)))
         else:
             for i, sa in enumerate(sens_att):
@@ -188,22 +195,25 @@ def recursive_c_l_diversity(data: pd.DataFrame,
                 for ec in equiv_class:
                     data_temp = data.iloc[aux_functions.convert(ec)]
                     values = np.unique(data_temp[sa].values)
-                    r_ec = np.sort([len(data_temp[data_temp[sa] == s])
-                                   for s in values])
-                    c_sa.append(np.floor(r_ec[0]/sum(r_ec[l_div - 1:]) + 1))
+                    r_ec = np.sort([len(data_temp[data_temp[sa] == s]) for s in values])
+                    c_sa.append(
+                        np.floor(r_ec[0] / sum(r_ec[l_div - 1 :]) + 1)  # noqa: E203
+                    )
                 c_div_aux.append(int(max(c_sa)))
         c_div = np.max(c_div_aux)
     else:
         if imp:
-            print(f'c for (c,l)-diversity cannot be calculated as l={l_div}')
+            print(f"c for (c,l)-diversity cannot be calculated as l={l_div}")
         c_div = np.nan
     return c_div, l_div
 
 
-def _achieve_l_diversity(data: pd.DataFrame,
-                         quasi_ident: typing.Union[typing.List, np.ndarray],
-                         sens_att: typing.Union[typing.List, np.ndarray],
-                         l_new: int) -> pd.DataFrame:
+def _achieve_l_diversity(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    l_new: int,
+) -> pd.DataFrame:
     """Given l, transform the dataset into a new one checking l-diversity for
     the new l, only using suppression.
 
@@ -234,10 +244,11 @@ def _achieve_l_diversity(data: pd.DataFrame,
         data_temp = data.iloc[aux_functions.convert(ec)]
         l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
         l_ec.append(min(l_sa))
-    data_ec_l = pd.DataFrame({'equiv_class': equiv_class, 'l_ec': l_ec})
+    data_ec_l = pd.DataFrame({"equiv_class": equiv_class, "l_ec": l_ec})
     data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
-    ec_elim = np.concatenate([aux_functions.convert(x)
-                             for x in data_ec_l.equiv_class.values])
+    ec_elim = np.concatenate(
+        [aux_functions.convert(x) for x in data_ec_l.equiv_class.values]
+    )
     data_new = data.drop(ec_elim).reset_index()
-    data_new.drop('index', inplace=True, axis=1)
+    data_new.drop("index", inplace=True, axis=1)
     return data_new

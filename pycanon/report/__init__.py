@@ -21,10 +21,9 @@ from pycanon.report.json import get_json_report
 from pycanon.report.pdf import get_pdf_report
 
 
-def print_report(data: pd.DataFrame,
-                 quasi_ident: list,
-                 sens_att: list,
-                 gen=True) -> None:
+def print_report(
+    data: pd.DataFrame, quasi_ident: list, sens_att: list, gen=True
+) -> None:
     """Generate a report with the parameters obtained for each anonymity check.
 
     :param data: dataframe with the data under study.
@@ -44,11 +43,19 @@ def print_report(data: pd.DataFrame,
     """
 
     (
-        k_anon, (alpha, alpha_k), l_div, entropy_l, (c_div, l_c_div),
-        basic_beta, enhanced_beta, delta_disc, t_clos
+        k_anon,
+        (alpha, alpha_k),
+        l_div,
+        entropy_l,
+        (c_div, l_c_div),
+        basic_beta,
+        enhanced_beta,
+        delta_disc,
+        t_clos,
     ) = get_report_values(data, quasi_ident, sens_att, gen=gen)
 
-    print(f'''The dataset verifies:
+    print(
+        f"""The dataset verifies:
           \t - k-anonymity with k = {k_anon}
           \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
           \t - l-diversity with l = {l_div}
@@ -57,7 +64,8 @@ def print_report(data: pd.DataFrame,
           \t - basic beta-likeness with beta = {basic_beta}
           \t - enhanced beta-likeness with beta = {enhanced_beta}
           \t - t-closeness with t = {t_clos}
-          \t - delta-disclosure privacy with delta = {delta_disc}''')
+          \t - delta-disclosure privacy with delta = {delta_disc}"""
+    )
 
 
 __all__ = [

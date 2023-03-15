@@ -23,10 +23,12 @@ from pycanon.anonymity.utils import aux_anonymity
 from pycanon.anonymity.utils import aux_functions
 
 
-def t_closeness(data: pd.DataFrame,
-                quasi_ident: typing.Union[typing.List, np.ndarray],
-                sens_att: typing.Union[typing.List, np.ndarray],
-                gen=True) -> float:
+def t_closeness(
+    data: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    gen=True,
+) -> float:
     """Calculate t for t-closeness.
 
     :param data: dataframe with the data under study.
@@ -55,23 +57,27 @@ def t_closeness(data: pd.DataFrame,
     if gen:
         for sens_att_value in sens_att:
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_anonymity.aux_t_closeness_num(
-                    data, quasi_ident, sens_att_value))
+                t_sens_att.append(
+                    aux_anonymity.aux_t_closeness_num(data, quasi_ident, sens_att_value)
+                )
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
-                t_sens_att.append(aux_anonymity.aux_t_closeness_str(
-                    data, quasi_ident, sens_att_value))
+                t_sens_att.append(
+                    aux_anonymity.aux_t_closeness_str(data, quasi_ident, sens_att_value)
+                )
             else:
-                raise ValueError('Error, invalid sens_att value type')
+                raise ValueError("Error, invalid sens_att value type")
     else:
         for i, sens_att_value in enumerate(sens_att):
             if pd.api.types.is_numeric_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_anonymity.aux_t_closeness_num(
-                    data, tmp_qi, sens_att_value))
+                t_sens_att.append(
+                    aux_anonymity.aux_t_closeness_num(data, tmp_qi, sens_att_value)
+                )
             elif pd.api.types.is_string_dtype(data[sens_att_value]):
                 tmp_qi = np.concatenate([quasi_ident, np.delete(sens_att, i)])
-                t_sens_att.append(aux_anonymity.aux_t_closeness_str(
-                    data, tmp_qi, sens_att_value))
+                t_sens_att.append(
+                    aux_anonymity.aux_t_closeness_str(data, tmp_qi, sens_att_value)
+                )
             else:
-                raise ValueError('Error, invalid sens_att value type')
+                raise ValueError("Error, invalid sens_att value type")
     return max(t_sens_att)
