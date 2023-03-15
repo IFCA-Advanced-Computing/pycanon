@@ -36,7 +36,7 @@ test:
     - tox -e ${TOXENV}
   parallel:
     matrix: 
-      - TOXENV: [py39, py310, pep8, pip-missing-reqs, pypi]
+      - TOXENV: [py37, py38, py39, py310, bandit, black, flake8, pip-missing-reqs, pypi, mypy]
 
 run:
   script:
