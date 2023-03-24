@@ -1,6 +1,7 @@
 stages:
-  - build
+  - lint
   - test
+  - build
 
 # Change pip's cache directory to be inside the project directory since we can
 # only cache local items.
@@ -26,8 +27,21 @@ default:
     - source venv/bin/activate
     - pip install tox
 
-unit_tests:
+lint_job:
+  stage: lint
+  # Official language image. Look for the different tagged releases at:
+  # https://hub.docker.com/r/library/python/tags/
+  image: python:${PYTHON_VERSION}
+  script:
+    - tox -e ${TOXENV}
+  parallel:
+    matrix:
+      - PYTHON_VERSION: "3.10"
+        TOXENV: [bandit, black, flake8, pip-missing-reqs, pypi, mypy]
+
+test_job:
   stage: test
+  when: on_success
   # Official language image. Look for the different tagged releases at:
   # https://hub.docker.com/r/library/python/tags/
   image: python:${PYTHON_VERSION}
@@ -44,19 +58,9 @@ unit_tests:
       - PYTHON_VERSION: "3.10"
         TOXENV: [py310]
 
-lint:
-  stage: test
-  # Official language image. Look for the different tagged releases at:
-  # https://hub.docker.com/r/library/python/tags/
-  image: python:${PYTHON_VERSION}
-  script:
-    - tox -e ${TOXENV}
-  parallel:
-    matrix:
-      - PYTHON_VERSION: "3.10"
-        TOXENV: [bandit, black, flake8, pip-missing-reqs, pypi, mypy]
-
-build:
+build_job:
+  stage: build
+  when: on_success
   script:
     - python setup.py bdist_wheel
     # an alternative approach is to install and run:
