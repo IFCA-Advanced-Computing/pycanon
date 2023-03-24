@@ -14,6 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""Generate reports with all privacy model's scores."""
+
 import pandas as pd
 
 from pycanon.report.base import get_report_values
@@ -41,7 +43,6 @@ def print_report(
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
-
     (
         k_anon,
         (alpha, alpha_k),

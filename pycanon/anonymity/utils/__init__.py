@@ -14,6 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""Package containing auxiliary functions related with privacy models."""
+
 __all__ = [
     "aux_anonymity",
     "aux_functions",

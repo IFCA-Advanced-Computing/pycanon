@@ -13,6 +13,9 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
+"""Get report values for all privacy models."""
+
 from typing import Tuple, Any
 
 import pandas as pd
@@ -42,7 +45,6 @@ def get_report_values(
         multiple SA, if False, the set of QI is updated for each SA.
     :type gen: boolean
     """
-
     k_anon = anonymity.k_anonymity(data, quasi_ident)
     alpha, alpha_k = anonymity.alpha_k_anonymity(data, quasi_ident, sens_att, gen)
     l_div = anonymity.l_diversity(data, quasi_ident, sens_att, gen)

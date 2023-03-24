@@ -124,7 +124,7 @@ def aux_calculate_delta_disclosure(
 def aux_t_closeness_num(
     data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> float:
-    """t calculation for t-closeness.
+    """Obtain t for t-closeness.
 
     Function used for numerical attributes: the definition of the EMD is used.
 
@@ -164,7 +164,7 @@ def aux_t_closeness_num(
 def aux_t_closeness_str(
     data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list
 ) -> float:
-    """t calculation for t-closeness.
+    """Obtain t for for t-closeness.
 
     Function used for categorical attributes: the metric "Equal Distance" is
     used.

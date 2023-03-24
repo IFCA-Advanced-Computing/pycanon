@@ -14,4 +14,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""pyCANON is a library to check the values of the most common data privacy models."""
+
 __version__ = "1.0.0.post5"

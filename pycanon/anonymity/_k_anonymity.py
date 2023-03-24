@@ -38,7 +38,6 @@ def k_anonymity(
     :return: k value for k-anonymity.
     :rtype: int.
     """
-
     aux_functions.check_qi(data, quasi_ident)
 
     equiv_class = aux_anonymity.get_equiv_class(data, quasi_ident)

@@ -14,6 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""Get report values as JSON for all privacy models."""
+
 import json
 import typing
 
@@ -23,7 +25,7 @@ import pandas as pd
 from pycanon.report import base
 
 
-class NpEncoder(json.JSONEncoder):
+class _NpEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.integer):
             return int(obj)
@@ -31,7 +33,7 @@ class NpEncoder(json.JSONEncoder):
             return float(obj)
         if isinstance(obj, np.ndarray):
             return obj.tolist()
-        return super(NpEncoder, self).default(obj)
+        return super(_NpEncoder, self).default(obj)
 
 
 def get_json_report(
@@ -81,4 +83,4 @@ def get_json_report(
     json_data["t_closeness"] = {"t": t_clos}
     json_data["delta_disclosure"] = {"delta": delta_disc}
 
-    return json.dumps(json_data, cls=NpEncoder)
+    return json.dumps(json_data, cls=_NpEncoder)

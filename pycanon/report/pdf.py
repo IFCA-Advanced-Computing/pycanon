@@ -14,6 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""Get report values as PDF file for all privacy models."""
+
 from datetime import datetime
 import os
 

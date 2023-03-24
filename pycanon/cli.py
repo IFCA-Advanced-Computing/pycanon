@@ -14,6 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+"""Module providing command line tools for pyCANON."""
+
 import pathlib
 import typing
 
@@ -374,6 +376,7 @@ def report(
 
 
 def version_callback(version: bool):
+    """Return version info."""
     if version:
         typer.echo(pycanon.__version__)
         raise typer.Exit()
@@ -390,7 +393,6 @@ def main(
     )
 ):
     """Check the level of anonymity of a dataset."""
-
     pass
 
 

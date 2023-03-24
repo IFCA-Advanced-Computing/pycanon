@@ -14,9 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""
-Module with different auxiliary functions.
-"""
+"""Module with different auxiliary functions."""
 
 import os
 import pathlib
@@ -59,7 +57,7 @@ def read_file(
 def check_qi(
     data: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
 ) -> None:
-    """Checks if the entered quasi-identifiers are valid.
+    """Check if the entered quasi-identifiers are valid.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
@@ -82,7 +80,7 @@ def check_qi(
 def check_sa(
     data: pd.DataFrame, sens_att: typing.Union[typing.List, np.ndarray]
 ) -> None:
-    """Checks if the entered sensitive attributes are valid.
+    """Check if the entered sensitive attributes are valid.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
@@ -128,7 +126,7 @@ def intersect(tmp: list) -> list:
 
 
 def convert(ec_set: set) -> list:
-    """Converts a set with an equivalence class to a list.
+    """Convert a set with an equivalence class to a list.
 
     :param ec_set: set which will be convert into a list.
     :type ec_set: set

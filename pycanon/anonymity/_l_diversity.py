@@ -214,8 +214,7 @@ def _achieve_l_diversity(
     sens_att: typing.Union[typing.List, np.ndarray],
     l_new: int,
 ) -> pd.DataFrame:
-    """Given l, transform the dataset into a new one checking l-diversity for
-    the new l, only using suppression.
+    """Transform dataset checking l-diversity for l, using suppression.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
