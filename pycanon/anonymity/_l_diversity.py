@@ -243,8 +243,8 @@ def _achieve_l_diversity(
         data_temp = data.iloc[aux_functions.convert(ec)]
         l_sa = [len(np.unique(data_temp[sa].values)) for sa in sens_att]
         l_ec.append(min(l_sa))
-    data_ec_l = pd.DataFrame({"equiv_class": equiv_class, "l_ec": l_ec})
-    data_ec_l = data_ec_l[data_ec_l.l_ec < l_new]
+    aux = pd.DataFrame({"equiv_class": equiv_class, "l_ec": l_ec})
+    data_ec_l = aux[aux.l_ec < l_new]
     ec_elim = np.concatenate(
         [aux_functions.convert(x) for x in data_ec_l.equiv_class.values]
     )
