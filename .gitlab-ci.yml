@@ -59,24 +59,18 @@ test_job:
         TOXENV: [py310]
 
 coverage_job:
-  stage: test
-  when: on_sucess
+  stage: build
   when: on_success
   # Official language image. Look for the different tagged releases at:
   # https://hub.docker.com/r/library/python/tags/
-  image: python:${PYTHON_VERSION}
+  image: python:3.10
   script:
-    - tox -e ${TOXENV}
-  parallel:
-    matrix:
-      - PYTHON_VERSION: "3.10"
-        TOXENV: [cov]
+    - tox -e cov
   artifacts:
     reports:
       coverage_report:
         coverage_format: cobertura
         path: coverage.xml
-
 
 build_job:
   stage: build
