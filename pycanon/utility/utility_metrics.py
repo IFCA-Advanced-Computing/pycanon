@@ -47,8 +47,7 @@ def average_ecsize(
     k = anonymity.k_anonymity(data_anon, quasi_ident)
     if sup:
         return len(data_anon) / (len(equiv_class) * k)
-    else:
-        return len(data_raw) / (len(equiv_class) * k)
+    return len(data_raw) / (len(equiv_class) * k)
 
 
 def classification_metric(
@@ -77,7 +76,7 @@ def classification_metric(
     cm = len(data_raw) - len(data_anon)
     for ec in equiv_class:
         sa_ec = data_anon.iloc[ec, :][sens_att].values
-        unique, counts = np.unique(sa_ec, return_counts=True)
+        _, counts = np.unique(sa_ec, return_counts=True)
         for i in counts:
             if i != max(counts):
                 cm += i
