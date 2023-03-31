@@ -1,15 +1,17 @@
 """Delete the rows of the dataset in which all QIs are set to *."""
 import pandas as pd
 
-def delete_rows(file_name, quasi_ident, new_file, fillna = True):
+
+def delete_rows(file_name, quasi_ident, new_file, fillna=True):
     """Delete the rows of the given file in which all QIs are set to *.
     Also fills NA values with 0."""
     df = pd.read_csv(file_name)
     df_qi = df[quasi_ident]
     df = df[:len(df_qi[df_qi != ['*'] * len(quasi_ident)].dropna(how='all'))]
     if fillna:
-        df.fillna(0, inplace = True)
-    df.to_csv(new_file, index = False)
+        df.fillna(0, inplace=True)
+    df.to_csv(new_file, index=False)
+
 
 QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
 for i in [3, 10, 20]:
@@ -37,7 +39,7 @@ delete_rows(FILE_NAME, QI, NEW_FILE_NAME)
 print(f'Saved file: {NEW_FILE_NAME}')
 
 QI = ['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type',
-    'Residence_type', 'smoking_status']
+      'Residence_type', 'smoking_status']
 FILE_NAME = './raw/healthcare-dataset-stroke-data.csv'
 NEW_FILE_NAME = './processed/healthcare-dataset-stroke-data.csv'
 delete_rows(FILE_NAME, QI, NEW_FILE_NAME)
@@ -53,7 +55,7 @@ FILE_NAME = './raw/StudentsMath_Score.csv'
 NEW_FILE_NAME = './processed/StudentsMath_Score.csv'
 delete_rows(FILE_NAME, QI, NEW_FILE_NAME)
 df = pd.read_csv(NEW_FILE_NAME)
-df[:-1].to_csv(NEW_FILE_NAME, index = False) # all the values of the last row are 0
+df[:-1].to_csv(NEW_FILE_NAME, index=False)  # all the values of the last row are 0
 print(f'Saved file: {NEW_FILE_NAME}')
 for i in [2, 5, 7]:
     FILE_NAME = f'./raw/StudentsMath_Score_k{i}.csv'
@@ -62,7 +64,7 @@ for i in [2, 5, 7]:
     print(f'Saved file: {NEW_FILE_NAME}')
 
 QI = ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance',
-    'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+      'Departure Delay in Minutes', 'Arrival Delay in Minutes']
 FILE_NAME = './raw/airline_passenger_sat.csv'
 NEW_FILE_NAME = './processed/airline_passenger_sat.csv'
 delete_rows(FILE_NAME, QI, NEW_FILE_NAME)
