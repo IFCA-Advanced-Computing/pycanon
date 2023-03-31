@@ -18,7 +18,9 @@
 
 from datetime import datetime
 import os
+import typing
 
+import numpy as np
 import pandas as pd
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -31,12 +33,12 @@ from pycanon.report import base
 
 def get_pdf_report(
     data: pd.DataFrame,
-    quasi_ident: list,
-    sens_att: list,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
     gen=True,
     file_pdf="report.pdf",
 ) -> None:
-    """Generate a report with the parameters obtained for each anonymity check.
+    """Generate the PDF report with the parameters obtained for each anonymity check.
 
     :param data: dataframe with the data under study.
     :type data: pandas dataframe
@@ -123,8 +125,8 @@ def get_pdf_report(
         )
     )
 
-    story.append(Paragraph("PyCANON: Check ANONymity properties", styles["main_title"]))
-    story.append(Paragraph("Report", styles["main_title"]))
+    story.append(Paragraph("pyCANON: Check anonymity properties", styles["main_title"]))
+    story.append(Paragraph("Anonymity report", styles["main_title"]))
     story.append(Paragraph(date, styles["JustifyRight12BoldSpace"]))
 
     #    story.append(Paragraph(
@@ -144,7 +146,7 @@ def get_pdf_report(
     story.append(Spacer(1, 20))
     prop = [
         (
-            Paragraph("Anonymity property", styles["JustifyRight11Bold"]),
+            Paragraph("Anonymity technique", styles["JustifyRight11Bold"]),
             Paragraph("Value(s)", styles["JustifyRight11Bold"]),
         ),
         ("k-anonymity", f"k = {k_anon}"),
