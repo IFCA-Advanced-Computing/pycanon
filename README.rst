@@ -1,7 +1,7 @@
 pyCANON
 =======
 
-|made-with-python| |License| |Documentation Status|
+|License| |Documentation Status|
 
 pyCANON is a Python library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques via anonymization.
@@ -93,23 +93,18 @@ More information can be found in this `paper <https://www.nature.com/articles/s4
 
 Citation
 -----------
-If you are using pyCANON you can cite it as follows:
+If you are using pyCANON you can cite it as follows:: 
 
-.. role:: cite
+   @article{sainzpardo2022pycanon,
+      title={A Python library to check the level of anonymity of a dataset},
+      author={S{\'a}inz-Pardo D{\'\i}az, Judith and L{\'o}pez Garc{\'\i}a, {\'A}lvaro},
+      journal={Scientific Data},
+      volume={9},
+      number={1},
+      pages={785},
+      year={2022},
+      publisher={Nature Publishing Group UK London}}
 
-@article{sainzpardo2022pycanon,
-  title={A Python library to check the level of anonymity of a dataset},
-  author={S{\'a}inz-Pardo D{\'\i}az, Judith and L{\'o}pez Garc{\'\i}a, {\'A}lvaro},
-  journal={Scientific Data},
-  volume={9},
-  number={1},
-  pages={785},
-  year={2022},
-  publisher={Nature Publishing Group UK London}}
-
-
-.. |made-with-python| image:: https://img.shields.io/badge/Made%20with-Python-1f425f.svg
-   :target: https://www.python.org/
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
 .. |Documentation Status| image:: https://readthedocs.org/projects/pycanon/badge/?version=latest
