@@ -19,9 +19,13 @@ Module with different functions for calculating the utility of an anonymized dat
 from .utility_metrics import average_ecsize
 from .utility_metrics import classification_metric
 from .utility_metrics import discernability_metric
+from .attribute_statistics import sizes_ec
+from .attribute_statistics import stats_quasi_ident
 
 __all__ = [
     "average_ecsize",
     "classification_metric",
-    "discernability_metric"
+    "discernability_metric",
+    "sizes_ec",
+    "stats_quasi_ident"
 ]

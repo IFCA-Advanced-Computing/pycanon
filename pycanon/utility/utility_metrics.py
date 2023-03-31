@@ -102,7 +102,7 @@ def discernability_metric(
     :type quasi_ident: list of strings
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
-    dm = sum([len(ec) ** 2 for ec in equiv_class])
+    dm = sum(len(ec) ** 2 for ec in equiv_class)
     supp_rec = len(data_raw) - len(data_anon)
     dm += supp_rec * len(data_raw)
     return dm
