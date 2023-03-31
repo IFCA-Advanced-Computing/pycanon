@@ -24,7 +24,6 @@ def sizes_ec(
         data: pd.DataFrame,
         quasi_ident: typing.Union[typing.List, np.ndarray]) -> dict:
     """Calculate statistics associated to the equivalence classes.
-
     :param data: dataframe with the data anonymized.
     :type data: pandas dataframe
 
