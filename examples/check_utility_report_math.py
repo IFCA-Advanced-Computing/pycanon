@@ -17,7 +17,7 @@
 """Example of the function: get_anon_report(), using the student's math score dataset."""
 
 import pandas as pd
-from pycanon.report import get_utility_report
+from pycanon.report import get_pdf_utility_report
 
 QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
 SA = ['Score']
