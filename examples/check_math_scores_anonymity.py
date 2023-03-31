@@ -50,10 +50,10 @@ def anonymity_level(file_name, quasi_ident, sens_att):
 
 
 QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-FILE_NAME = './data/processed/StudentsMath_Score.csv'
+FILE_NAME = '../data/processed/StudentsMath_Score.csv'
 SA = ['Score']
 anonymity_level(FILE_NAME, QI, SA)
 
 for i in [2, 5, 7]:
-    FILE_NAME = f'./data/processed/StudentsMath_Score_k{i}.csv'
+    FILE_NAME = f'../data/processed/StudentsMath_Score_k{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)

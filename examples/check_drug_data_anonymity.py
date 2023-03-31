@@ -51,8 +51,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
 
 QI = ['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']
 SA = ['Drug']
-FILE_NAME = './data/processed/drug_type.csv'
+FILE_NAME = '../data/processed/drug_type.csv'
 anonymity_level(FILE_NAME, QI, SA)
 
-FILE_NAME = './data/processed/drugs_k5.csv'
+FILE_NAME = '../data/processed/drugs_k5.csv'
 anonymity_level(FILE_NAME, QI, SA)

@@ -52,5 +52,5 @@ def anonymity_level(file_name, quasi_ident, sens_att):
 QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
 SA = ['salary-class']
 for i in [3, 10, 20]:
-    FILE_NAME = f'./data/processed/adult_anonymized_{i}.csv'
+    FILE_NAME = f'../data/processed/adult_anonymized_{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)

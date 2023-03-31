@@ -52,9 +52,9 @@ def anonymity_level(file_name, quasi_ident, sens_att):
 QI = ['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type',
       'Residence_type', 'smoking_status']
 SA = ['stroke']
-FILE_NAME = './data/processed/healthcare-dataset-stroke-data.csv'
+FILE_NAME = '../data/processed/healthcare-dataset-stroke-data.csv'
 anonymity_level(FILE_NAME, QI, SA)
 
 for i in [2, 5, 10, 15, 19, 20, 22, 25]:
-    FILE_NAME = f'./data/processed/stroke_k{i}.csv'
+    FILE_NAME = f'../data/processed/stroke_k{i}.csv'
     anonymity_level(FILE_NAME, QI, SA)
