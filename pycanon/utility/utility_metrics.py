@@ -27,8 +27,7 @@ def average_ecsize(
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sup=True,
 ) -> float:
-    """Calculate the metric average equivalence class size. Two scenarios are allowed
-    depending on whether any records from the original database have been deleted.
+    """Calculate the metric average equivalence class size.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
@@ -41,7 +40,7 @@ def average_ecsize(
     :type quasi_ident: list of strings
 
     :param sup: boolean, default to True. If true, suppression has been applied to the
-        original dataset (somo records may have been deleted)-
+        original dataset (somo records may have been deleted).
     :type  sup: boolean
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
@@ -57,8 +56,7 @@ def classification_metric(
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: typing.Union[typing.List, np.ndarray],
 ) -> float:
-    """Calculate the classification metric according to the original (raw)
-    and anonymized datasets.
+    """Calculate the classification metric.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
@@ -90,14 +88,14 @@ def discernability_metric(
     data_anon: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],
 ) -> float:
-    """Calculate the discernability metric, assuming that all the equivalence classes
-    have more than k records, and given each suppressed record a penalty of the size
-    of the input dataset.
+    """Calculate the discernability metric.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
 
-    :param data_anon: dataframe with the data anonymized.
+    :param data_anon: dataframe with the data anonymized. Assuming that all the
+    equivalence classes have more than k records, and given each suppressed record
+    a penalty of the size of the input dataset.
     :type data_anon: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe

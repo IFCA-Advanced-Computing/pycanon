@@ -75,8 +75,7 @@ def get_pdf_utility_report(
     gen=True,
     file_pdf="utility_report.pdf",
 ) -> None:
-    """Generate the PDF report both with the utility metrics obtained and the
-    anonymity parameters.
+    """Generate the PDF report both with the utility and anonymity checks.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
