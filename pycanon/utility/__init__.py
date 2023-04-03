@@ -12,9 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""Module with different functions for calculating the utility of an
-anonymized dataset.
-"""
+"""Module with different functions for calculating the utility."""
 
 from .utility_metrics import average_ecsize
 from .utility_metrics import classification_metric
