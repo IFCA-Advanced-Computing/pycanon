@@ -9,6 +9,7 @@ Subpackages
 
    pycanon.anonymity
    pycanon.report
+   pycanon.utility
 
 Module contents
 ---------------
