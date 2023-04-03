@@ -75,5 +75,5 @@ __all__ = [
     "get_json_report",
     "get_pdf_report",
     "get_report_values",
-    "get_pdf_utility_report"
+    "get_pdf_utility_report",
 ]

@@ -31,11 +31,12 @@ from reportlab.lib import colors
 
 
 def get_utility_report_values(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        sup=True) -> typing.Tuple[float, float, float, dict]:
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    sup=True,
+) -> typing.Tuple[float, float, float, dict]:
     """Generate a report with the parameters obtained for each utility mertic.
 
     :param data_raw: dataframe with the data raw under study.
@@ -67,14 +68,16 @@ def get_utility_report_values(
 
 
 def get_pdf_utility_report(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        sup=True,
-        gen=True,
-        file_pdf="utility_report.pdf") -> None:
-    """Generate the PDF report with the utility metrics obtained.
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    sup=True,
+    gen=True,
+    file_pdf="utility_report.pdf",
+) -> None:
+    """Generate the PDF report both with the utility metrics obtained and the
+    anonymity parameters.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
@@ -103,7 +106,8 @@ def get_pdf_utility_report(
     :type file_pdf: string with extension .pdf
     """
     avg_ec, cm, dm, stats_ec = get_utility_report_values(
-        data_raw, data_anon, quasi_ident, sens_att, sup)
+        data_raw, data_anon, quasi_ident, sens_att, sup
+    )
 
     (
         k_anon,
@@ -218,7 +222,9 @@ def get_pdf_utility_report(
     story.append(Spacer(1, 20))
     story.append(Paragraph("Utility models", styles["JustifyRight12BoldSpace"]))
     story.append(
-        Paragraph(f"\t -Average equivalence class size: {avg_ec}", styles["JustifyRight11"])
+        Paragraph(
+            f"\t -Average equivalence class size: {avg_ec}", styles["JustifyRight11"]
+        )
     )
     story.append(
         Paragraph(f"\t -Classification metric: {cm}", styles["JustifyRight11"])
@@ -227,9 +233,14 @@ def get_pdf_utility_report(
         Paragraph(f"\t -Discernability metric: {dm}", styles["JustifyRight11"])
     )
     story.append(Spacer(1, 20))
-    story.append(Paragraph("Equivalence classes information", styles["JustifyRight12BoldSpace"]))
     story.append(
-        Paragraph(f"\t -Number of equivalence classes: {stats_ec['n_ec']}", styles["JustifyRight11"])
+        Paragraph("Equivalence classes information", styles["JustifyRight12BoldSpace"])
+    )
+    story.append(
+        Paragraph(
+            f"\t -Number of equivalence classes: {stats_ec['n_ec']}",
+            styles["JustifyRight11"],
+        )
     )
     story.append(
         Paragraph(f"\t -Max size: {stats_ec['max_ec']}", styles["JustifyRight11"])

@@ -22,10 +22,11 @@ from pycanon.anonymity.utils import aux_anonymity
 
 
 def average_ecsize(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sup=True) -> float:
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sup=True,
+) -> float:
     """Calculate the metric "average equivalence class size ". Two scenarios are allowed
     depending on whether any records from the original database have been deleted.
 
@@ -51,10 +52,11 @@ def average_ecsize(
 
 
 def classification_metric(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray]) -> float:
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+) -> float:
     """Calculate the metric "classification metric" according to the original (raw)
     and anonymized datasets.
 
@@ -84,9 +86,10 @@ def classification_metric(
 
 
 def discernability_metric(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray]) -> float:
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+) -> float:
     """Calculate the discernability metric, assuming that all thw equivalence classes
     have more than k records, and given each suppressed record a penalty of the size
     of the input dataset.

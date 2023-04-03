@@ -21,8 +21,8 @@ from pycanon.anonymity.utils import aux_anonymity
 
 
 def sizes_ec(
-        data: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray]) -> dict:
+    data: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
+) -> dict:
     """Calculate statistics associated to the equivalence classes.
     :param data: dataframe with the data anonymized.
     :type data: pandas dataframe
@@ -33,17 +33,17 @@ def sizes_ec(
     """
     equiv_class = aux_anonymity.get_equiv_class(data, quasi_ident)
     len_ec = [len(ec) for ec in equiv_class]
-    stats_ec = {'n_ec': len(equiv_class),
-                'min_ec': min(len_ec),
-                'max_ec': max(len_ec),
-                'mean_ec': np.mean(len_ec),
-                'median_ec': np.median(len_ec)}
+    stats_ec = {
+        "n_ec": len(equiv_class),
+        "min_ec": min(len_ec),
+        "max_ec": max(len_ec),
+        "mean_ec": np.mean(len_ec),
+        "median_ec": np.median(len_ec),
+    }
     return stats_ec
 
 
-def stats_quasi_ident(
-        data: pd.DataFrame,
-        quasi_ident: str) -> dict:
+def stats_quasi_ident(data: pd.DataFrame, quasi_ident: str) -> dict:
     """Calculate statistics associated to a given quasi-identifier.
 
     :param data: dataframe with the data anonymized.
@@ -55,13 +55,15 @@ def stats_quasi_ident(
     """
     qi_values = data[quasi_ident].values
     values, counts = np.unique(qi_values, return_counts=True)
-    stats_qi = {'max_freq_value': np.mode(qi_values),
-                'max_freq': max(counts),
-                'min_freq_value': values[np.argmin(counts)],
-                'min_freq': min(counts)}
+    stats_qi = {
+        "max_freq_value": np.mode(qi_values),
+        "max_freq": max(counts),
+        "min_freq_value": values[np.argmin(counts)],
+        "min_freq": min(counts),
+    }
     if isinstance(qi_values[0], (int, float)):
-        stats_qi['mean'] = np.mean(qi_values)
-        stats_qi['median'] = np.median(qi_values)
-        stats_qi['std'] = np.std(qi_values)
-        stats_qi['var'] = np.var(qi_values)
+        stats_qi["mean"] = np.mean(qi_values)
+        stats_qi["median"] = np.median(qi_values)
+        stats_qi["std"] = np.std(qi_values)
+        stats_qi["var"] = np.var(qi_values)
     return stats_qi

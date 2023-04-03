@@ -28,5 +28,5 @@ __all__ = [
     "classification_metric",
     "discernability_metric",
     "sizes_ec",
-    "stats_quasi_ident"
+    "stats_quasi_ident",
 ]

@@ -6,9 +6,9 @@ from pycanon.anonymity.utils import aux_functions
 
 
 class TestMathScores:
-    qi = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-    sa = ['Score']
-    file_name = './data/processed/StudentsMath_Score.csv'
+    qi = ["Teacher", "Gender", "Ethnic", "Freeredu", "wesson"]
+    sa = ["Score"]
+    file_name = "./data/processed/StudentsMath_Score.csv"
     data = aux_functions.read_file(file_name)
 
     def test_k_anon(self):

@@ -34,7 +34,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     t_clos = anonymity.t_closeness(data, quasi_ident, sens_att)
     c_div, _ = anonymity.recursive_c_l_diversity(data, quasi_ident, sens_att)
 
-    print(f'''File: {file_name}. The dataset verifies:
+    print(
+        f"""File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
     \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
     \t - l-diversity with l = {l_div}
@@ -42,19 +43,30 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     \t - basic beta-likeness with beta = {basic_beta}
     \t - enhanced beta-likeness with beta = {enhanced_beta}
     \t - delta-disclosure privacy with delta = {delta_disclosure}
-    \t - t-closeness with t = {t_clos}''')
+    \t - t-closeness with t = {t_clos}"""
+    )
     if np.isnan(c_div):
-        print(f'\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n')
+        print(
+            f"\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n"
+        )
     else:
-        print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
+        print(f"\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n")
 
 
-QI = ['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type',
-      'Residence_type', 'smoking_status']
-SA = ['stroke']
-FILE_NAME = '../data/processed/healthcare-dataset-stroke-data.csv'
+QI = [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "ever_married",
+    "work_type",
+    "Residence_type",
+    "smoking_status",
+]
+SA = ["stroke"]
+FILE_NAME = "../data/processed/healthcare-dataset-stroke-data.csv"
 anonymity_level(FILE_NAME, QI, SA)
 
 for i in [2, 5, 10, 15, 19, 20, 22, 25]:
-    FILE_NAME = f'../data/processed/stroke_k{i}.csv'
+    FILE_NAME = f"../data/processed/stroke_k{i}.csv"
     anonymity_level(FILE_NAME, QI, SA)

@@ -34,7 +34,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     t_clos = anonymity.t_closeness(data, quasi_ident, sens_att)
     c_div, _ = anonymity.recursive_c_l_diversity(data, quasi_ident, sens_att)
 
-    print(f'''File: {file_name}. The dataset verifies:
+    print(
+        f"""File: {file_name}. The dataset verifies:
     \t - k-anonymity with k = {k_anon}
     \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
     \t - l-diversity with l = {l_div}
@@ -42,15 +43,18 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     \t - basic beta-likeness with beta = {basic_beta}
     \t - enhanced beta-likeness with beta = {enhanced_beta}
     \t - delta-disclosure privacy with delta = {delta_disclosure}
-    \t - t-closeness with t = {t_clos}''')
+    \t - t-closeness with t = {t_clos}"""
+    )
     if np.isnan(c_div):
-        print(f'\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n')
+        print(
+            f"\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n"
+        )
     else:
-        print(f'\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n')
+        print(f"\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n")
 
 
-QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
-SA = ['salary-class']
+QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
+SA = ["salary-class"]
 for i in [3, 10, 20]:
-    FILE_NAME = f'../data/processed/adult_anonymized_{i}.csv'
+    FILE_NAME = f"../data/processed/adult_anonymized_{i}.csv"
     anonymity_level(FILE_NAME, QI, SA)

@@ -19,12 +19,12 @@
 import pandas as pd
 from pycanon.report import get_pdf_utility_report
 
-QI = ['Teacher', 'Gender', 'Ethnic', 'Freeredu', 'wesson']
-SA = ['Score']
+QI = ["Teacher", "Gender", "Ethnic", "Freeredu", "wesson"]
+SA = ["Score"]
 
-FILE_NAME_1 = '../data/processed/StudentsMath_Score.csv'
+FILE_NAME_1 = "../data/processed/StudentsMath_Score.csv"
 DATA_1 = pd.read_csv(FILE_NAME_1)
-FILE_NAME_2 = '../data/processed/StudentsMath_Score_k5.csv'
+FILE_NAME_2 = "../data/processed/StudentsMath_Score_k5.csv"
 DATA_2 = pd.read_csv(FILE_NAME_2)
-FILE_PDF = 'test_math_utility.pdf'
+FILE_PDF = "test_math_utility.pdf"
 get_pdf_utility_report(DATA_1, DATA_2, QI, SA, file_pdf=FILE_PDF)
