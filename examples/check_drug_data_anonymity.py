@@ -47,7 +47,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     )
     if np.isnan(c_div):
         print(
-            f"\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n"
+            f"\t - As l = {l_div} for l-diversity, "
+            f"c cannot be calculated for (c,l)-diversity.\n"
         )
     else:
         print(f"\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n")

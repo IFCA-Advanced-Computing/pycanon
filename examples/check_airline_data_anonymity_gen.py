@@ -47,7 +47,8 @@ def anonymity_level(file_name, quasi_ident, sens_att):
     )
     if np.isnan(c_div):
         print(
-            f"\t - As l = {l_div} for l-diversity, c cannot be calculated for (c,l)-diversity.\n"
+            f"\t - As l = {l_div} for l-diversity, "
+            f"c cannot be calculated for (c,l)-diversity.\n"
         )
     else:
         print(f"\t - (c,l)-diversity with c = {c_div} and l = {l_div}.\n")
@@ -64,8 +65,9 @@ QI = [
     "Arrival Delay in Minutes",
 ]
 SA = ["Departure/Arrival time convenient", "On-board service", "satisfaction"]
-# FILE_NAME = './data/processed/airline_passenger_sat.csv' is not checked because of the
-# large number of different values in Arrival Delay in Minutes and Departure Delay in Minutes
+# FILE_NAME = './data/processed/airline_passenger_sat.csv' is not checked
+# because of the large number of different values in Arrival Delay in Minutes
+# and Departure Delay in Minutes
 for i in [2, 5, 10, 20]:
     FILE_NAME = f"../data/processed/airline_passenger_sat_k{i}.csv"
     anonymity_level(FILE_NAME, QI, SA)

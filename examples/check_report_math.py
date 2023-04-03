@@ -14,7 +14,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""Example of the function: get_anon_report(), using the student's math score dataset."""
+"""Example of the function: get_anon_report(), using the student's math
+score dataset."""
 
 import pandas as pd
 from pycanon.report import json, pdf
