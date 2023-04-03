@@ -31,13 +31,13 @@ from reportlab.lib import colors
 
 
 def get_utility_report_values(
-    data_raw: pd.DataFrame,
-    data_anon: pd.DataFrame,
-    quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
-    sup=True,
+        data_raw: pd.DataFrame,
+        data_anon: pd.DataFrame,
+        quasi_ident: typing.Union[typing.List, np.ndarray],
+        sens_att: typing.Union[typing.List, np.ndarray],
+        sup=True,
 ) -> typing.Tuple[float, float, float, dict]:
-    """Generate a report with the parameters obtained for each utility mertic.
+    """Generate a report with the parameters obtained for each utility metric.
 
     :param data_raw: dataframe with the data raw under study.
     :type data_raw: pandas dataframe
@@ -57,7 +57,6 @@ def get_utility_report_values(
         original dataset (somo records may have been deleted)-
     :type  sup: boolean
     """
-
     avg_ec = utility.average_ecsize(data_raw, data_anon, quasi_ident, sup)
     cm = utility.classification_metric(data_raw, data_anon, quasi_ident, sens_att)
     dm = utility.discernability_metric(data_raw, data_anon, quasi_ident)
@@ -68,13 +67,13 @@ def get_utility_report_values(
 
 
 def get_pdf_utility_report(
-    data_raw: pd.DataFrame,
-    data_anon: pd.DataFrame,
-    quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
-    sup=True,
-    gen=True,
-    file_pdf="utility_report.pdf",
+        data_raw: pd.DataFrame,
+        data_anon: pd.DataFrame,
+        quasi_ident: typing.Union[typing.List, np.ndarray],
+        sens_att: typing.Union[typing.List, np.ndarray],
+        sup=True,
+        gen=True,
+        file_pdf="utility_report.pdf",
 ) -> None:
     """Generate the PDF report both with the utility metrics obtained and the
     anonymity parameters.

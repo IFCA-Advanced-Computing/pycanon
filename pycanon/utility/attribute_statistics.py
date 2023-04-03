@@ -25,6 +25,7 @@ def sizes_ec(
 ) -> dict:
     """Calculate statistics associated to the equivalence classes.
     :param data: dataframe with the data anonymized.
+
     :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
