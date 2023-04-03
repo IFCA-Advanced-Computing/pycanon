@@ -27,7 +27,7 @@ def average_ecsize(
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sup=True,
 ) -> float:
-    """Calculate the metric "average equivalence class size ". Two scenarios are allowed
+    """Calculate the metric average equivalence class size. Two scenarios are allowed
     depending on whether any records from the original database have been deleted.
 
     :param data_raw: dataframe with the data raw under study.
@@ -57,7 +57,7 @@ def classification_metric(
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: typing.Union[typing.List, np.ndarray],
 ) -> float:
-    """Calculate the metric "classification metric" according to the original (raw)
+    """Calculate the classification metric according to the original (raw)
     and anonymized datasets.
 
     :param data_raw: dataframe with the data raw under study.
@@ -90,7 +90,7 @@ def discernability_metric(
     data_anon: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],
 ) -> float:
-    """Calculate the discernability metric, assuming that all thw equivalence classes
+    """Calculate the discernability metric, assuming that all the equivalence classes
     have more than k records, and given each suppressed record a penalty of the size
     of the input dataset.
 

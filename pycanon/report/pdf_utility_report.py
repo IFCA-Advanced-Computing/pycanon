@@ -31,11 +31,11 @@ from reportlab.lib import colors
 
 
 def get_utility_report_values(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        sup=True,
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    sup=True,
 ) -> typing.Tuple[float, float, float, dict]:
     """Generate a report with the parameters obtained for each utility metric.
 
@@ -67,13 +67,13 @@ def get_utility_report_values(
 
 
 def get_pdf_utility_report(
-        data_raw: pd.DataFrame,
-        data_anon: pd.DataFrame,
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        sup=True,
-        gen=True,
-        file_pdf="utility_report.pdf",
+    data_raw: pd.DataFrame,
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    sup=True,
+    gen=True,
+    file_pdf="utility_report.pdf",
 ) -> None:
     """Generate the PDF report both with the utility metrics obtained and the
     anonymity parameters.
