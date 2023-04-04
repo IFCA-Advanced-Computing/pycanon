@@ -7,3 +7,9 @@ mypy>=0.761 # MIT
 docutils>=0.18.1
 types-tabulate
 pandas-stubs
+
+# docs
+sphinx>=4.0.2
+sphinx_rtd_theme
+recommonmark
+furo
