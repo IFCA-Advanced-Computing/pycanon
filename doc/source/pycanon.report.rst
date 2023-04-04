@@ -28,6 +28,14 @@ pycanon.report.pdf module
    :undoc-members:
    :show-inheritance:
 
+pycanon.report.pdf\_utility\_report module
+------------------------------------------
+
+.. automodule:: pycanon.report.pdf_utility_report
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

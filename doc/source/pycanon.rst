@@ -11,6 +11,17 @@ Subpackages
    pycanon.report
    pycanon.utility
 
+Submodules
+----------
+
+pycanon.cli module
+------------------
+
+.. automodule:: pycanon.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
