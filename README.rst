@@ -1,7 +1,7 @@
 pyCANON
 =======
 
-|License| |Documentation Status|
+|License| |Documentation Status| |Pipeline Status|
 
 pyCANON is a Python library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques via anonymization.
@@ -109,3 +109,5 @@ If you are using pyCANON you can cite it as follows::
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
 .. |Documentation Status| image:: https://readthedocs.org/projects/pycanon/badge/?version=latest
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
+.. |Pipeline Status| image:: https://gitlab.ifca.es/privacy-security/pycanon/badges/main/pipeline.svg
+   :target: https://gitlab.ifca.es/privacy-security/pycanon/-/pipelines
