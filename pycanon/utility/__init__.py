@@ -14,11 +14,11 @@
 
 """Module with different functions for calculating the utility."""
 
-from .utility_metrics import average_ecsize
-from .utility_metrics import classification_metric
-from .utility_metrics import discernability_metric
-from .attribute_statistics import sizes_ec
-from .attribute_statistics import stats_quasi_ident
+from ._utility_metrics import average_ecsize
+from ._utility_metrics import classification_metric
+from ._utility_metrics import discernability_metric
+from ._attribute_statistics import sizes_ec
+from ._attribute_statistics import stats_quasi_ident
 
 __all__ = [
     "average_ecsize",
