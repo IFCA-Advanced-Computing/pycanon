@@ -18,10 +18,19 @@
 
 import pandas as pd
 
-from pycanon.report.base import get_report_values
-from pycanon.report.json import get_json_report
-from pycanon.report.pdf import get_pdf_report
-from pycanon.report.pdf_utility_report import get_pdf_utility_report
+from pycanon.report.base import get_report_values  # noqa(F401)
+from pycanon.report.json import get_json_report  # noqa(F401)
+
+try:
+    from pycanon.report.pdf import get_pdf_report  # noqa(F401)
+    from pycanon.report.pdf_utility_report import get_pdf_utility_report  # noqa(F401)
+except ImportError:
+    __all_pdf__ = []
+else:
+    __all_pdf__ = [
+        "get_pdf_report",
+        "get_pdf_utility_report",
+    ]
 
 
 def print_report(
@@ -73,7 +82,5 @@ def print_report(
 __all__ = [
     "print_report",
     "get_json_report",
-    "get_pdf_report",
     "get_report_values",
-    "get_pdf_utility_report",
-]
+] + __all_pdf__

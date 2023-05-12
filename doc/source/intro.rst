@@ -14,6 +14,14 @@ We recommend using ``pip`` for installing pyCANON inside a ``virtualenv``:
     source .venv/bin/activate
     pip install pycanon
 
+Installing with support for PDF reports: If you want to generate PDF reports with
+`ReportLab <https://docs.reportlab.com/>`_ you need to issut the following install
+command:
+
+   .. code-block:: console
+
+    pip install pycanon[PDF]
+
 If you want to use the latest development version, you can use:
 
 .. code-block:: console
