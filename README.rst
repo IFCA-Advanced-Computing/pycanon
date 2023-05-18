@@ -117,8 +117,10 @@ If you are using pyCANON you can cite it as follows::
       year={2022},
       publisher={Nature Publishing Group UK London}}
 
+
 Acknowledgments
 -----------
+
 The authors would like to thank the funding through the European Union - NextGenerationEU 
 (Regulation EU 2020/2094), through CSIC’s Global Health Platform (PTI+ Salud Global) and 
 the support from the project AI4EOSC “Artificial Intelligence for the European Open Science 
