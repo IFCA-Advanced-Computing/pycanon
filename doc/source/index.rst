@@ -27,6 +27,7 @@ User documentation
    intro
    modules
    notes_warnings
+   notes_utility
 
 License
 ***********************

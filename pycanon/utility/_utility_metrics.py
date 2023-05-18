@@ -40,7 +40,7 @@ def average_ecsize(
     :type quasi_ident: list of strings
 
     :param sup: boolean, default to True. If true, suppression has been applied to the
-        original dataset (somo records may have been deleted).
+        original dataset (some records may have been deleted).
     :type  sup: boolean
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
