@@ -85,3 +85,18 @@ build_job:
   artifacts:
     paths:
       - dist/*.whl
+
+build_package:
+  stage: deploy
+  image: python:latest
+  before_script:
+    - python3 -m pip install --upgrade twine
+    - python3 -m pip install --upgrade build
+  variables:
+    TWINE_USERNAME: $PYPI_USERNAME
+    TWINE_PASSWORD: $PYPI_PASSWORD
+  script:
+    - python3 -m build
+    - python3 -m twine upload dist/*
+  only:
+    - tags
