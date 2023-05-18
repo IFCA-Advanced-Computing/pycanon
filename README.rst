@@ -26,6 +26,14 @@ requirements:
 
    pip install pycanon
 
+
+If you also want to install the functionality that allows to generate PDF files for the reports,
+install as follows
+::
+
+   pip install pycanon[PDF]
+
+
 Documentation
 -------------
 
@@ -90,6 +98,7 @@ them.
 
 More information can be found in this `paper <https://www.nature.com/articles/s41597-022-01894-2>`__.
 
+In addition, a report can be obtained including information on the equivalence claases and the usefulness of the data. In particular, for the latter the following three classically used metrics hare implemented (as defined in the `documentation <https://pycanon.readthedocs.io/>`__): *average equivalence class size*, *classification metric* and *discernability metric*.
 
 Citation
 -----------
@@ -104,6 +113,10 @@ If you are using pyCANON you can cite it as follows::
       pages={785},
       year={2022},
       publisher={Nature Publishing Group UK London}}
+
+Acknowledgments
+-----------
+The authors would like to thank the funding through the European Union - NextGenerationEU (Regulation EU 2020/2094), through CSIC’s Global Health Platform (PTI+ Salud Global) and the support from the project AI4EOSC “Artificial Intelligence for the European Open Science Cloud” that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement number 101058593.
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
