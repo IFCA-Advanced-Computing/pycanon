@@ -55,7 +55,6 @@ def get_report_values(
     delta_disc = anonymity.delta_disclosure(data, quasi_ident, sens_att, gen)
     t_clos = anonymity.t_closeness(data, quasi_ident, sens_att, gen)
 
-    # TODO(aloga): Move to a better data type here
     return (
         k_anon,
         (alpha, alpha_k),
