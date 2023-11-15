@@ -78,11 +78,10 @@ build_job:
   stage: build
   when: on_success
   image: python:latest
+  before_script:
+    - python3 -m pip install --upgrade build
   script:
-    - python setup.py bdist_wheel
-    # an alternative approach is to install and run:
-    - pip install dist/*
-    # run the command here
+    - python3 -m build
   artifacts:
     paths:
       - dist/*.whl
