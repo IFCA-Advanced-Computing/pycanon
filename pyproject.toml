@@ -7,7 +7,7 @@ name = "pycanon"
 dynamic = ["version"]
 description = "pyCANON, A Python library to check the level of anonymity of a dataset"
 readme = "README.rst"
-license = "Apache License 2.0"
+license = { file = "LICENSE" }
 authors = [
     { name = "Judith Sáinz-Pardo Díaz", email = "sainzpardo@ifca.unican.es" },
     { name = "Álvaro López García (IFCA (CSIC-UC))", email = "aloga@ifca.unican.es" },
@@ -38,6 +38,9 @@ dependencies = [
     "tabulate>=0.8.10",
     "typer>=0.4.1",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src/"]
 
 [project.optional-dependencies]
 pdf = [
