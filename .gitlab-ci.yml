@@ -58,6 +58,12 @@ test_job:
         TOXENV: [py39]
       - PYTHON_VERSION: "3.10"
         TOXENV: [py310]
+      - PYTHON_VERSION: "3.11"
+        TOXENV: [py311]
+      - PYTHON_VERSION: "3.12"
+        TOXENV: [py312]
+      - PYTHON_VERSION: "3.12"
+        TOXENV: [docs]
 
 coverage_job:
   stage: build
@@ -79,9 +85,11 @@ build_job:
   when: on_success
   image: python:latest
   before_script:
+    - python3 -m pip install --upgrade twine
     - python3 -m pip install --upgrade build
   script:
     - python3 -m build
+    - twine check dist/
   artifacts:
     paths:
       - dist/*.whl
