@@ -29,7 +29,9 @@ from pycanon.anonymity.utils import aux_functions
 from typing import Tuple, Union
 
 
-def test_get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
+def test_get_equiv_class(
+    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]
+) -> list:
     """Find the equivalence classes present in the dataset.
 
     :param data: dataframe with the data under study.
@@ -79,7 +81,7 @@ def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) ->
 
 
 def aux_calculate_beta(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> Tuple[np.ndarray, list]:
     """Beta calculation for basic and enhanced beta-likeness.
 
@@ -112,7 +114,7 @@ def aux_calculate_beta(
 
 
 def aux_calculate_delta_disclosure(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> float:
     """Delta calculation for delta-disclosure privacy.
 
@@ -144,7 +146,7 @@ def aux_calculate_delta_disclosure(
 
 
 def aux_t_closeness_num(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> float:
     """Obtain t for t-closeness.
 
@@ -184,7 +186,7 @@ def aux_t_closeness_num(
 
 
 def aux_t_closeness_str(
-        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list
+    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list
 ) -> float:
     """Obtain t for t-closeness.
 
