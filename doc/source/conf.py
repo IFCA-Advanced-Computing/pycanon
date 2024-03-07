@@ -25,7 +25,7 @@ copyright = "2022, Spanish National Research Council (CSIC)"
 author = "Spanish National Research Council (CSIC)"
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.1.post1"
+release = "1.0.1.post2"
 
 
 # -- General configuration ---------------------------------------------------
