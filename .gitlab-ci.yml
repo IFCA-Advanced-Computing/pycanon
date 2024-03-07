@@ -77,7 +77,7 @@ coverage_job:
 build_job:
   stage: build
   when: on_success
-  image: python:latest
+  image: python:3.10
   script:
     - python setup.py bdist_wheel
     # an alternative approach is to install and run:
