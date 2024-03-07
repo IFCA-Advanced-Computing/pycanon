@@ -29,7 +29,7 @@ from pycanon.anonymity.utils import aux_functions
 from typing import Tuple, Union
 
 
-def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
+def test_get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
     """Find the equivalence classes present in the dataset.
 
     :param data: dataframe with the data under study.
@@ -56,8 +56,30 @@ def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) ->
     return equiv_class
 
 
+def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
+    """Find the equivalence classes present in the dataset.
+
+    :param data: dataframe with the data under study.
+    :type data: pandas dataframe
+
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are the quasi-identifiers.
+    :type quasi_ident: is a list of strings
+
+    :return: equivalence classes.
+    :rtype: list.
+    """
+    if isinstance(quasi_ident, np.ndarray):
+        quasi_ident = quasi_ident.tolist()
+    df_grouped = data.groupby(by=quasi_ident)
+    equiv_class = []
+    for ec in df_grouped.groups.values():
+        equiv_class.append(np.array(ec.tolist()))
+    return equiv_class
+
+
 def aux_calculate_beta(
-    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> Tuple[np.ndarray, list]:
     """Beta calculation for basic and enhanced beta-likeness.
 
@@ -90,7 +112,7 @@ def aux_calculate_beta(
 
 
 def aux_calculate_delta_disclosure(
-    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> float:
     """Delta calculation for delta-disclosure privacy.
 
@@ -122,7 +144,7 @@ def aux_calculate_delta_disclosure(
 
 
 def aux_t_closeness_num(
-    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: str
 ) -> float:
     """Obtain t for t-closeness.
 
@@ -162,9 +184,9 @@ def aux_t_closeness_num(
 
 
 def aux_t_closeness_str(
-    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list
+        data: pd.DataFrame, quasi_ident: Union[list, np.ndarray], sens_att_value: list
 ) -> float:
-    """Obtain t for for t-closeness.
+    """Obtain t for t-closeness.
 
     Function used for categorical attributes: the metric "Equal Distance" is
     used.
