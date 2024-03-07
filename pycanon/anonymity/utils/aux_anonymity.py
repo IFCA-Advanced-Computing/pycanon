@@ -29,35 +29,6 @@ from pycanon.anonymity.utils import aux_functions
 from typing import Tuple, Union
 
 
-def test_get_equiv_class(
-    data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]
-) -> list:
-    """Find the equivalence classes present in the dataset.
-
-    :param data: dataframe with the data under study.
-    :type data: pandas dataframe
-
-    :param quasi_ident: list with the name of the columns of the dataframe
-        that are the quasi-identifiers.
-    :type quasi_ident: is a list of strings
-
-    :return: equivalence classes.
-    :rtype: list.
-    """
-    index = []
-    for qi in quasi_ident:
-        values = np.unique(data[qi].values)
-        tmp = [np.unique(data[data[qi] == value].index) for value in values]
-        index.append(tmp)
-    index = sorted(index, key=lambda x: len(x))
-    equiv_class = index.copy()
-    while len(equiv_class) > 1:
-        equiv_class = aux_functions.intersect(equiv_class)
-        equiv_class = sorted(equiv_class, key=lambda x: len(x))
-    equiv_class = [x for x in equiv_class[0] if len(x) > 0]
-    return equiv_class
-
-
 def get_equiv_class(data: pd.DataFrame, quasi_ident: Union[list, np.ndarray]) -> list:
     """Find the equivalence classes present in the dataset.
 
