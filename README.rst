@@ -131,5 +131,5 @@ innovation programme under grant agreement number 101058593.
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
 .. |Documentation Status| image:: https://readthedocs.org/projects/pycanon/badge/?version=latest
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
-.. |Pipeline Status| image:: https://gitlab.ifca.es/privacy-security/pycanon/badges/main/pipeline.svg
-   :target: https://gitlab.ifca.es/privacy-security/pycanon/-/pipelines
+.. |Pipeline Status| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml/badge.svg?event=push
+   :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml
