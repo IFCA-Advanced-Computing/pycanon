@@ -47,7 +47,7 @@ tox = "4.16.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = ">=7.1.2,<9.0.0"
-pytest-cov = ">=4,<6"
+pytest-cov = ">=4,<7"
 
 
 [tool.poetry.group.test-flake8.dependencies]
