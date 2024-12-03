@@ -77,7 +77,7 @@ mypy = "1.13.0"
 
 
 [tool.poetry.group.test-pypi.dependencies]
-twine = ">=4.0.2,<6.0.0"
+twine = ">=4.0.2,<7.0.0"
 
 
 [build-system]
