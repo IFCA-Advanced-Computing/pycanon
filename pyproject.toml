@@ -61,7 +61,7 @@ pydocstyle = "^6.1"
 
 
 [tool.poetry.group.test-black.dependencies]
-black = ">=22.3,<25.0"
+black = ">=22.3,<26.0"
 
 
 [tool.poetry.group.test-bandit.dependencies]
