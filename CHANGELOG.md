@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.3...v1.0.4) (2025-02-03)
+
+
+### Documentation
+
+* update intro.rst ([a0701d6](https://github.com/IFCA-Advanced-Computing/pycanon/commit/a0701d64a31225370a0df32a342c09b5e93faa3c))
+
 ## [1.0.3](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.2...v1.0.3) (2025-01-14)
 
 
