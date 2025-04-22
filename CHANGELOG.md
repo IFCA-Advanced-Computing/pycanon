@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.4...v1.0.5) (2025-04-22)
+
+
+### Bug Fixes
+
+* update pyproject.toml ([571eb25](https://github.com/IFCA-Advanced-Computing/pycanon/commit/571eb25fd516c02159e1371fd04c6c77bd52ec7f))
+
 ## [1.0.4](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.3...v1.0.4) (2025-02-03)
 
 
