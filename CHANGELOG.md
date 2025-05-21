@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.6](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.5...v1.0.6) (2025-05-21)
+
+
+### Documentation
+
+* update .readthedocs.yml ([cada8f0](https://github.com/IFCA-Advanced-Computing/pycanon/commit/cada8f03f8e6400b841df87d60ca687976af836b))
+* update conf.py ([219ce1a](https://github.com/IFCA-Advanced-Computing/pycanon/commit/219ce1a496065765d1ea6a3e97b22a6cc113d8de))
+* update docs ([f472f57](https://github.com/IFCA-Advanced-Computing/pycanon/commit/f472f5730f066822266c50c0b3129a867709ed7c))
+
 ## [1.0.5](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.4...v1.0.5) (2025-04-22)
 
 
