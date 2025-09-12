@@ -36,5 +36,3 @@ def average_rir(
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     avg_rir = np.mean([1/len(ec) for ec in equiv_class])
     return avg_rir
-
-
