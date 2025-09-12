@@ -32,7 +32,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.9"
 numpy = "2.0.2"
-pandas = "2.3.0"
+pandas = "2.3.2"
 typing_extensions = "4.15.0"
 beartype = "0.21.0"
 docutils = "0.21.2"
