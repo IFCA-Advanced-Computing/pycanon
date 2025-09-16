@@ -65,7 +65,7 @@ black = ">=22.3,<26.0"
 
 
 [tool.poetry.group.test-bandit.dependencies]
-bandit = "1.8.3"
+bandit = "1.8.6"
 
 
 [tool.poetry.group.test-pip-missing-reqs.dependencies]
