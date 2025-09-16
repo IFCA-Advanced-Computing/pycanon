@@ -17,14 +17,14 @@
 import typing
 import numpy as np
 import pandas as pd
-from pycanon import anonymity
 from pycanon.anonymity.utils import aux_anonymity
+
 
 def average_rir(
         data_anon: pd.DataFrame,
         quasi_ident: typing.Union[typing.List, np.ndarray]
 ) -> float:
-    """ Calculate the average re-identification risk metric
+    """Calculate the average re-identification risk metric.
 
     :param data_anon: dataframe with the data anonymized.
     :type data_anon: pandas dataframe
