@@ -1,4 +1,6 @@
-pyCANON
+.. image:: https://raw.githubusercontent.com/IFCA-Advanced-Computing/pycanon/main/images/pycanon_logo.png
+   :align: center
+   :width: 400px
 =======
 
 |License| |DOI| |PyPI| |Documentation Status| |Pipeline Status| |Python version|
