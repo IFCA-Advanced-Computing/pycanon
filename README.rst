@@ -140,6 +140,6 @@ research and innovation programme under grant agreement number 101131957).
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
 .. |Pipeline Status| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml/badge.svg?event=push
    :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml
-.. |Python version| image:: https://img.shields.io/badge/python-3.7|3.8|3.9|3.10|3.11|3.12-blue
+.. |Python version| image:: https://img.shields.io/badge/python-3.8|3.9|3.10|3.11|3.12-blue
 
 
