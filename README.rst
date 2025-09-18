@@ -123,9 +123,10 @@ Acknowledgments
 
 The authors would like to thank the funding through the European Union - NextGenerationEU 
 (Regulation EU 2020/2094), through CSIC’s Global Health Platform (PTI+ Salud Global) and 
-the support from the project AI4EOSC “Artificial Intelligence for the European Open Science 
-Cloud” that has received funding from the European Union’s Horizon Europe research and 
-innovation programme under grant agreement number 101058593.
+the support from the projects AI4EOSC “Artificial Intelligence for the European Open Science 
+Cloud” (funded by the European Union’s Horizon Europe research and innovation programme under
+grant agreement number 101058593) and EOSC SIESTA (funded by European Union's Horizon Europe
+research and innovation programme under grant agreement number 101131957).
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
@@ -137,6 +138,6 @@ innovation programme under grant agreement number 101058593.
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
 .. |Pipeline Status| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml/badge.svg?event=push
    :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml
-.. |Python version| image:: https://img.shields.io/badge/python-3.7|3.8|3.9|3.10-blue
+.. |Python version| image:: https://img.shields.io/badge/python-3.7|3.8|3.9|3.10|3.11|3.12-blue
 
 
