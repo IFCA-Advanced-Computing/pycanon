@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pycanon"
-version = "1.0.5"
+version = "1.1.0"
 description = "pyCANON: A Python library to check the level of anonymity of a dataset."
 authors = [
     "Judith Sáinz-Pardo Díaz <sainzpardo@ifca.unican.es>",
