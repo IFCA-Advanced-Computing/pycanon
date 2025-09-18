@@ -59,7 +59,7 @@ jobs:
           pip install tox
 
       - name: Testing
-        run: tox -e py37,py38,py39,py310
+        run: tox -e py38,py39,py310,py311,py312
 
   build:
     name: Build
