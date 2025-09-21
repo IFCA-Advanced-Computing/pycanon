@@ -94,8 +94,8 @@ def discernability_metric(
     :type data_raw: pandas dataframe
 
     :param data_anon: dataframe with the data anonymized. Assuming that all the
-    equivalence classes have more than k records, and given each suppressed record
-    a penalty of the size of the input dataset.
+        equivalence classes have more than k records, and given each suppressed record
+        a penalty of the size of the input dataset.
     :type data_anon: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe

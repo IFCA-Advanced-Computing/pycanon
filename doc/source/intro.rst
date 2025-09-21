@@ -1,7 +1,7 @@
 Getting started
 ###############
 
-Using pyCANON is quite straighforward.
+Start using pyCANON:
 
 Install
 ***********************

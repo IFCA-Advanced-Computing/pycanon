@@ -1,5 +1,9 @@
-pyCANON: A Python library to check the level of anonymity of a dataset
-======================================================================
+.. image:: https://raw.githubusercontent.com/IFCA-Advanced-Computing/pycanon/main/images/pycanon_logo.png
+   :align: center
+   :width: 400px
+   
+A Python library to check the level of anonymity of a dataset
+================================================================================================
 
 pyCANON is a `Python`_ library which allows the user to know the anonymity
 level of a dataset based on a set of quasi-identifiers (QI), and a set of
@@ -41,3 +45,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

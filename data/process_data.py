@@ -1,4 +1,5 @@
 """Delete the rows of the dataset in which all QIs are set to *."""
+
 import pandas as pd
 
 
