@@ -99,14 +99,17 @@ them.
 
 More information can be found in this `paper <https://www.nature.com/articles/s41597-022-01894-2>`__.
 
-In addition, a report can be obtained including information on the equivalence claases and the 
+In addition, a report can be obtained including information on the equivalence clases and the
 usefulness of the data. In particular, for the latter the following three classically used metrics
 are implemented (as defined in the `documentation <https://pycanon.readthedocs.io/>`__): 
-*average equivalence class size*, *classification metric* and *discernability metric*.
+
+* *average equivalence class size*
+* *classification metric* 
+* *discernability metric*
 
 Citation
 -----------
-If you are using pyCANON you can cite it as follows:: 
+If you are using pyCANON you can cite it as follows:
 
    @article{sainzpardo2022pycanon,
       title={A Python library to check the level of anonymity of a dataset},
