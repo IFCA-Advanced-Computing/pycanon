@@ -2,6 +2,9 @@
    :align: center
    :width: 400px
 
+pyCANON
+=======
+
 |License| |DOI| |PyPI| |Documentation Status| |Pipeline Status|
 
 pyCANON is a Python library and CLI to assess the values of the parameters
