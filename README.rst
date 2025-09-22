@@ -2,7 +2,7 @@
    :align: center
    :width: 400px
 
-|License| |DOI| |PyPI| |Documentation Status| |Pipeline Status|
+|License| |DOI| |PyPI| |Downloads| |Documentation Status| |Pipeline Status| 
 
 pyCANON is a Python library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques via anonymization.
@@ -138,6 +138,8 @@ research and innovation programme under grant agreement number 101131957).
    :target: https://doi.org/10.20350/digitalCSIC/15280
 .. |PyPI| image:: https://img.shields.io/pypi/v/pycanon
    :target: https://pypi.org/project/pycanon/
+.. |Downloads| image:: https://static.pepy.tech/badge/pycanon
+   :target: https://pepy.tech/project/pycanon
 .. |Documentation Status| image:: https://readthedocs.org/projects/pycanon/badge/?version=latest
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
 .. |Pipeline Status| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml/badge.svg?event=push
