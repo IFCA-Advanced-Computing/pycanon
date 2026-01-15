@@ -37,7 +37,7 @@ pandas = "2.3.3"
 typing_extensions = "4.15.0"
 docutils = "0.22.3"
 beartype = "0.22.2"
-reportlab = "4.4.6"
+reportlab = "4.4.9"
 typer = "0.21.1"
 tabulate = "0.8.10"
 
