@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.1](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.1.0...v1.1.1) (2026-01-15)
+
+
+### Bug Fixes
+
+* update README.rst ([7a4913b](https://github.com/IFCA-Advanced-Computing/pycanon/commit/7a4913b5dc64b683553441904e676cf4afc1c6fc))
+* update README.rst ([b4f4588](https://github.com/IFCA-Advanced-Computing/pycanon/commit/b4f4588b3e0c5129b1786e1d4202ef8818243650))
+* update README.rst ([c359a01](https://github.com/IFCA-Advanced-Computing/pycanon/commit/c359a01f7ab06d56cc818bb459f4549936ff2d3a))
+* update README.rst ([62d29c2](https://github.com/IFCA-Advanced-Computing/pycanon/commit/62d29c263794d54d9e5105e7f7a13a61c0fa3248))
+* update README.rst ([e94459a](https://github.com/IFCA-Advanced-Computing/pycanon/commit/e94459a37ae03a7e1c2561cefcdee86a23363021))
+* update README.rst ([e5bc26b](https://github.com/IFCA-Advanced-Computing/pycanon/commit/e5bc26bebb841db066bf3729bca53a7c12ae770f))
+
+
+### Documentation
+
+* update conf.py ([9782917](https://github.com/IFCA-Advanced-Computing/pycanon/commit/97829171f5d62bedb8c8358580203ad1b9e68ca3))
+* update index.rst ([c233214](https://github.com/IFCA-Advanced-Computing/pycanon/commit/c233214b873f8c7b96d815ddef37395f8209eef7))
+* update modules.rst ([b3833bc](https://github.com/IFCA-Advanced-Computing/pycanon/commit/b3833bc5f6e51c6f8ee880de2f565049a962ee07))
+* update README.rst ([7920f88](https://github.com/IFCA-Advanced-Computing/pycanon/commit/7920f8814bc608836b5438981b637e81ed4b1b9d))
+
 ## [1.1.0](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.0.5...v1.1.0) (2025-09-21)
 
 
