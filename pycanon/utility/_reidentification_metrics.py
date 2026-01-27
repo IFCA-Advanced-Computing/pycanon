@@ -36,6 +36,7 @@ def average_rir(
     avg_rir = np.mean([1 / len(ec) for ec in equiv_class])
     return avg_rir
 
+
 def max_rir(
     data_anon: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
 ) -> float:
