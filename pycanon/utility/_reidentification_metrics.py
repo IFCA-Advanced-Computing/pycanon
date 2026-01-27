@@ -35,3 +35,19 @@ def average_rir(
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     avg_rir = np.mean([1 / len(ec) for ec in equiv_class])
     return avg_rir
+
+def max_rir(
+    data_anon: pd.DataFrame, quasi_ident: typing.Union[typing.List, np.ndarray]
+) -> float:
+    """Calculate the maximum re-identification risk (worst case).
+
+    :param data_anon: dataframe with the data anonymized.
+    :type data_anon: pandas dataframe
+
+    :param quasi_ident: list with the name of the columns of the dataframe
+            that are quasi-identifiers.
+    :type quasi_ident: list of strings
+    """
+    equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
+    min_ec = min([len(ec) for ec in equiv_class])
+    return 1 / min_ec
