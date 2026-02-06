@@ -121,6 +121,12 @@ If you are using pyCANON you can cite it as follows:
       year={2022},
       publisher={Nature Publishing Group UK London}}
 
+Related work
+--------------
+If you are using pyCANON, you may also be interested in:
+
+* `anjana <https://github.com/IFCA-Advanced-Computing/anjana/>`__: a Python library for anonymizing tabular datasets.
+* `trasgoDP <https://github.com/judithspd/trasgodp/>`__: a Python library which implements different mechanisms to apply local differential privacy directly to your data.
 
 Acknowledgments
 -----------------
