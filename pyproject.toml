@@ -38,7 +38,7 @@ typing_extensions = "4.15.0"
 docutils = "0.22.4"
 beartype = "0.22.2"
 reportlab = "4.4.10"
-typer = "0.23.1"
+typer = "0.23.2"
 tabulate = "0.8.10"
 
 
