@@ -19,6 +19,8 @@ from ._utility_metrics import classification_metric
 from ._utility_metrics import discernability_metric
 from ._attribute_statistics import sizes_ec
 from ._attribute_statistics import stats_quasi_ident
+from ._reidentification_metrics import average_rir
+from ._reidentification_metrics import max_rir
 
 __all__ = [
     "average_ecsize",
@@ -26,4 +28,6 @@ __all__ = [
     "discernability_metric",
     "sizes_ec",
     "stats_quasi_ident",
+    "average_rir",
+    "max_rir"
 ]

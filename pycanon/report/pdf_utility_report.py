@@ -21,7 +21,7 @@ import typing
 from datetime import datetime
 import numpy as np
 import pandas as pd
-from pycanon import utility
+from pycanon import metrics
 from pycanon.report import base
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -57,11 +57,11 @@ def get_utility_report_values(
         original dataset (somo records may have been deleted)-
     :type  sup: boolean
     """
-    avg_ec = utility.average_ecsize(data_raw, data_anon, quasi_ident, sup)
-    cm = utility.classification_metric(data_raw, data_anon, quasi_ident, sens_att)
-    dm = utility.discernability_metric(data_raw, data_anon, quasi_ident)
+    avg_ec = metrics.average_ecsize(data_raw, data_anon, quasi_ident, sup)
+    cm = metrics.classification_metric(data_raw, data_anon, quasi_ident, sens_att)
+    dm = metrics.discernability_metric(data_raw, data_anon, quasi_ident)
 
-    stats_ec = utility.sizes_ec(data_anon, quasi_ident)
+    stats_ec = metrics.sizes_ec(data_anon, quasi_ident)
 
     return avg_ec, cm, dm, stats_ec
 
