@@ -17,7 +17,7 @@
 import typing
 import numpy as np
 import pandas as pd
-from pycanon.anonymity.utils import aux_anonymity
+from pycanon.anonymity.utils import aux_anonymity, aux_functions
 
 
 def average_rir(
@@ -32,6 +32,7 @@ def average_rir(
             that are quasi-identifiers.
     :type quasi_ident: list of strings
     """
+    aux_functions.check_qi(data_anon, quasi_ident)
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     avg_rir = np.mean([1 / len(ec) for ec in equiv_class])
     return avg_rir
@@ -49,6 +50,7 @@ def max_rir(
             that are quasi-identifiers.
     :type quasi_ident: list of strings
     """
+    aux_functions.check_qi(data_anon, quasi_ident)
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     min_ec = min([len(ec) for ec in equiv_class])
     return 1 / min_ec
