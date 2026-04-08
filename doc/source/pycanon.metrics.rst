@@ -1,10 +1,10 @@
-pycanon.utility package
+pycanon.metrics package
 =======================
 
 Module contents
 ---------------
 
-.. automodule:: pycanon.utility
+.. automodule:: pycanon.metrics
    :members:
    :undoc-members:
    :show-inheritance:

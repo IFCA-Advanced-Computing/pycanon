@@ -29,5 +29,5 @@ __all__ = [
     "sizes_ec",
     "stats_quasi_ident",
     "average_rir",
-    "max_rir"
+    "max_rir",
 ]
