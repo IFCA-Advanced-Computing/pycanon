@@ -32,4 +32,3 @@ python:
     - requirements: test-requirements.txt
     - method: pip
       path: . 
-     
