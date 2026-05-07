@@ -9,15 +9,7 @@ Subpackages
 
    pycanon.anonymity
    pycanon.report
-   pycanon.metrics
-   
-Module contents
----------------
-
-.. automodule:: pycanon
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   pycanon.utility
 
 Submodules
 ----------
@@ -30,3 +22,10 @@ pycanon.cli module
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
+
+.. automodule:: pycanon
+   :members:
+   :undoc-members:
+   :show-inheritance:
