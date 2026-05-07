@@ -30,4 +30,5 @@ __all__ = [
     "stats_quasi_ident",
     "average_rir",
     "max_rir",
+    "sa_entropy",
 ]
