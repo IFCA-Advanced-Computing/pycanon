@@ -14,7 +14,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import numpy as np
 import pandas as pd
 from scipy.stats import entropy
 from pycanon.anonymity.utils import aux_functions
