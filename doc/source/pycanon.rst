@@ -8,19 +8,9 @@ Subpackages
    :maxdepth: 4
 
    pycanon.anonymity
+   pycanon.metrics
    pycanon.report
-   pycanon.utility
 
-Submodules
-----------
-
-pycanon.cli module
-------------------
-
-.. automodule:: pycanon.cli
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 Module contents
 ---------------
