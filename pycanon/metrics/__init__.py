@@ -21,6 +21,7 @@ from ._attribute_statistics import sizes_ec
 from ._attribute_statistics import stats_quasi_ident
 from ._reidentification_metrics import average_rir
 from ._reidentification_metrics import max_rir
+from ._disclosure_metrics import sa_entropy
 
 __all__ = [
     "average_ecsize",

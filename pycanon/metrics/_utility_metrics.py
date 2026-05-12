@@ -42,6 +42,9 @@ def average_ecsize(
     :param sup: boolean, default to True. If true, suppression has been applied to the
         original dataset (some records may have been deleted).
     :type  sup: boolean
+
+    :return: average equivalence class size.
+    :rtype: float
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     k = anonymity.k_anonymity(data_anon, quasi_ident)
@@ -71,6 +74,9 @@ def classification_metric(
     :param sens_att: list with the name of the columns of the dataframe
         that are the sensitive attributes.
     :type sens_att: list of strings
+
+    :return: classification metric.
+    :rtype: float
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     cm = len(data_raw) - len(data_anon)
@@ -101,6 +107,9 @@ def discernability_metric(
     :param quasi_ident: list with the name of the columns of the dataframe
                 that are quasi-identifiers.
     :type quasi_ident: list of strings
+
+    :return: discernability metric.
+    :rtype: float
     """
     equiv_class = aux_anonymity.get_equiv_class(data_anon, quasi_ident)
     dm = sum(len(ec) ** 2 for ec in equiv_class)
