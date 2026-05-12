@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.1](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.2.0...v1.2.1) (2026-05-12)
+
+
+### Bug Fixes
+
+* fix black ([f875389](https://github.com/IFCA-Advanced-Computing/pycanon/commit/f875389bd9bd876716ec2e088d5a659da8bc16ae))
+* fix black ([f917820](https://github.com/IFCA-Advanced-Computing/pycanon/commit/f91782019f53b1121d2089fcd6e204a995d86550))
+* fix black with the new version ([872134c](https://github.com/IFCA-Advanced-Computing/pycanon/commit/872134c62946f97c5ad827b06db975bdc127fc0c))
+* fix entropy metric ([25502b7](https://github.com/IFCA-Advanced-Computing/pycanon/commit/25502b7742eac1afe1f5a2bd752ee04dda0aa380))
+* update black dependency version in pyproject.toml ([9b2b681](https://github.com/IFCA-Advanced-Computing/pycanon/commit/9b2b681cb06e5d180e0d0e03198128658ed67e17))
+* update metrics package ([84d0995](https://github.com/IFCA-Advanced-Computing/pycanon/commit/84d0995bfde23d39fe57eeabdde12bc0f3b9d697))
+* update testing environments in CI workflow ([22a3fc6](https://github.com/IFCA-Advanced-Computing/pycanon/commit/22a3fc62dfd5a940dfc68d83fc51eeaaaa25828e))
+
+
+### Documentation
+
+* add pycanon dependency ([90d7a1e](https://github.com/IFCA-Advanced-Computing/pycanon/commit/90d7a1e4d553c4d7f0981b5771bd3440ffce33ed))
+* add specific version for pandas in requirements ([0bc1d3d](https://github.com/IFCA-Advanced-Computing/pycanon/commit/0bc1d3d9bdd36859daae5bd4e4380322427151fa))
+* bump release version from 1.1.0 to 1.2.0 ([0ea0b3c](https://github.com/IFCA-Advanced-Computing/pycanon/commit/0ea0b3c7531aad0298aa16fc7daa5f34b8ca7cae))
+* bump release version to 1.2.1 ([be76d9a](https://github.com/IFCA-Advanced-Computing/pycanon/commit/be76d9ac283d5f2b2eab943652500988ffc2dbc6))
+* update copyright ([7ff7bfc](https://github.com/IFCA-Advanced-Computing/pycanon/commit/7ff7bfc369f991f8cfb21a5ca1bb6407b7285c17))
+* update dependencies ([83d1023](https://github.com/IFCA-Advanced-Computing/pycanon/commit/83d1023cd44973bd424533c5ddbe9f1a49ed0b57))
+* update test-requirements.txt  ([406ff0f](https://github.com/IFCA-Advanced-Computing/pycanon/commit/406ff0f9fb90bc39de2ee59a0f31275893e28953))
+
 ## [1.2.0](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.1.0...v1.2.0) (2026-05-07)
 
 
