@@ -14,6 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import numpy as np
 import pandas as pd
 from scipy.stats import entropy
 from pycanon.anonymity.utils import aux_functions
@@ -34,6 +35,6 @@ def sa_entropy(data_anon: pd.DataFrame, sens_attr: str) -> float:
     aux_functions.check_sa(data_anon, [sens_attr])
     pk = []
     n_records = len(data_anon)
-    for value in data_anon[sens_attr].values:
-        pk.append(len(data_anon[sens_attr == value]) / n_records)
+    for value in np.unique(data_anon[sens_attr].values):
+        pk.append(len(data_anon[data_anon[sens_attr] == value]) / n_records)
     return entropy(pk)
