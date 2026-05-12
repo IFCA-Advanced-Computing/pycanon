@@ -16,7 +16,7 @@ class TestMetrics:
         "occupation",
         "relationship",
         "sex",
-        "native-country"
+        "native-country",
     ]
     sens_att = ["salary-class"]
 
@@ -31,7 +31,9 @@ class TestMetrics:
         assert isinstance(cm, float)
 
     def test_discernability_metric(self):
-        dm = metrics.discernability_metric(self.data_raw, self.data_anon, self.quasi_ident)
+        dm = metrics.discernability_metric(
+            self.data_raw, self.data_anon, self.quasi_ident
+        )
         assert isinstance(dm, int) or isinstance(dm, float)
 
     def test_average_rir(self):
@@ -40,7 +42,7 @@ class TestMetrics:
 
     def test_average_rir_value(self):
         avg_rir = metrics.average_rir(self.data_anon, self.quasi_ident)
-        assert 0 <= avg_rir <= 1/3
+        assert 0 <= avg_rir <= 1 / 3
 
     def test_max_rir(self):
         max_rir = metrics.max_rir(self.data_anon, self.quasi_ident)
@@ -48,7 +50,7 @@ class TestMetrics:
 
     def test_max_rir_value(self):
         max_rir = metrics.max_rir(self.data_anon, self.quasi_ident)
-        assert 0 <= max_rir <= 1/3
+        assert 0 <= max_rir <= 1 / 3
 
     def test_entropy_sa(self):
         entropy_sa = metrics.sa_entropy(self.data_anon, self.sens_att[0])

@@ -65,8 +65,7 @@ def print_report(
         t_clos,
     ) = get_report_values(data, quasi_ident, sens_att, gen=gen)
 
-    print(
-        f"""The dataset verifies:
+    print(f"""The dataset verifies:
           \t - k-anonymity with k = {k_anon}
           \t - (alpha,k)-anonymity with alpha = {alpha} and k = {k_anon}
           \t - l-diversity with l = {l_div}
@@ -75,8 +74,7 @@ def print_report(
           \t - basic beta-likeness with beta = {basic_beta}
           \t - enhanced beta-likeness with beta = {enhanced_beta}
           \t - t-closeness with t = {t_clos}
-          \t - delta-disclosure privacy with delta = {delta_disc}"""
-    )
+          \t - delta-disclosure privacy with delta = {delta_disc}""")
 
 
 __all__ = [
