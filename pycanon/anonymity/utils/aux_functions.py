@@ -98,33 +98,6 @@ def check_sa(
         )
 
 
-def intersect(tmp: list) -> list:
-    """Intersect two sets: the first and the second of the given list.
-
-    :param tmp: list of sets sorted in decreasing order of
-        cardinality
-    :type tmp: list of numpy arrays
-
-    :return: list obtained when intersecting the first and the second sets
-        of the given list.
-    :rtype: list.
-    """
-    i, j = 0, 0
-    tmp_new = []
-    while i < len(tmp[0]):
-        tmp1 = tmp[0][i]
-        tmp2 = tmp[1][j]
-        tmp_new.append(np.intersect1d(tmp1, tmp2))
-        if j < len(tmp[1]) - 1:
-            j += 1
-        else:
-            j = 0
-            i += 1
-    tmp[1] = tmp_new
-    tmp = tmp[1:]
-    return tmp
-
-
 def convert(ec_set: set) -> list:
     """Convert a set with an equivalence class to a list.
 
