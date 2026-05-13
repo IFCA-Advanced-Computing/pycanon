@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 
 from pycanon.anonymity.utils import aux_functions
-from pycanon.report import base
+from pycanon.report import base, pdf
 from pycanon.report import json as json_rep
 
 
@@ -88,3 +88,33 @@ class TestMath(TestReport):
         obtained = json.loads(obtained_json)
         for k, v in expected_json.items():
             assert v == pytest.approx(obtained[k], nan_ok=True)
+
+    def test_report_json_structure(self, file_name, expected):
+        dataset = aux_functions.read_file(file_name)
+        obtained_json = json_rep.get_json_report(dataset, self.qi, self.sa)
+        obtained = json.loads(obtained_json)
+        assert set(obtained.keys()) == {
+            "data",
+            "k_anonymity",
+            "alpha_k_anonymity",
+            "l_diversity",
+            "entropy_l_diversity",
+            "recursive_c_l_diversity",
+            "basic_beta_likeness",
+            "enhanced_beta_likeness",
+            "t_closeness",
+            "delta_disclosure",
+        }
+
+
+class TestPDFReport:
+    file_name = "./data/processed/StudentsMath_Score_k5.csv"
+    qi = ["Teacher", "Gender", "Ethnic", "Freeredu", "wesson"]
+    sa = ["Score"]
+
+    def test_report_pdf_error(self):
+        dataset = aux_functions.read_file(self.file_name)
+        with pytest.raises(ValueError):
+            pdf.get_pdf_report(
+                dataset, self.qi, self.sa, gen=True, file_pdf="report.txt"
+            )
