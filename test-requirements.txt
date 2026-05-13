@@ -5,6 +5,7 @@ mypy>=0.761
 docutils>=0.18.1
 pandas==2.3.3
 reportlab==4.4.10
+scipy==1.15.3
 types-tabulate
 pandas-stubs
 
