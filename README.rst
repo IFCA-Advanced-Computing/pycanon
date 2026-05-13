@@ -113,7 +113,7 @@ If you are using pyCANON you can cite it as follows:
 
    @article{sainzpardo2022pycanon,
       title={A Python library to check the level of anonymity of a dataset},
-      author={S{\'a}inz-Pardo D{\'\i}az, Judith and L{\'o}pez Garc{\'\i}a, {\'A}lvaro},
+      author={Sáinz-Pardo Díaz, Judith and López García, Álvaro},
       journal={Scientific Data},
       volume={9},
       number={1},
