@@ -50,19 +50,31 @@ def stats_quasi_ident(data: pd.DataFrame, quasi_ident: str) -> dict:
     :param data: dataframe with the data anonymized.
     :type data: pandas dataframe
 
-    :param quasi_ident: list with the name of the columns of the dataframe
-            that are quasi-identifiers.
-    :type quasi_ident: list of strings
+    :param quasi_ident: name of the QI to be analyzed.
+    :type quasi_ident: string
     """
+    if quasi_ident not in data.columns:
+        raise ValueError(f"""
+            '{quasi_ident}' is not a column in the dataframe. 
+            Available columns are: {data.columns.tolist()}
+            """)
+
     qi_values = data[quasi_ident].values
+    if len(qi_values) == 0:
+        return {}
+
     values, counts = np.unique(qi_values, return_counts=True)
+
+    max_idx = np.argmax(counts)
+    min_idx = np.argmin(counts)
+
     stats_qi = {
-        "max_freq_value": np.mode(qi_values),
+        "max_freq_value": values[max_idx],
         "max_freq": max(counts),
-        "min_freq_value": values[np.argmin(counts)],
+        "min_freq_value": values[min_idx],
         "min_freq": min(counts),
     }
-    if isinstance(qi_values[0], (int, float)):
+    if np.issubdtype(qi_values.dtype, np.number):
         stats_qi["mean"] = np.mean(qi_values)
         stats_qi["median"] = np.median(qi_values)
         stats_qi["std"] = np.std(qi_values)
