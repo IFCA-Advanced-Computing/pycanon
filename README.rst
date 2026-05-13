@@ -2,7 +2,7 @@
    :align: center
    :width: 400px
 
-|License| |DOI| |PyPI| |Downloads| |Documentation Status| |Pipeline Status| 
+|License| |Codecov| |DOI| |PyPI| |Downloads| |Documentation Status| |Release| |PyPI| |Pipeline Status| |Coverage| |Python|
 
 pyCANON is a Python library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques via anonymization.
@@ -140,6 +140,8 @@ research and innovation programme under grant agreement number 101131957).
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
    :target: https://gitlab.ifca.es/sainzj/check-anonymity/-/blob/main/LICENSE
+.. |Codecov| image:: https://codecov.io/gh/IFCA-Advanced-Computing/pycanon/graph/badge.svg?token=1T71MLF9UU 
+   :target: https://codecov.io/gh/IFCA-Advanced-Computing/pycanon
 .. |DOI| image:: https://zenodo.org/badge/DOI/10.20350/digitalCSIC/15280.svg
    :target: https://doi.org/10.20350/digitalCSIC/15280
 .. |PyPI| image:: https://img.shields.io/pypi/v/pycanon
@@ -148,7 +150,14 @@ research and innovation programme under grant agreement number 101131957).
    :target: https://pepy.tech/project/pycanon
 .. |Documentation Status| image:: https://readthedocs.org/projects/pycanon/badge/?version=latest
    :target: https://pycanon.readthedocs.io/en/latest/?badge=latest
+.. |Release| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/release-please.yml/badge.svg
+   :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/release-please.yml
+.. |PyPI| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/pypi.yml/badge.svg
+   :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/pypi.yml
 .. |Pipeline Status| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml/badge.svg?event=push
    :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/cicd.yml
+.. |Coverage| image:: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/.codecov.yml/badge.svg
+   :target: https://github.com/IFCA-Advanced-Computing/pycanon/actions/workflows/.codecov.yml
+.. |Python| image:: https://img.shields.io/badge/python-3.10|3.11|3.12-blue
 
 
