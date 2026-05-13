@@ -58,7 +58,7 @@ def stats_quasi_ident(data: pd.DataFrame, quasi_ident: str) -> dict:
             '{quasi_ident}' is not a column in the dataframe.
             Available columns are: {data.columns.tolist()}
             """)
-    
+
     qi_values = data[quasi_ident].values
     if len(qi_values) == 0:
         return {}

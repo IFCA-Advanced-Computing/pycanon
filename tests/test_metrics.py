@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import pytest
 
@@ -91,4 +90,4 @@ class TestMetrics:
 
     def test_stats_quasi_ident_mean(self):
         stats_qi = metrics.stats_quasi_ident(self.data_raw, "age")
-        assert stats_qi["mean"] > 17
+        assert stats_qi["mean"] > 17 and stats_qi["mean"] < 90
