@@ -83,6 +83,53 @@ class TestMathScores:
             anonymity.delta_disclosure(self.data_anon, self.qi, self.sa), float
         )
 
+class TestMultipleSA:
+    qi = [
+        "Gender",
+        "Customer Type",
+        "Age",
+        "Type of Travel",
+        "Class",
+        "Flight Distance",
+        "Departure Delay in Minutes",
+        "Arrival Delay in Minutes",
+    ]
+    sa = ["Departure/Arrival time convenient", "On-board service", "satisfaction"]
+    file_name_anon = "./data/processed/airline_passenger_sat_k5.csv"
+    data_anon = aux_functions.read_file(file_name_anon)
+
+    def test_k_anon(self):
+        assert 5 <= anonymity.k_anonymity(self.data_anon, self.qi)
+
+    def test_l_div(self):
+        assert 1 <= anonymity.l_diversity(self.data_anon, self.qi, self.sa, gen=False)
+
+    def test_entropy_l(self):
+        assert 1 <= anonymity.entropy_l_diversity(self.data_anon, self.qi, self.sa, gen=False)
+
+    def test_c_div(self):
+        _, l_div = anonymity.recursive_c_l_diversity(self.data_anon, self.qi, self.sa, gen=False)  
+        assert l_div >= 1
+
+    def test_alpha_k_anonymity(self):
+        alpha, k_anon = anonymity.alpha_k_anonymity(self.data_anon, self.qi, self.sa, gen=False)
+        assert alpha >= 0 and k_anon >= 5
+
+    def test_basic_beta(self):
+        assert isinstance(
+            anonymity.basic_beta_likeness(self.data_anon, self.qi, self.sa, gen=False), float
+        )
+    
+    def test_enhanced_beta(self):
+        assert isinstance(
+            anonymity.enhanced_beta_likeness(self.data_anon, self.qi, self.sa, gen=False), float
+        )
+
+    def test_delta_disclosure(self):
+        assert isinstance(
+            anonymity.delta_disclosure(self.data_anon, self.qi, self.sa, gen=False), float
+        )
+
 
 class TestUnitary:
     qi = ["Teacher", "Gender", "Ethnic", "Freeredu", "wesson"]
