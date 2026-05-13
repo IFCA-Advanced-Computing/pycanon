@@ -55,3 +55,40 @@ class TestMetrics:
     def test_entropy_sa(self):
         entropy_sa = metrics.sa_entropy(self.data_anon, self.sens_att[0])
         assert isinstance(entropy_sa, float)
+
+    def test_sizes_ec(self):
+        stats_ec = metrics.sizes_ec(self.data_anon, self.quasi_ident)
+        assert isinstance(stats_ec, dict)
+
+    def test_sizes_ec_min(self):
+        stats_ec = metrics.sizes_ec(self.data_anon, self.quasi_ident)
+        assert stats_ec["min_ec"] == 3
+
+    def test_sizes_ec_num(self):
+        stats_ec = metrics.sizes_ec(self.data_anon, self.quasi_ident)
+        assert stats_ec["n_ec"] <= len(self.data_anon) / 3
+
+    def test_stats_quasi_ident_num(self):
+        stats_qi = metrics.stats_quasi_ident(self.data_raw, "age")
+        assert isinstance(stats_qi, dict)
+
+    def test_stats_quasi_ident_cat(self):
+        stats_qi = metrics.stats_quasi_ident(self.data_anon, "education")
+        assert isinstance(stats_qi, dict)
+
+    def test_stats_quasi_ident_error(self):
+        with pytest.raises(ValueError):
+            metrics.stats_quasi_ident(self.data_anon, "ages")
+
+    def test_stats_quasi_ident_empty(self):
+        empty_df = pd.DataFrame(columns=self.data_anon.columns)
+        stats_qi = metrics.stats_quasi_ident(empty_df, "age")
+        assert stats_qi == {}
+
+    def test_stats_quasi_ident_freq(self):
+        stats_qi = metrics.stats_quasi_ident(self.data_raw, "age")
+        assert stats_qi["max_freq"] >= stats_qi["min_freq"]
+
+    def test_stats_quasi_ident_mean(self):
+        stats_qi = metrics.stats_quasi_ident(self.data_raw, "age")
+        assert stats_qi["mean"] > 17
