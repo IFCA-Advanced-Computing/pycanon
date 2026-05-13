@@ -55,10 +55,10 @@ def stats_quasi_ident(data: pd.DataFrame, quasi_ident: str) -> dict:
     """
     if quasi_ident not in data.columns:
         raise ValueError(f"""
-            '{quasi_ident}' is not a column in the dataframe. 
+            '{quasi_ident}' is not a column in the dataframe.
             Available columns are: {data.columns.tolist()}
             """)
-
+    
     qi_values = data[quasi_ident].values
     if len(qi_values) == 0:
         return {}
