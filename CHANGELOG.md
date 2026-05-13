@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.3.0](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.2.1...v1.3.0) (2026-05-13)
+
+
+### Features
+
+* add Codecov workflow for coverage reporting ([9e4d9af](https://github.com/IFCA-Advanced-Computing/pycanon/commit/9e4d9af63516f0008a021971b3edbb8717dccefa))
+* update dependencies for supporting additional file extensions ([870add5](https://github.com/IFCA-Advanced-Computing/pycanon/commit/870add5861ed0a88f965a3202bae577b4b40ee51))
+* update metrics ([195d914](https://github.com/IFCA-Advanced-Computing/pycanon/commit/195d9147b7ed095d31a2cc9710e78daca4eec432))
+
+
+### Bug Fixes
+
+* fix lint ([4ee708b](https://github.com/IFCA-Advanced-Computing/pycanon/commit/4ee708b9923273e58638a491fede0e512d015161))
+* fix lint and black ([606fdc5](https://github.com/IFCA-Advanced-Computing/pycanon/commit/606fdc5d6bd537f50a2a8e56d8c7bfb111dc264e))
+* remove function ([99347b9](https://github.com/IFCA-Advanced-Computing/pycanon/commit/99347b97906a44c646411c439b8db68d60d02e4a))
+
+
+### Documentation
+
+* update README ([7665a1d](https://github.com/IFCA-Advanced-Computing/pycanon/commit/7665a1d1edcd9f11f262a307d6535097197d72b3))
+* update README ([436d8aa](https://github.com/IFCA-Advanced-Computing/pycanon/commit/436d8aac4ac12776a2f46cc9bd68d035c821e095))
+
 ## [1.2.1](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.2.0...v1.2.1) (2026-05-12)
 
 
