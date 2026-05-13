@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 
 from pycanon.anonymity.utils import aux_functions
-from pycanon.report import base, pdf
+from pycanon.report import base, pdf, pdf_utility_report
 from pycanon.report import json as json_rep
 
 
@@ -108,13 +108,30 @@ class TestMath(TestReport):
 
 
 class TestPDFReport:
-    file_name = "./data/processed/StudentsMath_Score_k5.csv"
+    file_name_raw = "./data/raw/StudentsMath_Score.csv"
+    file_name_anon = "./data/processed/StudentsMath_Score_k5.csv"
+    data_raw = aux_functions.read_file(file_name_raw)
+    data_anon = aux_functions.read_file(file_name_anon)
     qi = ["Teacher", "Gender", "Ethnic", "Freeredu", "wesson"]
     sa = ["Score"]
 
     def test_report_pdf_error(self):
-        dataset = aux_functions.read_file(self.file_name)
         with pytest.raises(ValueError):
             pdf.get_pdf_report(
-                dataset, self.qi, self.sa, gen=True, file_pdf="report.txt"
+                self.data_anon, self.qi, self.sa, gen=True, file_pdf="report.txt"
             )
+
+    def test_utility_report_error(self):
+        with pytest.raises(ValueError):
+            pdf_utility_report.get_pdf_utility_report(
+                self.data_raw, self.data_anon, self.qi, self.sa, gen=True, file_pdf="report.txt"
+            )
+
+    def test_get_utility_report_values(self):
+        avg_ec, cm, dm, stats_ec = pdf_utility_report.get_utility_report_values(
+            self.data_raw, self.data_anon, self.qi, self.sa, sup=True
+        )
+        assert isinstance(avg_ec, float) and avg_ec >= 1
+        assert isinstance(cm, float) and 0 <= cm <= 1
+        assert isinstance(dm, int) or isinstance(dm, float) and dm >= 0
+        assert isinstance(stats_ec, dict)
