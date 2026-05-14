@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.4](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.3...v1.3.4) (2026-05-14)
+
+
+### Bug Fixes
+
+* fix README ([64ffe8b](https://github.com/IFCA-Advanced-Computing/pycanon/commit/64ffe8be7dfd77544279975edf965352e81f5aff))
+* move to 1.3.4 ([c187c64](https://github.com/IFCA-Advanced-Computing/pycanon/commit/c187c64a4cd23d558915505666b096421b61ceb6))
+
 ## [1.3.3](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.2...v1.3.3) (2026-05-14)
 
 
