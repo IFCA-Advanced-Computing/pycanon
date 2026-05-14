@@ -22,7 +22,7 @@ copyright = "2025, Spanish National Research Council (CSIC)"
 author = "Spanish National Research Council (CSIC)"
 
 # The full version, including alpha/beta/rc tags
-release = "1.3.3"
+release = "1.3.4"
 
 
 # -- General configuration ---------------------------------------------------
