@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.0...v1.3.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* fix formatting in README.rst ([e8a3281](https://github.com/IFCA-Advanced-Computing/pycanon/commit/e8a328168f9641628942bc6b95404a3c43dd465b))
+* version 1.3.1 ([c082896](https://github.com/IFCA-Advanced-Computing/pycanon/commit/c08289691a25a9d0f233647ef46dd5008724f7e0))
+
 ## [1.3.0](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.2.1...v1.3.0) (2026-05-13)
 
 
