@@ -2,7 +2,7 @@
    :align: center
    :width: 400px
 
-|License| |Codecov| |DOI| |PyPI| |Downloads| |Documentation Status| |Release| |PyPI| |Pipeline Status| |Coverage| |Python|
+|License| |Codecov| |DOI| |Downloads| |Documentation Status| |Release| |PyPI| |Pipeline Status| |Coverage| |Python|
 
 pyCANON is a Python library and CLI to assess the values of the parameters
 associated with the most common privacy-preserving techniques via anonymization.
