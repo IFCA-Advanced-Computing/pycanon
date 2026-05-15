@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.6](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.5...v1.3.6) (2026-05-15)
+
+
+### Documentation
+
+* add CITATION.cff for software citation guidelines ([41d5ba8](https://github.com/IFCA-Advanced-Computing/pycanon/commit/41d5ba8cee55c350f29c99dfd601c3a9db91d196))
+* bump release version to 1.3.5 ([3561f35](https://github.com/IFCA-Advanced-Computing/pycanon/commit/3561f350b3a145f1ae487851580bf881980b6529))
+
 ## [1.3.5](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.4...v1.3.5) (2026-05-15)
 
 
