@@ -1,0 +1,25 @@
+cff-version: 0.0.1
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Sáinz-Pardo Díaz"
+  given-names: "Judith"
+  orcid: "https://orcid.org/0000-0002-8387-578X"
+- family-names: "López García"
+  given-names: "Álvaro"
+  orcid: "https://orcid.org/0000-0002-0013-4602"
+title: "pyCANON"
+url: "https://github.com/IFCA-Advanced-Computing/pycanon"
+references:
+  - type: article
+    authors:
+      - family-names: "Sáinz-Pardo Díaz"
+        given-names: "Judith"
+        orcid: "https://orcid.org/0000-0002-8387-578X"
+      - family-names: "López García"
+        given-names: "Álvaro"
+        orcid: "https://orcid.org/0000-0002-0013-4602"
+    title: "A Python library to check the level of anonymity of a dataset"
+    journal: "Scientific Data"
+    year: "2022"
+    doi: "10.1038/s41597-022-01894-2"
+
