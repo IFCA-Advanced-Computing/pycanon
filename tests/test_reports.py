@@ -121,11 +121,21 @@ class TestPDFReport:
                 self.data_anon, self.qi, self.sa, gen=True, file_pdf="report.txt"
             )
 
+    def test_report_pdf(self):
+        pdf.get_pdf_report(
+            self.data_anon, self.qi, self.sa, gen=True, file_pdf="test_report.pdf"
+        )   
+
     def test_utility_report_error(self):
         with pytest.raises(ValueError):
             pdf_utility_report.get_pdf_utility_report(
                 self.data_raw, self.data_anon, self.qi, self.sa, gen=True, file_pdf="report.txt"
             )
+
+    def test_utility_report(self):
+        pdf_utility_report.get_pdf_utility_report(
+            self.data_raw, self.data_anon, self.qi, self.sa, gen=True, file_pdf="test_utility_report.pdf"
+        )   
 
     def test_get_utility_report_values(self):
         avg_ec, cm, dm, stats_ec = pdf_utility_report.get_utility_report_values(

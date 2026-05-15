@@ -141,6 +141,10 @@ class TestUnitary:
         data = aux_functions.read_file(self.file_name)
         assert isinstance(data, pd.DataFrame)
         
+    def test_read_file_sav(self):
+        file_name_sav = "./data/raw/StudentsMath_Score.sav"
+        data = aux_functions.read_file(file_name_sav)
+        assert isinstance(data, pd.DataFrame)
 
     def test_check_qi(self):
         data = aux_functions.read_file(self.file_name)
