@@ -16,4 +16,4 @@
 
 """pyCANON is a library to check the values of the most common data privacy models."""
 
-__version__ = "1.3.4"
+__version__ = "1.3.5"
