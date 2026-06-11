@@ -23,7 +23,7 @@ jobs:
       - name: Run tests and collect coverage
         run: coverage run --omit="./tests" -m pytest
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v6.0.1
+        uses: codecov/codecov-action@v7.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: IFCA-Advanced-Computing/pycanon
