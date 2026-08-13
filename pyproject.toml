@@ -53,7 +53,7 @@ pytest-cov = ">=4,<7"
 
 [tool.poetry.group.test-flake8.dependencies]
 flake8 = ">=4,<8"
-flake8-bugbear = ">=22.3,<25.0"
+flake8-bugbear = ">=22.3,<26.0"
 flake8-docstrings = "^1.6"
 flake8-typing-imports = "^1.12"
 flake8-colors = "^0.1"
