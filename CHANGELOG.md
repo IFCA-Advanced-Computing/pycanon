@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.7](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.6...v1.3.7) (2026-09-03)
+
+
+### Documentation
+
+* bump release version from 1.3.5 to 1.3.6 ([dc1a177](https://github.com/IFCA-Advanced-Computing/pycanon/commit/dc1a177fa8e8a74bcf8e305171a891fd8746d2e6))
+
 ## [1.3.6](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.5...v1.3.6) (2026-07-30)
 
 
