@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.7](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.6...v1.3.7) (2026-11-19)
+
+
+### Bug Fixes
+
+* update bandit dependency version ([042af55](https://github.com/IFCA-Advanced-Computing/pycanon/commit/042af55e62eb4e56661d6dfb3ba474a7fa14f470))
+* update pytest version to 9.1.1 ([a32a77d](https://github.com/IFCA-Advanced-Computing/pycanon/commit/a32a77d4e40137c1a5d1edf688dbb7c060ca143c))
+
+
+### Documentation
+
+* bump release version from 1.3.5 to 1.3.6 ([dc1a177](https://github.com/IFCA-Advanced-Computing/pycanon/commit/dc1a177fa8e8a74bcf8e305171a891fd8746d2e6))
+
 ## [1.3.6](https://github.com/IFCA-Advanced-Computing/pycanon/compare/v1.3.5...v1.3.6) (2026-07-30)
 
 
