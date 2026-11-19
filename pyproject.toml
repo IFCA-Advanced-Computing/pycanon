@@ -70,7 +70,7 @@ bandit = "1.8.6"
 
 
 [tool.poetry.group.test-pip-missing-reqs.dependencies]
-pip-check-reqs = "^2.5.3"
+pip-check-reqs = ">=2.5.3,<4.0.0"
 
 
 [tool.poetry.group.test-mypy.dependencies]
